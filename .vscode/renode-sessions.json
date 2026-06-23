@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "activeSessionId": "c946f85e-f840-4101-a836-a4fae69176e7",
+  "sessions": [
+    {
+      "id": "c946f85e-f840-4101-a836-a4fae69176e7",
+      "name": "local-session",
+      "type": "local",
+      "renodePath": "renode",
+      "workspace": "${workspaceFolder}/sessions/local-session",
+      "buildCommand": "powershell -ExecutionPolicy Bypass -File .\\sessions\\local-session\\firmware\\build.ps1",
+      "scriptPath": "${workspaceFolder}/sessions/local-session/renode/platform.resc",
+      "firmwarePath": "${workspaceFolder}/sessions/local-session/build/firmware.elf",
+      "gdbPort": 3333,
+      "status": "idle",
+      "updatedAt": 1782127701502
+    }
+  ]
+}

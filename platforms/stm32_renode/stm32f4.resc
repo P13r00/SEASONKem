@@ -1,0 +1,14 @@
+# Create a new machine
+mach create "stm32_benchmark"
+
+# Load a standard STM32F4 platform description provided by Renode
+machine LoadPlatformDescription @platforms/boards/stm32f4_discovery-kit.repl
+
+# Show the UART analyzer so you can see printf outputs from the benchmark
+showAnalyzer sysbus.usart1
+
+# Load your compiled ELF binary
+sysbus LoadELF @build/stm32_benchmark.elf
+
+# Start the simulation immediately when the script runs
+start
