@@ -55,7 +55,7 @@ set(WOLFCRYPT_SOURCES
     ${WOLFCRYPT_DIR}/wolfcrypt/src/poly1305.c
     ${WOLFCRYPT_DIR}/wolfcrypt/src/chacha20_poly1305.c
 
-    # HKDF
+    # HKDF_SHA256
     ${WOLFCRYPT_DIR}/wolfcrypt/src/hmac.c
 )
 # ==============================================================================
@@ -70,15 +70,32 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         -mfpu=fpv4-sp-d16
     )
 
+    # Gather adapter sources from the benchmark registry in benchmark_runner.c
+    # so the build only compiles the algorithms that are actually benchmarked.
+    file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" BENCHMARK_RUNNER_SRC)
+    string(REGEX MATCHALL "&([A-Za-z0-9_]+)_ops" BENCHMARK_REGISTRY_SYMBOLS "${BENCHMARK_RUNNER_SRC}")
+
+    set(REGISTERED_ADAPTER_SOURCES "")
+    foreach(registry_symbol IN LISTS BENCHMARK_REGISTRY_SYMBOLS)
+        string(REGEX REPLACE "^&" "" registry_symbol "${registry_symbol}")
+        string(REGEX REPLACE "_ops$" "" op_name "${registry_symbol}")
+
+        string(TOLOWER "${op_name}" op_name_lower)
+        if(op_name_lower STREQUAL "hkdf_sha256")
+            set(op_name_lower "hkdfsha256")
+        endif()
+
+        if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/adapters/crypto_${op_name_lower}.c")
+            list(APPEND REGISTERED_ADAPTER_SOURCES "adapters/crypto_${op_name_lower}.c")
+        endif()
+    endforeach()
+    list(REMOVE_DUPLICATES REGISTERED_ADAPTER_SOURCES)
+
     set(PLATFORM_SOURCES
-    platforms/stm32_renode/main.c
-    platforms/stm32_renode/libc_stub.c
-    adapters/crypto_ecc_classical.c
-    adapters/crypto_ascon.c
-    adapters/crypto_aes_gcm.c
-    adapters/crypto_chacha20_poly1305.c
-    adapters/crypto_hkdf.c
-    ${WOLFCRYPT_SOURCES}
+        platforms/stm32_renode/main.c
+        platforms/stm32_renode/libc_stub.c
+        ${REGISTERED_ADAPTER_SOURCES}
+        ${WOLFCRYPT_SOURCES}
     )
 
     set(LINKER_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode/linker.ld")

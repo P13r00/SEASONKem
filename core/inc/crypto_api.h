@@ -10,19 +10,23 @@
 
 typedef enum {
     /* Signature / authentication */
-    ALG_CLASSICAL_ECC,
-    ALG_LIGHTWEIGHT_ASCON,
-    ALG_PHOTON_BEETLE,
-    ALG_PQC_SIGN,
-    ALG_HYBRID_SIGN,
-    /* Key encapsulation */
-    ALG_PQC_KEM,
-    ALG_HYBRID_KEM,
-    /* Symmetric AEAD */
     ALG_AES_GCM,
+    ALG_ASCON80PQ,
+    ALG_ASCON_HASH_256,
+    ALG_BLAKE3,
     ALG_CHACHA20_POLY1305,
-    /* Key derivation */
-    ALG_HKDF,
+    ALG_DILITHIUM,
+    ALG_ECDH_P256,
+    ALG_ECDSA_P256,
+    ALG_ED25519,
+    ALG_FALCON,
+    ALG_HKDF_SHA256,
+    ALG_HYBRID_KEX,
+    ALG_HYBRID_SIGN,
+    ALG_KYBER,
+    ALG_PHOTON_BEETLE_AEAD,
+    ALG_SHAKE256,
+    ALG_X25519 
 } crypto_type_t;
 
 #define CRYPTO_SUCCESS  0

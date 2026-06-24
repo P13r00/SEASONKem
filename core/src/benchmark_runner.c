@@ -5,12 +5,10 @@
 /*  Signature registry                                                 */
 /* ------------------------------------------------------------------ */
 
-extern const crypto_ops_t ecc_classical_ops;
-extern const crypto_ops_t ascon_ops;
+extern const crypto_ops_t ed25519_ops;
 
 static const crypto_ops_t *sign_registry[] = {
-    &ecc_classical_ops,
-    &ascon_ops,
+    &ed25519_ops,
 };
 #define SIGN_REGISTRY_COUNT (sizeof(sign_registry) / sizeof(sign_registry[0]))
 
@@ -31,10 +29,10 @@ static const crypto_aead_ops_t *aead_registry[] = {
 /*  KDF registry                                                       */
 /* ------------------------------------------------------------------ */
 
-extern const crypto_kdf_ops_t hkdf_ops;
+extern const crypto_kdf_ops_t hkdf_sha256_ops;
 
 static const crypto_kdf_ops_t *kdf_registry[] = {
-    &hkdf_ops,
+    &hkdf_sha256_ops,
 };
 #define KDF_REGISTRY_COUNT (sizeof(kdf_registry) / sizeof(kdf_registry[0]))
 

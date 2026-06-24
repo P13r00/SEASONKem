@@ -143,17 +143,17 @@ int main(void) {
 
     /* --- Signing benchmarks ---------------------------------------- */
     platform_print_string("[Signature Schemes]\n");
-    execute_signature_benchmark(ALG_CLASSICAL_ECC);
-    execute_signature_benchmark(ALG_LIGHTWEIGHT_ASCON);
+    execute_signature_benchmark(ALG_ED25519);
+    execute_signature_benchmark(ALG_ASCON80PQ);
 
     /* --- AEAD benchmarks ------------------------------------------- */
     platform_print_string("[Symmetric AEAD]\n");
     execute_aead_benchmark(ALG_AES_GCM);
-    execute_aead_benchmark(ALG_CHACHA20_POLY1305); 
+    // execute_aead_benchmark(ALG_CHACHA20_POLY1305); 
 
     /* --- KDF benchmarks -------------------------------------------- */
     platform_print_string("[Key Derivation]\n");
-    execute_kdf_benchmark(ALG_HKDF);
+    execute_kdf_benchmark(ALG_HKDF_SHA256);
 
     platform_print_string("Suite complete.\n");
     while (1);

@@ -1,4 +1,4 @@
-/* crypto_ecc_classical.c — Ed25519 via wolfcrypt */
+/* crypto_ed25519.c — Ed25519 via wolfcrypt */
 
 #include <wolfssl/wolfcrypt/ed25519.h>
 #include <wolfssl/wolfcrypt/random.h>
@@ -21,7 +21,7 @@ static int ensure_rng(void) {
 /* sk layout (64 B): [32 B private seed | 32 B public key copy]
  * This matches wolfSSL's ED25519_PRV_KEY_SIZE and the import API.    */
 
-static int ecc_classical_keypair(uint8_t *pk, uint8_t *sk) {
+static int ed25519_keypair(uint8_t *pk, uint8_t *sk) {
     if (ensure_rng() != CRYPTO_SUCCESS) return CRYPTO_ERROR;
 
     ed25519_key key;
@@ -39,7 +39,7 @@ static int ecc_classical_keypair(uint8_t *pk, uint8_t *sk) {
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-static int ecc_classical_sign(uint8_t *sig, size_t *siglen,
+static int ed25519_sign(uint8_t *sig, size_t *siglen,
                                const uint8_t *msg, size_t msglen,
                                const uint8_t *sk) {
     ed25519_key key;
@@ -59,7 +59,7 @@ static int ecc_classical_sign(uint8_t *sig, size_t *siglen,
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-static int ecc_classical_verify(const uint8_t *sig, size_t siglen,
+static int ed25519_verify(const uint8_t *sig, size_t siglen,
                                  const uint8_t *msg, size_t msglen,
                                  const uint8_t *pk) {
     ed25519_key key;
@@ -76,10 +76,10 @@ static int ecc_classical_verify(const uint8_t *sig, size_t siglen,
     return (ret == 0 && verified == 1) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-const crypto_ops_t ecc_classical_ops = {
-    .type         = ALG_CLASSICAL_ECC,
+const crypto_ops_t ed25519_ops = {
+    .type         = ALG_ED25519,
     .name         = "Ed25519 (wolfcrypt)",
-    .sign_keypair = ecc_classical_keypair,
-    .sign         = ecc_classical_sign,
-    .verify       = ecc_classical_verify,
+    .sign_keypair = ed25519_keypair,
+    .sign         = ed25519_sign,
+    .verify       = ed25519_verify,
 };
