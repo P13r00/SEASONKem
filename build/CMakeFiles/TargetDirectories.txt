@@ -1,0 +1,3 @@
+/home/piec/Documents/ResearchInternship/cryptoBenchmarkUpdated/build/CMakeFiles/stm32_benchmark.elf.dir
+/home/piec/Documents/ResearchInternship/cryptoBenchmarkUpdated/build/CMakeFiles/edit_cache.dir
+/home/piec/Documents/ResearchInternship/cryptoBenchmarkUpdated/build/CMakeFiles/rebuild_cache.dir
