@@ -24,6 +24,9 @@
 #define HAVE_CHACHA             /* ChaCha20 stream cipher               */
 #define HAVE_POLY1305           /* Poly1305 MAC                         */
 #define HAVE_HKDF               /* HKDF-SHA-256 extract + expand        */
+#define HAVE_ECC
+#define HAVE_ECC256
+#define HAVE_SHA256
 
 
 /* ---- Disable unused algorithms (saves ~60–100 KiB flash) ---------- */

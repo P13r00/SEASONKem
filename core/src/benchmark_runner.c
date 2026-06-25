@@ -4,10 +4,11 @@
 /* ================================================================== */
 /* GLOBAL ALGORITHM CONFIGURATION (1 = Compile & Run, 0 = Skip)       */
 /* ================================================================== */
-#define COMPILE_ED25519           1
-#define COMPILE_AES_GCM           1
+#define COMPILE_ED25519           0
+#define COMPILE_ECDSAP256         0
+#define COMPILE_AES_GCM           0
 #define COMPILE_CHACHA20_POLY1305 0
-#define COMPILE_HKDF_SHA256       1
+#define COMPILE_HKDF_SHA256       0
 #define COMPILE_ASCON80           0
 #define COMPILE_ASCON_HASH        0
 
@@ -19,9 +20,16 @@
 extern const crypto_ops_t ed25519_ops;
 #endif
 
+#if COMPILE_ECDSAP256
+extern const crypto_ops_t ecdsap256_ops;
+#endif
+
 static const crypto_ops_t *sign_registry[] = {
 #if COMPILE_ED25519
     &ed25519_ops,
+#endif
+#if COMPILE_ECDSAP256
+    &ecdsap256_ops,
 #endif
     NULL
 };

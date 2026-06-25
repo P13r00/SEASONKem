@@ -25,7 +25,7 @@ set(CMAKE_C_STANDARD 99)
 # ==============================================================================
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
-foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH)
+foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -43,24 +43,25 @@ set(CORE_SOURCES
 set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
 set(WOLFCRYPT_SOURCES "")
 
-if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256)
+if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR COMPILE_ECDSAP256)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/wolfmath.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/misc.c
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/asn.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/random.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/hash.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sha256.c
-    )
-endif()
+   )
+        endif()
 
 if(COMPILE_HKDF_SHA256)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/hmac.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_hkdfsha256.c")
-    endif()
+endif()
 
 if(COMPILE_ED25519)
     list(APPEND WOLFCRYPT_SOURCES
@@ -70,6 +71,14 @@ if(COMPILE_ED25519)
         ${WOLFCRYPT_DIR}/wolfcrypt/src/fe_operations.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_ed25519.c")
+endif()
+
+if(COMPILE_ECDSAP256)
+    list(APPEND WOLFCRYPT_SOURCES
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/ecc.c
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/sp_int.c
+    )
+    list(APPEND CORE_SOURCES "adapters/crypto_ecdsap256.c")
 endif()
 
 if(COMPILE_AES_GCM)
@@ -92,14 +101,15 @@ set(ASCON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon)
 set(ASCON_SOURCES "")
 
 if(COMPILE_ASCON80)
-    list(APPEND ASCON_SOURCES 
+    list(APPEND ASCON_SOURCES
         ${ASCON_DIR}/crypto_aead/ascon80pqv12/armv7m/aead.c
         ${ASCON_DIR}/crypto_aead/ascon80pqv12/armv7m/permutations.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_ascon80pq.c")
 endif()
+
 if(COMPILE_ASCON_HASH)
-    list(APPEND ASCON_SOURCES 
+    list(APPEND ASCON_SOURCES
         ${ASCON_DIR}/crypto_hash/asconhashabi32v12/bi32_armv7m/hash.c
         ${ASCON_DIR}/crypto_hash/asconhashabi32v12/bi32_armv7m/permutations.c
     )
@@ -149,15 +159,17 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon
+        ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon/tests
     )
 
     target_link_options(stm32_benchmark.elf PRIVATE
         ${ARM_MCU_FLAGS}
         -T ${LINKER_SCRIPT}
+        -nodefaultlibs
         -nostartfiles
-        -nostdlib
         -Wl,--gc-sections
     )
+    target_link_libraries(stm32_benchmark.elf PRIVATE gcc)
 
     add_custom_command(TARGET stm32_benchmark.elf POST_BUILD
         COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:stm32_benchmark.elf> ${CMAKE_PROJECT_NAME}.bin
