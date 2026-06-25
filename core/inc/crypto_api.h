@@ -23,7 +23,7 @@ typedef enum {
     ALG_HKDF_SHA256,
     ALG_HYBRID_KEX,
     ALG_HYBRID_SIGN,
-    ALG_KYBER,
+    ALG_KYBER512,
     ALG_PHOTON_BEETLE_AEAD,
     ALG_SHAKE256,
     ALG_X25519 
@@ -98,6 +98,21 @@ typedef struct {
 } crypto_kdf_ops_t;
 
 /* ------------------------------------------------------------------ */
+/* Key Encapsulation Mechanism (KEM) ops                           */
+/* */
+/* keygen – generate public key (pk) and secret key (sk)             */
+/* encaps – generate ciphertext (ct) and shared secret (ss) from pk   */
+/* decaps – recover shared secret (ss) from ct and sk                 */
+/* ------------------------------------------------------------------ */
+typedef struct {
+    crypto_type_t  type;
+    const char    *name;
+    int (*keygen)(uint8_t *pk, uint8_t *sk);
+    int (*encaps)(uint8_t *ct, uint8_t *ss, const uint8_t *pk);
+    int (*decaps)(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
+} crypto_kem_ops_t;
+
+/* ------------------------------------------------------------------ */
 /*  Measurement utilities (defined in core/src/benchmark_runner.c)   */
 /* ------------------------------------------------------------------ */
 
@@ -113,6 +128,7 @@ uint32_t measure_static_ram(void);
 void execute_signature_benchmark(crypto_type_t type);
 void execute_aead_benchmark(crypto_type_t type);
 void execute_kdf_benchmark(crypto_type_t type);
+void execute_kem_benchmark(crypto_type_t type);
 
 void heap_reset(void);
 

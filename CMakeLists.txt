@@ -25,7 +25,8 @@ set(CMAKE_C_STANDARD 99)
 # ==============================================================================
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
-foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256)
+# Added KYBER512 to this loop!
+foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256 KYBER512)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -40,10 +41,11 @@ set(CORE_SOURCES
     core/src/benchmark_runner.c
 )
 
+# --- wolfcrypt Setup ---
 set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
 set(WOLFCRYPT_SOURCES "")
 
-if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR COMPILE_ECDSAP256)
+if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR COMPILE_ECDSAP256 OR COMPILE_KYBER512)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
@@ -54,7 +56,7 @@ if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HK
         ${WOLFCRYPT_DIR}/wolfcrypt/src/hash.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sha256.c
    )
-        endif()
+endif()
 
 if(COMPILE_HKDF_SHA256)
     list(APPEND WOLFCRYPT_SOURCES
@@ -97,6 +99,7 @@ if(COMPILE_CHACHA20_POLY1305)
     list(APPEND CORE_SOURCES "adapters/crypto_chacha20_poly1305.c")
 endif()
 
+# --- Ascon Setup ---
 set(ASCON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon)
 set(ASCON_SOURCES "")
 
@@ -116,6 +119,26 @@ if(COMPILE_ASCON_HASH)
     list(APPEND CORE_SOURCES "adapters/crypto_asconhash256.c")
 endif()
 
+# --- PQM4 / Kyber Setup ---
+set(PQM4_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pqm4)
+set(PQM4_SOURCES "")
+
+if(COMPILE_KYBER512)
+    # Robustly gather all C and Assembly files in the m4fspeed directory
+    # This prevents the missing matacc.S error!
+    file(GLOB PQM4_KEM_SOURCES
+        "${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed/*.c"
+        "${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed/*.S"
+        "${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed/*.s"
+    )
+
+    list(APPEND PQM4_SOURCES
+        ${PQM4_KEM_SOURCES}
+        ${PQM4_DIR}/mupq/common/fips202.c
+        ${PQM4_DIR}/common/keccakf1600.S
+    )
+    list(APPEND CORE_SOURCES "adapters/crypto_kyber.c")
+endif()
 
 # ==============================================================================
 # STM32 Target Binaries Setup
@@ -135,6 +158,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${REGISTERED_ADAPTER_SOURCES}
         ${WOLFCRYPT_SOURCES}
         ${ASCON_SOURCES}
+        ${PQM4_SOURCES}
     )
 
     set(LINKER_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode/linker.ld")
@@ -154,7 +178,13 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         -fdata-sections
     )
 
+    # CRITICAL PRIORITY: PQM4/MUPQ include folders must be evaluated first
+    # to isolate "randombytes.h" from third_party/ascon/tests/
     target_include_directories(stm32_benchmark.elf PRIVATE
+        ${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed
+        ${PQM4_DIR}/common
+        ${PQM4_DIR}/mupq/common
+        ${PQM4_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl
