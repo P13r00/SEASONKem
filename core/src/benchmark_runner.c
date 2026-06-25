@@ -1,43 +1,84 @@
 #include <stddef.h>         /* NULL, size_t — required even in freestanding C99 */
 #include "core/inc/crypto_api.h"
 
+/* ================================================================== */
+/* GLOBAL ALGORITHM CONFIGURATION (1 = Compile & Run, 0 = Skip)       */
+/* ================================================================== */
+#define COMPILE_ED25519           1
+#define COMPILE_AES_GCM           1
+#define COMPILE_CHACHA20_POLY1305 0
+#define COMPILE_HKDF_SHA256       1
+#define COMPILE_ASCON80           0
+#define COMPILE_ASCON_HASH        0
+
 /* ------------------------------------------------------------------ */
-/*  Signature registry                                                 */
+/* Signature registry                                                 */
 /* ------------------------------------------------------------------ */
 
+#if COMPILE_ED25519
 extern const crypto_ops_t ed25519_ops;
+#endif
 
 static const crypto_ops_t *sign_registry[] = {
+#if COMPILE_ED25519
     &ed25519_ops,
+#endif
+    NULL
 };
-#define SIGN_REGISTRY_COUNT (sizeof(sign_registry) / sizeof(sign_registry[0]))
+#define SIGN_REGISTRY_COUNT ((sizeof(sign_registry) / sizeof(sign_registry[0])) - 1)
 
 /* ------------------------------------------------------------------ */
-/*  AEAD registry                                                      */
+/* AEAD registry                                                      */
 /* ------------------------------------------------------------------ */
 
-extern const crypto_aead_ops_t aes_gcm_ops;
-extern const crypto_aead_ops_t chacha20_poly1305_ops;
+#if COMPILE_AES_GCM
+    extern const crypto_aead_ops_t aes_gcm_ops;
+#endif
+#if COMPILE_CHACHA20_POLY1305
+    extern const crypto_aead_ops_t chacha20_poly1305_ops;
+#endif
+#if COMPILE_ASCON80
+    extern const crypto_aead_ops_t ascon80pq_ops;
+#endif
 
 static const crypto_aead_ops_t *aead_registry[] = {
+#if COMPILE_AES_GCM
     &aes_gcm_ops,
+#endif
+#if COMPILE_CHACHA20_POLY1305
     &chacha20_poly1305_ops,
+#endif
+#if COMPILE_ASCON80
+    &ascon80pq_ops,
+#endif
+    NULL
 };
-#define AEAD_REGISTRY_COUNT (sizeof(aead_registry) / sizeof(aead_registry[0]))
+#define AEAD_REGISTRY_COUNT ((sizeof(aead_registry) / sizeof(aead_registry[0])) - 1)
 
 /* ------------------------------------------------------------------ */
-/*  KDF registry                                                       */
+/* KDF registry                                                       */
 /* ------------------------------------------------------------------ */
 
+#if COMPILE_HKDF_SHA256
 extern const crypto_kdf_ops_t hkdf_sha256_ops;
+#endif
+#if COMPILE_ASCON_HASH
+extern const crypto_aead_ops_t asconhash256_ops;
+#endif
 
 static const crypto_kdf_ops_t *kdf_registry[] = {
+#if COMPILE_HKDF_SHA256
     &hkdf_sha256_ops,
+#endif
+#if COMPILE_ASCON_HASH
+    (const crypto_kdf_ops_t *)&asconhash256_ops,
+#endif
+    NULL
 };
-#define KDF_REGISTRY_COUNT (sizeof(kdf_registry) / sizeof(kdf_registry[0]))
+#define KDF_REGISTRY_COUNT ((sizeof(kdf_registry) / sizeof(kdf_registry[0])) - 1)
 
 /* ------------------------------------------------------------------ */
-/*  Platform HAL — implemented in platforms/stm32_renode/main.c       */
+/* Platform HAL — implemented in platforms/stm32_renode/main.c       */
 /* ------------------------------------------------------------------ */
 
 extern uint32_t get_cycles(void);
@@ -45,29 +86,17 @@ extern void platform_print_string(const char *str);
 extern void platform_print_number(uint32_t num);
 
 /* ------------------------------------------------------------------ */
-/*  Stack / RAM measurement utilities                                  */
-/*                                                                     */
-/*  These live here — not in main.c — because they are benchmarking   */
-/*  infrastructure, not platform HAL.  main.c calls fill_stack_       */
-/*  watermark() early in main(); the linker resolves it from here.    */
-/*                                                                     */
-/*  The linker symbols _sstack / _estack / _sbss / _ebss are not      */
-/*  STM32-specific; every ARM bare-metal linker script exports them,   */
-/*  so this translation unit stays platform-agnostic.                 */
+/* Stack / RAM measurement utilities                                  */
 /* ------------------------------------------------------------------ */
 
 extern uint32_t _sbss, _ebss, _sstack, _estack;
 
-/* Fill the entire stack region with a sentinel on first call.        */
-/* Call once before any benchmark (from main, before init overhead).  */
 void fill_stack_watermark(void) {
     volatile uint32_t *p   = (volatile uint32_t *)&_sstack;
     volatile uint32_t *top = (volatile uint32_t *)&_estack;
     while (p < top) *p++ = 0xDEADBEEFu;
 }
 
-/* Refill from _sstack up to (but not including) the current SP.     */
-/* Call at the start of each benchmark to reset the high-water mark. */
 void reset_stack_watermark(void) {
     volatile uint32_t *p = (volatile uint32_t *)&_sstack;
     volatile uint32_t sp;
@@ -76,7 +105,6 @@ void reset_stack_watermark(void) {
     while (p < fence) *p++ = 0xDEADBEEFu;
 }
 
-/* Walk from _sstack upward; the first non-sentinel word is the peak. */
 uint32_t measure_stack_used(void) {
     volatile uint32_t *p   = (volatile uint32_t *)&_sstack;
     volatile uint32_t *top = (volatile uint32_t *)&_estack;
@@ -84,21 +112,19 @@ uint32_t measure_stack_used(void) {
     return (uint32_t)((uint8_t *)top - (uint8_t *)p);
 }
 
-/* BSS span gives the combined size of zero-initialised static data. */
 uint32_t measure_static_ram(void) {
     return (uint32_t)((uint8_t *)&_ebss - (uint8_t *)&_sbss);
 }
 
 /* ------------------------------------------------------------------ */
-/*  Helpers                                                            */
+/* Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-/* SysTick is a 24-bit down-counter; handle the single-wrap case.    */
 #define CYCLE_DELTA(start, end) \
     (((end) >= (start)) ? ((end) - (start)) : (0x00FFFFFFu - (start) + (end)))
 
 /* ------------------------------------------------------------------ */
-/*  execute_signature_benchmark                                        */
+/* Execution Framework                                                */
 /* ------------------------------------------------------------------ */
 
 void execute_signature_benchmark(crypto_type_t type) {
@@ -117,11 +143,6 @@ void execute_signature_benchmark(crypto_type_t type) {
         return;
     }
 
-    /* Fixed-size stack buffers, sized for the largest entry in the
-     * signature registry:
-     *   pk  32 B  (Ed25519 public key)
-     *   sk  64 B  (Ed25519 private key / seed+pk)
-     *   sig 64 B  (Ed25519 / Ascon stub) */
     uint8_t pk[32];
     uint8_t sk[64];
     uint8_t sig[64];
@@ -153,14 +174,6 @@ void execute_signature_benchmark(crypto_type_t type) {
     platform_print_string("   Stack HWM:  "); platform_print_number(measure_stack_used());  platform_print_string(" B\n\n");
 }
 
-/* ------------------------------------------------------------------ */
-/*  execute_aead_benchmark                                             */
-/*                                                                     */
-/*  Exercises keygen → encrypt (64-byte plaintext, 16-byte AD) →      */
-/*  decrypt with tag verification, then reports cycle counts and      */
-/*  memory usage.                                                      */
-/* ------------------------------------------------------------------ */
-
 void execute_aead_benchmark(crypto_type_t type) {
     reset_stack_watermark();
 
@@ -177,13 +190,6 @@ void execute_aead_benchmark(crypto_type_t type) {
         return;
     }
 
-    /* Stack buffers sized for the worst case across the AEAD registry:
-     *   key   32 B  (ChaCha20-Poly1305 / AES-256)
-     *   nonce 12 B  (IETF nonce format)
-     *   pt    64 B  (test plaintext)
-     *   ad    16 B  (additional authenticated data)
-     *   ct    80 B  (64 B ciphertext + 16 B tag max)
-     *   pt2   64 B  (decrypted output for round-trip check) */
     uint8_t key[32];
     uint8_t nonce[12];
     uint8_t pt[64];
@@ -193,7 +199,6 @@ void execute_aead_benchmark(crypto_type_t type) {
     size_t  ctlen = 0;
     size_t  ptlen = 0;
 
-    /* Known-pattern test data — avoids compiler optimising away loops */
     for (size_t i = 0; i < sizeof(pt); i++) pt[i] = (uint8_t)i;
     for (size_t i = 0; i < sizeof(ad); i++) ad[i] = (uint8_t)(0xA0u | i);
 
@@ -203,19 +208,16 @@ void execute_aead_benchmark(crypto_type_t type) {
 
     uint32_t start, end;
 
-    /* 1. Key + nonce generation */
     start = get_cycles();
     ops->keygen(key, nonce);
     end = get_cycles();
     platform_print_string("   Keygen:  "); platform_print_number(CYCLE_DELTA(start, end)); platform_print_string(" cy\n");
 
-    /* 2. Authenticated encryption */
     start = get_cycles();
     ops->encrypt(ct, &ctlen, pt, sizeof(pt), ad, sizeof(ad), nonce, key);
     end = get_cycles();
     platform_print_string("   Encrypt: "); platform_print_number(CYCLE_DELTA(start, end)); platform_print_string(" cy\n");
 
-    /* 3. Authenticated decryption */
     start = get_cycles();
     int rc = ops->decrypt(pt2, &ptlen, ct, ctlen, ad, sizeof(ad), nonce, key);
     end = get_cycles();
@@ -225,14 +227,6 @@ void execute_aead_benchmark(crypto_type_t type) {
     platform_print_string("   Static RAM: "); platform_print_number(measure_static_ram()); platform_print_string(" B\n");
     platform_print_string("   Stack HWM:  "); platform_print_number(measure_stack_used());  platform_print_string(" B\n\n");
 }
-
-/* ------------------------------------------------------------------ */
-/*  execute_kdf_benchmark                                              */
-/*                                                                     */
-/*  Derives 32 bytes of key material from a 32-byte IKM with a       */
-/*  16-byte salt and an 8-byte context label, then reports cycles     */
-/*  and memory usage.                                                  */
-/* ------------------------------------------------------------------ */
 
 void execute_kdf_benchmark(crypto_type_t type) {
     reset_stack_watermark();
@@ -250,11 +244,10 @@ void execute_kdf_benchmark(crypto_type_t type) {
         return;
     }
 
-    /* RFC 5869 §A.1 test-vector-inspired inputs */
-    uint8_t ikm[32];        /* simulated shared secret / raw key material */
-    uint8_t salt[16];       /* optional salt (non-secret randomness)       */
-    uint8_t info[8];        /* application context label                   */
-    uint8_t okm[32];        /* output key material                         */
+    uint8_t ikm[32];        
+    uint8_t salt[16];       
+    uint8_t info[8];        
+    uint8_t okm[32];        
 
     for (size_t i = 0; i < sizeof(ikm);  i++) ikm[i]  = 0x0Bu;
     for (size_t i = 0; i < sizeof(salt); i++) salt[i] = (uint8_t)(0x00u + i);
@@ -267,15 +260,37 @@ void execute_kdf_benchmark(crypto_type_t type) {
 
     uint32_t start, end;
 
-    /* Extract + expand — timed as a single atomic KDF invocation */
     start = get_cycles();
-    ops->derive(okm, sizeof(okm),
-                ikm,  sizeof(ikm),
-                salt, sizeof(salt),
-                info, sizeof(info));
+    ops->derive(okm, sizeof(okm), ikm, sizeof(ikm), salt, sizeof(salt), info, sizeof(info));
     end = get_cycles();
     platform_print_string("   Derive:  "); platform_print_number(CYCLE_DELTA(start, end)); platform_print_string(" cy\n");
 
     platform_print_string("   Static RAM: "); platform_print_number(measure_static_ram()); platform_print_string(" B\n");
     platform_print_string("   Stack HWM:  "); platform_print_number(measure_stack_used());  platform_print_string(" B\n\n");
+}
+
+/* ------------------------------------------------------------------ */
+/* Master Suite Runner                                                */
+/* ------------------------------------------------------------------ */
+void run_all_benchmarks(void) {
+    if (SIGN_REGISTRY_COUNT > 0) {
+        platform_print_string("[Signature Schemes]\n");
+        for (size_t i = 0; i < SIGN_REGISTRY_COUNT; i++) {
+            execute_signature_benchmark(sign_registry[i]->type);
+        }
+    }
+
+    if (AEAD_REGISTRY_COUNT > 0) {
+        platform_print_string("[Symmetric AEAD]\n");
+        for (size_t i = 0; i < AEAD_REGISTRY_COUNT; i++) {
+            execute_aead_benchmark(aead_registry[i]->type);
+        }
+    }
+
+    if (KDF_REGISTRY_COUNT > 0) {
+        platform_print_string("[Key Derivation]\n");
+        for (size_t i = 0; i < KDF_REGISTRY_COUNT; i++) {
+            execute_kdf_benchmark(kdf_registry[i]->type);
+        }
+    }
 }

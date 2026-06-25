@@ -5,10 +5,10 @@
  * main.c — STM32F4 / Renode platform layer
  *
  * Responsibilities:
- *   - Vector table and Reset_Handler
- *   - Hardware initialisation (USART1, SysTick)
- *   - Platform HAL (platform_print_string, platform_print_number, get_cycles)
- *   - Top-level main() that sequences the benchmark suite
+ * - Vector table and Reset_Handler
+ * - Hardware initialisation (USART1, SysTick)
+ * - Platform HAL (platform_print_string, platform_print_number, get_cycles)
+ * - Top-level main() that sequences the benchmark suite
  *
  * NOT here: fill_stack_watermark / reset_stack_watermark / measure_*
  * Those are benchmarking utilities, not platform HAL.  They live in
@@ -20,22 +20,22 @@
  * STM32F4 register map (RM0090 reference manual)
  *
  * RCC
- *   RCC_APB2ENR  0x40023844  bit4 = USART1EN
+ * RCC_APB2ENR  0x40023844  bit4 = USART1EN
  *
  * USART1 (APB2, base 0x40011000)
- *   USART_SR   +0x00  bit7=TXE (tx data-register empty)
- *   USART_DR   +0x04  write byte to transmit
- *   USART_BRR  +0x08  baud-rate divisor
- *   USART_CR1  +0x0C  bit13=UE (USART enable), bit3=TE (transmitter enable)
+ * USART_SR   +0x00  bit7=TXE (tx data-register empty)
+ * USART_DR   +0x04  write byte to transmit
+ * USART_BRR  +0x08  baud-rate divisor
+ * USART_CR1  +0x0C  bit13=UE (USART enable), bit3=TE (transmitter enable)
  *
  * SysTick (Cortex-M4 core, always present)
- *   SYST_CSR   0xE000E010  bit2=CLKSOURCE, bit0=ENABLE
- *   SYST_RVR   0xE000E014  reload value
- *   SYST_CVR   0xE000E018  current value (write any value to clear)
+ * SYST_CSR   0xE000E010  bit2=CLKSOURCE, bit0=ENABLE
+ * SYST_RVR   0xE000E014  reload value
+ * SYST_CVR   0xE000E018  current value (write any value to clear)
  */
 
 /* ------------------------------------------------------------------ */
-/*  Register pointers                                                  */
+/* Register pointers                                                  */
 /* ------------------------------------------------------------------ */
 
 static volatile uint32_t * const RCC_APB2ENR = (volatile uint32_t *)0x40023844u;
@@ -50,14 +50,15 @@ static volatile uint32_t * const SYST_RVR = (volatile uint32_t *)0xE000E014u;
 static volatile uint32_t * const SYST_CVR = (volatile uint32_t *)0xE000E018u;
 
 /* ------------------------------------------------------------------ */
-/*  Forward declarations                                               */
+/* Forward declarations                                               */
 /* ------------------------------------------------------------------ */
 
 int  main(void);
 void Reset_Handler(void);
+extern void run_all_benchmarks(void);
 
 /* ------------------------------------------------------------------ */
-/*  Minimal vector table                                               */
+/* Minimal vector table                                               */
 /* ------------------------------------------------------------------ */
 
 __attribute__((section(".isr_vector")))
@@ -67,7 +68,7 @@ const void *Vectors[] = {
 };
 
 /* ------------------------------------------------------------------ */
-/*  Platform I/O                                                       */
+/* Platform I/O                                                       */
 /* ------------------------------------------------------------------ */
 
 void platform_print_string(const char *str) {
@@ -91,7 +92,7 @@ void platform_print_number(uint32_t num) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Cycle counter via SysTick                                          */
+/* Cycle counter via SysTick                                          */
 /* ------------------------------------------------------------------ */
 
 uint32_t get_cycles(void) {
@@ -101,7 +102,7 @@ uint32_t get_cycles(void) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Hardware initialisation                                            */
+/* Hardware initialisation                                            */
 /* ------------------------------------------------------------------ */
 
 static void init_platform_hardware(void) {
@@ -109,13 +110,13 @@ static void init_platform_hardware(void) {
     *RCC_APB2ENR |= (1U << 4);
 
     /* 2. Configure USART1 for basic TX.
-     *    BRR: 16 MHz APB2 / 9600 baud → divisor ≈ 1667 = 0x683.
-     *    Renode doesn't enforce baud rate but the register must be non-zero. */
+     * BRR: 16 MHz APB2 / 9600 baud → divisor ≈ 1667 = 0x683.
+     * Renode doesn't enforce baud rate but the register must be non-zero. */
     *USART1_BRR = 0x0683u;
     *USART1_CR1 = (1U << 13) | (1U << 3); /* UE | TE */
 
     /* 3. Configure SysTick as a 24-bit free-running up-counter.
-     *    CLKSOURCE=1 (processor clock), TICKINT=0, ENABLE=1. */
+     * CLKSOURCE=1 (processor clock), TICKINT=0, ENABLE=1. */
     *SYST_CSR = 0;            /* stop while reconfiguring */
     *SYST_RVR = 0x00FFFFFFu;  /* maximum 24-bit reload    */
     *SYST_CVR = 0;            /* clear current value      */
@@ -123,7 +124,7 @@ static void init_platform_hardware(void) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Startup / entry                                                    */
+/* Startup / entry                                                    */
 /* ------------------------------------------------------------------ */
 
 void Reset_Handler(void) {
@@ -141,19 +142,8 @@ int main(void) {
     platform_print_string("  Multi-Algorithm Heterogeneous Framework \n");
     platform_print_string("=========================================\n\n");
 
-    /* --- Signing benchmarks ---------------------------------------- */
-    platform_print_string("[Signature Schemes]\n");
-    execute_signature_benchmark(ALG_ED25519);
-    execute_signature_benchmark(ALG_ASCON80PQ);
-
-    /* --- AEAD benchmarks ------------------------------------------- */
-    platform_print_string("[Symmetric AEAD]\n");
-    execute_aead_benchmark(ALG_AES_GCM);
-    // execute_aead_benchmark(ALG_CHACHA20_POLY1305); 
-
-    /* --- KDF benchmarks -------------------------------------------- */
-    platform_print_string("[Key Derivation]\n");
-    execute_kdf_benchmark(ALG_HKDF_SHA256);
+    /* Run all enabled benchmarks dynamically managed by CMake switches */
+    run_all_benchmarks();
 
     platform_print_string("Suite complete.\n");
     while (1);

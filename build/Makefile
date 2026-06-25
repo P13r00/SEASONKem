@@ -153,30 +153,6 @@ adapters/crypto_aes_gcm.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.s
 .PHONY : adapters/crypto_aes_gcm.c.s
 
-adapters/crypto_chacha20_poly1305.obj: adapters/crypto_chacha20_poly1305.c.obj
-.PHONY : adapters/crypto_chacha20_poly1305.obj
-
-# target to build an object file
-adapters/crypto_chacha20_poly1305.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj
-.PHONY : adapters/crypto_chacha20_poly1305.c.obj
-
-adapters/crypto_chacha20_poly1305.i: adapters/crypto_chacha20_poly1305.c.i
-.PHONY : adapters/crypto_chacha20_poly1305.i
-
-# target to preprocess a source file
-adapters/crypto_chacha20_poly1305.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.i
-.PHONY : adapters/crypto_chacha20_poly1305.c.i
-
-adapters/crypto_chacha20_poly1305.s: adapters/crypto_chacha20_poly1305.c.s
-.PHONY : adapters/crypto_chacha20_poly1305.s
-
-# target to generate assembly for a file
-adapters/crypto_chacha20_poly1305.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.s
-.PHONY : adapters/crypto_chacha20_poly1305.c.s
-
 adapters/crypto_ed25519.obj: adapters/crypto_ed25519.c.obj
 .PHONY : adapters/crypto_ed25519.obj
 
@@ -320,54 +296,6 @@ third_party/wolfssl/wolfcrypt/src/aes.s: third_party/wolfssl/wolfcrypt/src/aes.c
 third_party/wolfssl/wolfcrypt/src/aes.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.s
 .PHONY : third_party/wolfssl/wolfcrypt/src/aes.c.s
-
-third_party/wolfssl/wolfcrypt/src/chacha.obj: third_party/wolfssl/wolfcrypt/src/chacha.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.obj
-
-# target to build an object file
-third_party/wolfssl/wolfcrypt/src/chacha.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.obj
-
-third_party/wolfssl/wolfcrypt/src/chacha.i: third_party/wolfssl/wolfcrypt/src/chacha.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.i
-
-# target to preprocess a source file
-third_party/wolfssl/wolfcrypt/src/chacha.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.i
-
-third_party/wolfssl/wolfcrypt/src/chacha.s: third_party/wolfssl/wolfcrypt/src/chacha.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.s
-
-# target to generate assembly for a file
-third_party/wolfssl/wolfcrypt/src/chacha.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.s
-
-third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj
-
-# target to build an object file
-third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
-
-third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i
-
-# target to preprocess a source file
-third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
-
-third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s
-
-# target to generate assembly for a file
-third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
 
 third_party/wolfssl/wolfcrypt/src/ed25519.obj: third_party/wolfssl/wolfcrypt/src/ed25519.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.obj
@@ -537,30 +465,6 @@ third_party/wolfssl/wolfcrypt/src/misc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.s
 .PHONY : third_party/wolfssl/wolfcrypt/src/misc.c.s
 
-third_party/wolfssl/wolfcrypt/src/poly1305.obj: third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.obj
-
-# target to build an object file
-third_party/wolfssl/wolfcrypt/src/poly1305.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
-
-third_party/wolfssl/wolfcrypt/src/poly1305.i: third_party/wolfssl/wolfcrypt/src/poly1305.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.i
-
-# target to preprocess a source file
-third_party/wolfssl/wolfcrypt/src/poly1305.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.i
-
-third_party/wolfssl/wolfcrypt/src/poly1305.s: third_party/wolfssl/wolfcrypt/src/poly1305.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.s
-
-# target to generate assembly for a file
-third_party/wolfssl/wolfcrypt/src/poly1305.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.s
-
 third_party/wolfssl/wolfcrypt/src/random.obj: third_party/wolfssl/wolfcrypt/src/random.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/random.obj
 
@@ -693,9 +597,6 @@ help:
 	@echo "... adapters/crypto_aes_gcm.obj"
 	@echo "... adapters/crypto_aes_gcm.i"
 	@echo "... adapters/crypto_aes_gcm.s"
-	@echo "... adapters/crypto_chacha20_poly1305.obj"
-	@echo "... adapters/crypto_chacha20_poly1305.i"
-	@echo "... adapters/crypto_chacha20_poly1305.s"
 	@echo "... adapters/crypto_ed25519.obj"
 	@echo "... adapters/crypto_ed25519.i"
 	@echo "... adapters/crypto_ed25519.s"
@@ -714,12 +615,6 @@ help:
 	@echo "... third_party/wolfssl/wolfcrypt/src/aes.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/aes.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/aes.s"
-	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.obj"
-	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.i"
-	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.s"
-	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj"
-	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i"
-	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.s"
@@ -741,9 +636,6 @@ help:
 	@echo "... third_party/wolfssl/wolfcrypt/src/misc.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/misc.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/misc.s"
-	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.obj"
-	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.i"
-	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/random.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/random.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/random.s"
