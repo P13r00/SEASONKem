@@ -26,7 +26,7 @@ set(CMAKE_C_STANDARD 99)
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
 # Added KYBER512 to this loop!
-foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256 KYBER512)
+foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256 KYBER512 DILITHIUM2)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -120,24 +120,48 @@ if(COMPILE_ASCON_HASH)
 endif()
 
 # --- PQM4 / Kyber Setup ---
+# --- PQM4 / Kyber Setup ---
 set(PQM4_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pqm4)
 set(PQM4_SOURCES "")
 
 if(COMPILE_KYBER512)
-    # Robustly gather all C and Assembly files in the m4fspeed directory
-    # This prevents the missing matacc.S error!
     file(GLOB PQM4_KEM_SOURCES
         "${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed/*.c"
         "${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed/*.S"
         "${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed/*.s"
     )
-
     list(APPEND PQM4_SOURCES
         ${PQM4_KEM_SOURCES}
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
     list(APPEND CORE_SOURCES "adapters/crypto_kyber.c")
+endif()
+
+if(COMPILE_DILITHIUM2)
+    # Gather the optimized hardware-specific kernels
+    file(GLOB PQM4_SIGN_M4F_SOURCES
+        "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.c"
+        "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.S"
+        "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.s"
+    )
+    # Gather the high-level orchestration logic missing from m4f
+    file(GLOB PQM4_SIGN_CLEAN_SOURCES
+        "${PQM4_DIR}/crypto_sign/ml-dsa-44/clean/*.c"
+    )
+    
+    list(APPEND PQM4_SOURCES
+        ${PQM4_SIGN_M4F_SOURCES}
+        ${PQM4_SIGN_CLEAN_SOURCES}
+        ${PQM4_DIR}/mupq/common/fips202.c
+        ${PQM4_DIR}/common/keccakf1600.S
+    )
+    list(APPEND CORE_SOURCES "adapters/crypto_dilithium2.c")
+endif()
+
+# Deduplicate shared files (fips202 / keccakf1600) if both algorithms are active
+if(PQM4_SOURCES)
+    list(REMOVE_DUPLICATES PQM4_SOURCES)
 endif()
 
 # ==============================================================================
@@ -181,9 +205,6 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     # CRITICAL PRIORITY: PQM4/MUPQ include folders must be evaluated first
     # to isolate "randombytes.h" from third_party/ascon/tests/
     target_include_directories(stm32_benchmark.elf PRIVATE
-        ${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed
-        ${PQM4_DIR}/common
-        ${PQM4_DIR}/mupq/common
         ${PQM4_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode

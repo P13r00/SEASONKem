@@ -11,7 +11,8 @@
 #define COMPILE_HKDF_SHA256       0
 #define COMPILE_ASCON80           0
 #define COMPILE_ASCON_HASH        0
-#define COMPILE_KYBER512          1 
+#define COMPILE_KYBER512          0
+#define COMPILE_DILITHIUM2        1
 
 /* ------------------------------------------------------------------ */
 /* Signature registry                                                 */
@@ -25,6 +26,10 @@ extern const crypto_ops_t ed25519_ops; /* cite: x */
 extern const crypto_ops_t ecdsap256_ops; /* cite: x */
 #endif
 
+#if COMPILE_DILITHIUM2
+extern const crypto_ops_t dilithium2_ops; /* cite: x */
+#endif
+
 static const crypto_ops_t *sign_registry[] = {
 #if COMPILE_ED25519
     &ed25519_ops, /* cite: x */
@@ -32,8 +37,12 @@ static const crypto_ops_t *sign_registry[] = {
 #if COMPILE_ECDSAP256
     &ecdsap256_ops, /* cite: x */
 #endif
+#if COMPILE_DILITHIUM2
+    &dilithium2_ops, /* cite: x */
+#endif
     NULL
 };
+
 #define SIGN_REGISTRY_COUNT ((sizeof(sign_registry) / sizeof(sign_registry[0])) - 1) /* cite: x */
 
 /* ------------------------------------------------------------------ */

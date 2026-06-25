@@ -43,13 +43,11 @@ int PQCLEAN_randombytes(uint8_t *out, size_t outlen) {
 static int kyber512_keypair(uint8_t *pk, uint8_t *sk) {
     int ret = crypto_kem_keypair(pk, sk);
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
-    
 }
 static int kyber512_encaps(uint8_t *ct, uint8_t *ss, const uint8_t *pk) {
     int ret = crypto_kem_enc(ct, ss, pk);
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
-
 static int kyber512_decaps(uint8_t *ss, const uint8_t *ct, const uint8_t *sk) {
     int ret = crypto_kem_dec(ss, ct, sk);
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
