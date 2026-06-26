@@ -45,7 +45,7 @@ set(CORE_SOURCES
 set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
 set(WOLFCRYPT_SOURCES "")
 
-if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR COMPILE_ECDSAP256 OR COMPILE_KYBER512)
+if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR COMPILE_ECDSAP256 OR COMPILE_KYBER512 OR COMPILE_DILITHIUM2)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
@@ -138,21 +138,23 @@ if(COMPILE_KYBER512)
     list(APPEND CORE_SOURCES "adapters/crypto_kyber.c")
 endif()
 
+if(COMPILE_KYBER512 OR COMPILE_DILITHIUM2)
+    # Single randombytes() / PQCLEAN_randombytes() provider for all pqm4 algorithms.
+    # Compiled exactly once; both adapters omit any RNG code.
+    list(APPEND CORE_SOURCES "adapters/pqm4_randombytes.c")
+endif()
+
 if(COMPILE_DILITHIUM2)
-    # Gather the optimized hardware-specific kernels
+    # ml-dsa-44/m4f is self-contained: sign.c implements all _ctx entry points;
+    # crypto_sign / crypto_sign_open etc. are macros in api.h → _ctx variants.
+    # There is no clean/ subdirectory in this pqm4 tree.
     file(GLOB PQM4_SIGN_M4F_SOURCES
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.c"
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.S"
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.s"
     )
-    # Gather the high-level orchestration logic missing from m4f
-    file(GLOB PQM4_SIGN_CLEAN_SOURCES
-        "${PQM4_DIR}/crypto_sign/ml-dsa-44/clean/*.c"
-    )
-    
     list(APPEND PQM4_SOURCES
         ${PQM4_SIGN_M4F_SOURCES}
-        ${PQM4_SIGN_CLEAN_SOURCES}
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
@@ -202,15 +204,19 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         -fdata-sections
     )
 
-    # CRITICAL PRIORITY: PQM4/MUPQ include folders must be evaluated first
-    # to isolate "randombytes.h" from third_party/ascon/tests/
+    # Include order: pqm4 paths first so their randombytes.h wins over any
+    # stray header with the same name.  ascon/tests is excluded — its
+    # randombytes.h pulls in forceinline.h which does not exist here.
+    # ml-dsa-44/m4f must be present so crypto_dilithium2.c can find api.h.
     target_include_directories(stm32_benchmark.elf PRIVATE
+        ${PQM4_DIR}/mupq/common
+        ${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f
         ${PQM4_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon
-        ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon/tests
+        # third_party/ascon/tests intentionally omitted
     )
 
     target_link_options(stm32_benchmark.elf PRIVATE

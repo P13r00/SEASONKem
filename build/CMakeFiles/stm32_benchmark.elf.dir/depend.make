@@ -3,6 +3,28 @@
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/common/keccakf1600.S.obj: \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/common/keccakf1600.S
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.S.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.S
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.S.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.S
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.S.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.S \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/macros.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.S.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.S \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/macros.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.S.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.S \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/macros.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.S.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.i \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.S
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.S.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/macros.i \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.S
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.S.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/macros.i \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.S
 CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/ntt.S.obj: \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/macros.i \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/ntt.S

@@ -129,6 +129,54 @@ stm32_benchmark.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/build
 .PHONY : stm32_benchmark.elf/fast
 
+adapters/crypto_aes_gcm.obj: adapters/crypto_aes_gcm.c.obj
+.PHONY : adapters/crypto_aes_gcm.obj
+
+# target to build an object file
+adapters/crypto_aes_gcm.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj
+.PHONY : adapters/crypto_aes_gcm.c.obj
+
+adapters/crypto_aes_gcm.i: adapters/crypto_aes_gcm.c.i
+.PHONY : adapters/crypto_aes_gcm.i
+
+# target to preprocess a source file
+adapters/crypto_aes_gcm.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.i
+.PHONY : adapters/crypto_aes_gcm.c.i
+
+adapters/crypto_aes_gcm.s: adapters/crypto_aes_gcm.c.s
+.PHONY : adapters/crypto_aes_gcm.s
+
+# target to generate assembly for a file
+adapters/crypto_aes_gcm.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.s
+.PHONY : adapters/crypto_aes_gcm.c.s
+
+adapters/crypto_chacha20_poly1305.obj: adapters/crypto_chacha20_poly1305.c.obj
+.PHONY : adapters/crypto_chacha20_poly1305.obj
+
+# target to build an object file
+adapters/crypto_chacha20_poly1305.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj
+.PHONY : adapters/crypto_chacha20_poly1305.c.obj
+
+adapters/crypto_chacha20_poly1305.i: adapters/crypto_chacha20_poly1305.c.i
+.PHONY : adapters/crypto_chacha20_poly1305.i
+
+# target to preprocess a source file
+adapters/crypto_chacha20_poly1305.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.i
+.PHONY : adapters/crypto_chacha20_poly1305.c.i
+
+adapters/crypto_chacha20_poly1305.s: adapters/crypto_chacha20_poly1305.c.s
+.PHONY : adapters/crypto_chacha20_poly1305.s
+
+# target to generate assembly for a file
+adapters/crypto_chacha20_poly1305.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.s
+.PHONY : adapters/crypto_chacha20_poly1305.c.s
+
 adapters/crypto_dilithium2.obj: adapters/crypto_dilithium2.c.obj
 .PHONY : adapters/crypto_dilithium2.obj
 
@@ -152,6 +200,126 @@ adapters/crypto_dilithium2.s: adapters/crypto_dilithium2.c.s
 adapters/crypto_dilithium2.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_dilithium2.c.s
 .PHONY : adapters/crypto_dilithium2.c.s
+
+adapters/crypto_ecdsap256.obj: adapters/crypto_ecdsap256.c.obj
+.PHONY : adapters/crypto_ecdsap256.obj
+
+# target to build an object file
+adapters/crypto_ecdsap256.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_ecdsap256.c.obj
+.PHONY : adapters/crypto_ecdsap256.c.obj
+
+adapters/crypto_ecdsap256.i: adapters/crypto_ecdsap256.c.i
+.PHONY : adapters/crypto_ecdsap256.i
+
+# target to preprocess a source file
+adapters/crypto_ecdsap256.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_ecdsap256.c.i
+.PHONY : adapters/crypto_ecdsap256.c.i
+
+adapters/crypto_ecdsap256.s: adapters/crypto_ecdsap256.c.s
+.PHONY : adapters/crypto_ecdsap256.s
+
+# target to generate assembly for a file
+adapters/crypto_ecdsap256.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_ecdsap256.c.s
+.PHONY : adapters/crypto_ecdsap256.c.s
+
+adapters/crypto_ed25519.obj: adapters/crypto_ed25519.c.obj
+.PHONY : adapters/crypto_ed25519.obj
+
+# target to build an object file
+adapters/crypto_ed25519.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_ed25519.c.obj
+.PHONY : adapters/crypto_ed25519.c.obj
+
+adapters/crypto_ed25519.i: adapters/crypto_ed25519.c.i
+.PHONY : adapters/crypto_ed25519.i
+
+# target to preprocess a source file
+adapters/crypto_ed25519.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_ed25519.c.i
+.PHONY : adapters/crypto_ed25519.c.i
+
+adapters/crypto_ed25519.s: adapters/crypto_ed25519.c.s
+.PHONY : adapters/crypto_ed25519.s
+
+# target to generate assembly for a file
+adapters/crypto_ed25519.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_ed25519.c.s
+.PHONY : adapters/crypto_ed25519.c.s
+
+adapters/crypto_hkdfsha256.obj: adapters/crypto_hkdfsha256.c.obj
+.PHONY : adapters/crypto_hkdfsha256.obj
+
+# target to build an object file
+adapters/crypto_hkdfsha256.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_hkdfsha256.c.obj
+.PHONY : adapters/crypto_hkdfsha256.c.obj
+
+adapters/crypto_hkdfsha256.i: adapters/crypto_hkdfsha256.c.i
+.PHONY : adapters/crypto_hkdfsha256.i
+
+# target to preprocess a source file
+adapters/crypto_hkdfsha256.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_hkdfsha256.c.i
+.PHONY : adapters/crypto_hkdfsha256.c.i
+
+adapters/crypto_hkdfsha256.s: adapters/crypto_hkdfsha256.c.s
+.PHONY : adapters/crypto_hkdfsha256.s
+
+# target to generate assembly for a file
+adapters/crypto_hkdfsha256.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_hkdfsha256.c.s
+.PHONY : adapters/crypto_hkdfsha256.c.s
+
+adapters/crypto_kyber.obj: adapters/crypto_kyber.c.obj
+.PHONY : adapters/crypto_kyber.obj
+
+# target to build an object file
+adapters/crypto_kyber.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_kyber.c.obj
+.PHONY : adapters/crypto_kyber.c.obj
+
+adapters/crypto_kyber.i: adapters/crypto_kyber.c.i
+.PHONY : adapters/crypto_kyber.i
+
+# target to preprocess a source file
+adapters/crypto_kyber.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_kyber.c.i
+.PHONY : adapters/crypto_kyber.c.i
+
+adapters/crypto_kyber.s: adapters/crypto_kyber.c.s
+.PHONY : adapters/crypto_kyber.s
+
+# target to generate assembly for a file
+adapters/crypto_kyber.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_kyber.c.s
+.PHONY : adapters/crypto_kyber.c.s
+
+adapters/pqm4_randombytes.obj: adapters/pqm4_randombytes.c.obj
+.PHONY : adapters/pqm4_randombytes.obj
+
+# target to build an object file
+adapters/pqm4_randombytes.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4_randombytes.c.obj
+.PHONY : adapters/pqm4_randombytes.c.obj
+
+adapters/pqm4_randombytes.i: adapters/pqm4_randombytes.c.i
+.PHONY : adapters/pqm4_randombytes.i
+
+# target to preprocess a source file
+adapters/pqm4_randombytes.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4_randombytes.c.i
+.PHONY : adapters/pqm4_randombytes.c.i
+
+adapters/pqm4_randombytes.s: adapters/pqm4_randombytes.c.s
+.PHONY : adapters/pqm4_randombytes.s
+
+# target to generate assembly for a file
+adapters/pqm4_randombytes.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4_randombytes.c.s
+.PHONY : adapters/pqm4_randombytes.c.s
 
 core/src/benchmark_runner.obj: core/src/benchmark_runner.c.obj
 .PHONY : core/src/benchmark_runner.obj
@@ -232,6 +400,286 @@ third_party/pqm4/common/keccakf1600.obj: third_party/pqm4/common/keccakf1600.S.o
 third_party/pqm4/common/keccakf1600.S.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/common/keccakf1600.S.obj
 .PHONY : third_party/pqm4/common/keccakf1600.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c.s
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c.s
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c.s
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c.s
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c.s
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c.s
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c.s
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.S.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.S.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.s
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.obj: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.obj
+
+# target to build an object file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.obj
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.obj
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.i: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.i
+
+# target to preprocess a source file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.i
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.i
+
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.s: third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.s
+
+# target to generate assembly for a file
+third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.s
+.PHONY : third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.s
 
 third_party/pqm4/crypto_sign/ml-dsa-44/m4f/ntt.obj: third_party/pqm4/crypto_sign/ml-dsa-44/m4f/ntt.S.obj
 .PHONY : third_party/pqm4/crypto_sign/ml-dsa-44/m4f/ntt.obj
@@ -457,6 +905,462 @@ third_party/pqm4/mupq/common/fips202.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.s
 .PHONY : third_party/pqm4/mupq/common/fips202.c.s
 
+third_party/wolfssl/wolfcrypt/src/aes.obj: third_party/wolfssl/wolfcrypt/src/aes.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/aes.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/aes.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/aes.c.obj
+
+third_party/wolfssl/wolfcrypt/src/aes.i: third_party/wolfssl/wolfcrypt/src/aes.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/aes.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/aes.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/aes.c.i
+
+third_party/wolfssl/wolfcrypt/src/aes.s: third_party/wolfssl/wolfcrypt/src/aes.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/aes.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/aes.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/aes.c.s
+
+third_party/wolfssl/wolfcrypt/src/asn.obj: third_party/wolfssl/wolfcrypt/src/asn.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/asn.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/asn.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/asn.c.obj
+
+third_party/wolfssl/wolfcrypt/src/asn.i: third_party/wolfssl/wolfcrypt/src/asn.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/asn.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/asn.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/asn.c.i
+
+third_party/wolfssl/wolfcrypt/src/asn.s: third_party/wolfssl/wolfcrypt/src/asn.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/asn.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/asn.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/asn.c.s
+
+third_party/wolfssl/wolfcrypt/src/chacha.obj: third_party/wolfssl/wolfcrypt/src/chacha.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/chacha.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.obj
+
+third_party/wolfssl/wolfcrypt/src/chacha.i: third_party/wolfssl/wolfcrypt/src/chacha.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/chacha.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.i
+
+third_party/wolfssl/wolfcrypt/src/chacha.s: third_party/wolfssl/wolfcrypt/src/chacha.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/chacha.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.s
+
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
+
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
+
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
+
+third_party/wolfssl/wolfcrypt/src/ecc.obj: third_party/wolfssl/wolfcrypt/src/ecc.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/ecc.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/ecc.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ecc.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/ecc.c.obj
+
+third_party/wolfssl/wolfcrypt/src/ecc.i: third_party/wolfssl/wolfcrypt/src/ecc.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/ecc.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/ecc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ecc.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/ecc.c.i
+
+third_party/wolfssl/wolfcrypt/src/ecc.s: third_party/wolfssl/wolfcrypt/src/ecc.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/ecc.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/ecc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ecc.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/ecc.c.s
+
+third_party/wolfssl/wolfcrypt/src/ed25519.obj: third_party/wolfssl/wolfcrypt/src/ed25519.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/ed25519.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ed25519.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.c.obj
+
+third_party/wolfssl/wolfcrypt/src/ed25519.i: third_party/wolfssl/wolfcrypt/src/ed25519.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/ed25519.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ed25519.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.c.i
+
+third_party/wolfssl/wolfcrypt/src/ed25519.s: third_party/wolfssl/wolfcrypt/src/ed25519.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/ed25519.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ed25519.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.c.s
+
+third_party/wolfssl/wolfcrypt/src/fe_operations.obj: third_party/wolfssl/wolfcrypt/src/fe_operations.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/fe_operations.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/fe_operations.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.c.obj
+
+third_party/wolfssl/wolfcrypt/src/fe_operations.i: third_party/wolfssl/wolfcrypt/src/fe_operations.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/fe_operations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/fe_operations.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.c.i
+
+third_party/wolfssl/wolfcrypt/src/fe_operations.s: third_party/wolfssl/wolfcrypt/src/fe_operations.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/fe_operations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/fe_operations.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.c.s
+
+third_party/wolfssl/wolfcrypt/src/ge_operations.obj: third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj
+
+third_party/wolfssl/wolfcrypt/src/ge_operations.i: third_party/wolfssl/wolfcrypt/src/ge_operations.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/ge_operations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ge_operations.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.c.i
+
+third_party/wolfssl/wolfcrypt/src/ge_operations.s: third_party/wolfssl/wolfcrypt/src/ge_operations.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/ge_operations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ge_operations.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.c.s
+
+third_party/wolfssl/wolfcrypt/src/hash.obj: third_party/wolfssl/wolfcrypt/src/hash.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/hash.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/hash.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/hash.c.obj
+
+third_party/wolfssl/wolfcrypt/src/hash.i: third_party/wolfssl/wolfcrypt/src/hash.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/hash.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/hash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/hash.c.i
+
+third_party/wolfssl/wolfcrypt/src/hash.s: third_party/wolfssl/wolfcrypt/src/hash.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/hash.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/hash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/hash.c.s
+
+third_party/wolfssl/wolfcrypt/src/hmac.obj: third_party/wolfssl/wolfcrypt/src/hmac.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/hmac.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/hmac.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hmac.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/hmac.c.obj
+
+third_party/wolfssl/wolfcrypt/src/hmac.i: third_party/wolfssl/wolfcrypt/src/hmac.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/hmac.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/hmac.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hmac.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/hmac.c.i
+
+third_party/wolfssl/wolfcrypt/src/hmac.s: third_party/wolfssl/wolfcrypt/src/hmac.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/hmac.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/hmac.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hmac.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/hmac.c.s
+
+third_party/wolfssl/wolfcrypt/src/memory.obj: third_party/wolfssl/wolfcrypt/src/memory.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/memory.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/memory.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/memory.c.obj
+
+third_party/wolfssl/wolfcrypt/src/memory.i: third_party/wolfssl/wolfcrypt/src/memory.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/memory.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/memory.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/memory.c.i
+
+third_party/wolfssl/wolfcrypt/src/memory.s: third_party/wolfssl/wolfcrypt/src/memory.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/memory.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/memory.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/memory.c.s
+
+third_party/wolfssl/wolfcrypt/src/misc.obj: third_party/wolfssl/wolfcrypt/src/misc.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/misc.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/misc.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/misc.c.obj
+
+third_party/wolfssl/wolfcrypt/src/misc.i: third_party/wolfssl/wolfcrypt/src/misc.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/misc.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/misc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/misc.c.i
+
+third_party/wolfssl/wolfcrypt/src/misc.s: third_party/wolfssl/wolfcrypt/src/misc.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/misc.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/misc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/misc.c.s
+
+third_party/wolfssl/wolfcrypt/src/poly1305.obj: third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/poly1305.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
+
+third_party/wolfssl/wolfcrypt/src/poly1305.i: third_party/wolfssl/wolfcrypt/src/poly1305.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/poly1305.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.i
+
+third_party/wolfssl/wolfcrypt/src/poly1305.s: third_party/wolfssl/wolfcrypt/src/poly1305.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/poly1305.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.s
+
+third_party/wolfssl/wolfcrypt/src/random.obj: third_party/wolfssl/wolfcrypt/src/random.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/random.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/random.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/random.c.obj
+
+third_party/wolfssl/wolfcrypt/src/random.i: third_party/wolfssl/wolfcrypt/src/random.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/random.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/random.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/random.c.i
+
+third_party/wolfssl/wolfcrypt/src/random.s: third_party/wolfssl/wolfcrypt/src/random.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/random.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/random.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/random.c.s
+
+third_party/wolfssl/wolfcrypt/src/sha256.obj: third_party/wolfssl/wolfcrypt/src/sha256.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha256.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/sha256.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha256.c.obj
+
+third_party/wolfssl/wolfcrypt/src/sha256.i: third_party/wolfssl/wolfcrypt/src/sha256.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha256.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/sha256.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha256.c.i
+
+third_party/wolfssl/wolfcrypt/src/sha256.s: third_party/wolfssl/wolfcrypt/src/sha256.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha256.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/sha256.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha256.c.s
+
+third_party/wolfssl/wolfcrypt/src/sha512.obj: third_party/wolfssl/wolfcrypt/src/sha512.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/sha512.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha512.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.c.obj
+
+third_party/wolfssl/wolfcrypt/src/sha512.i: third_party/wolfssl/wolfcrypt/src/sha512.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/sha512.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha512.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.c.i
+
+third_party/wolfssl/wolfcrypt/src/sha512.s: third_party/wolfssl/wolfcrypt/src/sha512.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/sha512.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha512.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.c.s
+
+third_party/wolfssl/wolfcrypt/src/sp_int.obj: third_party/wolfssl/wolfcrypt/src/sp_int.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/sp_int.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/sp_int.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sp_int.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/sp_int.c.obj
+
+third_party/wolfssl/wolfcrypt/src/sp_int.i: third_party/wolfssl/wolfcrypt/src/sp_int.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/sp_int.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/sp_int.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sp_int.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/sp_int.c.i
+
+third_party/wolfssl/wolfcrypt/src/sp_int.s: third_party/wolfssl/wolfcrypt/src/sp_int.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/sp_int.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/sp_int.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sp_int.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/sp_int.c.s
+
+third_party/wolfssl/wolfcrypt/src/wc_port.obj: third_party/wolfssl/wolfcrypt/src/wc_port.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/wc_port.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/wc_port.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/wc_port.c.obj
+
+third_party/wolfssl/wolfcrypt/src/wc_port.i: third_party/wolfssl/wolfcrypt/src/wc_port.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/wc_port.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/wc_port.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/wc_port.c.i
+
+third_party/wolfssl/wolfcrypt/src/wc_port.s: third_party/wolfssl/wolfcrypt/src/wc_port.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/wc_port.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/wc_port.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/wc_port.c.s
+
+third_party/wolfssl/wolfcrypt/src/wolfmath.obj: third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/wolfmath.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj
+
+third_party/wolfssl/wolfcrypt/src/wolfmath.i: third_party/wolfssl/wolfcrypt/src/wolfmath.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/wolfmath.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/wolfmath.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/wolfmath.c.i
+
+third_party/wolfssl/wolfcrypt/src/wolfmath.s: third_party/wolfssl/wolfcrypt/src/wolfmath.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/wolfmath.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/wolfmath.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/wolfmath.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -466,9 +1370,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... stm32_benchmark.elf"
+	@echo "... adapters/crypto_aes_gcm.obj"
+	@echo "... adapters/crypto_aes_gcm.i"
+	@echo "... adapters/crypto_aes_gcm.s"
+	@echo "... adapters/crypto_chacha20_poly1305.obj"
+	@echo "... adapters/crypto_chacha20_poly1305.i"
+	@echo "... adapters/crypto_chacha20_poly1305.s"
 	@echo "... adapters/crypto_dilithium2.obj"
 	@echo "... adapters/crypto_dilithium2.i"
 	@echo "... adapters/crypto_dilithium2.s"
+	@echo "... adapters/crypto_ecdsap256.obj"
+	@echo "... adapters/crypto_ecdsap256.i"
+	@echo "... adapters/crypto_ecdsap256.s"
+	@echo "... adapters/crypto_ed25519.obj"
+	@echo "... adapters/crypto_ed25519.i"
+	@echo "... adapters/crypto_ed25519.s"
+	@echo "... adapters/crypto_hkdfsha256.obj"
+	@echo "... adapters/crypto_hkdfsha256.i"
+	@echo "... adapters/crypto_hkdfsha256.s"
+	@echo "... adapters/crypto_kyber.obj"
+	@echo "... adapters/crypto_kyber.i"
+	@echo "... adapters/crypto_kyber.s"
+	@echo "... adapters/pqm4_randombytes.obj"
+	@echo "... adapters/pqm4_randombytes.i"
+	@echo "... adapters/pqm4_randombytes.s"
 	@echo "... core/src/benchmark_runner.obj"
 	@echo "... core/src/benchmark_runner.i"
 	@echo "... core/src/benchmark_runner.s"
@@ -479,6 +1404,41 @@ help:
 	@echo "... platforms/stm32_renode/main.i"
 	@echo "... platforms/stm32_renode/main.s"
 	@echo "... third_party/pqm4/common/keccakf1600.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.s"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.s"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.s"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.s"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.s"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.s"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.s"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.s"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.obj"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.i"
+	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.s"
 	@echo "... third_party/pqm4/crypto_sign/ml-dsa-44/m4f/ntt.obj"
 	@echo "... third_party/pqm4/crypto_sign/ml-dsa-44/m4f/packing.obj"
 	@echo "... third_party/pqm4/crypto_sign/ml-dsa-44/m4f/packing.i"
@@ -507,6 +1467,63 @@ help:
 	@echo "... third_party/pqm4/mupq/common/fips202.obj"
 	@echo "... third_party/pqm4/mupq/common/fips202.i"
 	@echo "... third_party/pqm4/mupq/common/fips202.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/aes.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/aes.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/aes.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/asn.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/asn.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/asn.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ecc.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ecc.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ecc.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/fe_operations.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/fe_operations.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/fe_operations.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ge_operations.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ge_operations.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/ge_operations.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/hash.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/hash.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/hash.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/hmac.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/hmac.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/hmac.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/memory.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/memory.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/memory.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/misc.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/misc.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/misc.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/random.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/random.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/random.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sha256.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sha256.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sha256.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sha512.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sha512.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sha512.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sp_int.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sp_int.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/sp_int.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/wc_port.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/wc_port.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/wc_port.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/wolfmath.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/wolfmath.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/wolfmath.s"
 .PHONY : help
 
 

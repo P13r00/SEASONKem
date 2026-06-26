@@ -95,9 +95,21 @@ static void init_platform_hardware(void) {
 /* ------------------------------------------------------------------ */
 /* Startup / entry                                                    */
 /* ------------------------------------------------------------------ */
+/* Symbols provided by linker.ld */
+extern uint32_t _sidata, _sdata, _edata, _sbss, _ebss;
+
 void Reset_Handler(void) {
+    /* Copy .data initializers from Flash to RAM */
+    uint32_t *src = &_sidata;
+    uint32_t *dst = &_sdata;
+    while (dst < &_edata) *dst++ = *src++;
+
+    /* Zero .bss (static/global uninitialised variables) */
+    dst = &_sbss;
+    while (dst < &_ebss) *dst++ = 0u;
+
     main();
-    while (1); 
+    while (1);
 }
 
 int main(void) {

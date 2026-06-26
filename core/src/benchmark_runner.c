@@ -4,14 +4,14 @@
 /* ================================================================== */
 /* GLOBAL ALGORITHM CONFIGURATION (1 = Compile & Run, 0 = Skip)       */
 /* ================================================================== */
-#define COMPILE_ED25519           0
-#define COMPILE_ECDSAP256         0
-#define COMPILE_AES_GCM           0
-#define COMPILE_CHACHA20_POLY1305 0
-#define COMPILE_HKDF_SHA256       0
+#define COMPILE_ED25519           1
+#define COMPILE_ECDSAP256         1
+#define COMPILE_AES_GCM           1
+#define COMPILE_CHACHA20_POLY1305 1
+#define COMPILE_HKDF_SHA256       1
 #define COMPILE_ASCON80           0
 #define COMPILE_ASCON_HASH        0
-#define COMPILE_KYBER512          0
+#define COMPILE_KYBER512          1
 #define COMPILE_DILITHIUM2        1
 
 /* ------------------------------------------------------------------ */
@@ -177,11 +177,12 @@ void execute_signature_benchmark(crypto_type_t type) {
         return; /* cite: x */
     }
 
-    uint8_t pk[32]; /* cite: x */
-    uint8_t sk[64]; /* cite: x */
-    uint8_t sig[64]; /* cite: x */
-    size_t  siglen = 0; /* cite: x */
-    uint8_t msg[4] = {0x01, 0x02, 0x03, 0x04}; /* cite: x */
+    /* Static: crypto_sign_ctx needs ~50 KB stack internally; keep local frames small */
+    static uint8_t pk[1312];
+    static uint8_t sk[2528];
+    static uint8_t sig[2420];
+    size_t  siglen = 0;
+    uint8_t msg[4] = {0x01, 0x02, 0x03, 0x04};
 
     platform_print_string("-> Benchmarking: "); /* cite: x */
     platform_print_string(ops->name); /* cite: x */
@@ -319,12 +320,12 @@ void execute_kem_benchmark(crypto_type_t type) {
         return;
     }
 
-    /* ML-KEM-512 allocations: Public Key=800B, Secret Key=1632B, Ciphertext=768B, Shared Secret=32B */
-    uint8_t pk[800];
-    uint8_t sk[1632];
-    uint8_t ct[768];
-    uint8_t ss_enc[32];
-    uint8_t ss_dec[32];
+    /* Static: keeps stack free for pqm4 internal NTT temporaries */
+    static uint8_t pk[800];
+    static uint8_t sk[1632];
+    static uint8_t ct[768];
+    static uint8_t ss_enc[32];
+    static uint8_t ss_dec[32];
 
     platform_print_string("-> Benchmarking: ");
     platform_print_string(ops->name);
