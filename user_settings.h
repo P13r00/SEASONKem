@@ -27,6 +27,7 @@
 #define HAVE_ECC
 #define HAVE_ECC256
 #define HAVE_SHA256
+#define HAVE_CURVE25519
 
 
 /* ---- Disable unused algorithms (saves ~60–100 KiB flash) ---------- */

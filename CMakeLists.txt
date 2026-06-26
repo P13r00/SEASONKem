@@ -25,7 +25,7 @@ set(CMAKE_C_STANDARD 99)
 # ==============================================================================
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
-foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256 KYBER512 DILITHIUM2 FALCON512)
+foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256 KYBER512 KYBER768 DILITHIUM2 FALCON512)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -47,7 +47,7 @@ set(WOLFCRYPT_SOURCES "")
 # wolfcrypt base is needed by all wolfcrypt algorithms and by the inline
 # WC_RNG used in the pqm4 adapters (Kyber, Dilithium, Falcon).
 if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR
-   COMPILE_ECDSAP256 OR COMPILE_KYBER512 OR COMPILE_DILITHIUM2 OR COMPILE_FALCON512)
+   COMPILE_ECDSAP256 OR COMPILE_KYBER512 OR COMPILE_KYBER768 OR COMPILE_DILITHIUM2 OR COMPILE_FALCON512)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
@@ -136,7 +136,21 @@ if(COMPILE_KYBER512)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_kyber.c")
+    list(APPEND CORE_SOURCES "adapters/crypto_kyber512.c")
+endif()
+
+if(COMPILE_KYBER768)
+    file(GLOB PQM4_KEM_SOURCES
+        "${PQM4_DIR}/crypto_kem/ml-kem-768/m4fspeed/*.c"
+        "${PQM4_DIR}/crypto_kem/ml-kem-768/m4fspeed/*.S"
+        "${PQM4_DIR}/crypto_kem/ml-kem-768/m4fspeed/*.s"
+    )
+    list(APPEND PQM4_SOURCES
+        ${PQM4_KEM_SOURCES}
+        ${PQM4_DIR}/mupq/common/fips202.c
+        ${PQM4_DIR}/common/keccakf1600.S
+    )
+    list(APPEND CORE_SOURCES "adapters/crypto_kyber768.c")
 endif()
 
 if(COMPILE_DILITHIUM2)

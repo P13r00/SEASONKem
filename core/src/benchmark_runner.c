@@ -4,16 +4,18 @@
 /* ================================================================== */
 /* GLOBAL ALGORITHM CONFIGURATION (1 = Compile & Run, 0 = Skip)       */
 /* ================================================================== */
-#define COMPILE_ED25519           1
-#define COMPILE_ECDSAP256         1
+#define COMPILE_ED25519           0
+#define COMPILE_ECDSAP256         0
 #define COMPILE_AES_GCM           0
 #define COMPILE_CHACHA20_POLY1305 0
 #define COMPILE_HKDF_SHA256       0
 #define COMPILE_ASCON80           0
 #define COMPILE_ASCON_HASH        0
-#define COMPILE_KYBER512          0
-#define COMPILE_DILITHIUM2        1
+#define COMPILE_KYBER512          1
+#define COMPILE_KYBER768          0
+#define COMPILE_DILITHIUM2        0
 #define COMPILE_FALCON512         0
+#define COMPILE_X25519            0
 
 /* ------------------------------------------------------------------ */
 /* Signature registry                                                 */
@@ -89,7 +91,7 @@ static const crypto_aead_ops_t *aead_registry[] = {
 extern const crypto_kdf_ops_t hkdf_sha256_ops; /* cite: x */
 #endif
 #if COMPILE_ASCON_HASH
-extern const crypto_aead_ops_t asconhash256_ops; /* cite: x */
+extern const crypto_kdf_ops_t asconhash256_ops; /* cite: x */
 #endif
 
 static const crypto_kdf_ops_t *kdf_registry[] = {
@@ -97,7 +99,7 @@ static const crypto_kdf_ops_t *kdf_registry[] = {
     &hkdf_sha256_ops, /* cite: x */
 #endif
 #if COMPILE_ASCON_HASH
-    (const crypto_kdf_ops_t *)&asconhash256_ops, /* cite: x */
+    &asconhash256_ops, /* cite: x */
 #endif
     NULL
 };
@@ -110,14 +112,38 @@ static const crypto_kdf_ops_t *kdf_registry[] = {
 #if COMPILE_KYBER512
 extern const crypto_kem_ops_t kyber512_ops;
 #endif
+#if COMPILE_KYBER768
+extern const crypto_kem_ops_t kyber768_ops;
+#endif
 
 static const crypto_kem_ops_t *kem_registry[] = {
 #if COMPILE_KYBER512
     &kyber512_ops,
 #endif
+#if COMPILE_KYBER768
+    &kyber768_ops,
+#endif
     NULL
 };
 #define KEM_REGISTRY_COUNT ((sizeof(kem_registry) / sizeof(kem_registry[0])) - 1)
+
+/* ------------------------------------------------------------------ */
+/* Key Exchange registry                                              */
+/* ------------------------------------------------------------------ */
+
+#if COMPILE_X25519
+extern const crypto_kex_ops_t x25519_ops;
+#endif
+
+static const crypto_kex_ops_t *kex_registry[] = {
+#if COMPILE_X25519
+    &x25519_ops,
+#endif
+    NULL
+};
+#define KEX_REGISTRY_COUNT ((sizeof(kex_registry) / sizeof(kex_registry[0])) - 1)
+
+
 
 /* ------------------------------------------------------------------ */
 /* Platform HAL — implemented in platforms/stm32_renode/main.c       */
@@ -329,9 +355,9 @@ void execute_kem_benchmark(crypto_type_t type) {
     }
 
     /* Static: keeps stack free for pqm4 internal NTT temporaries */
-    static uint8_t pk[800];
-    static uint8_t sk[1632];
-    static uint8_t ct[768];
+    static uint8_t pk[1184];
+    static uint8_t sk[2400];
+    static uint8_t ct[1088];
     static uint8_t ss_enc[32];
     static uint8_t ss_dec[32];
 

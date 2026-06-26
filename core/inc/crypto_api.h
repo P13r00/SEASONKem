@@ -24,6 +24,7 @@ typedef enum {
     ALG_HYBRID_KEX,
     ALG_HYBRID_SIGN,
     ALG_KYBER512,
+    ALG_KYBER768,
     ALG_PHOTON_BEETLE_AEAD,
     ALG_SHAKE256,
     ALG_X25519 
@@ -112,6 +113,19 @@ typedef struct {
     int (*decaps)(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
 } crypto_kem_ops_t;
 
+/* ------------------------------------------------------------------*/
+/* Key Exchange (KEX) ops                                                */
+/* keygen - generate public key (pk) and secret key (sk)             */
+/* shared_secret - derive shared secret (ss) */
+/* ------------------------------------------------------------------*/
+
+typedef struct {
+    crypto_type_t  type;
+    const char    *name;
+    int (*keygen)(uint8_t *pk, uint8_t *sk);
+    int (*shared_secret)(uint8_t *ss, const uint8_t *peer_pk, const uint8_t *sk);
+} crypto_kex_ops_t;
+
 /* ------------------------------------------------------------------ */
 /*  Measurement utilities (defined in core/src/benchmark_runner.c)   */
 /* ------------------------------------------------------------------ */
@@ -129,7 +143,7 @@ void execute_signature_benchmark(crypto_type_t type);
 void execute_aead_benchmark(crypto_type_t type);
 void execute_kdf_benchmark(crypto_type_t type);
 void execute_kem_benchmark(crypto_type_t type);
-
+void execute_kex_benchmark(crypto_type_t type);
 void heap_reset(void);
 
 #endif /* CRYPTO_API_H */
