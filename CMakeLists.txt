@@ -25,8 +25,7 @@ set(CMAKE_C_STANDARD 99)
 # ==============================================================================
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
-# Added KYBER512 to this loop!
-foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256 KYBER512 DILITHIUM2)
+foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256 KYBER512 DILITHIUM2 FALCON512)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -45,7 +44,10 @@ set(CORE_SOURCES
 set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
 set(WOLFCRYPT_SOURCES "")
 
-if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR COMPILE_ECDSAP256 OR COMPILE_KYBER512 OR COMPILE_DILITHIUM2)
+# wolfcrypt base is needed by all wolfcrypt algorithms and by the inline
+# WC_RNG used in the pqm4 adapters (Kyber, Dilithium, Falcon).
+if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR
+   COMPILE_ECDSAP256 OR COMPILE_KYBER512 OR COMPILE_DILITHIUM2 OR COMPILE_FALCON512)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
@@ -55,7 +57,7 @@ if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HK
         ${WOLFCRYPT_DIR}/wolfcrypt/src/random.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/hash.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sha256.c
-   )
+    )
 endif()
 
 if(COMPILE_HKDF_SHA256)
@@ -119,8 +121,7 @@ if(COMPILE_ASCON_HASH)
     list(APPEND CORE_SOURCES "adapters/crypto_asconhash256.c")
 endif()
 
-# --- PQM4 / Kyber Setup ---
-# --- PQM4 / Kyber Setup ---
+# --- PQM4 Setup ---
 set(PQM4_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pqm4)
 set(PQM4_SOURCES "")
 
@@ -138,16 +139,9 @@ if(COMPILE_KYBER512)
     list(APPEND CORE_SOURCES "adapters/crypto_kyber.c")
 endif()
 
-if(COMPILE_KYBER512 OR COMPILE_DILITHIUM2)
-    # Single randombytes() / PQCLEAN_randombytes() provider for all pqm4 algorithms.
-    # Compiled exactly once; both adapters omit any RNG code.
-    list(APPEND CORE_SOURCES "adapters/pqm4_randombytes.c")
-endif()
-
 if(COMPILE_DILITHIUM2)
     # ml-dsa-44/m4f is self-contained: sign.c implements all _ctx entry points;
     # crypto_sign / crypto_sign_open etc. are macros in api.h → _ctx variants.
-    # There is no clean/ subdirectory in this pqm4 tree.
     file(GLOB PQM4_SIGN_M4F_SOURCES
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.c"
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.S"
@@ -161,7 +155,19 @@ if(COMPILE_DILITHIUM2)
     list(APPEND CORE_SOURCES "adapters/crypto_dilithium2.c")
 endif()
 
-# Deduplicate shared files (fips202 / keccakf1600) if both algorithms are active
+if(COMPILE_FALCON512)
+    file(GLOB PQM4_FALCON_SOURCES
+        "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.c"
+        "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.s"
+        "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.S"
+    )
+    # Exclude the bundled sysrng.c — crypto_falcon512.c provides sysrng().
+    #list(FILTER PQM4_FALCON_SOURCES EXCLUDE REGEX "sysrng\\.c$")
+    list(APPEND PQM4_SOURCES ${PQM4_FALCON_SOURCES})
+    list(APPEND CORE_SOURCES "adapters/crypto_falcon512.c")
+endif()
+
+# Deduplicate shared files (fips202 / keccakf1600) if multiple algorithms are active.
 if(PQM4_SOURCES)
     list(REMOVE_DUPLICATES PQM4_SOURCES)
 endif()
@@ -211,6 +217,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     target_include_directories(stm32_benchmark.elf PRIVATE
         ${PQM4_DIR}/mupq/common
         ${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f
+        ${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f
         ${PQM4_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode

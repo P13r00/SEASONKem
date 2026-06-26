@@ -6,13 +6,14 @@
 /* ================================================================== */
 #define COMPILE_ED25519           1
 #define COMPILE_ECDSAP256         1
-#define COMPILE_AES_GCM           1
-#define COMPILE_CHACHA20_POLY1305 1
-#define COMPILE_HKDF_SHA256       1
+#define COMPILE_AES_GCM           0
+#define COMPILE_CHACHA20_POLY1305 0
+#define COMPILE_HKDF_SHA256       0
 #define COMPILE_ASCON80           0
 #define COMPILE_ASCON_HASH        0
-#define COMPILE_KYBER512          1
+#define COMPILE_KYBER512          0
 #define COMPILE_DILITHIUM2        1
+#define COMPILE_FALCON512         0
 
 /* ------------------------------------------------------------------ */
 /* Signature registry                                                 */
@@ -30,6 +31,10 @@ extern const crypto_ops_t ecdsap256_ops; /* cite: x */
 extern const crypto_ops_t dilithium2_ops; /* cite: x */
 #endif
 
+#if COMPILE_FALCON512
+extern const crypto_ops_t falcon512_ops;
+#endif
+
 static const crypto_ops_t *sign_registry[] = {
 #if COMPILE_ED25519
     &ed25519_ops, /* cite: x */
@@ -39,6 +44,9 @@ static const crypto_ops_t *sign_registry[] = {
 #endif
 #if COMPILE_DILITHIUM2
     &dilithium2_ops, /* cite: x */
+#endif
+#if COMPILE_FALCON512
+    &falcon512_ops,
 #endif
     NULL
 };
