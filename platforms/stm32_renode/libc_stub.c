@@ -86,10 +86,6 @@ void free(void *p) {
     (void)p;    /* bump allocator: frees are no-ops */
 }
 
-void heap_reset(void) {
-    s_heap_top = 0;
-}
-
 void *realloc(void *p, size_t n) {
     /* Naive: allocate fresh, copy up to n bytes.
      * Safe here because wolfcrypt only reallocs to grow a buffer,

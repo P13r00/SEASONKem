@@ -9,7 +9,6 @@
 /* ------------------------------------------------------------------ */
 
 typedef enum {
-    /* Signature / authentication */
     ALG_AES_GCM,
     ALG_ASCON80PQ,
     ALG_ASCON_HASH_256,
@@ -27,7 +26,7 @@ typedef enum {
     ALG_KYBER768,
     ALG_PHOTON_BEETLE_AEAD,
     ALG_SHAKE256,
-    ALG_X25519 
+    ALG_X25519
 } crypto_type_t;
 
 #define CRYPTO_SUCCESS  0
@@ -62,9 +61,9 @@ typedef struct {
 typedef struct {
     crypto_type_t  type;
     const char    *name;
-    size_t         key_bytes;    /* key length in bytes              */
-    size_t         nonce_bytes;  /* nonce / IV length in bytes       */
-    size_t         tag_bytes;    /* authentication tag length        */
+    size_t         key_bytes;
+    size_t         nonce_bytes;
+    size_t         tag_bytes;
     int (*init)(void);
     int (*keygen)(uint8_t *key, uint8_t *nonce);
     int (*encrypt)(uint8_t *ct,   size_t *ctlen,
@@ -83,9 +82,8 @@ typedef struct {
 /*  Key-derivation ops (extract-then-expand, e.g. HKDF)              */
 /*                                                                     */
 /*  derive – okm_len bytes into okm                                   */
-/*           ikm   = input key material (e.g. raw shared secret)     */
-/*           salt  = optional salt; NULL → zero-length treated as    */
-/*                   algorithm-specific zero vector                   */
+/*           ikm   = input key material                               */
+/*           salt  = optional salt; NULL → zero-length               */
 /*           info  = optional context label; NULL → zero-length      */
 /* ------------------------------------------------------------------ */
 
@@ -99,12 +97,9 @@ typedef struct {
 } crypto_kdf_ops_t;
 
 /* ------------------------------------------------------------------ */
-/* Key Encapsulation Mechanism (KEM) ops                           */
-/* */
-/* keygen – generate public key (pk) and secret key (sk)             */
-/* encaps – generate ciphertext (ct) and shared secret (ss) from pk   */
-/* decaps – recover shared secret (ss) from ct and sk                 */
+/*  Key Encapsulation Mechanism (KEM) ops                             */
 /* ------------------------------------------------------------------ */
+
 typedef struct {
     crypto_type_t  type;
     const char    *name;
@@ -113,11 +108,9 @@ typedef struct {
     int (*decaps)(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
 } crypto_kem_ops_t;
 
-/* ------------------------------------------------------------------*/
-/* Key Exchange (KEX) ops                                                */
-/* keygen - generate public key (pk) and secret key (sk)             */
-/* shared_secret - derive shared secret (ss) */
-/* ------------------------------------------------------------------*/
+/* ------------------------------------------------------------------ */
+/*  Key Exchange (KEX) ops                                            */
+/* ------------------------------------------------------------------ */
 
 typedef struct {
     crypto_type_t  type;
@@ -127,13 +120,62 @@ typedef struct {
 } crypto_kex_ops_t;
 
 /* ------------------------------------------------------------------ */
-/*  Measurement utilities (defined in core/src/benchmark_runner.c)   */
+/*  Heap bump allocator                                               */
+/*                                                                     */
+/*  Implemented in benchmark_runner.c; backed by the .heap (NOLOAD)  */
+/*  linker section (_sheap … _eheap).                                 */
+/*                                                                     */
+/*  heap_reset()        – reclaim all memory; reset peak counter.    */
+/*                        Must be called before each benchmark run.   */
+/*  heap_malloc(n)      – allocate n bytes, 8-byte aligned,          */
+/*                        zero-initialised.  Returns NULL on OOM.    */
+/*  heap_peak_used()    – bytes allocated since last heap_reset().   */
+/*  heap_current_used() – bytes currently live on the heap.          */
+/*  heap_capacity()     – total heap pool size in bytes.             */
+/* ------------------------------------------------------------------ */
+
+void     heap_reset(void);
+void    *heap_malloc(size_t size);
+uint32_t heap_peak_used(void);
+uint32_t heap_current_used(void);
+uint32_t heap_capacity(void);
+
+/* ------------------------------------------------------------------ */
+/*  Static / stack / flash measurement utilities                      */
+/*  (implemented in benchmark_runner.c)                               */
 /* ------------------------------------------------------------------ */
 
 void     fill_stack_watermark(void);
 void     reset_stack_watermark(void);
 uint32_t measure_stack_used(void);
+uint32_t measure_stack_capacity(void);
 uint32_t measure_static_ram(void);
+
+/*
+ * measure_algo_flash(type)
+ *
+ * Returns the number of Flash bytes (.text + .rodata) occupied by the
+ * adapter for the given algorithm type, using the _flash_<algo>_start
+ * and _flash_<algo>_end symbols placed by the linker script.
+ *
+ * Returns 0 if the adapter was not linked or the type is unknown.
+ */
+uint32_t measure_algo_flash(crypto_type_t type);
+
+/* ------------------------------------------------------------------ */
+/*  Platform I/O                                                      */
+/*  (implemented in stm32_renode_main.c)                              */
+/* ------------------------------------------------------------------ */
+
+void platform_print_string(const char *str);
+void platform_print_number(uint32_t num);
+
+/*
+ * platform_print_hex(val)
+ * Prints val as "0xXXXXXXXX" (8 uppercase hex digits) over USART1.
+ * Useful for printing linker-symbol addresses in the memory map.
+ */
+void platform_print_hex(uint32_t val);
 
 /* ------------------------------------------------------------------ */
 /*  Benchmark entry points                                             */
@@ -144,6 +186,5 @@ void execute_aead_benchmark(crypto_type_t type);
 void execute_kdf_benchmark(crypto_type_t type);
 void execute_kem_benchmark(crypto_type_t type);
 void execute_kex_benchmark(crypto_type_t type);
-void heap_reset(void);
 
 #endif /* CRYPTO_API_H */

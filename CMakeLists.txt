@@ -237,7 +237,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl
         ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon
-        # third_party/ascon/tests intentionally omitted
+        ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon/tests
     )
 
     target_link_options(stm32_benchmark.elf PRIVATE
