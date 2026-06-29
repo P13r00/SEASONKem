@@ -118,20 +118,20 @@ endif()
 
 if(COMPILE_ASCON_HASH256)
     list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m/hash.c
-        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m/permutations.c
-        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m/interleave.c
-        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m/constants.c
+        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c
+        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c
+        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c
+        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_asconhash256.c")
 endif()
 
 if(COMPILE_ASCON_XOF)
     list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m/hash.c
-        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m/permutations.c
-        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m/interleave.c
-        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m/constants.c
+        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m_small/hash.c
+        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m_small/permutations.c
+        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m_small/interleave.c
+        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m_small/constants.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_asconxof.c")
 endif()

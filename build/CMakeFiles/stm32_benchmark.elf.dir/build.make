@@ -86,19 +86,19 @@ CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmark_runner.c -o CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconxof.c
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconxof.c
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconhash256.c
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconhash256.c
 
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconxof.c > CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.i
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconhash256.c > CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconxof.c -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.s
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconhash256.c -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.s
 
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/main.c
@@ -240,66 +240,66 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.s:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/sha256.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.s
 
 # Object files for target stm32_benchmark.elf
 stm32_benchmark_elf_OBJECTS = \
 "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj" \
@@ -310,16 +310,16 @@ stm32_benchmark_elf_OBJECTS = \
 "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj"
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj"
 
 # External object files for target stm32_benchmark.elf
 stm32_benchmark_elf_EXTERNAL_OBJECTS =
 
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconhash256.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj
@@ -330,10 +330,10 @@ stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolf
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/build.make
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking C executable stm32_benchmark.elf"
