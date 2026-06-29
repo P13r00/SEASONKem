@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-# ==============================================================================
-# CROSS-COMPILATION SETUP (MUST BE BEFORE project())
-# ==============================================================================
+
 if(TARGET_PLATFORM STREQUAL "STM32")
     set(CMAKE_SYSTEM_NAME Generic)
     set(CMAKE_SYSTEM_PROCESSOR arm)
@@ -19,13 +17,10 @@ project(crypto_heterogeneous_benchmark C ASM)
 
 set(CMAKE_C_STANDARD 99)
 
-# ==============================================================================
-# AUTOMATIC PROFILE CONFIGURATION EXTRACTION
-# Reads the macro toggles directly from benchmark_runner.c
-# ==============================================================================
+
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
-foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECDSAP256 KYBER512 KYBER768 DILITHIUM2 FALCON512)
+foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH256 ASCON_XOF ECDSAP256 KYBER512 KYBER768 DILITHIUM2 FALCON512)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -33,9 +28,7 @@ foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_HASH ECD
     endif()
 endforeach()
 
-# ==============================================================================
-# Core / Platform-Agnostic Setup
-# ==============================================================================
+
 set(CORE_SOURCES
     core/src/benchmark_runner.c
 )
@@ -43,11 +36,17 @@ set(CORE_SOURCES
 # --- wolfcrypt Setup ---
 set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
 set(WOLFCRYPT_SOURCES "")
+set(WOLFCRYPT_INCLUDES 
+    ${WOLFCRYPT_DIR}
+)
 
-# wolfcrypt base is needed by all wolfcrypt algorithms and by the inline
-# WC_RNG used in the pqm4 adapters (Kyber, Dilithium, Falcon).
+
 if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR
-   COMPILE_ECDSAP256 OR COMPILE_KYBER512 OR COMPILE_KYBER768 OR COMPILE_DILITHIUM2 OR COMPILE_FALCON512 OR COMPILE_ASCON80 OR COMPILE_ASCON_HASH)
+COMPILE_ECDSAP256 OR COMPILE_KYBER512 OR COMPILE_KYBER768 OR COMPILE_DILITHIUM2 OR COMPILE_FALCON512 OR COMPILE_ASCON80 OR COMPILE_ASCON_HASH256 OR COMPILE_ASCON_XOF)
+set(WOLFCRYPT_RNG 1)
+endif()
+
+if(WOLFCRYPT_RNG) # section will be changed as base wolfcrypt combination, when rng is changed
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
@@ -101,9 +100,13 @@ if(COMPILE_CHACHA20_POLY1305)
     list(APPEND CORE_SOURCES "adapters/crypto_chacha20_poly1305.c")
 endif()
 
-# --- Ascon Setup ---
+
 set(ASCON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon)
 set(ASCON_SOURCES "")
+set(ASCON_INCLUDES
+    ${ASCON_DIR}
+    ${ASCON_DIR}/tests
+)
 
 if(COMPILE_ASCON80)
     list(APPEND ASCON_SOURCES
@@ -113,17 +116,34 @@ if(COMPILE_ASCON80)
     list(APPEND CORE_SOURCES "adapters/crypto_ascon80pq.c")
 endif()
 
-if(COMPILE_ASCON_HASH)
+if(COMPILE_ASCON_HASH256)
     list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_hash/asconhashabi32v12/bi32_armv7m/hash.c
-        ${ASCON_DIR}/crypto_hash/asconhashabi32v12/bi32_armv7m/permutations.c
+        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m/hash.c
+        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m/permutations.c
+        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m/interleave.c
+        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m/constants.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_asconhash256.c")
 endif()
 
-# --- PQM4 Setup ---
+if(COMPILE_ASCON_XOF)
+    list(APPEND ASCON_SOURCES
+        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m/hash.c
+        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m/permutations.c
+        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m/interleave.c
+        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m/constants.c
+    )
+    list(APPEND CORE_SOURCES "adapters/crypto_asconxof.c")
+endif()
+
 set(PQM4_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pqm4)
 set(PQM4_SOURCES "")
+set(PQM4_INCLUDES
+    ${PQM4_DIR}/mupq/common
+    ${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f
+    ${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f
+    ${PQM4_DIR}
+)
 
 if(COMPILE_KYBER512)
     file(GLOB PQM4_KEM_SOURCES
@@ -154,8 +174,6 @@ if(COMPILE_KYBER768)
 endif()
 
 if(COMPILE_DILITHIUM2)
-    # ml-dsa-44/m4f is self-contained: sign.c implements all _ctx entry points;
-    # crypto_sign / crypto_sign_open etc. are macros in api.h → _ctx variants.
     file(GLOB PQM4_SIGN_M4F_SOURCES
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.c"
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.S"
@@ -175,20 +193,14 @@ if(COMPILE_FALCON512)
         "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.s"
         "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.S"
     )
-    # Exclude the bundled sysrng.c — crypto_falcon512.c provides sysrng().
-    #list(FILTER PQM4_FALCON_SOURCES EXCLUDE REGEX "sysrng\\.c$")
     list(APPEND PQM4_SOURCES ${PQM4_FALCON_SOURCES})
     list(APPEND CORE_SOURCES "adapters/crypto_falcon512.c")
 endif()
 
-# Deduplicate shared files (fips202 / keccakf1600) if multiple algorithms are active.
 if(PQM4_SOURCES)
     list(REMOVE_DUPLICATES PQM4_SOURCES)
 endif()
 
-# ==============================================================================
-# STM32 Target Binaries Setup
-# ==============================================================================
 if(TARGET_PLATFORM STREQUAL "STM32")
 
     set(ARM_MCU_FLAGS
@@ -224,20 +236,14 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         -fdata-sections
     )
 
-    # Include order: pqm4 paths first so their randombytes.h wins over any
-    # stray header with the same name.  ascon/tests is excluded — its
-    # randombytes.h pulls in forceinline.h which does not exist here.
-    # ml-dsa-44/m4f must be present so crypto_dilithium2.c can find api.h.
+    # Include order: PQM4 paths are placed first so their randombytes.h wins 
+    # over any stray header with the same name.
     target_include_directories(stm32_benchmark.elf PRIVATE
-        ${PQM4_DIR}/mupq/common
-        ${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f
-        ${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f
-        ${PQM4_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
-        ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl
-        ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon
-        ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon/tests
+        ${PQM4_INCLUDES}
+        ${WOLFCRYPT_INCLUDES}
+        ${ASCON_INCLUDES}
     )
 
     target_link_options(stm32_benchmark.elf PRIVATE
@@ -253,7 +259,6 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:stm32_benchmark.elf> ${CMAKE_PROJECT_NAME}.bin
         COMMAND ${CMAKE_OBJCOPY} -O ihex   $<TARGET_FILE:stm32_benchmark.elf> ${CMAKE_PROJECT_NAME}.hex
         COMMAND ${CMAKE_SIZE} $<TARGET_FILE:stm32_benchmark.elf>
-        COMMENT "Generating binaries and printing execution size logs..."
     )
 
 elseif(TARGET_PLATFORM STREQUAL "RP2040")

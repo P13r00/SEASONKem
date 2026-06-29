@@ -20,7 +20,7 @@ extern int crypto_hash(unsigned char *out,
                        const unsigned char *in,
                        unsigned long long inlen);
 
-static int asconhash256_derive(uint8_t       *okm,  size_t okm_len,
+static int asconxof_derive(uint8_t       *okm,  size_t okm_len,
                           const uint8_t *ikm,  size_t ikm_len,
                           const uint8_t *salt, size_t salt_len,
                           const uint8_t *info, size_t info_len)
@@ -34,8 +34,8 @@ static int asconhash256_derive(uint8_t       *okm,  size_t okm_len,
     return (rc == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-const crypto_kdf_ops_t asconhash256_ops = {
-    .type         = ALG_ASCON_HASH256,
-    .name         = "Ascon-Hash-256",
-    .derive       = asconhash256_derive,
+const crypto_kdf_ops_t asconxof_ops = {
+    .type   = ALG_ASCON_XOF,
+    .name   = "ASCON-XOF (ascon)",
+    .derive = asconxof_derive,
 };

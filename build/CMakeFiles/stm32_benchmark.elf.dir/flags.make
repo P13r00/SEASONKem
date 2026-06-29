@@ -4,7 +4,7 @@
 # compile C with /usr/bin/arm-none-eabi-gcc
 C_DEFINES = -DRENODE_SIMULATION -DWOLFSSL_USER_SETTINGS
 
-C_INCLUDES = -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4 -I/home/piec/Documents/ResearchInternship/cryptoBenchmark -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/tests
+C_INCLUDES = -I/home/piec/Documents/ResearchInternship/cryptoBenchmark -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4 -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon -I/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/tests
 
 C_FLAGS = -std=gnu99 -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -ffreestanding -O3 -ffunction-sections -fdata-sections
 

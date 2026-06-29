@@ -1,0 +1,33 @@
+CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/hash.c \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/api.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/ascon.h \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/config.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/tests/crypto_hash.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/permutations.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/constants.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/printstate.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/round.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/forceinline.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/word.h \
+ /usr/arm-none-eabi/include/string.h /usr/arm-none-eabi/include/_ansi.h \
+ /usr/arm-none-eabi/include/newlib.h \
+ /usr/arm-none-eabi/include/_newlib_version.h \
+ /usr/arm-none-eabi/include/sys/config.h \
+ /usr/arm-none-eabi/include/machine/ieeefp.h \
+ /usr/arm-none-eabi/include/sys/features.h \
+ /usr/arm-none-eabi/include/sys/reent.h \
+ /usr/arm-none-eabi/include/_ansi.h \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stddef.h \
+ /usr/arm-none-eabi/include/sys/cdefs.h \
+ /usr/arm-none-eabi/include/machine/_default_types.h \
+ /usr/arm-none-eabi/include/sys/_types.h \
+ /usr/arm-none-eabi/include/machine/_types.h \
+ /usr/arm-none-eabi/include/sys/lock.h \
+ /usr/arm-none-eabi/include/sys/_locale.h \
+ /usr/arm-none-eabi/include/strings.h \
+ /usr/arm-none-eabi/include/sys/string.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/bendian.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofv12/bi32_armv7m/interleave.h

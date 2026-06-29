@@ -25,9 +25,13 @@ SECTIONS
     *crypto_ascon80pq*          (.text* .rodata*)
     _flash_ascon80pq_end        = .;
 
-    _flash_asconhash_start      = .;
+    _flash_asconhash256_start   = .;
     *crypto_asconhash256*       (.text* .rodata*)
-    _flash_asconhash_end        = .;
+    _flash_asconhash256_end     = .;
+
+    _flash_asconxof_start       = .;
+    *crypto_asconxof*           (.text* .rodata*)
+    _flash_asconxof_end         = .;
 
     _flash_blake3_start         = .;
     *crypto_blake3*             (.text* .rodata*)
