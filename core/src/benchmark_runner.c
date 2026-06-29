@@ -1,74 +1,26 @@
-/*
- * benchmark_runner.c
- *
- * Core benchmark harness for the multi-algorithm crypto framework.
- *
- * Memory measurement model (three independent axes per algorithm):
- *
- *   Heap Peak   — bytes of dynamic key/output material allocated from
- *                 the bump-allocator pool during a single benchmark run.
- *                 heap_reset() is called before each run so the peak
- *                 reflects only that algorithm's working set.
- *
- *   Stack HWM   — high-water mark of stack consumption captured via
- *                 the 0xDEADBEEF paint-and-scan watermark method.
- *                 reset_stack_watermark() is called before each run.
- *
- *   Static BSS  — total .bss size (adapter RNG state, pqm4 staging
- *                 buffers, etc.).  This is the same for every run;
- *                 it represents the global static footprint that must
- *                 be resident in RAM at all times.
- *
- *   Flash Code  — bytes of .text + .rodata in Flash attributed to
- *                 each adapter object file, using linker-defined
- *                 _flash_<algo>_start / _flash_<algo>_end symbols.
- *                 Unlinked adapters report 0 B.
- *
- * Bug fixes vs. original:
- *   - ascon80pq_ops   is crypto_ops_t  → moved to sign_registry
- *     (was wrongly declared as crypto_aead_ops_t in the AEAD registry)
- *   - asconhash256_ops is crypto_ops_t → moved to sign_registry
- *     (was wrongly declared as crypto_kdf_ops_t  in the KDF  registry)
- *   - execute_kex_benchmark() added (was missing despite kex_registry)
- *   - Large static pk/sk/sig/ct/ss buffers replaced by heap_malloc()
- */
-
 #include <stddef.h>
 #include "core/inc/crypto_api.h"
 
-/* ================================================================== */
-/* GLOBAL ALGORITHM CONFIGURATION (1 = Compile & Run, 0 = Skip)      */
-/* ================================================================== */
-
-#define COMPILE_ED25519            1
+// Selection point for benchmark
+#define COMPILE_ED25519            0
 #define COMPILE_ECDSAP256          0
-#define COMPILE_AES_GCM            0
+#define COMPILE_AES_GCM            1
 #define COMPILE_CHACHA20_POLY1305  1
 #define COMPILE_HKDF_SHA256        0
-#define COMPILE_ASCON80            0   /* uses sign interface, see below */
-#define COMPILE_ASCON_HASH         0   /* uses sign interface, see below */
+#define COMPILE_ASCON80            1
+#define COMPILE_ASCON_HASH         0
 #define COMPILE_KYBER512           0
 #define COMPILE_KYBER768           0
-#define COMPILE_DILITHIUM2         1
+#define COMPILE_DILITHIUM2         0
 #define COMPILE_FALCON512          0
 #define COMPILE_X25519             0
 
-/* ================================================================== */
-/* SIGNATURE / MAC REGISTRY  (crypto_ops_t)                           */
-/*                                                                    */
-/* Ascon-80pq  and Ascon-Hash-256 implement the sign/verify           */
-/* interface (crypto_ops_t), NOT the AEAD or KDF interfaces.         */
-/* They belong here, not in the AEAD or KDF registries.              */
-/* ================================================================== */
 
 #if COMPILE_ED25519
 extern const crypto_ops_t ed25519_ops;
 #endif
 #if COMPILE_ECDSAP256
 extern const crypto_ops_t ecdsap256_ops;
-#endif
-#if COMPILE_ASCON80
-extern const crypto_ops_t ascon80pq_ops;      /* crypto_ops_t — fixed */
 #endif
 #if COMPILE_ASCON_HASH
 extern const crypto_ops_t asconhash256_ops;   /* crypto_ops_t — fixed */
@@ -86,9 +38,6 @@ static const crypto_ops_t *sign_registry[] = {
 #endif
 #if COMPILE_ECDSAP256
     &ecdsap256_ops,
-#endif
-#if COMPILE_ASCON80
-    &ascon80pq_ops,
 #endif
 #if COMPILE_ASCON_HASH
     &asconhash256_ops,
@@ -111,6 +60,9 @@ static const crypto_ops_t *sign_registry[] = {
 #if COMPILE_AES_GCM
 extern const crypto_aead_ops_t aes_gcm_ops;
 #endif
+#if COMPILE_ASCON80
+extern const crypto_aead_ops_t ascon80pq_ops;
+#endif
 #if COMPILE_CHACHA20_POLY1305
 extern const crypto_aead_ops_t chacha20_poly1305_ops;
 #endif
@@ -118,6 +70,9 @@ extern const crypto_aead_ops_t chacha20_poly1305_ops;
 static const crypto_aead_ops_t *aead_registry[] = {
 #if COMPILE_AES_GCM
     &aes_gcm_ops,
+#endif
+#if COMPILE_ASCON80
+    &ascon80pq_ops,
 #endif
 #if COMPILE_CHACHA20_POLY1305
     &chacha20_poly1305_ops,

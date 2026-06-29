@@ -7,12 +7,6 @@
  *   Keygen  ~   300 cy   (key is already 256-bit; just set up the nonce)
  *   Encrypt ~ 4 500 cy   (Poly1305 key gen + ChaCha20 encrypt + Poly1305 MAC)
  *   Decrypt ~ 4 600 cy   (Poly1305 MAC verification first, then ChaCha20)
- *
- * ChaCha20-Poly1305 is typically faster than AES-GCM on M4 cores that
- * lack the AES-NI hardware acceleration available on application processors.
- *
- * Replace the busy-loops with a real implementation (e.g. the public-domain
- * chacha-ref or a Cortex-M4 NEON-style intrinsic port) when available.
  */
 
 #include <wolfssl/wolfcrypt/chacha20_poly1305.h>
@@ -94,9 +88,6 @@ static int chacha_decrypt(uint8_t *pt, size_t *ptlen,
         *ptlen = msglen;
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
-/* ------------------------------------------------------------------ */
-/*  Exported ops struct                                                */
-/* ------------------------------------------------------------------ */
 
 const crypto_aead_ops_t chacha20_poly1305_ops = {
     .type = ALG_CHACHA20_POLY1305,

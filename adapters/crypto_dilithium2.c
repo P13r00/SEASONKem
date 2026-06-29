@@ -34,7 +34,6 @@ static void ensure_rng(void) {
     }
 }
 
-
 void PQCLEAN_randombytes(uint8_t *buf, size_t len) {
     ensure_rng();
     (void)wc_RNG_GenerateBlock(&s_rng, buf, (word32)len);

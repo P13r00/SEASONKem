@@ -54,43 +54,53 @@
  */
 
 #include <stdint.h>
-#include <stddef.h>
+#include <wolfssl/wolfcrypt/random.h>
 #include "core/inc/crypto_api.h"
 
-/* ------------------------------------------------------------------ */
-/*  Ascon-80pq AEAD API (NIST LWC / ascon-c naming convention)       */
-/*  Resolved at link time from the armv7m encrypt.c object.           */
-/* ------------------------------------------------------------------ */
+static WC_RNG s_rng;
+static int s_rng_ready = 0;
+
+static int ensure_rng(void)
+{
+    if (!s_rng_ready)
+    {
+        if (wc_InitRng(&s_rng) != 0)
+            return CRYPTO_ERROR;
+        s_rng_ready = 1;
+    }
+    return CRYPTO_SUCCESS;
+}
 
 extern int crypto_aead_encrypt(
-    unsigned char       *c,    unsigned long long *clen,
-    const unsigned char *m,    unsigned long long  mlen,
-    const unsigned char *ad,   unsigned long long  adlen,
-    const unsigned char *nsec,          /* always NULL for Ascon   */
-    const unsigned char *npub,          /* nonce, 16 bytes         */
-    const unsigned char *k);            /* key,   20 bytes         */
+    unsigned char *c, unsigned long long *clen,
+    const unsigned char *m, unsigned long long mlen,
+    const unsigned char *ad, unsigned long long adlen,
+    const unsigned char *nsec, /* always NULL for Ascon   */
+    const unsigned char *npub, /* nonce, 16 bytes         */
+    const unsigned char *k);   /* key,   20 bytes         */
 
 extern int crypto_aead_decrypt(
-    unsigned char       *m,    unsigned long long *mlen,
-    unsigned char       *nsec,          /* always NULL for Ascon   */
-    const unsigned char *c,    unsigned long long  clen,
-    const unsigned char *ad,   unsigned long long  adlen,
-    const unsigned char *npub,          /* nonce, 16 bytes         */
-    const unsigned char *k);            /* key,   20 bytes         */
+    unsigned char *m, unsigned long long *mlen,
+    unsigned char *nsec, /* always NULL for Ascon   */
+    const unsigned char *c, unsigned long long clen,
+    const unsigned char *ad, unsigned long long adlen,
+    const unsigned char *npub, /* nonce, 16 bytes         */
+    const unsigned char *k);   /* key,   20 bytes         */
 
 /* ------------------------------------------------------------------ */
 /*  Ascon-80pq static parameters                                      */
 /* ------------------------------------------------------------------ */
 
-#define A80PQ_KEYBYTES   20u    /* 160-bit key                        */
-#define A80PQ_NPUBBYTES  16u    /* 128-bit nonce                      */
-#define A80PQ_ABYTES     16u    /* 128-bit authentication tag         */
+#define A80PQ_KEYBYTES 20u  /* 160-bit key                        */
+#define A80PQ_NPUBBYTES 16u /* 128-bit nonce                      */
+#define A80PQ_ABYTES 16u    /* 128-bit authentication tag         */
 
 /* ------------------------------------------------------------------ */
 /*  Deterministic pattern fill (replaces TRNG on bare metal)          */
 /* ------------------------------------------------------------------ */
 
-static void fill_pattern(uint8_t *buf, size_t len, uint8_t seed) {
+static void fill_pattern(uint8_t *buf, size_t len, uint8_t seed)
+{
     for (size_t i = 0; i < len; i++)
         buf[i] = (uint8_t)(seed ^ (uint8_t)i);
 }
@@ -99,9 +109,10 @@ static void fill_pattern(uint8_t *buf, size_t len, uint8_t seed) {
 /*  Adapter: sign_keypair                                              */
 /* ------------------------------------------------------------------ */
 
-static int a80pq_keypair(uint8_t *pk, uint8_t *sk) {
+static int a80pq_keypair(uint8_t *pk, uint8_t *sk)
+{
     /* key   → sk[0..19]  */
-    fill_pattern(sk,                  A80PQ_KEYBYTES,  0xA5u);
+    fill_pattern(sk, A80PQ_KEYBYTES, 0xA5u);
     /* nonce → sk[20..35] */
     fill_pattern(sk + A80PQ_KEYBYTES, A80PQ_NPUBBYTES, 0x5Au);
 
@@ -115,72 +126,72 @@ static int a80pq_keypair(uint8_t *pk, uint8_t *sk) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Adapter: sign                                                      */
-/*                                                                     */
-/*  Produces ct ∥ tag in sig[].  For the 4-byte benchmark message:   */
-/*    siglen = 4 + 16 = 20 bytes  (sig[64] has plenty of room).       */
+/* Adapter: encrypt                                                  */
 /* ------------------------------------------------------------------ */
 
-static int a80pq_sign(uint8_t *sig,  size_t *siglen,
-                      const uint8_t *msg, size_t msglen,
-                      const uint8_t *sk) {
-    unsigned long long clen = 0;
+static int a80pq_encrypt(uint8_t *c, size_t *clen,
+                         const uint8_t *m, size_t mlen,
+                         const uint8_t *ad, size_t adlen,
+                         const uint8_t *npub, const uint8_t *k)
+{
+    unsigned long long ascon_clen = 0;
 
     int rc = crypto_aead_encrypt(
-        sig,  &clen,
-        msg,  (unsigned long long)msglen,
-        NULL, 0ULL,              /* AD = empty; ascon-c handles adlen==0 */
-        NULL,                    /* nsec — not used by Ascon              */
-        sk + A80PQ_KEYBYTES,     /* npub = nonce, sk[20..35]             */
-        sk);                     /* k    = key,   sk[0..19]              */
+        c, &ascon_clen,
+        m, (unsigned long long)mlen,
+        ad, (unsigned long long)adlen,
+        NULL, /* nsec — not used by Ascon */
+        npub,
+        k);
 
-    *siglen = (size_t)clen;
+    if (clen)
+    {
+        *clen = (size_t)ascon_clen;
+    }
+
     return (rc == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
-
 /* ------------------------------------------------------------------ */
-/*  Adapter: verify                                                    */
+/* Adapter: decrypt                                                  */
 /* ------------------------------------------------------------------ */
 
-static int a80pq_verify(const uint8_t *sig,  size_t siglen,
-                        const uint8_t *msg,  size_t msglen,
-                        const uint8_t *pk) {
-    /* Reconstruct key from the same deterministic seed used in keypair.
-     * pk[0..15] carries the nonce. */
-    uint8_t key[A80PQ_KEYBYTES];
-    fill_pattern(key, A80PQ_KEYBYTES, 0xA5u);
-
-    /* Recovered plaintext — 64 B covers worst-case msg in the benchmark. */
-    uint8_t pt[64];
-    unsigned long long ptlen = 0;
+static int a80pq_decrypt(uint8_t *m, size_t *mlen,
+                         const uint8_t *c, size_t clen,
+                         const uint8_t *ad, size_t adlen,
+                         const uint8_t *npub, const uint8_t *k)
+{
+    unsigned long long ascon_mlen = 0;
 
     int rc = crypto_aead_decrypt(
-        pt,   &ptlen,
-        NULL,                              /* nsec                 */
-        sig,  (unsigned long long)siglen,
-        NULL, 0ULL,                        /* AD = empty           */
-        pk,                                /* npub = nonce = pk[0..15] */
-        key);
+        m, &ascon_mlen,
+        NULL, /* nsec — not used by Ascon */
+        c, (unsigned long long)clen,
+        ad, (unsigned long long)adlen,
+        npub,
+        k);
 
-    if (rc != 0)                                   return CRYPTO_ERROR;
-    if (ptlen != (unsigned long long)msglen)        return CRYPTO_ERROR;
+    if (mlen)
+    {
+        *mlen = (size_t)ascon_mlen;
+    }
 
-    /* Constant-time byte compare — avoids early-exit timing leak. */
-    uint8_t diff = 0u;
-    for (size_t i = 0; i < msglen; i++)
-        diff |= (pt[i] ^ msg[i]);
-
-    return (diff == 0u) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
+    /* Note: The underlying Ascon decrypt already does constant-time tag
+       verification internally. If rc == 0, the message is authentic. */
+    return (rc == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
 /* ------------------------------------------------------------------ */
 /*  Public ops struct                                                  */
 /* ------------------------------------------------------------------ */
 
-const crypto_ops_t ascon80pq_ops = {
-    .type         = ALG_ASCON80PQ,
-    .name         = "Ascon-80pq",
-    .sign_keypair = a80pq_keypair,
-    .sign         = a80pq_sign,
-    .verify       = a80pq_verify,
+const crypto_aead_ops_t ascon80pq_ops = {
+    .type = ALG_ASCON80PQ,
+    .name = "Ascon-80pq",
+    .key_bytes = A80PQ_KEYBYTES,
+    .nonce_bytes = A80PQ_NPUBBYTES,
+    .tag_bytes = A80PQ_ABYTES,
+    .init = ensure_rng,
+    .keygen = a80pq_keypair,
+    .encrypt = a80pq_encrypt,
+    .decrypt = a80pq_decrypt,
 };
