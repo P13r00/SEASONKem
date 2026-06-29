@@ -113,8 +113,8 @@ static int ecdsap256_verify(const uint8_t *sig, size_t siglen,
 }
 
 const crypto_ops_t ecdsap256_ops = {
-    .type         = ALG_ECDSA_P256, /* Adapt label to match your 'crypto_api.h' enums */
     .name         = "ECDSA P-256 (wolfcrypt)",
+    .type         = ALG_ECDSA_P256,
     .sign_keypair = ecdsap256_keypair,
     .sign         = ecdsap256_sign,
     .verify       = ecdsap256_verify,
