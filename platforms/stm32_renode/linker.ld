@@ -25,6 +25,10 @@ SECTIONS
     *crypto_ascon80pq*          (.text* .rodata*)
     _flash_ascon80pq_end        = .;
 
+    _flash_asconaead128_start   = .;
+    *crypto_asconaead128*       (.text* .rodata*)
+    _flash_asconaead128_end     = .;
+
     _flash_asconhash256_start   = .;
     *crypto_asconhash256*       (.text* .rodata*)
     _flash_asconhash256_end     = .;

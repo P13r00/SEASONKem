@@ -11,6 +11,7 @@
 typedef enum {
     ALG_AES_GCM,
     ALG_ASCON80PQ,
+    ALG_ASCON_AEAD128,
     ALG_ASCON_HASH256,
     ALG_ASCON_XOF,
     ALG_BLAKE3,

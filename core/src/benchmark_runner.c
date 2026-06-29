@@ -2,18 +2,19 @@
 #include "core/inc/crypto_api.h"
 
 // Selection point for benchmark
-#define COMPILE_ED25519            1
-#define COMPILE_ECDSAP256          1
+#define COMPILE_ED25519            0
+#define COMPILE_ECDSAP256          0
 #define COMPILE_AES_GCM            0
 #define COMPILE_CHACHA20_POLY1305  0
 #define COMPILE_HKDF_SHA256        0
 #define COMPILE_ASCON80            0
+#define COMPILE_ASCON_AEAD128      1
 #define COMPILE_ASCON_HASH256      0
 #define COMPILE_ASCON_XOF          0
-#define COMPILE_KYBER512           1
+#define COMPILE_KYBER512           0
 #define COMPILE_KYBER768           0
 #define COMPILE_DILITHIUM2         0
-#define COMPILE_FALCON512          1
+#define COMPILE_FALCON512          0
 #define COMPILE_X25519             0
 
 
@@ -58,6 +59,9 @@ extern const crypto_aead_ops_t aes_gcm_ops;
 #if COMPILE_ASCON80
 extern const crypto_aead_ops_t ascon80pq_ops;
 #endif
+#if COMPILE_ASCON_AEAD128
+extern const crypto_aead_ops_t asconaead128_ops;
+#endif
 #if COMPILE_CHACHA20_POLY1305
 extern const crypto_aead_ops_t chacha20_poly1305_ops;
 #endif
@@ -68,6 +72,9 @@ static const crypto_aead_ops_t *aead_registry[] = {
 #endif
 #if COMPILE_ASCON80
     &ascon80pq_ops,
+#endif
+#if COMPILE_ASCON_AEAD128
+    &asconaead128_ops,
 #endif
 #if COMPILE_CHACHA20_POLY1305
     &chacha20_poly1305_ops,
@@ -245,9 +252,9 @@ uint32_t heap_capacity(void) {
 /* An adapter that is not linked produces start == end → 0 B.        */
 /* ================================================================== */
 
-/* All 12 symbol pairs — always declared; empty sections → size 0 */
 extern uint32_t _flash_aes_gcm_start,       _flash_aes_gcm_end;
 extern uint32_t _flash_ascon80pq_start,     _flash_ascon80pq_end;
+extern uint32_t _flash_asconaead128_start,  _flash_asconaead128_end;
 extern uint32_t _flash_asconhash256_start,  _flash_asconhash256_end;
 extern uint32_t _flash_asconxof_start,      _flash_asconxof_end;
 extern uint32_t _flash_chacha_start,        _flash_chacha_end;
@@ -269,7 +276,8 @@ typedef struct {
 static const flash_entry_t s_flash_table[] = {
     { ALG_AES_GCM,           &_flash_aes_gcm_start,       &_flash_aes_gcm_end       },
     { ALG_ASCON80PQ,         &_flash_ascon80pq_start,     &_flash_ascon80pq_end     },
-    { ALG_ASCON_HASH256,    &_flash_asconhash256_start,  &_flash_asconhash256_end  },
+    { ALG_ASCON_AEAD128,     &_flash_asconaead128_start,  &_flash_asconaead128_end  },
+    { ALG_ASCON_HASH256,     &_flash_asconhash256_start,  &_flash_asconhash256_end  },
     { ALG_ASCON_XOF,         &_flash_asconxof_start,      &_flash_asconxof_end      },
     { ALG_CHACHA20_POLY1305, &_flash_chacha_start,        &_flash_chacha_end        },
     { ALG_ECDSA_P256,        &_flash_ecdsap256_start,     &_flash_ecdsap256_end     },
@@ -316,7 +324,6 @@ static const sign_size_t s_sign_sizes[] = {
     /*  type                pk     sk    sig                              */
     {  ALG_ED25519,          32,    64,    64  },  /* Ed25519             */
     {  ALG_ECDSA_P256,       65,    97,    72  },  /* DER r+s worst-case  */
-    {  ALG_ASCON80PQ,        32,    36,    20  },  /* nonce+tag, 4B msg   */
     {  ALG_DILITHIUM2,     1312,  2560,  2420  },  /* ML-DSA-44           */
     {  ALG_FALCON,          897,  1281,   666  },  /* FN-DSA-512          */
 };
