@@ -1,6 +1,8 @@
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sp_c32.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/sp_c32.c \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/libwolfssl_sources.h \
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconaead128.c \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/random.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/types.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/settings.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/user_settings.h \
@@ -42,21 +44,5 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sp_c32.c.ob
  /usr/arm-none-eabi/include/string.h /usr/arm-none-eabi/include/strings.h \
  /usr/arm-none-eabi/include/sys/string.h \
  /usr/arm-none-eabi/include/ctype.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/error-crypt.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/logging.h \
- /usr/arm-none-eabi/include/stdio.h \
- /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdarg.h \
- /usr/arm-none-eabi/include/sys/stdio.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/cpuid.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/misc.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sp.h \
- /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
- /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/wolfmath.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sp_int.h \
- /usr/lib/gcc/arm-none-eabi/15.2.0/include/limits.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/hash.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha256.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha512.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/random.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/ecc.h
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/core/inc/crypto_api.h

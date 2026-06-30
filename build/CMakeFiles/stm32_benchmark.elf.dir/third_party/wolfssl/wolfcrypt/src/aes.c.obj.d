@@ -1,5 +1,5 @@
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/ge_operations.c \
+CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/aes.c \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/libwolfssl_sources.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/types.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/settings.h \
@@ -47,10 +47,8 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ge_operatio
  /usr/arm-none-eabi/include/stdio.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdarg.h \
  /usr/arm-none-eabi/include/sys/stdio.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/ge_operations.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/fe_operations.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/ed25519.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/aes.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/random.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha256.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha512.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/cpuid.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/misc.h

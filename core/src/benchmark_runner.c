@@ -2,13 +2,13 @@
 #include "core/inc/crypto_api.h"
 
 // Selection point for benchmark
-#define COMPILE_ED25519            1
-#define COMPILE_ECDSAP256          1
-#define COMPILE_AES_GCM            0
-#define COMPILE_CHACHA20_POLY1305  0
+#define COMPILE_ED25519            0
+#define COMPILE_ECDSAP256          0
+#define COMPILE_AES_GCM            1
+#define COMPILE_CHACHA20_POLY1305  1
 #define COMPILE_HKDF_SHA256        0
 #define COMPILE_ASCON80            0
-#define COMPILE_ASCON_AEAD128      0
+#define COMPILE_ASCON_AEAD128      1
 #define COMPILE_ASCON_HASH256      0
 #define COMPILE_ASCON_XOF          0
 #define COMPILE_KYBER512           0

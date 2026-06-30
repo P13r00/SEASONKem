@@ -1,6 +1,6 @@
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ed25519.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/ed25519.c \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/libwolfssl_sources.h \
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_chacha20_poly1305.c \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/chacha20_poly1305.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/types.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/settings.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/user_settings.h \
@@ -42,16 +42,8 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ed25519.c.o
  /usr/arm-none-eabi/include/string.h /usr/arm-none-eabi/include/strings.h \
  /usr/arm-none-eabi/include/sys/string.h \
  /usr/arm-none-eabi/include/ctype.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/error-crypt.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/logging.h \
- /usr/arm-none-eabi/include/stdio.h \
- /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdarg.h \
- /usr/arm-none-eabi/include/sys/stdio.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/ed25519.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/random.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha256.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha512.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/ge_operations.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/fe_operations.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/hash.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/misc.h
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/chacha.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/poly1305.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/core/inc/crypto_api.h \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h

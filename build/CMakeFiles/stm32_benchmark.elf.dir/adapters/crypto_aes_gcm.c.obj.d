@@ -1,6 +1,6 @@
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_ed25519.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_ed25519.c \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/ed25519.h \
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_aes_gcm.c \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/aes.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/types.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/settings.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/user_settings.h \
@@ -44,7 +44,6 @@ CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_ed25519.c.obj: \
  /usr/arm-none-eabi/include/ctype.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/random.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha256.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha512.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/core/inc/crypto_api.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h

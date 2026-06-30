@@ -40,19 +40,12 @@ static void fill_pattern(uint8_t *buf, size_t len, uint8_t seed)
 /*  Adapter: sign_keypair                                              */
 /* ------------------------------------------------------------------ */
 
-static int asconaead128_keypair(uint8_t *pk, uint8_t *sk)
+static int asconaead128_keypair(uint8_t *key, uint8_t *nonce)
 {
-    /* key   → sk[0..19]  */
-    fill_pattern(sk, ASCON_128_KEYBYTES, 0xA5u);
-    /* nonce → sk[20..35] */
-    fill_pattern(sk + ASCON_128_KEYBYTES, ASCON_128_NPUBBYTES, 0x5Au);
-
-    /* pk[0..15] = nonce copy so verify() can run without sk */
-    for (size_t i = 0; i < ASCON_128_NPUBBYTES; i++)
-        pk[i] = sk[ASCON_128_KEYBYTES + i];
-    for (size_t i = ASCON_128_NPUBBYTES; i < 32u; i++)
-        pk[i] = 0u;
-
+    if (platform_rng_generate(key, ASCON_128_KEYBYTES) != CRYPTO_SUCCESS)
+        return CRYPTO_ERROR;
+    if (platform_rng_generate(nonce, ASCON_128_NPUBBYTES) != CRYPTO_SUCCESS)
+        return CRYPTO_ERROR;
     return CRYPTO_SUCCESS;
 }
 
