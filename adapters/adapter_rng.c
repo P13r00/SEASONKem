@@ -24,6 +24,13 @@ int platform_rng_generate(uint8_t *buf, size_t len)
                ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
+WC_RNG *platform_rng_handle(void)
+{
+    if (platform_rng_init() != CRYPTO_SUCCESS)
+        return NULL;
+    return &s_rng;
+}
+
 void randombytes(uint8_t *buf, size_t len)
 {
     platform_rng_generate(buf, len);

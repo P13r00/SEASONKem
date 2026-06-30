@@ -125,6 +125,12 @@ typedef struct {
     int (*shared_secret)(uint8_t *ss, const uint8_t *peer_pk, const uint8_t *sk);
 } crypto_kex_ops_t;
 
+
+typedef struct WC_RNG WC_RNG;
+WC_RNG *platform_rng_handle(void);
+
+
+
 /* ------------------------------------------------------------------ */
 /*  Heap bump allocator                                               */
 /*                                                                     */

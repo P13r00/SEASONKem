@@ -3,18 +3,18 @@
 
 // Selection point for benchmark
 #define COMPILE_ED25519            1
-#define COMPILE_ECDSAP256          0
+#define COMPILE_ECDSAP256          1
 #define COMPILE_AES_GCM            0
-#define COMPILE_CHACHA20_POLY1305  1
+#define COMPILE_CHACHA20_POLY1305  0
 #define COMPILE_HKDF_SHA256        0
-#define COMPILE_ASCON80            1
+#define COMPILE_ASCON80            0
 #define COMPILE_ASCON_AEAD128      0
 #define COMPILE_ASCON_HASH256      0
-#define COMPILE_ASCON_XOF          1
+#define COMPILE_ASCON_XOF          0
 #define COMPILE_KYBER512           0
 #define COMPILE_KYBER768           0
 #define COMPILE_DILITHIUM2         0
-#define COMPILE_FALCON512          1
+#define COMPILE_FALCON512          0
 #define COMPILE_X25519             0
 
 
@@ -321,7 +321,7 @@ typedef struct {
 } sign_size_t;
 
 static const sign_size_t s_sign_sizes[] = {
-    /*  type                pk     sk    sig                              */
+    /*  type                 pk     sk    sig                             */
     {  ALG_ED25519,          32,    64,    64  },  /* Ed25519             */
     {  ALG_ECDSA_P256,       65,    97,    72  },  /* DER r+s worst-case  */
     {  ALG_DILITHIUM2,     1312,  2560,  2420  },  /* ML-DSA-44           */

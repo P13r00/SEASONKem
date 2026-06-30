@@ -82,6 +82,7 @@ if(COMPILE_ECDSAP256)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/ecc.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sp_int.c
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/sp_c32.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_ecdsap256.c")
 endif()

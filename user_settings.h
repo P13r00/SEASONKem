@@ -19,6 +19,9 @@
 //#define WOLFSSL_GENSEED_FORTEST
 #define CUSTOM_RAND_GENERATE_SEED custom_rand_generate_seed
 int custom_rand_generate_seed(unsigned char* output, unsigned int sz);
+#define WOLFSSL_SP_NO_MALLOC      /* keep SP buffers off the heap, consistent with your bump allocator */
+#define WOLFSSL_HAVE_SP_ECC
+#define WOLFSSL_SP_256
 
 /* ---- Algorithms --------------------------------------------------- */
 #define HAVE_ED25519            /* Ed25519 sign / verify                */
