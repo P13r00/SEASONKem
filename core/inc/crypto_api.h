@@ -4,6 +4,10 @@
 #include <stdint.h>
 #include <stddef.h>
 
+
+int platform_rng_init(void);
+int platform_rng_generate(uint8_t *buf, size_t len);
+
 /* ------------------------------------------------------------------ */
 /*  Algorithm type tags                                                */
 /* ------------------------------------------------------------------ */

@@ -24,28 +24,6 @@ static uint8_t s_sm[MLDSA44_SIG_BYTES + MLDSA44_MSG_MAX]; /* sign: sm=sig||msg o
                                                             /* verify: sm=sig||msg input */
 static uint8_t s_m[MLDSA44_MSG_MAX];                       /* verify: recovered msg     */
 
-static WC_RNG s_rng;
-static int    s_rng_ready = 0;
-
-static void ensure_rng(void) {
-    if (!s_rng_ready) {
-        (void)wc_InitRng(&s_rng);
-        s_rng_ready = 1;
-    }
-}
-
-void PQCLEAN_randombytes(uint8_t *buf, size_t len) {
-    ensure_rng();
-    (void)wc_RNG_GenerateBlock(&s_rng, buf, (word32)len);
-}
-
-/* pqm4 RNG hook — called internally by the ML-DSA-44 library.
- * Weak so the linker drops the duplicate when Kyber is also active. */
-__attribute__((weak)) void randombytes(uint8_t *buf, size_t len) {
-    ensure_rng();
-    (void)wc_RNG_GenerateBlock(&s_rng, buf, (word32)len);
-}
-
 static int dilithium2_keypair(uint8_t *pk, uint8_t *sk) {
     return crypto_sign_keypair(pk, sk) == 0 ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }

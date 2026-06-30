@@ -219,6 +219,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     )
 
     set(PLATFORM_SOURCES
+        adapters/adapter_rng.c
         platforms/stm32_renode/main.c
         platforms/stm32_renode/libc_stub.c
         ${REGISTERED_ADAPTER_SOURCES}
