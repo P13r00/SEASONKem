@@ -6,17 +6,6 @@
 #define AES_GCM_NONCE_BYTES 12u
 #define AES_GCM_TAG_BYTES   16u
 
-static WC_RNG s_rng;
-static int    s_rng_ready = 0;
-
-static int ensure_rng(void) {
-    if (!s_rng_ready) {
-        if (wc_InitRng(&s_rng) != 0) return CRYPTO_ERROR;
-        s_rng_ready = 1;
-    }
-    return CRYPTO_SUCCESS;
-}
-
 static int aes_gcm_keygen(uint8_t *key, uint8_t *nonce) {
     if (wc_RNG_GenerateBlock(&s_rng, key,   AES_GCM_KEY_BYTES)   != 0) return CRYPTO_ERROR;
     if (wc_RNG_GenerateBlock(&s_rng, nonce, AES_GCM_NONCE_BYTES) != 0) return CRYPTO_ERROR;

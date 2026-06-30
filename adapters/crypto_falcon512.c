@@ -33,27 +33,6 @@ extern int crypto_sign_open(unsigned char *m, size_t *mlen,
 static uint8_t s_sm[FALCON512_SIG_BYTES + FALCON512_MSG_MAX];
 static uint8_t s_m[FALCON512_MSG_MAX];
 
-static WC_RNG s_rng;
-static int    s_rng_ready = 0;
-
-static void ensure_rng(void) {
-    if (!s_rng_ready) {
-        (void)wc_InitRng(&s_rng);
-        s_rng_ready = 1;
-    }
-}
-
-void PQCLEAN_randombytes(uint8_t *buf, size_t len) {
-    ensure_rng();
-    (void)wc_RNG_GenerateBlock(&s_rng, buf, (word32)len);
-}
-
-/* FN-DSA RNG hook — called internally by the Falcon-512 library. */
-void sysrng(void *dst, size_t len) {
-    ensure_rng();
-    (void)wc_RNG_GenerateBlock(&s_rng, (byte *)dst, (word32)len);
-}
-
 static int falcon512_keypair(uint8_t *pk, uint8_t *sk) {
     return crypto_sign_keypair((unsigned char *)pk,
                                (unsigned char *)sk) == 0

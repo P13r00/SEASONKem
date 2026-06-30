@@ -1,75 +1,7 @@
-/*
- * adapters/crypto_ascon80pq.c
- *
- * Adapter: Ascon-80pq AEAD → crypto_ops_t (sign/verify interface).
- *
- * Ascon-80pq (NIST LWC round 2 finalist, ISO/IEC 29192-6):
- *   Key   : 20 bytes  (CRYPTO_KEYBYTES)
- *   Nonce : 16 bytes  (CRYPTO_NPUBBYTES)
- *   Tag   : 16 bytes  (CRYPTO_ABYTES)
- *
- * sk buffer layout (fits the 64-byte sk[] in execute_signature_benchmark):
- *   sk[0..19]  = 20-byte key
- *   sk[20..35] = 16-byte nonce
- *
- * pk buffer layout (32-byte pk[]):
- *   pk[0..15]  = nonce copy  (so verify() runs without sk)
- *   pk[16..31] = 0x00 padding
- *
- * sign:   crypto_aead_encrypt(key=sk[0..19], nonce=sk[20..35],
- *                             pt=msg, ad=∅)
- *         → sig = ct ∥ tag,  siglen = msglen + 16
- *         For the 4-byte test message: siglen = 20 B ≪ sig[64].
- *
- * verify: crypto_aead_decrypt(key=reconstructed, nonce=pk[0..15],
- *                             ct=sig, ad=∅)
- *         → compare recovered plaintext with original msg
- *
- * Keying: deterministic fill (no TRNG on bare metal).  Replace with
- *         hardware RNG or DRBG output in a production build.
- *
- * ARMv7-M path:
- *   The armv7m-optimised permutation (Thumb-2 assembly) is compiled from
- *   third_party/ascon-c/crypto_aead/ascon80pq/armv7m/ and linked in via
- *   CMakeLists.txt.  Required sources:
- *     encrypt.c       – crypto_aead_encrypt / crypto_aead_decrypt
- *     permutations.S  – ascon_permutation_6 / _8 / _12 in Thumb-2
- *   or, if your copy uses a .c permutation:
- *     permutations.c
- *
- *   CMake snippet:
- *     set(ASCON80PQ_DIR third_party/ascon-c/crypto_aead/ascon80pq/armv7m)
- *     target_sources(cryptoBenchmark PRIVATE
- *         ${ASCON80PQ_DIR}/encrypt.c
- *         ${ASCON80PQ_DIR}/permutations.c   # or .S
- *     )
- *     target_include_directories(cryptoBenchmark PRIVATE ${ASCON80PQ_DIR})
- *
- * benchmark_runner.c change needed:
- *   extern const crypto_ops_t ascon80pq_ops;      // add extern
- *   static const crypto_ops_t *sign_registry[] = {
- *       &ed25519_ops,
- *       &ascon80pq_ops,                           // add entry
- *   };
- */
-
 #include <stdint.h>
 #include <wolfssl/wolfcrypt/random.h>
 #include "core/inc/crypto_api.h"
 
-static WC_RNG s_rng;
-static int s_rng_ready = 0;
-
-static int ensure_rng(void)
-{
-    if (!s_rng_ready)
-    {
-        if (wc_InitRng(&s_rng) != 0)
-            return CRYPTO_ERROR;
-        s_rng_ready = 1;
-    }
-    return CRYPTO_SUCCESS;
-}
 
 extern int crypto_aead_encrypt(
     unsigned char *c, unsigned long long *clen,
@@ -190,7 +122,7 @@ const crypto_aead_ops_t ascon80pq_ops = {
     .key_bytes = A80PQ_KEYBYTES,
     .nonce_bytes = A80PQ_NPUBBYTES,
     .tag_bytes = A80PQ_ABYTES,
-    .init = ensure_rng,
+    .init = platform_rng_init,
     .keygen = a80pq_keypair,
     .encrypt = a80pq_encrypt,
     .decrypt = a80pq_decrypt,

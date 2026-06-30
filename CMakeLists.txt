@@ -56,6 +56,8 @@ if(WOLFCRYPT_RNG) # section will be changed as base wolfcrypt combination, when 
         ${WOLFCRYPT_DIR}/wolfcrypt/src/random.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/hash.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sha256.c
+        adapters/adapter_rng.c
+
     )
 endif()
 
@@ -219,9 +221,9 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     )
 
     set(PLATFORM_SOURCES
-        adapters/adapter_rng.c
         platforms/stm32_renode/main.c
         platforms/stm32_renode/libc_stub.c
+        platforms/stm32_renode/adapter_rng_seed.c
         ${REGISTERED_ADAPTER_SOURCES}
         ${WOLFCRYPT_SOURCES}
         ${ASCON_SOURCES}

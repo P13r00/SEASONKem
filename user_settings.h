@@ -10,12 +10,15 @@
 #define NO_FILESYSTEM
 #define NO_WOLFSSL_DIR
 #define WOLFSSL_NO_SOCK
+#define NO_INLINE
 #define NO_WRITEV
 #define NO_STDIO_FILESYSTEM
 #define SINGLE_THREADED
 #define WC_NO_ASYNC_THREADING
 #define NO_WOLFSSL_MEMORY       /* disable wolfSSL's own alloc tracking */
-#define WOLFSSL_GENSEED_FORTEST
+//#define WOLFSSL_GENSEED_FORTEST
+#define CUSTOM_RAND_GENERATE_SEED custom_rand_generate_seed
+int custom_rand_generate_seed(unsigned char* output, unsigned int sz);
 
 /* ---- Algorithms --------------------------------------------------- */
 #define HAVE_ED25519            /* Ed25519 sign / verify                */

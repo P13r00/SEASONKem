@@ -2,20 +2,6 @@
 #include <wolfssl/wolfcrypt/random.h>
 #include "core/inc/crypto_api.h"
 
-static WC_RNG s_rng;
-static int s_rng_ready = 0;
-
-static int ensure_rng(void)
-{
-    if (!s_rng_ready)
-    {
-        if (wc_InitRng(&s_rng) != 0)
-            return CRYPTO_ERROR;
-        s_rng_ready = 1;
-    }
-    return CRYPTO_SUCCESS;
-}
-
 extern int crypto_hash(unsigned char *out,
                        const unsigned char *in,
                        unsigned long long inlen);

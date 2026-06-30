@@ -6,20 +6,6 @@
 #include <wolfssl/wolfcrypt/random.h>
 #include "core/inc/crypto_api.h"
 
-/* One RNG instance shared across keygen calls.
- * Initialised on first keygen; wolfcrypt's ChaCha20-DRBG is seeded
- * by our wc_GenerateSeed stub in rng_stub.c.                         */
-static WC_RNG s_rng;
-static int    s_rng_ready = 0;
-
-static int ensure_rng(void) {
-    if (!s_rng_ready) {
-        if (wc_InitRng(&s_rng) != 0) return CRYPTO_ERROR;
-        s_rng_ready = 1;
-    }
-    return CRYPTO_SUCCESS;
-}
-
 #define ECC_P256_KEY_SIZE      32   /* 32 B scalar private key */
 #define ECC_P256_PUB_KEY_SIZE  65   /* 65 B ANSI X9.63 uncompressed public key: [0x04 | X-coord | Y-coord] */
 

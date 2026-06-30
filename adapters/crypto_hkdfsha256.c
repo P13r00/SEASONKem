@@ -3,17 +3,6 @@
 #include <wolfssl/wolfcrypt/hmac.h>      /* wc_HKDF */
 #include "core/inc/crypto_api.h"
 
-/* wc_HKDF signature:
- *   int wc_HKDF(int type,
- *               const byte* inKey,  word32 inKeySz,
- *               const byte* salt,   word32 saltSz,
- *               const byte* info,   word32 infoSz,
- *               byte*       out,    word32 outSz);
- *
- * type = WC_SHA256 (defined in wolfssl/wolfcrypt/hash.h, included by hmac.h)
- * Single call covers both extract and expand phases.
- * salt == NULL is permitted; wolfSSL uses a zero vector of HashLen bytes.  */
-
 static int hkdf_sha256_derive(uint8_t       *okm,  size_t okm_len,
                         const uint8_t *ikm,  size_t ikm_len,
                         const uint8_t *salt, size_t salt_len,

@@ -2,7 +2,6 @@
 #include <wolfssl/wolfcrypt/random.h>
 #include "core/inc/crypto_api.h"
 
-
 extern int crypto_hash(unsigned char *out,
                        const unsigned char *in,
                        unsigned long long inlen);
