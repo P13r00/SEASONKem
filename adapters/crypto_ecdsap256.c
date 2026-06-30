@@ -1,23 +1,13 @@
-/* crypto_ecc_p256.c — ECDSA P-256 via wolfcrypt
- *
- * RNG: ECDSA signing requires a fresh random nonce per signature
- * (unlike Ed25519, which is deterministic) — there is no seed-and-derive
- * workaround here. Both keygen and sign use the platform RNG singleton
- * via platform_rng_handle(), which returns the WC_RNG* wolfcrypt's
- * ECC API requires.
- */
-
 #include <string.h>
 #include <wolfssl/wolfcrypt/ecc.h>
 #include <wolfssl/wolfcrypt/sha256.h>
 #include "core/inc/crypto_api.h"
 
-#define ECC_P256_KEY_SIZE      32   /* 32 B scalar private key */
-#define ECC_P256_PUB_KEY_SIZE  65   /* 65 B ANSI X9.63 uncompressed public key: [0x04 | X-coord | Y-coord] */
+#define ECC_P256_KEY_SIZE      32
+#define ECC_P256_PUB_KEY_SIZE  65
 
-/* sk layout (97 B): [32 B private key scalar | 65 B public key copy] */
-
-static int ecdsap256_keypair(uint8_t *pk, uint8_t *sk) {
+static int ecdsap256_keypair(uint8_t *pk, uint8_t *sk) 
+{
     WC_RNG *rng = platform_rng_handle();
     if (!rng) return CRYPTO_ERROR;
 
@@ -43,7 +33,8 @@ static int ecdsap256_keypair(uint8_t *pk, uint8_t *sk) {
 
 static int ecdsap256_sign(uint8_t *sig, size_t *siglen,
                          const uint8_t *msg, size_t msglen,
-                         const uint8_t *sk) {
+                         const uint8_t *sk) 
+{
     WC_RNG *rng = platform_rng_handle();
     if (!rng) return CRYPTO_ERROR;
 
@@ -71,7 +62,8 @@ static int ecdsap256_sign(uint8_t *sig, size_t *siglen,
 
 static int ecdsap256_verify(const uint8_t *sig, size_t siglen,
                            const uint8_t *msg, size_t msglen,
-                           const uint8_t *pk) {
+                           const uint8_t *pk) 
+{
     ecc_key key;
     if (wc_ecc_init(&key) != 0) return CRYPTO_ERROR;
 

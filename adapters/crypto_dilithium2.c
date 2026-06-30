@@ -1,36 +1,23 @@
-/* crypto_dilithium2.c — ML-DSA-44 (Dilithium2) adapter via pqm4/m4f.
- *
- * All staging buffers are static — crypto_sign_ctx and crypto_sign_open_ctx
- * each need ~50 KB of stack internally for NTT/polynomial temporaries.
- * Every byte saved in local variables matters on a 128 KB device.
- *
- * randombytes() is defined here using wolfcrypt's WC_RNG (same engine as
- * crypto_ed25519.c).  It is marked weak so the linker discards the duplicate
- * silently when crypto_kyber.c is also compiled — both definitions are
- * identical so it does not matter which one is kept.
- */
-
 #include <stdint.h>
 #include <stddef.h>
-#include <wolfssl/wolfcrypt/random.h>
 #include "api.h"
 #include "core/inc/crypto_api.h"
 
 #define MLDSA44_SIG_BYTES  2420
 #define MLDSA44_MSG_MAX    256
 
-/* All large buffers in BSS — none on the call stack */
-static uint8_t s_sm[MLDSA44_SIG_BYTES + MLDSA44_MSG_MAX]; /* sign: sm=sig||msg output  */
-                                                            /* verify: sm=sig||msg input */
-static uint8_t s_m[MLDSA44_MSG_MAX];                       /* verify: recovered msg     */
+static uint8_t s_sm[MLDSA44_SIG_BYTES + MLDSA44_MSG_MAX]; 
+static uint8_t s_m[MLDSA44_MSG_MAX];
 
-static int dilithium2_keypair(uint8_t *pk, uint8_t *sk) {
+static int dilithium2_keypair(uint8_t *pk, uint8_t *sk)
+{
     return crypto_sign_keypair(pk, sk) == 0 ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
 static int dilithium2_sign(uint8_t *sig, size_t *siglen,
                            const uint8_t *msg, size_t msglen,
-                           const uint8_t *sk) {
+                           const uint8_t *sk)
+{
     size_t smlen = 0;
     if (msglen > MLDSA44_MSG_MAX) return CRYPTO_ERROR;
     if (crypto_sign(s_sm, &smlen, msg, msglen, sk) != 0) return CRYPTO_ERROR;
@@ -41,7 +28,8 @@ static int dilithium2_sign(uint8_t *sig, size_t *siglen,
 
 static int dilithium2_verify(const uint8_t *sig, size_t siglen,
                              const uint8_t *msg, size_t msglen,
-                             const uint8_t *pk) {
+                             const uint8_t *pk) 
+{
     size_t mlen = 0;
     if (msglen > MLDSA44_MSG_MAX) return CRYPTO_ERROR;
     /* Reconstruct sm = sig || msg in the static buffer */

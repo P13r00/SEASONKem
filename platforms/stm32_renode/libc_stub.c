@@ -1,19 +1,3 @@
-/* libc_stub.c
- *
- * Minimal C-library stubs for a -nostdlib freestanding build.
- *
- * Heap model: static bump allocator.
- *   - Allocations are never freed (wc_free is a no-op).
- *   - Total heap is fixed at HEAP_SIZE bytes.
- *   - Sufficient for wolfcrypt: Ed25519 key gen peaks at ~3 KiB;
- *     leave 8 KiB for headroom with WOLFSSL_SMALL_STACK.
- *   - The array lands in .bss, BEFORE _sstack, so it does NOT
- *     interfere with the stack watermark region.
- *
- * In production: replace with a proper allocator (e.g. tlsf) or
- * connect to the STM32F4 SRAM backed by a real heap manager.
- */
-
 #include <stddef.h>
 #include <stdint.h>
 

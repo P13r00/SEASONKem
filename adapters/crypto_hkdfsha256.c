@@ -1,12 +1,11 @@
-/* crypto_hkdf.c — HKDF-SHA-256 via wolfcrypt (RFC 5869) */
-
-#include <wolfssl/wolfcrypt/hmac.h>      /* wc_HKDF */
+#include <wolfssl/wolfcrypt/hmac.h>
 #include "core/inc/crypto_api.h"
 
 static int hkdf_sha256_derive(uint8_t       *okm,  size_t okm_len,
                         const uint8_t *ikm,  size_t ikm_len,
                         const uint8_t *salt, size_t salt_len,
-                        const uint8_t *info, size_t info_len) {
+                        const uint8_t *info, size_t info_len) 
+{
     if (!okm || okm_len == 0) return CRYPTO_ERROR;
 
     int ret = wc_HKDF(WC_SHA256,

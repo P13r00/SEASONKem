@@ -86,52 +86,24 @@ CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmark_runner.c -o CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_aes_gcm.c
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_aes_gcm.c
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_falcon512.c
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_falcon512.c
 
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_aes_gcm.c > CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.i
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_falcon512.c > CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_aes_gcm.c -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.s
-
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_chacha20_poly1305.c
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_chacha20_poly1305.c
-
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_chacha20_poly1305.c > CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.i
-
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_chacha20_poly1305.c -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.s
-
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconaead128.c
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconaead128.c
-
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconaead128.c > CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.i
-
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconaead128.c -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.s
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_falcon512.c -o CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.s
 
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/main.c
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/main.c
 
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.i: cmake_force
@@ -145,7 +117,7 @@ CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.s: cmake_force
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/libc_stub.c
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/libc_stub.c
 
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.i: cmake_force
@@ -159,7 +131,7 @@ CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.s: cmake_f
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/adapter_rng_seed.c
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/adapter_rng_seed.c
 
 CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.i: cmake_force
@@ -173,7 +145,7 @@ CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.s: 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/wc_port.c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/wc_port.c
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.i: cmake_force
@@ -187,7 +159,7 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.s
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/memory.c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/memory.c
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.i: cmake_force
@@ -201,7 +173,7 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.s:
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/wolfmath.c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/wolfmath.c
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.i: cmake_force
@@ -215,7 +187,7 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wolfmath.c.
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/misc.c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/misc.c
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.i: cmake_force
@@ -229,7 +201,7 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.s: c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/asn.c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/asn.c
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.i: cmake_force
@@ -243,7 +215,7 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.s: cm
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/random.c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/random.c
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.i: cmake_force
@@ -257,7 +229,7 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/random.c.s:
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/hash.c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/hash.c
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.i: cmake_force
@@ -271,7 +243,7 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.s: c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/sha256.c
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/sha256.c
 
 CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.i: cmake_force
@@ -285,7 +257,7 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.s:
 CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
 CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/adapter_rng.c
 CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/adapter_rng.c
 
 CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.i: cmake_force
@@ -296,96 +268,341 @@ CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/adapter_rng.c -o CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/aes.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/aes.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/aes.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/aes.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/poly1305.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/poly1305.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building ASM object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.obj"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/poly1305.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.i"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/poly1305.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.s"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.s
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.i"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.i
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.i
 
-CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.s"
-	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.s
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building ASM object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.obj"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.i"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.s"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building ASM object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.obj"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.i"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.s"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building ASM object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.obj"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.i"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.s"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building ASM object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.obj"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing ASM source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.i"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling ASM source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.s"
+	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.s
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj: CMakeFiles/stm32_benchmark.elf.dir/flags.make
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj: /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj: CMakeFiles/stm32_benchmark.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj -MF CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj.d -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj -c /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.i"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c > CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.i
+
+CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.s"
+	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c -o CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.s
 
 # Object files for target stm32_benchmark.elf
 stm32_benchmark_elf_OBJECTS = \
 "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj" \
@@ -398,20 +615,36 @@ stm32_benchmark_elf_OBJECTS = \
 "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj" \
 "CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj" \
-"CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj"
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj" \
+"CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj"
 
 # External object files for target stm32_benchmark.elf
 stm32_benchmark_elf_EXTERNAL_OBJECTS =
 
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_aes_gcm.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_chacha20_poly1305.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconaead128.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj
@@ -424,15 +657,33 @@ stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolf
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/aes.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj
-stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/api.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/codec_cm4.s.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_fxp.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_gauss.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_mp31.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_ntru.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_poly.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/kgen_zint31.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/mq_cm4.s.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sha3_cm4.s.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_core.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpoly.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_fpr_cm4.s.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sign_sampler_cm4.s.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/sysrng.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/util.c.obj
+stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f/vrfy.c.obj
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/build.make
 stm32_benchmark.elf: CMakeFiles/stm32_benchmark.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking C executable stm32_benchmark.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Linking C executable stm32_benchmark.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stm32_benchmark.elf.dir/link.txt --verbose=$(VERBOSE)
 	arm-none-eabi-objcopy -O binary /home/piec/Documents/ResearchInternship/cryptoBenchmark/build/stm32_benchmark.elf crypto_heterogeneous_benchmark.bin
 	arm-none-eabi-objcopy -O ihex /home/piec/Documents/ResearchInternship/cryptoBenchmark/build/stm32_benchmark.elf crypto_heterogeneous_benchmark.hex

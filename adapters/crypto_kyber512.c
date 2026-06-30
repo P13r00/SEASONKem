@@ -1,30 +1,23 @@
-/* crypto_kyber.c — ML-KEM-512 adapter via pqm4/m4fspeed.
- *
- * randombytes() is defined here using wolfcrypt's WC_RNG (same engine as
- * crypto_ed25519.c).  It is marked weak so the linker discards the duplicate
- * silently when crypto_dilithium2.c is also compiled — both definitions are
- * identical so it does not matter which one is kept.
- */
-
 #include <stdint.h>
 #include <stddef.h>
-#include <wolfssl/wolfcrypt/random.h>
 #include "core/inc/crypto_api.h"
 
-/* pqm4 NIST KEM API */
 extern int crypto_kem_keypair(uint8_t *pk, uint8_t *sk);
 extern int crypto_kem_enc(uint8_t *ct, uint8_t *ss, const uint8_t *pk);
 extern int crypto_kem_dec(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
 
-static int kyber512_keypair(uint8_t *pk, uint8_t *sk) {
+static int kyber512_keypair(uint8_t *pk, uint8_t *sk)
+{
     return crypto_kem_keypair(pk, sk) == 0 ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-static int kyber512_encaps(uint8_t *ct, uint8_t *ss, const uint8_t *pk) {
+static int kyber512_encaps(uint8_t *ct, uint8_t *ss, const uint8_t *pk)
+{
     return crypto_kem_enc(ct, ss, pk) == 0 ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-static int kyber512_decaps(uint8_t *ss, const uint8_t *ct, const uint8_t *sk) {
+static int kyber512_decaps(uint8_t *ss, const uint8_t *ct, const uint8_t *sk)
+{
     return crypto_kem_dec(ss, ct, sk) == 0 ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 

@@ -1,7 +1,3 @@
-/*
- * crypto_chacha20_poly1305.c — ChaCha20-Poly1305 AEAD adapter
- */
-
 #include <wolfssl/wolfcrypt/chacha20_poly1305.h>
 #include "core/inc/crypto_api.h"
 
@@ -58,7 +54,4 @@ const crypto_aead_ops_t chacha20_poly1305_ops = {
     .nonce_bytes = CHACHA_NONCE_BYTES,
     .tag_bytes   = POLY1305_TAG_BYTES,
     .init        = platform_rng_init,   /* was ensure_rng */
-    .keygen      = chacha_keygen,
-    .encrypt     = chacha_encrypt,
-    .decrypt     = chacha_decrypt,
-};
+    .keygen      = chac_

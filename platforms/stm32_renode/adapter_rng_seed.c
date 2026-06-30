@@ -8,8 +8,8 @@ static volatile uint32_t * const RNG_DR       = (volatile uint32_t *)0x50060808u
 #define RCC_AHB2ENR_RNGEN   (1u << 6)
 #define RNG_CR_RNGEN        (1u << 2)
 #define RNG_SR_DRDY         (1u << 0)
-#define RNG_SR_SEIS         (1u << 5)   /* seed error  */
-#define RNG_SR_CEIS         (1u << 6)   /* clock error */
+#define RNG_SR_SEIS         (1u << 5)
+#define RNG_SR_CEIS         (1u << 6)
 
 static int hw_rng_ready = 0;
 
@@ -18,10 +18,10 @@ static int hw_rng_init(void)
     if (hw_rng_ready)
         return 0;
 
-    *RCC_AHB2ENR |= RCC_AHB2ENR_RNGEN;  /* gate the clock     */
-    *RNG_CR      |= RNG_CR_RNGEN;       /* enable peripheral  */
+    *RCC_AHB2ENR |= RCC_AHB2ENR_RNGEN;
+    *RNG_CR      |= RNG_CR_RNGEN;
 
-    while (!(*RNG_SR & RNG_SR_DRDY));   /* first word ~40 cycles */
+    while (!(*RNG_SR & RNG_SR_DRDY));
 
     if (*RNG_SR & (RNG_SR_SEIS | RNG_SR_CEIS))
         return -1;
@@ -30,11 +30,6 @@ static int hw_rng_init(void)
     return 0;
 }
 
-/*
- * custom_rand_generate_seed — wolfCrypt entropy callback.
- * Called once at wc_InitRng() time (and at periodic DRBG reseeds),
- * not per wc_RNG_GenerateBlock() call.
- */
 int custom_rand_generate_seed(unsigned char *output, unsigned int sz)
 {
     if (hw_rng_init() != 0)

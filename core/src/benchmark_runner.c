@@ -4,17 +4,17 @@
 // Selection point for benchmark
 #define COMPILE_ED25519            0
 #define COMPILE_ECDSAP256          0
-#define COMPILE_AES_GCM            1
-#define COMPILE_CHACHA20_POLY1305  1
+#define COMPILE_AES_GCM            0
+#define COMPILE_CHACHA20_POLY1305  0
 #define COMPILE_HKDF_SHA256        0
 #define COMPILE_ASCON80            0
-#define COMPILE_ASCON_AEAD128      1
+#define COMPILE_ASCON_AEAD128      0
 #define COMPILE_ASCON_HASH256      0
 #define COMPILE_ASCON_XOF          0
 #define COMPILE_KYBER512           0
 #define COMPILE_KYBER768           0
 #define COMPILE_DILITHIUM2         0
-#define COMPILE_FALCON512          0
+#define COMPILE_FALCON512          1
 #define COMPILE_X25519             0
 
 
@@ -49,9 +49,8 @@ static const crypto_ops_t *sign_registry[] = {
 #define SIGN_REGISTRY_COUNT \
     ((sizeof(sign_registry) / sizeof(sign_registry[0])) - 1u)
 
-/* ================================================================== */
-/* SYMMETRIC AEAD REGISTRY  (crypto_aead_ops_t)                       */
-/* ================================================================== */
+
+// SYMMETRIC AEAD REGISTRY  (crypto_aead_ops_t)
 
 #if COMPILE_AES_GCM
 extern const crypto_aead_ops_t aes_gcm_ops;
@@ -84,9 +83,8 @@ static const crypto_aead_ops_t *aead_registry[] = {
 #define AEAD_REGISTRY_COUNT \
     ((sizeof(aead_registry) / sizeof(aead_registry[0])) - 1u)
 
-/* ================================================================== */
-/* KEY DERIVATION REGISTRY  (crypto_kdf_ops_t)                        */
-/* ================================================================== */
+
+// KEY DERIVATION REGISTRY  (crypto_kdf_ops_t)
 
 #if COMPILE_HKDF_SHA256
 extern const crypto_kdf_ops_t hkdf_sha256_ops;
@@ -113,9 +111,8 @@ static const crypto_kdf_ops_t *kdf_registry[] = {
 #define KDF_REGISTRY_COUNT \
     ((sizeof(kdf_registry) / sizeof(kdf_registry[0])) - 1u)
 
-/* ================================================================== */
-/* KEY ENCAPSULATION REGISTRY  (crypto_kem_ops_t)                     */
-/* ================================================================== */
+
+// KEY ENCAPSULATION REGISTRY  (crypto_kem_ops_t)
 
 #if COMPILE_KYBER512
 extern const crypto_kem_ops_t kyber512_ops;
@@ -136,9 +133,8 @@ static const crypto_kem_ops_t *kem_registry[] = {
 #define KEM_REGISTRY_COUNT \
     ((sizeof(kem_registry) / sizeof(kem_registry[0])) - 1u)
 
-/* ================================================================== */
-/* KEY EXCHANGE REGISTRY  (crypto_kex_ops_t)                          */
-/* ================================================================== */
+
+// KEY EXCHANGE REGISTRY  (crypto_kex_ops_t)
 
 #if COMPILE_X25519
 extern const crypto_kex_ops_t x25519_ops;
@@ -153,33 +149,32 @@ static const crypto_kex_ops_t *kex_registry[] = {
 #define KEX_REGISTRY_COUNT \
     ((sizeof(kex_registry) / sizeof(kex_registry[0])) - 1u)
 
-/* ================================================================== */
-/* PLATFORM HAL FORWARD DECLARATIONS                                  */
-/* ================================================================== */
+
+// PLATFORM HAL FORWARD DECLARATIONS
+
 
 extern uint32_t get_cycles(void);
 extern void     platform_print_string(const char *str);
 extern void     platform_print_number(uint32_t num);
 extern void     platform_print_hex(uint32_t val);
 
-/* ================================================================== */
-/* HEAP BUMP ALLOCATOR                                                */
-/*                                                                    */
-/* _sheap / _eheap are placed by the linker script in the .heap      */
-/* (NOLOAD) section, directly above .bss and below the stack.        */
-/*                                                                    */
-/* Allocation contract:                                               */
-/*   • Aligned to 8 bytes (meets alignment for all key types)        */
-/*   • Zero-initialised on every call (safe for key-material reuse)  */
-/*   • All memory is reclaimed at once with heap_reset(); no         */
-/*     individual free is provided (benchmark workload pattern).     */
-/*   • heap_reset() also clears the peak counter, so each benchmark  */
-/*     measures only its own working set.                            */
-/*                                                                    */
-/* Failure: returns NULL; callers must check and abort the run.      */
-/* ================================================================== */
 
-extern uint32_t _sheap, _eheap;    /* linker-defined section bounds  */
+/* 
+HEAP BUMP ALLOCATOR
+_sheap / _eheap are placed by the linker script in the .heap
+(NOLOAD) section, directly above .bss and below the stack.
+Allocation contract:
+    • Aligned to 8 bytes (meets alignment for all key types)
+    • Zero-initialised on every call (safe for key-material reuse)
+    • All memory is reclaimed at once with heap_reset(); no
+      individual free is provided (benchmark workload pattern).
+    • heap_reset() also clears the peak counter, so each benchmark 
+      measures only its own working set.
+ Failure: returns NULL; callers must check and abort the run.
+ */
+
+
+extern uint32_t _sheap, _eheap;
 
 static uint8_t *s_heap_base = NULL;
 static uint8_t *s_heap_end  = NULL;
@@ -193,64 +188,46 @@ static void heap_init(void) {
     s_heap_peak = 0u;
 }
 
-/* Public — called by main() for initialisation and before each run */
 void heap_reset(void) {
     if (s_heap_base == NULL) heap_init();
     s_heap_cur  = s_heap_base;
     s_heap_peak = 0u;
 }
 
-/* Public — allocate `size` zero-initialised bytes; NULL on OOM */
 void *heap_malloc(size_t size) {
     if (s_heap_base == NULL) heap_init();
 
-    /* Round up to nearest 8-byte boundary */
     size = (size + 7u) & ~7u;
 
     if ((s_heap_cur + size) > s_heap_end) {
-        return NULL;    /* heap exhausted */
+        return NULL;
     }
 
     void *p = (void *)s_heap_cur;
     s_heap_cur += size;
 
-    /* Zero-initialise — safe default for key material */
     volatile uint8_t *z = (volatile uint8_t *)p;
     for (size_t i = 0u; i < size; i++) z[i] = 0u;
 
-    /* Update peak high-water mark */
     uint32_t used = (uint32_t)(s_heap_cur - s_heap_base);
     if (used > s_heap_peak) s_heap_peak = used;
 
     return p;
 }
 
-/* Public — peak heap usage (bytes) since last heap_reset() */
 uint32_t heap_peak_used(void) {
     return s_heap_peak;
 }
 
-/* Public — bytes currently live on the heap */
 uint32_t heap_current_used(void) {
     if (s_heap_base == NULL) return 0u;
     return (uint32_t)(s_heap_cur - s_heap_base);
 }
 
-/* Public — total heap capacity in bytes */
 uint32_t heap_capacity(void) {
     if (s_heap_base == NULL) heap_init();
     return (uint32_t)(s_heap_end - s_heap_base);
 }
-
-/* ================================================================== */
-/* PER-ALGORITHM FLASH FOOTPRINT TABLE                               */
-/*                                                                    */
-/* The linker script wraps each adapter object's .text* and .rodata* */
-/* between a pair of _flash_<algo>_start / _flash_<algo>_end labels. */
-/* measure_algo_flash() returns (end - start) in bytes.              */
-/*                                                                    */
-/* An adapter that is not linked produces start == end → 0 B.        */
-/* ================================================================== */
 
 extern uint32_t _flash_aes_gcm_start,       _flash_aes_gcm_end;
 extern uint32_t _flash_ascon80pq_start,     _flash_ascon80pq_end;
@@ -269,7 +246,7 @@ extern uint32_t _flash_x25519_start,        _flash_x25519_end;
 
 typedef struct {
     crypto_type_t   type;
-    const uint32_t *flash_start;  /* address = &linker_symbol */
+    const uint32_t *flash_start;
     const uint32_t *flash_end;
 } flash_entry_t;
 
@@ -291,11 +268,9 @@ static const flash_entry_t s_flash_table[] = {
 };
 #define FLASH_TABLE_COUNT (sizeof(s_flash_table) / sizeof(s_flash_table[0]))
 
-/* Exposed for use by external callers (declared in crypto_api.h) */
 uint32_t measure_algo_flash(crypto_type_t type) {
     for (size_t i = 0u; i < FLASH_TABLE_COUNT; i++) {
         if (s_flash_table[i].type == type) {
-            /* Cast pointer-to-symbol to uint32_t to get the address value */
             uint32_t start = (uint32_t)s_flash_table[i].flash_start;
             uint32_t end   = (uint32_t)s_flash_table[i].flash_end;
             return end - start;
@@ -304,13 +279,12 @@ uint32_t measure_algo_flash(crypto_type_t type) {
     return 0u;
 }
 
-/* ================================================================== */
+
 /* PER-ALGORITHM KEY / OUTPUT SIZE TABLES                             */
 /*                                                                    */
 /* Drives exact heap_malloc() sizes so heap_peak_used() reflects     */
 /* each algorithm's actual key-material working set, not a padded    */
 /* worst-case constant.                                              */
-/* ================================================================== */
 
 /* --- Signature / MAC -------------------------------------------- */
 typedef struct {
@@ -378,9 +352,7 @@ static const kex_size_t *lookup_kex_sizes(crypto_type_t t) {
     return NULL;
 }
 
-/* ================================================================== */
 /* STACK / STATIC RAM MEASUREMENT UTILITIES                           */
-/* ================================================================== */
 
 extern uint32_t _sbss, _ebss, _sstack, _estack;
 
@@ -413,9 +385,7 @@ uint32_t measure_stack_capacity(void) {
     return (uint32_t)((uint8_t *)&_estack - (uint8_t *)&_sstack);
 }
 
-/* ================================================================== */
 /* INTERNAL PRINT HELPERS                                             */
-/* ================================================================== */
 
 #define CYCLE_DELTA(s, e) \
     (((e) >= (s)) ? ((e) - (s)) : (0x00FFFFFFu - (s) + (e)))
@@ -446,13 +416,11 @@ static void print_memory_report(crypto_type_t type) {
     platform_print_string("\n");
 }
 
-/* ================================================================== */
 /* EXECUTE: SIGNATURE / MAC BENCHMARK                                 */
 /*                                                                    */
 /* Key material is heap-allocated using the exact sizes from          */
 /* s_sign_sizes[], so heap_peak_used() reflects the true working set  */
 /* of this algorithm, not a padded worst-case constant.               */
-/* ================================================================== */
 
 void execute_signature_benchmark(crypto_type_t type) {
     reset_stack_watermark();
@@ -501,13 +469,11 @@ void execute_signature_benchmark(crypto_type_t type) {
     print_memory_report(type);
 }
 
-/* ================================================================== */
 /* EXECUTE: SYMMETRIC AEAD BENCHMARK                                  */
 /*                                                                    */
 /* Buffer sizes are taken directly from the ops struct fields         */
 /* (key_bytes, nonce_bytes, tag_bytes) so no separate size table      */
 /* is needed; the heap peak is exact for every AEAD algorithm.        */
-/* ================================================================== */
 
 #define AEAD_MSG_LEN  64u
 #define AEAD_AD_LEN   16u
@@ -568,9 +534,7 @@ void execute_aead_benchmark(crypto_type_t type) {
     print_memory_report(type);
 }
 
-/* ================================================================== */
 /* EXECUTE: KEY DERIVATION BENCHMARK                                  */
-/* ================================================================== */
 
 #define KDF_IKM_LEN   32u
 #define KDF_SALT_LEN  16u
@@ -614,9 +578,7 @@ void execute_kdf_benchmark(crypto_type_t type) {
     print_memory_report(type);
 }
 
-/* ================================================================== */
 /* EXECUTE: KEY ENCAPSULATION BENCHMARK                               */
-/* ================================================================== */
 
 void execute_kem_benchmark(crypto_type_t type) {
     reset_stack_watermark();
@@ -669,14 +631,12 @@ void execute_kem_benchmark(crypto_type_t type) {
     print_memory_report(type);
 }
 
-/* ================================================================== */
 /* EXECUTE: KEY EXCHANGE BENCHMARK                                    */
 /*                                                                    */
 /* Allocates key material for both local and peer parties so the      */
 /* heap peak captures the full two-party working set.                 */
 /* Only local keygen and shared-secret derivation are timed; the      */
 /* peer keypair is generated as untimed setup.                        */
-/* ================================================================== */
 
 void execute_kex_benchmark(crypto_type_t type) {
     reset_stack_watermark();
@@ -727,15 +687,13 @@ void execute_kex_benchmark(crypto_type_t type) {
     ops->shared_secret(ss_b, pk_a, sk_b);
     uint8_t diff = 0u;
     for (size_t i = 0u; i < (size_t)ss_bytes; i++) diff |= (ss_a[i] ^ ss_b[i]);
-    platform_print_string("   SS Match:       ");
+    platform_print_string("   SS Match:     ");
     platform_print_string(diff == 0u ? "[OK]\n" : "[MISMATCH]\n");
 
     print_memory_report(type);
 }
 
-/* ================================================================== */
 /* MASTER SUITE RUNNER                                               */
-/* ================================================================== */
 
 void run_all_benchmarks(void) {
     if (SIGN_REGISTRY_COUNT > 0u) {

@@ -4,13 +4,8 @@
 #include <stdint.h>
 #include <stddef.h>
 
-
 int platform_rng_init(void);
 int platform_rng_generate(uint8_t *buf, size_t len);
-
-/* ------------------------------------------------------------------ */
-/*  Algorithm type tags                                                */
-/* ------------------------------------------------------------------ */
 
 typedef enum {
     ALG_AES_GCM,
@@ -38,10 +33,7 @@ typedef enum {
 #define CRYPTO_SUCCESS  0
 #define CRYPTO_ERROR   -1
 
-/* ------------------------------------------------------------------ */
-/*  Signing / verification ops                                         */
-/* ------------------------------------------------------------------ */
-
+// Signing / verification ops
 typedef struct {
     crypto_type_t  type;
     const char    *name;
@@ -54,15 +46,14 @@ typedef struct {
                   const uint8_t *pk);
 } crypto_ops_t;
 
-/* ------------------------------------------------------------------ */
-/*  Symmetric AEAD ops                                                 */
-/*                                                                     */
-/*  keygen  – populate key[key_bytes] and nonce[nonce_bytes]          */
-/*  encrypt – write ciphertext || tag into ct; set *ctlen             */
-/*            = ptlen + tag_bytes                                      */
-/*  decrypt – write recovered plaintext into pt; set *ptlen           */
-/*            = ctlen - tag_bytes; return CRYPTO_ERROR on tag fail    */
-/* ------------------------------------------------------------------ */
+/*
+Symmetric AEAD ops
+keygen  – populate key[key_bytes] and nonce[nonce_bytes]
+encrypt – write ciphertext || tag into ct; set *ctlen
+          = ptlen + tag_bytes
+decrypt – write recovered plaintext into pt; set *ptlen
+          = ctlen - tag_bytes; return CRYPTO_ERROR on tag fail
+*/
 
 typedef struct {
     crypto_type_t  type;
@@ -84,14 +75,14 @@ typedef struct {
                    const uint8_t *key);
 } crypto_aead_ops_t;
 
-/* ------------------------------------------------------------------ */
-/*  Key-derivation ops (extract-then-expand, e.g. HKDF)              */
-/*                                                                     */
-/*  derive – okm_len bytes into okm                                   */
-/*           ikm   = input key material                               */
-/*           salt  = optional salt; NULL → zero-length               */
-/*           info  = optional context label; NULL → zero-length      */
-/* ------------------------------------------------------------------ */
+
+/*
+Key-derivation ops
+derive – okm_len bytes into okm
+         ikm   = input key material
+         salt  = optional salt; NULL → zero-length
+         info  = optional context label; NULL → zero-length
+*/
 
 typedef struct {
     crypto_type_t  type;
@@ -102,9 +93,8 @@ typedef struct {
                   const uint8_t *info, size_t info_len);
 } crypto_kdf_ops_t;
 
-/* ------------------------------------------------------------------ */
-/*  Key Encapsulation Mechanism (KEM) ops                             */
-/* ------------------------------------------------------------------ */
+
+// Key Encapsulation Mechanism (KEM) ops
 
 typedef struct {
     crypto_type_t  type;
@@ -114,9 +104,9 @@ typedef struct {
     int (*decaps)(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
 } crypto_kem_ops_t;
 
-/* ------------------------------------------------------------------ */
-/*  Key Exchange (KEX) ops                                            */
-/* ------------------------------------------------------------------ */
+
+//  Key Exchange (KEX) ops
+
 
 typedef struct {
     crypto_type_t  type;
@@ -130,32 +120,12 @@ typedef struct WC_RNG WC_RNG;
 WC_RNG *platform_rng_handle(void);
 
 
-
-/* ------------------------------------------------------------------ */
-/*  Heap bump allocator                                               */
-/*                                                                     */
-/*  Implemented in benchmark_runner.c; backed by the .heap (NOLOAD)  */
-/*  linker section (_sheap … _eheap).                                 */
-/*                                                                     */
-/*  heap_reset()        – reclaim all memory; reset peak counter.    */
-/*                        Must be called before each benchmark run.   */
-/*  heap_malloc(n)      – allocate n bytes, 8-byte aligned,          */
-/*                        zero-initialised.  Returns NULL on OOM.    */
-/*  heap_peak_used()    – bytes allocated since last heap_reset().   */
-/*  heap_current_used() – bytes currently live on the heap.          */
-/*  heap_capacity()     – total heap pool size in bytes.             */
-/* ------------------------------------------------------------------ */
-
 void     heap_reset(void);
 void    *heap_malloc(size_t size);
 uint32_t heap_peak_used(void);
 uint32_t heap_current_used(void);
 uint32_t heap_capacity(void);
 
-/* ------------------------------------------------------------------ */
-/*  Static / stack / flash measurement utilities                      */
-/*  (implemented in benchmark_runner.c)                               */
-/* ------------------------------------------------------------------ */
 
 void     fill_stack_watermark(void);
 void     reset_stack_watermark(void);
@@ -163,35 +133,16 @@ uint32_t measure_stack_used(void);
 uint32_t measure_stack_capacity(void);
 uint32_t measure_static_ram(void);
 
-/*
- * measure_algo_flash(type)
- *
- * Returns the number of Flash bytes (.text + .rodata) occupied by the
- * adapter for the given algorithm type, using the _flash_<algo>_start
- * and _flash_<algo>_end symbols placed by the linker script.
- *
- * Returns 0 if the adapter was not linked or the type is unknown.
- */
+
 uint32_t measure_algo_flash(crypto_type_t type);
 
-/* ------------------------------------------------------------------ */
-/*  Platform I/O                                                      */
-/*  (implemented in stm32_renode_main.c)                              */
-/* ------------------------------------------------------------------ */
 
 void platform_print_string(const char *str);
 void platform_print_number(uint32_t num);
 
-/*
- * platform_print_hex(val)
- * Prints val as "0xXXXXXXXX" (8 uppercase hex digits) over USART1.
- * Useful for printing linker-symbol addresses in the memory map.
- */
+
 void platform_print_hex(uint32_t val);
 
-/* ------------------------------------------------------------------ */
-/*  Benchmark entry points                                             */
-/* ------------------------------------------------------------------ */
 
 void execute_signature_benchmark(crypto_type_t type);
 void execute_aead_benchmark(crypto_type_t type);
@@ -199,4 +150,4 @@ void execute_kdf_benchmark(crypto_type_t type);
 void execute_kem_benchmark(crypto_type_t type);
 void execute_kex_benchmark(crypto_type_t type);
 
-#endif /* CRYPTO_API_H */
+#endif

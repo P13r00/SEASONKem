@@ -20,7 +20,7 @@ set(CMAKE_C_STANDARD 99)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
-foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF ECDSAP256 KYBER512 KYBER768 DILITHIUM2 FALCON512)
+foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF ECDSAP256 KYBER512 KYBER768 DILITHIUM2 FALCON512 X25519)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -33,20 +33,15 @@ set(CORE_SOURCES
     core/src/benchmark_runner.c
 )
 
-# --- wolfcrypt Setup ---
 set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
 set(WOLFCRYPT_SOURCES "")
 set(WOLFCRYPT_INCLUDES 
     ${WOLFCRYPT_DIR}
 )
 
-
-if(COMPILE_ED25519 OR COMPILE_AES_GCM OR COMPILE_CHACHA20_POLY1305 OR COMPILE_HKDF_SHA256 OR
-COMPILE_ECDSAP256 OR COMPILE_KYBER512 OR COMPILE_KYBER768 OR COMPILE_DILITHIUM2 OR COMPILE_FALCON512 OR COMPILE_ASCON80 OR COMPILE_ASCON_AEAD128 OR COMPILE_ASCON_HASH256 OR COMPILE_ASCON_XOF)
 set(WOLFCRYPT_RNG 1)
-endif()
 
-if(WOLFCRYPT_RNG) # section will be changed as base wolfcrypt combination, when rng is changed
+if(WOLFCRYPT_RNG)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
@@ -102,6 +97,16 @@ if(COMPILE_CHACHA20_POLY1305)
     )
     list(APPEND CORE_SOURCES "adapters/crypto_chacha20_poly1305.c")
 endif()
+
+if(COMPILE_X25519)
+    list(APPEND WOLFCRYPT_SOURCES
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/curve25519.c
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/fe_operations.c
+    )
+    list(APPEND CORE_SOURCES "adapters/crypto_x25519.c")
+endif()
+
+list(REMOVE_DUPLICATES WOLFCRYPT_SOURCES)
 
 
 set(ASCON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon)
@@ -247,9 +252,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         -ffunction-sections
         -fdata-sections
     )
-
-    # Include order: PQM4 paths are placed first so their randombytes.h wins 
-    # over any stray header with the same name.
+    
     target_include_directories(stm32_benchmark.elf PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
