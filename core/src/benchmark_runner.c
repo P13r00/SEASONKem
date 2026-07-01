@@ -2,47 +2,47 @@
 #include "core/inc/crypto_api.h"
 
 // Selection point for benchmark
-#define COMPILE_ED25519            0
-#define COMPILE_ECDSAP256          0
-#define COMPILE_AES_GCM            0
-#define COMPILE_CHACHA20_POLY1305  0
-#define COMPILE_HKDF_SHA256        0
-#define COMPILE_ASCON80            0
-#define COMPILE_ASCON_AEAD128      0
-#define COMPILE_ASCON_HASH256      0
-#define COMPILE_ASCON_XOF          0
-#define COMPILE_KYBER512           0
-#define COMPILE_KYBER768           0
-#define COMPILE_DILITHIUM2         0
-#define COMPILE_FALCON512          1
-#define COMPILE_X25519             0
+#define COMPILE_WOLF_ED25519            1
+#define COMPILE_ECDSAP256               0
+#define COMPILE_AES_GCM                 0
+#define COMPILE_CHACHA20_POLY1305       0
+#define COMPILE_HKDF_SHA256             0
+#define COMPILE_ASCON80                 0
+#define COMPILE_ASCON_AEAD128           0
+#define COMPILE_ASCON_HASH256           0
+#define COMPILE_ASCON_XOF               0
+#define COMPILE_PQM4_KYBER512           1
+#define COMPILE_PQM4_KYBER768           0
+#define COMPILE_PQM4_DILITHIUM2         0
+#define COMPILE_PQM4_FALCON512          1
+#define COMPILE_WOLF_X25519             1
 
 
-#if COMPILE_ED25519
-extern const crypto_ops_t ed25519_ops;
+#if COMPILE_WOLF_ED25519
+extern const crypto_ops_t wolf_ed25519_ops;
 #endif
 #if COMPILE_ECDSAP256
 extern const crypto_ops_t ecdsap256_ops;
 #endif
-#if COMPILE_DILITHIUM2
-extern const crypto_ops_t dilithium2_ops;
+#if COMPILE_PQM4_DILITHIUM2
+extern const crypto_ops_t pqm4_dilithium2_ops;
 #endif
-#if COMPILE_FALCON512
-extern const crypto_ops_t falcon512_ops;
+#if COMPILE_PQM4_FALCON512
+extern const crypto_ops_t pqm4_falcon512_ops;
 #endif
 
 static const crypto_ops_t *sign_registry[] = {
-#if COMPILE_ED25519
-    &ed25519_ops,
+#if COMPILE_WOLF_ED25519
+    &wolf_ed25519_ops,
 #endif
 #if COMPILE_ECDSAP256
     &ecdsap256_ops,
 #endif
-#if COMPILE_DILITHIUM2
-    &dilithium2_ops,
+#if COMPILE_PQM4_DILITHIUM2
+    &pqm4_dilithium2_ops,
 #endif
-#if COMPILE_FALCON512
-    &falcon512_ops,
+#if COMPILE_PQM4_FALCON512
+    &pqm4_falcon512_ops,
 #endif
     NULL
 };
@@ -114,19 +114,19 @@ static const crypto_kdf_ops_t *kdf_registry[] = {
 
 // KEY ENCAPSULATION REGISTRY  (crypto_kem_ops_t)
 
-#if COMPILE_KYBER512
-extern const crypto_kem_ops_t kyber512_ops;
+#if COMPILE_PQM4_KYBER512
+extern const crypto_kem_ops_t pqm4_kyber512_ops;
 #endif
-#if COMPILE_KYBER768
-extern const crypto_kem_ops_t kyber768_ops;
+#if COMPILE_PQM4_KYBER768
+extern const crypto_kem_ops_t pqm4_kyber768_ops;
 #endif
 
 static const crypto_kem_ops_t *kem_registry[] = {
-#if COMPILE_KYBER512
-    &kyber512_ops,
+#if COMPILE_PQM4_KYBER512
+    &pqm4_kyber512_ops,
 #endif
-#if COMPILE_KYBER768
-    &kyber768_ops,
+#if COMPILE_PQM4_KYBER768
+    &pqm4_kyber768_ops,
 #endif
     NULL
 };
@@ -136,13 +136,13 @@ static const crypto_kem_ops_t *kem_registry[] = {
 
 // KEY EXCHANGE REGISTRY  (crypto_kex_ops_t)
 
-#if COMPILE_X25519
-extern const crypto_kex_ops_t x25519_ops;
+#if COMPILE_WOLF_X25519
+extern const crypto_kex_ops_t wolf_x25519_ops;
 #endif
 
 static const crypto_kex_ops_t *kex_registry[] = {
-#if COMPILE_X25519
-    &x25519_ops,
+#if COMPILE_WOLF_X25519
+    &wolf_x25519_ops,
 #endif
     NULL
 };
@@ -236,13 +236,13 @@ extern uint32_t _flash_asconhash256_start,  _flash_asconhash256_end;
 extern uint32_t _flash_asconxof_start,      _flash_asconxof_end;
 extern uint32_t _flash_chacha_start,        _flash_chacha_end;
 extern uint32_t _flash_ecdsap256_start,     _flash_ecdsap256_end;
-extern uint32_t _flash_ed25519_start,       _flash_ed25519_end;
+extern uint32_t _flash_wolf_ed25519_start,       _flash_wolf_ed25519_end;
 extern uint32_t _flash_hkdf_start,          _flash_hkdf_end;
-extern uint32_t _flash_dilithium2_start,    _flash_dilithium2_end;
-extern uint32_t _flash_falcon512_start,     _flash_falcon512_end;
-extern uint32_t _flash_kyber512_start,      _flash_kyber512_end;
-extern uint32_t _flash_kyber768_start,      _flash_kyber768_end;
-extern uint32_t _flash_x25519_start,        _flash_x25519_end;
+extern uint32_t _flash_pqm4_dilithium2_start,    _flash_pqm4_dilithium2_end;
+extern uint32_t _flash_pqm4_falcon512_start,     _flash_pqm4_falcon512_end;
+extern uint32_t _flash_pqm4_kyber512_start,      _flash_pqm4_kyber512_end;
+extern uint32_t _flash_pqm4_kyber768_start,      _flash_pqm4_kyber768_end;
+extern uint32_t _flash_wolf_x25519_start,        _flash_wolf_x25519_end;
 
 typedef struct {
     crypto_type_t   type;
@@ -258,13 +258,13 @@ static const flash_entry_t s_flash_table[] = {
     { ALG_ASCON_XOF,         &_flash_asconxof_start,      &_flash_asconxof_end      },
     { ALG_CHACHA20_POLY1305, &_flash_chacha_start,        &_flash_chacha_end        },
     { ALG_ECDSA_P256,        &_flash_ecdsap256_start,     &_flash_ecdsap256_end     },
-    { ALG_ED25519,           &_flash_ed25519_start,       &_flash_ed25519_end       },
+    { ALG_WOLF_ED25519,      &_flash_wolf_ed25519_start,   &_flash_wolf_ed25519_end       },
     { ALG_HKDF_SHA256,       &_flash_hkdf_start,          &_flash_hkdf_end          },
-    { ALG_DILITHIUM2,        &_flash_dilithium2_start,    &_flash_dilithium2_end    },
-    { ALG_FALCON,            &_flash_falcon512_start,     &_flash_falcon512_end     },
-    { ALG_KYBER512,          &_flash_kyber512_start,      &_flash_kyber512_end      },
-    { ALG_KYBER768,          &_flash_kyber768_start,      &_flash_kyber768_end      },
-    { ALG_X25519,            &_flash_x25519_start,        &_flash_x25519_end        },
+    { ALG_PQM4_DILITHIUM2,   &_flash_pqm4_dilithium2_start, &_flash_pqm4_dilithium2_end },
+    { ALG_PQM4_FALCON512,    &_flash_pqm4_falcon512_start,  &_flash_pqm4_falcon512_end  },
+    { ALG_PQM4_KYBER512,     &_flash_pqm4_kyber512_start,   &_flash_pqm4_kyber512_end   },
+    { ALG_PQM4_KYBER768,     &_flash_pqm4_kyber768_start,   &_flash_pqm4_kyber768_end   },
+    { ALG_WOLF_X25519,       &_flash_wolf_x25519_start,     &_flash_wolf_x25519_end     },
 };
 #define FLASH_TABLE_COUNT (sizeof(s_flash_table) / sizeof(s_flash_table[0]))
 
@@ -296,10 +296,10 @@ typedef struct {
 
 static const sign_size_t s_sign_sizes[] = {
     /*  type                 pk     sk    sig                             */
-    {  ALG_ED25519,          32,    64,    64  },  /* Ed25519             */
+    {  ALG_WOLF_ED25519,          32,    64,    64  },  /* Ed25519             */
     {  ALG_ECDSA_P256,       65,    97,    72  },  /* DER r+s worst-case  */
-    {  ALG_DILITHIUM2,     1312,  2560,  2420  },  /* ML-DSA-44           */
-    {  ALG_FALCON,          897,  1281,   666  },  /* FN-DSA-512          */
+    {  ALG_PQM4_DILITHIUM2,     1312,  2560,  2420  },  /* ML-DSA-44           */
+    {  ALG_PQM4_FALCON512,          897,  1281,   666  },  /* FN-DSA-512          */
 };
 #define SIGN_SIZE_COUNT (sizeof(s_sign_sizes) / sizeof(s_sign_sizes[0]))
 
@@ -320,8 +320,8 @@ typedef struct {
 
 static const kem_size_t s_kem_sizes[] = {
     /*  type          pk      sk      ct     ss  */
-    {  ALG_KYBER512,   800,  1632,   768,   32  },
-    {  ALG_KYBER768,  1184,  2400,  1088,   32  },
+    {  ALG_PQM4_KYBER512,   800,  1632,   768,   32  },
+    {  ALG_PQM4_KYBER768,  1184,  2400,  1088,   32  },
 };
 #define KEM_SIZE_COUNT (sizeof(s_kem_sizes) / sizeof(s_kem_sizes[0]))
 
@@ -341,7 +341,7 @@ typedef struct {
 
 static const kex_size_t s_kex_sizes[] = {
     /*  type          pk    sk    ss  */
-    {  ALG_X25519,    32,   32,   32  },
+    {  ALG_WOLF_X25519,    32,   32,   32  },
     {  ALG_ECDH_P256, 65,   32,   32  },
 };
 #define KEX_SIZE_COUNT (sizeof(s_kex_sizes) / sizeof(s_kex_sizes[0]))

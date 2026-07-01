@@ -9,12 +9,12 @@
 static uint8_t s_sm[MLDSA44_SIG_BYTES + MLDSA44_MSG_MAX]; 
 static uint8_t s_m[MLDSA44_MSG_MAX];
 
-static int dilithium2_keypair(uint8_t *pk, uint8_t *sk)
+static int pqm4_dilithium2_keypair(uint8_t *pk, uint8_t *sk)
 {
     return crypto_sign_keypair(pk, sk) == 0 ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-static int dilithium2_sign(uint8_t *sig, size_t *siglen,
+static int pqm4_dilithium2_sign(uint8_t *sig, size_t *siglen,
                            const uint8_t *msg, size_t msglen,
                            const uint8_t *sk)
 {
@@ -26,7 +26,7 @@ static int dilithium2_sign(uint8_t *sig, size_t *siglen,
     return CRYPTO_SUCCESS;
 }
 
-static int dilithium2_verify(const uint8_t *sig, size_t siglen,
+static int pqm4_dilithium2_verify(const uint8_t *sig, size_t siglen,
                              const uint8_t *msg, size_t msglen,
                              const uint8_t *pk) 
 {
@@ -39,10 +39,10 @@ static int dilithium2_verify(const uint8_t *sig, size_t siglen,
                ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-const crypto_ops_t dilithium2_ops = {
-    .type         = ALG_DILITHIUM2,
+const crypto_ops_t pqm4_dilithium2_ops = {
+    .type         = ALG_PQM4_DILITHIUM2,
     .name         = "ML-DSA-44 (pqm4/m4f)",
-    .sign_keypair = dilithium2_keypair,
-    .sign         = dilithium2_sign,
-    .verify       = dilithium2_verify,
+    .sign_keypair = pqm4_dilithium2_keypair,
+    .sign         = pqm4_dilithium2_sign,
+    .verify       = pqm4_dilithium2_verify,
 };

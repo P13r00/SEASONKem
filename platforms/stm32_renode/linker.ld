@@ -53,29 +53,29 @@ SECTIONS
     *crypto_ecdsap256*          (.text* .rodata*)
     _flash_ecdsap256_end        = .;
 
-    _flash_ed25519_start        = .;
-    *crypto_ed25519*            (.text* .rodata*)
-    _flash_ed25519_end          = .;
+    _flash_wolf_ed25519_start        = .;
+    *crypto_wolf_ed25519*            (.text* .rodata*)
+    _flash_wolf_ed25519_end          = .;
 
     _flash_hkdf_start           = .;
     *crypto_hkdfsha256*         (.text* .rodata*)
     _flash_hkdf_end             = .;
 
-    _flash_dilithium2_start     = .;
-    *crypto_dilithium2*         (.text* .rodata*)
-    _flash_dilithium2_end       = .;
+    _flash_pqm4_dilithium2_start     = .;
+    *crypto_pqm4_dilithium2*         (.text* .rodata*)
+    _flash_pqm4_dilithium2_end       = .;
 
-    _flash_falcon512_start      = .;
-    *crypto_falcon512*          (.text* .rodata*)
-    _flash_falcon512_end        = .;
+    _flash_pqm4_falcon512_start      = .;
+    *crypto_pqm4_falcon512*          (.text* .rodata*)
+    _flash_pqm4_falcon512_end        = .;
 
-    _flash_kyber512_start       = .;
-    *crypto_kyber512*           (.text* .rodata*)
-    _flash_kyber512_end         = .;
+    _flash_pqm4_kyber512_start       = .;
+    *crypto_pqm4_kyber512*           (.text* .rodata*)
+    _flash_pqm4_kyber512_end         = .;
 
-    _flash_kyber768_start       = .;
-    *crypto_kyber768*           (.text* .rodata*)
-    _flash_kyber768_end         = .;
+    _flash_pqm4_kyber768_start       = .;
+    *crypto_pqm4_kyber768*           (.text* .rodata*)
+    _flash_pqm4_kyber768_end         = .;
 
     _flash_photonbeetle_start   = .;
     *crypto_photonbeetleaead*   (.text* .rodata*)
@@ -85,9 +85,9 @@ SECTIONS
     *crypto_shake256*           (.text* .rodata*)
     _flash_shake256_end         = .;
 
-    _flash_x25519_start         = .;
-    *crypto_x25519*             (.text* .rodata*)
-    _flash_x25519_end           = .;
+    _flash_wolf_x25519_start         = .;
+    *crypto_wolf_x25519*             (.text* .rodata*)
+    _flash_wolf_x25519_end           = .;
 
     /* catch-all: benchmark_runner, platform HAL, wolfSSL, pqm4, libc stubs */
     *(.text)

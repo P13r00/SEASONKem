@@ -1,5 +1,5 @@
-CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_falcon512.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_falcon512.c \
+CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_pqm4_kyber512.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_pqm4_kyber512.c \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stddef.h \

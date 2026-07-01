@@ -1,3 +1,17 @@
+/* crypto_x25519.c — X25519 key exchange via wolfcrypt (Curve25519)
+ *
+ * sk layout (32 B): raw clamped private scalar, big-endian (wolfcrypt default)
+ * pk layout (32 B): u-coordinate of public key,  big-endian (wolfcrypt default)
+ *
+ * Both fit exactly in the 32-byte slots already in s_kex_sizes[ALG_X25519].
+ * No benchmark_runner.c changes needed.
+ *
+ * wc_curve25519_shared_secret_ex checks private_key->privSet only —
+ * not private_key->pubSet — so the sk struct does not carry the public key.
+ * The [private | public] layout in earlier revisions wrote 64 bytes into a
+ * 32-byte heap slot, silently overwriting pk_b on every keygen call.
+ */
+
 #include <wolfssl/wolfcrypt/curve25519.h>
 #include "core/inc/crypto_api.h"
 
@@ -5,7 +19,7 @@
 #define X25519_PUB_SIZE   CURVE25519_KEYSIZE   /* 32 */
 #define X25519_SS_SIZE    CURVE25519_KEYSIZE   /* 32 */
 
-static int x25519_keypair(uint8_t *pk, uint8_t *sk)
+static int wolf_x25519_keypair(uint8_t *pk, uint8_t *sk)
 {
     WC_RNG *rng = platform_rng_handle();
     if (!rng) return CRYPTO_ERROR;
@@ -19,21 +33,15 @@ static int x25519_keypair(uint8_t *pk, uint8_t *sk)
     word32 pkSz = X25519_PUB_SIZE;
     word32 skSz = X25519_PRIV_SIZE;
 
+    /* Exactly 32 bytes each — no overflow into adjacent heap slots */
     ret  = wc_curve25519_export_public(&key, pk, &pkSz);
     ret |= wc_curve25519_export_private_raw(&key, sk, &skSz);
-
-    if (ret == 0) {
-        /* sk = [32-byte private | 32-byte public copy] */
-        const uint8_t *src = pk;
-        uint8_t       *dst = sk + X25519_PRIV_SIZE;
-        for (word32 i = 0; i < pkSz; i++) dst[i] = src[i];
-    }
 
     wc_curve25519_free(&key);
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-static int x25519_shared_secret(uint8_t *ss,
+static int wolf_x25519_shared_secret(uint8_t *ss,
                                 const uint8_t *peer_pk,
                                 const uint8_t *sk)
 {
@@ -45,13 +53,10 @@ static int x25519_shared_secret(uint8_t *ss,
         wc_curve25519_free(&priv_key);
         return CRYPTO_ERROR;
     }
+
     ret = wc_curve25519_import_private(sk, X25519_PRIV_SIZE, &priv_key);
     if (ret != 0) goto cleanup;
 
-    ret = wc_curve25519_import_public(sk + X25519_PRIV_SIZE, X25519_PUB_SIZE,
-                                      &priv_key);
-    if (ret != 0) goto cleanup;
-    
     ret = wc_curve25519_import_public(peer_pk, X25519_PUB_SIZE, &pub_key);
     if (ret != 0) goto cleanup;
 
@@ -64,9 +69,9 @@ cleanup:
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-const crypto_kex_ops_t x25519_ops = {
-    .type          = ALG_X25519,
+const crypto_kex_ops_t wolf_x25519_ops = {
+    .type          = ALG_WOLF_X25519,
     .name          = "X25519 (wolfcrypt)",
-    .keygen        = x25519_keypair,
-    .shared_secret = x25519_shared_secret,
+    .keygen        = wolf_x25519_keypair,
+    .shared_secret = wolf_x25519_shared_secret,
 };

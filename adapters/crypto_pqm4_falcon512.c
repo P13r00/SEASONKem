@@ -50,8 +50,8 @@ static int falcon512_verify(const uint8_t *sig, size_t siglen,
                ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-const crypto_ops_t falcon512_ops = {
-    .type         = ALG_FALCON,
+const crypto_ops_t pqm4_falcon512_ops = {
+    .type         = ALG_PQM4_FALCON512,
     .name         = "FN-DSA-512 (pqm4/m4f)",
     .sign_keypair = falcon512_keypair,
     .sign         = falcon512_sign,

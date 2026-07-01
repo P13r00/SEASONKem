@@ -20,7 +20,8 @@ set(CMAKE_C_STANDARD 99)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
-foreach(ALG ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF ECDSAP256 KYBER512 KYBER768 DILITHIUM2 FALCON512 X25519)
+foreach(ALG WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF 
+        ECDSAP256 PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512 WOLF_X25519)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -63,14 +64,14 @@ if(COMPILE_HKDF_SHA256)
     list(APPEND CORE_SOURCES "adapters/crypto_hkdfsha256.c")
 endif()
 
-if(COMPILE_ED25519)
+if(COMPILE_WOLF_ED25519)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sha512.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/ed25519.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/ge_operations.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/fe_operations.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_ed25519.c")
+    list(APPEND CORE_SOURCES "adapters/crypto_wolf_ed25519.c")
 endif()
 
 if(COMPILE_ECDSAP256)
@@ -98,12 +99,12 @@ if(COMPILE_CHACHA20_POLY1305)
     list(APPEND CORE_SOURCES "adapters/crypto_chacha20_poly1305.c")
 endif()
 
-if(COMPILE_X25519)
+if(COMPILE_WOLF_X25519)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/curve25519.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/fe_operations.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_x25519.c")
+    list(APPEND CORE_SOURCES "adapters/crypto_wolf_x25519.c")
 endif()
 
 list(REMOVE_DUPLICATES WOLFCRYPT_SOURCES)
@@ -161,7 +162,7 @@ set(PQM4_INCLUDES
     ${PQM4_DIR}
 )
 
-if(COMPILE_KYBER512)
+if(COMPILE_PQM4_KYBER512)
     file(GLOB PQM4_KEM_SOURCES
         "${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed/*.c"
         "${PQM4_DIR}/crypto_kem/ml-kem-512/m4fspeed/*.S"
@@ -172,10 +173,10 @@ if(COMPILE_KYBER512)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_kyber512.c")
+    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_kyber512.c")
 endif()
 
-if(COMPILE_KYBER768)
+if(COMPILE_PQM4_KYBER768)
     file(GLOB PQM4_KEM_SOURCES
         "${PQM4_DIR}/crypto_kem/ml-kem-768/m4fspeed/*.c"
         "${PQM4_DIR}/crypto_kem/ml-kem-768/m4fspeed/*.S"
@@ -186,10 +187,10 @@ if(COMPILE_KYBER768)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_kyber768.c")
+    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_kyber768.c")
 endif()
 
-if(COMPILE_DILITHIUM2)
+if(COMPILE_PQM4_DILITHIUM2)
     file(GLOB PQM4_SIGN_M4F_SOURCES
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.c"
         "${PQM4_DIR}/crypto_sign/ml-dsa-44/m4f/*.S"
@@ -200,17 +201,17 @@ if(COMPILE_DILITHIUM2)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_dilithium2.c")
+    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_dilithium2.c")
 endif()
 
-if(COMPILE_FALCON512)
+if(COMPILE_PQM4_FALCON512)
     file(GLOB PQM4_FALCON_SOURCES
         "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.c"
         "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.s"
         "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.S"
     )
     list(APPEND PQM4_SOURCES ${PQM4_FALCON_SOURCES})
-    list(APPEND CORE_SOURCES "adapters/crypto_falcon512.c")
+    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_falcon512.c")
 endif()
 
 if(PQM4_SOURCES)

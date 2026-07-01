@@ -1,7 +1,7 @@
 #include <wolfssl/wolfcrypt/ed25519.h>
 #include "core/inc/crypto_api.h"
 
-static int ed25519_keypair(uint8_t *pk, uint8_t *sk) 
+static int wolf_ed25519_keypair(uint8_t *pk, uint8_t *sk) 
 {
     WC_RNG *rng = platform_rng_handle();
     if (!rng) return CRYPTO_ERROR;
@@ -21,7 +21,7 @@ static int ed25519_keypair(uint8_t *pk, uint8_t *sk)
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-static int ed25519_sign(uint8_t *sig, size_t *siglen,
+static int wolf_ed25519_sign(uint8_t *sig, size_t *siglen,
                         const uint8_t *msg, size_t msglen,
                         const uint8_t *sk) 
 {
@@ -42,7 +42,7 @@ static int ed25519_sign(uint8_t *sig, size_t *siglen,
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-static int ed25519_verify(const uint8_t *sig, size_t siglen,
+static int wolf_ed25519_verify(const uint8_t *sig, size_t siglen,
                           const uint8_t *msg, size_t msglen,
                           const uint8_t *pk) 
 {
@@ -60,10 +60,10 @@ static int ed25519_verify(const uint8_t *sig, size_t siglen,
     return (ret == 0 && verified == 1) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-const crypto_ops_t ed25519_ops = {
-    .type         = ALG_ED25519,
+const crypto_ops_t wolf_ed25519_ops = {
+    .type         = ALG_WOLF_ED25519,
     .name         = "Ed25519 (wolfcrypt)",
-    .sign_keypair = ed25519_keypair,
-    .sign         = ed25519_sign,
-    .verify       = ed25519_verify,
+    .sign_keypair = wolf_ed25519_keypair,
+    .sign         = wolf_ed25519_sign,
+    .verify       = wolf_ed25519_verify,
 };
