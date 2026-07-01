@@ -214,6 +214,22 @@ if(COMPILE_PQM4_FALCON512)
     list(APPEND CORE_SOURCES "adapters/crypto_pqm4_falcon512.c")
 endif()
 
+if(COMPILE_PQM4_SHA3_256)
+    list(APPEND PQM4_SOURCES
+        ${PQM4_DIR}/mupq/common/fips202.c
+        ${PQM4_DIR}/common/keccakf1600.S
+    )
+    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_sha3_256.c")
+endif()
+
+if(COMPILE_PQM4_SHAKE256)
+    list(APPEND PQM4_SOURCES
+        ${PQM4_DIR}/mupq/common/fips202.c
+        ${PQM4_DIR}/common/keccakf1600.S
+    )
+    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_shake256.c")
+endif()
+
 if(PQM4_SOURCES)
     list(REMOVE_DUPLICATES PQM4_SOURCES)
 endif()

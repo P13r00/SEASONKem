@@ -2,7 +2,7 @@
 #include "core/inc/crypto_api.h"
 
 // Selection point for benchmark
-#define COMPILE_WOLF_ED25519            1
+#define COMPILE_WOLF_ED25519            0
 #define COMPILE_ECDSAP256               0
 #define COMPILE_AES_GCM                 0
 #define COMPILE_CHACHA20_POLY1305       0
@@ -15,6 +15,8 @@
 #define COMPILE_PQM4_KYBER768           0
 #define COMPILE_PQM4_DILITHIUM2         0
 #define COMPILE_PQM4_FALCON512          1
+#define COMPILE_PQM4_SHA3_256           1
+#define COMPILE_PQM4_SHAKE256           1
 #define COMPILE_WOLF_X25519             1
 
 
@@ -229,19 +231,21 @@ uint32_t heap_capacity(void) {
     return (uint32_t)(s_heap_end - s_heap_base);
 }
 
-extern uint32_t _flash_aes_gcm_start,       _flash_aes_gcm_end;
-extern uint32_t _flash_ascon80pq_start,     _flash_ascon80pq_end;
-extern uint32_t _flash_asconaead128_start,  _flash_asconaead128_end;
-extern uint32_t _flash_asconhash256_start,  _flash_asconhash256_end;
-extern uint32_t _flash_asconxof_start,      _flash_asconxof_end;
-extern uint32_t _flash_chacha_start,        _flash_chacha_end;
-extern uint32_t _flash_ecdsap256_start,     _flash_ecdsap256_end;
+extern uint32_t _flash_aes_gcm_start,            _flash_aes_gcm_end;
+extern uint32_t _flash_ascon80pq_start,          _flash_ascon80pq_end;
+extern uint32_t _flash_asconaead128_start,       _flash_asconaead128_end;
+extern uint32_t _flash_asconhash256_start,       _flash_asconhash256_end;
+extern uint32_t _flash_asconxof_start,           _flash_asconxof_end;
+extern uint32_t _flash_chacha_start,             _flash_chacha_end;
+extern uint32_t _flash_ecdsap256_start,          _flash_ecdsap256_end;
 extern uint32_t _flash_wolf_ed25519_start,       _flash_wolf_ed25519_end;
-extern uint32_t _flash_hkdf_start,          _flash_hkdf_end;
+extern uint32_t _flash_hkdf_start,               _flash_hkdf_end;
 extern uint32_t _flash_pqm4_dilithium2_start,    _flash_pqm4_dilithium2_end;
 extern uint32_t _flash_pqm4_falcon512_start,     _flash_pqm4_falcon512_end;
 extern uint32_t _flash_pqm4_kyber512_start,      _flash_pqm4_kyber512_end;
 extern uint32_t _flash_pqm4_kyber768_start,      _flash_pqm4_kyber768_end;
+extern uint32_t _flash_pqm4_sha3_256_start,      _flash_pqm4_sha3_256_end;
+extern uint32_t _flash_pqm4_shake256_start,      _flash_pqm4_shake256_end;
 extern uint32_t _flash_wolf_x25519_start,        _flash_wolf_x25519_end;
 
 typedef struct {
@@ -251,19 +255,21 @@ typedef struct {
 } flash_entry_t;
 
 static const flash_entry_t s_flash_table[] = {
-    { ALG_AES_GCM,           &_flash_aes_gcm_start,       &_flash_aes_gcm_end       },
-    { ALG_ASCON80PQ,         &_flash_ascon80pq_start,     &_flash_ascon80pq_end     },
-    { ALG_ASCON_AEAD128,     &_flash_asconaead128_start,  &_flash_asconaead128_end  },
-    { ALG_ASCON_HASH256,     &_flash_asconhash256_start,  &_flash_asconhash256_end  },
-    { ALG_ASCON_XOF,         &_flash_asconxof_start,      &_flash_asconxof_end      },
-    { ALG_CHACHA20_POLY1305, &_flash_chacha_start,        &_flash_chacha_end        },
-    { ALG_ECDSA_P256,        &_flash_ecdsap256_start,     &_flash_ecdsap256_end     },
-    { ALG_WOLF_ED25519,      &_flash_wolf_ed25519_start,   &_flash_wolf_ed25519_end       },
-    { ALG_HKDF_SHA256,       &_flash_hkdf_start,          &_flash_hkdf_end          },
+    { ALG_AES_GCM,           &_flash_aes_gcm_start,         &_flash_aes_gcm_end         },
+    { ALG_ASCON80PQ,         &_flash_ascon80pq_start,       &_flash_ascon80pq_end       },
+    { ALG_ASCON_AEAD128,     &_flash_asconaead128_start,    &_flash_asconaead128_end    },
+    { ALG_ASCON_HASH256,     &_flash_asconhash256_start,    &_flash_asconhash256_end    },
+    { ALG_ASCON_XOF,         &_flash_asconxof_start,        &_flash_asconxof_end        },
+    { ALG_CHACHA20_POLY1305, &_flash_chacha_start,          &_flash_chacha_end          },
+    { ALG_ECDSA_P256,        &_flash_ecdsap256_start,       &_flash_ecdsap256_end       },
+    { ALG_WOLF_ED25519,      &_flash_wolf_ed25519_start,    &_flash_wolf_ed25519_end    },
+    { ALG_HKDF_SHA256,       &_flash_hkdf_start,            &_flash_hkdf_end            },
     { ALG_PQM4_DILITHIUM2,   &_flash_pqm4_dilithium2_start, &_flash_pqm4_dilithium2_end },
     { ALG_PQM4_FALCON512,    &_flash_pqm4_falcon512_start,  &_flash_pqm4_falcon512_end  },
     { ALG_PQM4_KYBER512,     &_flash_pqm4_kyber512_start,   &_flash_pqm4_kyber512_end   },
     { ALG_PQM4_KYBER768,     &_flash_pqm4_kyber768_start,   &_flash_pqm4_kyber768_end   },
+    { ALG_PQM4_SHA3_256,     &_flash_pqm4_sha3_256_start,   &_flash_pqm4_sha3_256_end   },
+    { ALG_PQM4_SHAKE256,     &_flash_pqm4_shake256_start,   &_flash_pqm4_shake256_end   },
     { ALG_WOLF_X25519,       &_flash_wolf_x25519_start,     &_flash_wolf_x25519_end     },
 };
 #define FLASH_TABLE_COUNT (sizeof(s_flash_table) / sizeof(s_flash_table[0]))
@@ -295,11 +301,11 @@ typedef struct {
 } sign_size_t;
 
 static const sign_size_t s_sign_sizes[] = {
-    /*  type                 pk     sk    sig                             */
+    /*  type                      pk     sk    sig                             */
     {  ALG_WOLF_ED25519,          32,    64,    64  },  /* Ed25519             */
-    {  ALG_ECDSA_P256,       65,    97,    72  },  /* DER r+s worst-case  */
+    {  ALG_ECDSA_P256,            65,    97,    72  },  /* DER r+s worst-case  */
     {  ALG_PQM4_DILITHIUM2,     1312,  2560,  2420  },  /* ML-DSA-44           */
-    {  ALG_PQM4_FALCON512,          897,  1281,   666  },  /* FN-DSA-512          */
+    {  ALG_PQM4_FALCON512,       897,  1281,   666  },  /* FN-DSA-512          */
 };
 #define SIGN_SIZE_COUNT (sizeof(s_sign_sizes) / sizeof(s_sign_sizes[0]))
 

@@ -77,13 +77,17 @@ SECTIONS
     *crypto_pqm4_kyber768*           (.text* .rodata*)
     _flash_pqm4_kyber768_end         = .;
 
+    _flash_pqm4_sha3_256_start       = .;
+    *crypto_pqm4_sha3_256*           (.text* .rodata*)
+    _flash_pqm4_sha3_256_end         = .;
+
+    _flash_pqm4_shake256_start       = .;
+    *crypto_pqm4_shake256*           (.text* .rodata*)
+    _flash_pqm4_shake256_end         = .;
+
     _flash_photonbeetle_start   = .;
     *crypto_photonbeetleaead*   (.text* .rodata*)
     _flash_photonbeetle_end           = .;
-
-    _flash_shake256_start       = .;
-    *crypto_shake256*           (.text* .rodata*)
-    _flash_shake256_end         = .;
 
     _flash_wolf_x25519_start         = .;
     *crypto_wolf_x25519*             (.text* .rodata*)

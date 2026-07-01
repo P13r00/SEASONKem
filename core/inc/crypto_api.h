@@ -27,7 +27,9 @@ typedef enum {
     ALG_PQM4_KYBER768,
     ALG_PHOTON_BEETLE_AEAD,
     ALG_SHAKE256,
-    ALG_WOLF_X25519
+    ALG_WOLF_X25519,
+    ALG_PQM4_SHA3_256,
+    ALG_PQM4_SHAKE256
 } crypto_type_t;
 
 #define CRYPTO_SUCCESS  0
@@ -92,6 +94,17 @@ typedef struct {
                   const uint8_t *salt, size_t salt_len,
                   const uint8_t *info, size_t info_len);
 } crypto_kdf_ops_t;
+
+typedef struct {
+    crypto_type_t type;
+    const char    *name;
+    int (*hash)(uint8_t *out, const uint8_t *in, size_t inlen);
+    int (*init)(void *ctx);
+    int (*absorb)(void *ctx, const uint8_t *in, size_t inlen);
+    int (*finalize)(uint8_t *out, void *ctx);
+    int (*clone)(void *dst, const void *src);
+    int (*release)(void *ctx);
+} crypto_hash_ops_t;
 
 
 // Key Encapsulation Mechanism (KEM) ops
