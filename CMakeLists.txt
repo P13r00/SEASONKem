@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
 
-
 if(TARGET_PLATFORM STREQUAL "STM32")
     set(CMAKE_SYSTEM_NAME Generic)
     set(CMAKE_SYSTEM_PROCESSOR arm)
@@ -17,8 +16,7 @@ project(crypto_heterogeneous_benchmark C ASM)
 
 set(CMAKE_C_STANDARD 99)
 
-
-file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_config.h" RUNNER_CONTENT)
 
 foreach(ALG WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF 
         ECDSAP256 PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512 WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256)
@@ -29,9 +27,15 @@ foreach(ALG WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_AEA
     endif()
 endforeach()
 
-
 set(CORE_SOURCES
     core/src/benchmark_runner.c
+    core/src/benchmark_metrics.c
+    core/src/benchmarks/bm_aead.c
+    core/src/benchmarks/bm_hash.c
+    core/src/benchmarks/bm_kdf.c
+    core/src/benchmarks/bm_kem.c
+    core/src/benchmarks/bm_kex.c
+    core/src/benchmarks/bm_signature.c
 )
 
 set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
@@ -53,7 +57,6 @@ if(WOLFCRYPT_RNG)
         ${WOLFCRYPT_DIR}/wolfcrypt/src/hash.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sha256.c
         adapters/adapter_rng.c
-
     )
 endif()
 
@@ -108,7 +111,6 @@ if(COMPILE_WOLF_X25519)
 endif()
 
 list(REMOVE_DUPLICATES WOLFCRYPT_SOURCES)
-
 
 set(ASCON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon)
 set(ASCON_SOURCES "")
@@ -272,6 +274,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     
     target_include_directories(stm32_benchmark.elf PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmarks
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
         ${PQM4_INCLUDES}
         ${WOLFCRYPT_INCLUDES}
