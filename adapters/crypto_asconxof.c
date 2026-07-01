@@ -1,26 +1,35 @@
 #include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
 #include "core/inc/crypto_api.h"
 
-extern int crypto_hash(unsigned char *out,
-                       const unsigned char *in,
-                       unsigned long long inlen);
+#define ASCON_XOF_DEFAULT_OUTLEN 32u
 
-static int asconxof_derive(uint8_t       *okm,  size_t okm_len,
-                          const uint8_t *ikm,  size_t ikm_len,
-                          const uint8_t *salt, size_t salt_len,
-                          const uint8_t *info, size_t info_len)
+/* * The true variable-length XOF API provided by your Ascon library 
+ */
+extern int ascon_xof(uint8_t* out, uint64_t outlen, const uint8_t* in, uint64_t inlen);
+
+static int asconxof_hash(uint8_t *out, size_t outlen, const uint8_t *in, size_t inlen)
 {
-    (void)salt; /* unused */
-    (void)info; /* unused */
+    if (!out || (inlen > 0 && !in)) return CRYPTO_ERROR;
 
-    if (!okm || okm_len == 0) return CRYPTO_ERROR;
-
-    int rc = crypto_hash(okm, ikm, (unsigned long long)ikm_len);
+    /* * We can now pass 'outlen' directly to the backend!
+     * Casting size_t to uint64_t to safely match the Ascon API signature.
+     */
+    int rc = ascon_xof(out, (uint64_t)outlen, in, (uint64_t)inlen);
+    
     return (rc == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
 
-const crypto_kdf_ops_t asconxof_ops = {
-    .type   = ALG_ASCON_XOF,
-    .name   = "ASCON-XOF (ascon)",
-    .derive = asconxof_derive,
+const crypto_hash_ops_t asconxof_ops = {
+    .type           = ALG_ASCON_XOF,
+    .name           = "ASCON-XOF (ascon)",
+    .is_xof         = true,
+    .default_outlen = ASCON_XOF_DEFAULT_OUTLEN,
+    .hash           = asconxof_hash,
+    .init           = NULL,
+    .absorb         = NULL,
+    .finalize       = NULL,
+    .clone          = NULL,
+    .release        = NULL,
 };

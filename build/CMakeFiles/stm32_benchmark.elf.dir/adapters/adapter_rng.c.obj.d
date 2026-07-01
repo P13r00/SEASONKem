@@ -45,4 +45,5 @@ CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj: \
  /usr/arm-none-eabi/include/sys/string.h \
  /usr/arm-none-eabi/include/ctype.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/sha256.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/core/inc/crypto_api.h
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/core/inc/crypto_api.h \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdbool.h

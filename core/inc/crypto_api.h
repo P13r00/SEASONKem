@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdbool.h>
 
 int platform_rng_init(void);
 int platform_rng_generate(uint8_t *buf, size_t len);
@@ -98,14 +99,23 @@ typedef struct {
 typedef struct {
     crypto_type_t type;
     const char    *name;
-    int (*hash)(uint8_t *out, const uint8_t *in, size_t inlen);
+    
+    /* --- Capability Metadata --- */
+    bool   is_xof;           /* True for SHAKE/AsconXOF, false for SHA3/AsconHash */
+    size_t default_outlen;   /* Standard output size (e.g., 32 for SHA3-256) */
+
+    /* --- Operations --- */
+    /* One-shot with explicit output length */
+    int (*hash)(uint8_t *out, size_t outlen, const uint8_t *in, size_t inlen);
+    
+    /* Incremental API */
     int (*init)(void *ctx);
     int (*absorb)(void *ctx, const uint8_t *in, size_t inlen);
-    int (*finalize)(uint8_t *out, void *ctx);
+    /* Finalize acts as the "squeeze" for XOFs, taking an outlen */
+    int (*finalize)(uint8_t *out, size_t outlen, void *ctx); 
     int (*clone)(void *dst, const void *src);
     int (*release)(void *ctx);
 } crypto_hash_ops_t;
-
 
 // Key Encapsulation Mechanism (KEM) ops
 
@@ -119,7 +129,6 @@ typedef struct {
 
 
 //  Key Exchange (KEX) ops
-
 
 typedef struct {
     crypto_type_t  type;
