@@ -2,6 +2,8 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "core/inc/crypto_api.h"
+#include "fips202.h"
+
 
 #ifndef SHAKE256_OUTLEN
 #define SHAKE256_OUTLEN 32u

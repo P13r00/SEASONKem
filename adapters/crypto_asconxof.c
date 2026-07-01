@@ -23,7 +23,7 @@ static int asconxof_hash(uint8_t *out, size_t outlen, const uint8_t *in, size_t 
 
 const crypto_hash_ops_t asconxof_ops = {
     .type           = ALG_ASCON_XOF,
-    .name           = "ASCON-XOF (ascon)",
+    .name           = "ASCON-XOF (accelerated) (ascon)",
     .is_xof         = true,
     .default_outlen = ASCON_XOF_DEFAULT_OUTLEN,
     .hash           = asconxof_hash,

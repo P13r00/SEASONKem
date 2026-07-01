@@ -21,7 +21,7 @@ set(CMAKE_C_STANDARD 99)
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_runner.c" RUNNER_CONTENT)
 
 foreach(ALG WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF 
-        ECDSAP256 PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512 WOLF_X25519)
+        ECDSAP256 PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512 WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -135,20 +135,20 @@ endif()
 
 if(COMPILE_ASCON_HASH256)
     list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m_small/hash.c
-        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m_small/permutations.c
-        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m_small/interleave.c
-        ${ASCON_DIR}/crypto_hash/asconhashv12/bi32_armv7m_small/constants.c
+        ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/hash.c
+        ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/permutations.c
+        ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/interleave.c
+        ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/constants.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_asconhash256.c")
 endif()
 
 if(COMPILE_ASCON_XOF)
     list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m_small/hash.c
-        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m_small/permutations.c
-        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m_small/interleave.c
-        ${ASCON_DIR}/crypto_hash/asconxofv12/bi32_armv7m_small/constants.c
+        ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c
+        ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c
+        ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c
+        ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c
     )
     list(APPEND CORE_SOURCES "adapters/crypto_asconxof.c")
 endif()

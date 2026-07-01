@@ -10,7 +10,7 @@
 #define COMPILE_ASCON80                 0
 #define COMPILE_ASCON_AEAD128           0
 #define COMPILE_ASCON_HASH256           0
-#define COMPILE_ASCON_XOF               0
+#define COMPILE_ASCON_XOF               1
 #define COMPILE_PQM4_KYBER512           0
 #define COMPILE_PQM4_KYBER768           0
 #define COMPILE_PQM4_DILITHIUM2         0
@@ -616,7 +616,7 @@ void execute_kdf_benchmark(crypto_type_t type) {
 }
 
 // EXECUTE: HASHING BENCHMARK
-#define HASH_INPUT_LEN 64u
+#define HASH_INPUT_LEN 128u
 
 void execute_dynamic_hash_benchmark(crypto_type_t type) {
     /* Reset memory and stack tracking */
@@ -639,8 +639,9 @@ void execute_dynamic_hash_benchmark(crypto_type_t type) {
 
     /* Set up test conditions */
     /* Index 0 is always the baseline/fixed length */
-    size_t test_lengths[] = {ops->default_outlen, 64u, 1024u};
-    size_t num_tests      = ops->is_xof ? 3 : 1; 
+    size_t test_lengths[] = {ops->default_outlen, 64u, 1024u, 16u, 20u};
+    size_t num_tests      = ops->is_xof ? 5 : 1; 
+
 
     /* Print header */
     platform_print_string("-> ");
@@ -677,14 +678,11 @@ void execute_dynamic_hash_benchmark(crypto_type_t type) {
             if (i == 0) p_cy("   Default/32B: ", CYCLE_DELTA(s, e));
             if (i == 1) p_cy("   Squeeze 64B: ", CYCLE_DELTA(s, e));
             if (i == 2) p_cy("   Sqz 1024B:   ", CYCLE_DELTA(s, e));
+            if (i == 3) p_cy("   Sqz 16B:     ", CYCLE_DELTA(s, e));
+            if (i == 4) p_cy("   Sqz 20B:     ", CYCLE_DELTA(s, e));
         } else {
             platform_print_string("   [Error executing hash]\n");
         }
-        
-        /* If your custom heap doesn't have a free() equivalent, and you use a 
-         * simple linear allocator, you may need a local heap_reset() here if 
-         * allocations exceed your available RAM during the loop. 
-         */
     }
 
     /* Print memory footprint */
@@ -825,6 +823,15 @@ void run_all_benchmarks(void) {
         platform_print_string("[Key Derivation]\n");
         for (size_t i = 0u; i < KDF_REGISTRY_COUNT; i++)
             execute_kdf_benchmark(kdf_registry[i]->type);
+    }
+
+    if (HASH_REGISTRY_COUNT > 0u) {
+        platform_print_string("   Input Length: ");
+        platform_print_number(HASH_INPUT_LEN);
+        platform_print_string(" B\n");
+        platform_print_string("[Hash / XOF]\n");
+    for (size_t i = 0u; i < HASH_REGISTRY_COUNT; i++)
+        execute_dynamic_hash_benchmark(hash_registry[i]->type);
     }
 
     if (KEM_REGISTRY_COUNT > 0u) {

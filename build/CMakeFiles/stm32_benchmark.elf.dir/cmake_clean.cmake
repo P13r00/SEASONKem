@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj.d"
+  "CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj"
+  "CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj.d"
+  "CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_pqm4_shake256.c.obj"
+  "CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_pqm4_shake256.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj"
@@ -9,6 +13,17 @@ file(REMOVE_RECURSE
   "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj.d"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.obj"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.obj.d"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.obj"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.obj.d"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.obj"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.obj.d"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.obj"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.obj.d"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/common/keccakf1600.S.obj"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj"
+  "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj"
@@ -30,6 +45,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang C)
+foreach(lang ASM C)
   include(CMakeFiles/stm32_benchmark.elf.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()
