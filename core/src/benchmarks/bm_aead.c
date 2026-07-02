@@ -14,6 +14,12 @@ extern const crypto_aead_ops_t asconaead128_ops;
 #if COMPILE_CHACHA20_POLY1305
 extern const crypto_aead_ops_t chacha20_poly1305_ops;
 #endif
+#if COMPILE_LWC_SPARKLE_AEAD256
+extern const crypto_aead_ops_t lwc_sparkle_aead256_ops;
+#endif
+#if COMPILE_LWC_SPARKLE_AEAD192
+extern const crypto_aead_ops_t lwc_sparkle_aead192_ops;
+#endif
 
 static const crypto_aead_ops_t *aead_registry[] = {
 #if COMPILE_AES_GCM
@@ -28,13 +34,19 @@ static const crypto_aead_ops_t *aead_registry[] = {
 #if COMPILE_CHACHA20_POLY1305
     &chacha20_poly1305_ops,
 #endif
+#if COMPILE_LWC_SPARKLE_AEAD256
+    &lwc_sparkle_aead256_ops,
+#endif
+#if COMPILE_LWC_SPARKLE_AEAD192
+    &lwc_sparkle_aead192_ops,
+#endif
     NULL
 };
 #define AEAD_REGISTRY_COUNT \
     ((sizeof(aead_registry) / sizeof(aead_registry[0])) - 1u)
 
-#define AEAD_MSG_LEN  64u
-#define AEAD_AD_LEN   16u
+#define AEAD_MSG_LEN  128u
+#define AEAD_AD_LEN   0u
 
 void execute_aead_benchmark(crypto_type_t type) {
     reset_stack_watermark();

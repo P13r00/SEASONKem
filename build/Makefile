@@ -153,53 +153,29 @@ adapters/adapter_rng.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.s
 .PHONY : adapters/adapter_rng.c.s
 
-adapters/crypto_asconxof.obj: adapters/crypto_asconxof.c.obj
-.PHONY : adapters/crypto_asconxof.obj
+adapters/lwc/crypto_lwc_sparkle_hashxof.obj: adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
+.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.obj
 
 # target to build an object file
-adapters/crypto_asconxof.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj
-.PHONY : adapters/crypto_asconxof.c.obj
+adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
+.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
 
-adapters/crypto_asconxof.i: adapters/crypto_asconxof.c.i
-.PHONY : adapters/crypto_asconxof.i
-
-# target to preprocess a source file
-adapters/crypto_asconxof.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.i
-.PHONY : adapters/crypto_asconxof.c.i
-
-adapters/crypto_asconxof.s: adapters/crypto_asconxof.c.s
-.PHONY : adapters/crypto_asconxof.s
-
-# target to generate assembly for a file
-adapters/crypto_asconxof.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.s
-.PHONY : adapters/crypto_asconxof.c.s
-
-adapters/crypto_pqm4_shake256.obj: adapters/crypto_pqm4_shake256.c.obj
-.PHONY : adapters/crypto_pqm4_shake256.obj
-
-# target to build an object file
-adapters/crypto_pqm4_shake256.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_pqm4_shake256.c.obj
-.PHONY : adapters/crypto_pqm4_shake256.c.obj
-
-adapters/crypto_pqm4_shake256.i: adapters/crypto_pqm4_shake256.c.i
-.PHONY : adapters/crypto_pqm4_shake256.i
+adapters/lwc/crypto_lwc_sparkle_hashxof.i: adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
+.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.i
 
 # target to preprocess a source file
-adapters/crypto_pqm4_shake256.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_pqm4_shake256.c.i
-.PHONY : adapters/crypto_pqm4_shake256.c.i
+adapters/lwc/crypto_lwc_sparkle_hashxof.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
+.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
 
-adapters/crypto_pqm4_shake256.s: adapters/crypto_pqm4_shake256.c.s
-.PHONY : adapters/crypto_pqm4_shake256.s
+adapters/lwc/crypto_lwc_sparkle_hashxof.s: adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
+.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.s
 
 # target to generate assembly for a file
-adapters/crypto_pqm4_shake256.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_pqm4_shake256.c.s
-.PHONY : adapters/crypto_pqm4_shake256.c.s
+adapters/lwc/crypto_lwc_sparkle_hashxof.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
+.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
 
 core/src/benchmark_metrics.obj: core/src/benchmark_metrics.c.obj
 .PHONY : core/src/benchmark_metrics.obj
@@ -465,133 +441,37 @@ platforms/stm32_renode/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.s
 .PHONY : platforms/stm32_renode/main.c.s
 
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.obj: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.obj
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.obj
+third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj: third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj
 
 # target to build an object file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.obj
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.obj
+third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
 
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.i: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.i
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.i
+third_party/lwc-finalists/src/combined/sparkle-hash.obj: third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.obj
+
+# target to build an object file
+third_party/lwc-finalists/src/combined/sparkle-hash.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
+
+third_party/lwc-finalists/src/combined/sparkle-hash.i: third_party/lwc-finalists/src/combined/sparkle-hash.c.i
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.i
 
 # target to preprocess a source file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.i
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.i
+third_party/lwc-finalists/src/combined/sparkle-hash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.i
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.i
 
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.s: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.s
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.s
-
-# target to generate assembly for a file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.s
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.s
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.obj: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.obj
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.obj
-
-# target to build an object file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.obj
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.obj
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.i: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.i
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.i
-
-# target to preprocess a source file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.i
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.i
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.s: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.s
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.s
+third_party/lwc-finalists/src/combined/sparkle-hash.s: third_party/lwc-finalists/src/combined/sparkle-hash.c.s
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.s
 
 # target to generate assembly for a file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.s
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.s
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.obj: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.obj
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.obj
-
-# target to build an object file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.obj
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.obj
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.i: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.i
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.i
-
-# target to preprocess a source file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.i
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.i
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.s: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.s
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.s
-
-# target to generate assembly for a file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.s
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.s
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.obj: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.obj
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.obj
-
-# target to build an object file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.obj
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.obj
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.i: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.i
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.i
-
-# target to preprocess a source file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.i
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.i
-
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.s: third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.s
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.s
-
-# target to generate assembly for a file
-third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.s
-.PHONY : third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.s
-
-third_party/pqm4/common/keccakf1600.obj: third_party/pqm4/common/keccakf1600.S.obj
-.PHONY : third_party/pqm4/common/keccakf1600.obj
-
-# target to build an object file
-third_party/pqm4/common/keccakf1600.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/common/keccakf1600.S.obj
-.PHONY : third_party/pqm4/common/keccakf1600.S.obj
-
-third_party/pqm4/mupq/common/fips202.obj: third_party/pqm4/mupq/common/fips202.c.obj
-.PHONY : third_party/pqm4/mupq/common/fips202.obj
-
-# target to build an object file
-third_party/pqm4/mupq/common/fips202.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj
-.PHONY : third_party/pqm4/mupq/common/fips202.c.obj
-
-third_party/pqm4/mupq/common/fips202.i: third_party/pqm4/mupq/common/fips202.c.i
-.PHONY : third_party/pqm4/mupq/common/fips202.i
-
-# target to preprocess a source file
-third_party/pqm4/mupq/common/fips202.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.i
-.PHONY : third_party/pqm4/mupq/common/fips202.c.i
-
-third_party/pqm4/mupq/common/fips202.s: third_party/pqm4/mupq/common/fips202.c.s
-.PHONY : third_party/pqm4/mupq/common/fips202.s
-
-# target to generate assembly for a file
-third_party/pqm4/mupq/common/fips202.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.s
-.PHONY : third_party/pqm4/mupq/common/fips202.c.s
+third_party/lwc-finalists/src/combined/sparkle-hash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.s
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.s
 
 third_party/wolfssl/wolfcrypt/src/asn.obj: third_party/wolfssl/wolfcrypt/src/asn.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/asn.obj
@@ -797,12 +677,9 @@ help:
 	@echo "... adapters/adapter_rng.obj"
 	@echo "... adapters/adapter_rng.i"
 	@echo "... adapters/adapter_rng.s"
-	@echo "... adapters/crypto_asconxof.obj"
-	@echo "... adapters/crypto_asconxof.i"
-	@echo "... adapters/crypto_asconxof.s"
-	@echo "... adapters/crypto_pqm4_shake256.obj"
-	@echo "... adapters/crypto_pqm4_shake256.i"
-	@echo "... adapters/crypto_pqm4_shake256.s"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.obj"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.i"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.s"
 	@echo "... core/src/benchmark_metrics.obj"
 	@echo "... core/src/benchmark_metrics.i"
 	@echo "... core/src/benchmark_metrics.s"
@@ -836,22 +713,10 @@ help:
 	@echo "... platforms/stm32_renode/main.obj"
 	@echo "... platforms/stm32_renode/main.i"
 	@echo "... platforms/stm32_renode/main.s"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.obj"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.i"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.s"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.obj"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.i"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.s"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.obj"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.i"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.s"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.obj"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.i"
-	@echo "... third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.s"
-	@echo "... third_party/pqm4/common/keccakf1600.obj"
-	@echo "... third_party/pqm4/mupq/common/fips202.obj"
-	@echo "... third_party/pqm4/mupq/common/fips202.i"
-	@echo "... third_party/pqm4/mupq/common/fips202.s"
+	@echo "... third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj"
+	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.obj"
+	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.i"
+	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.s"

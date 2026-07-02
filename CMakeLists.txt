@@ -18,8 +18,12 @@ set(CMAKE_C_STANDARD 99)
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_config.h" RUNNER_CONTENT)
 
-foreach(ALG WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF 
-        ECDSAP256 PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512 WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256)
+foreach(ALG WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ECDSAP256 
+        ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF 
+        PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512 
+        WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256
+        LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF 
+        LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -64,7 +68,7 @@ if(COMPILE_HKDF_SHA256)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/hmac.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_hkdfsha256.c")
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_hkdfsha256.c")
 endif()
 
 if(COMPILE_WOLF_ED25519)
@@ -74,7 +78,7 @@ if(COMPILE_WOLF_ED25519)
         ${WOLFCRYPT_DIR}/wolfcrypt/src/ge_operations.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/fe_operations.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_wolf_ed25519.c")
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_wolf_ed25519.c")
 endif()
 
 if(COMPILE_ECDSAP256)
@@ -83,14 +87,14 @@ if(COMPILE_ECDSAP256)
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sp_int.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/sp_c32.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_ecdsap256.c")
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_ecdsap256.c")
 endif()
 
 if(COMPILE_AES_GCM)
     list(APPEND WOLFCRYPT_SOURCES
         ${WOLFCRYPT_DIR}/wolfcrypt/src/aes.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_aes_gcm.c")
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_aes_gcm.c")
 endif()
 
 if(COMPILE_CHACHA20_POLY1305)
@@ -99,7 +103,7 @@ if(COMPILE_CHACHA20_POLY1305)
         ${WOLFCRYPT_DIR}/wolfcrypt/src/poly1305.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/chacha20_poly1305.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_chacha20_poly1305.c")
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_chacha20_poly1305.c")
 endif()
 
 if(COMPILE_WOLF_X25519)
@@ -107,7 +111,7 @@ if(COMPILE_WOLF_X25519)
         ${WOLFCRYPT_DIR}/wolfcrypt/src/curve25519.c
         ${WOLFCRYPT_DIR}/wolfcrypt/src/fe_operations.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_wolf_x25519.c")
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_wolf_x25519.c")
 endif()
 
 list(REMOVE_DUPLICATES WOLFCRYPT_SOURCES)
@@ -124,7 +128,7 @@ if(COMPILE_ASCON80)
         ${ASCON_DIR}/crypto_aead/ascon80pqv12/armv7m/aead.c
         ${ASCON_DIR}/crypto_aead/ascon80pqv12/armv7m/permutations.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_ascon80pq.c")
+    list(APPEND CORE_SOURCES "adapters/ascon/crypto_ascon80pq.c")
 endif()
 
 if(COMPILE_ASCON_AEAD128)
@@ -132,7 +136,7 @@ if(COMPILE_ASCON_AEAD128)
         ${ASCON_DIR}/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c
         ${ASCON_DIR}/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_asconaead128.c")
+    list(APPEND CORE_SOURCES "adapters/ascon/crypto_asconaead128.c")
 endif()
 
 if(COMPILE_ASCON_HASH256)
@@ -142,7 +146,7 @@ if(COMPILE_ASCON_HASH256)
         ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/interleave.c
         ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/constants.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_asconhash256.c")
+    list(APPEND CORE_SOURCES "adapters/ascon/crypto_asconhash256.c")
 endif()
 
 if(COMPILE_ASCON_XOF)
@@ -152,7 +156,7 @@ if(COMPILE_ASCON_XOF)
         ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c
         ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_asconxof.c")
+    list(APPEND CORE_SOURCES "adapters/ascon/crypto_asconxof.c")
 endif()
 
 set(PQM4_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pqm4)
@@ -175,7 +179,7 @@ if(COMPILE_PQM4_KYBER512)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_kyber512.c")
+    list(APPEND CORE_SOURCES "adapters/pqm4/crypto_pqm4_kyber512.c")
 endif()
 
 if(COMPILE_PQM4_KYBER768)
@@ -189,7 +193,7 @@ if(COMPILE_PQM4_KYBER768)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_kyber768.c")
+    list(APPEND CORE_SOURCES "adapters/pqm4/crypto_pqm4_kyber768.c")
 endif()
 
 if(COMPILE_PQM4_DILITHIUM2)
@@ -203,7 +207,7 @@ if(COMPILE_PQM4_DILITHIUM2)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_dilithium2.c")
+    list(APPEND CORE_SOURCES "adapters/pqm4/crypto_pqm4_dilithium2.c")
 endif()
 
 if(COMPILE_PQM4_FALCON512)
@@ -213,7 +217,7 @@ if(COMPILE_PQM4_FALCON512)
         "${PQM4_DIR}/crypto_sign/fndsa_provisional-512/m4f/*.S"
     )
     list(APPEND PQM4_SOURCES ${PQM4_FALCON_SOURCES})
-    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_falcon512.c")
+    list(APPEND CORE_SOURCES "adapters/pqm4/crypto_pqm4_falcon512.c")
 endif()
 
 if(COMPILE_PQM4_SHA3_256)
@@ -221,7 +225,7 @@ if(COMPILE_PQM4_SHA3_256)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_sha3_256.c")
+    list(APPEND CORE_SOURCES "adapters/pqm4/crypto_pqm4_sha3_256.c")
 endif()
 
 if(COMPILE_PQM4_SHAKE256)
@@ -229,11 +233,64 @@ if(COMPILE_PQM4_SHAKE256)
         ${PQM4_DIR}/mupq/common/fips202.c
         ${PQM4_DIR}/common/keccakf1600.S
     )
-    list(APPEND CORE_SOURCES "adapters/crypto_pqm4_shake256.c")
+    list(APPEND CORE_SOURCES "adapters/pqm4/crypto_pqm4_shake256.c")
 endif()
 
 if(PQM4_SOURCES)
     list(REMOVE_DUPLICATES PQM4_SOURCES)
+endif()
+
+
+set(LWC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/lwc-finalists)
+set(LWC_SOURCES "")
+set(LWC_INCLUDES
+)
+
+if(COMPILE_LWC_SPARKLE_AEAD256)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_aead256.c")
+endif()
+
+if(COMPILE_LWC_SPARKLE_AEAD192)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_aead192.c")
+endif()
+
+if(COMPILE_LWC_SPARKLE_HASHXOF)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/src/combined/sparkle-hash.c
+        ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_hashxof.c")
+endif()
+if(COMPILE_LWC_SPARKLE_HASHXOF)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/src/combined/sparkle-hash.c
+        ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_hashxof.c")
+endif()
+
+if(COMPILE_LWC_SPARKLE_HASH256)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_hash256.c")
+endif()
+
+if(COMPILE_LWC_XOODYAK_HASH)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_xoodyak_hash.c")
+endif()
+
+if(LWC_SOURCES)
+    list(REMOVE_DUPLICATES LWC_SOURCES)
 endif()
 
 if(TARGET_PLATFORM STREQUAL "STM32")
@@ -253,6 +310,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${WOLFCRYPT_SOURCES}
         ${ASCON_SOURCES}
         ${PQM4_SOURCES}
+        ${LWC_SOURCES}
     )
 
     set(LINKER_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode/linker.ld")

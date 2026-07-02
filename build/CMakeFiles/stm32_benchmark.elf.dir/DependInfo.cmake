@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/common/keccakf1600.S" "/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/common/keccakf1600.S.obj"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S" "/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj"
   )
 set(CMAKE_ASM_COMPILER_ID "GNU")
 
@@ -35,8 +35,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/adapter_rng.c" "CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj.d"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_asconxof.c" "CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_asconxof.c.obj.d"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/crypto_pqm4_shake256.c" "CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_pqm4_shake256.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_pqm4_shake256.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/lwc/crypto_lwc_sparkle_hashxof.c" "CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmark_metrics.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_metrics.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_metrics.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmark_runner.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks/bm_aead.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_aead.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_aead.c.obj.d"
@@ -48,11 +47,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/adapter_rng_seed.c" "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/libc_stub.c" "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/main.c" "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj.d"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c.obj.d"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c.obj.d"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c.obj.d"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c.obj.d"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common/fips202.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/sparkle-hash.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/asn.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/hash.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/memory.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj.d"

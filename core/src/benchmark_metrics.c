@@ -57,6 +57,11 @@ extern uint32_t _flash_pqm4_kyber768_start,      _flash_pqm4_kyber768_end;
 extern uint32_t _flash_pqm4_sha3_256_start,      _flash_pqm4_sha3_256_end;
 extern uint32_t _flash_pqm4_shake256_start,      _flash_pqm4_shake256_end;
 extern uint32_t _flash_wolf_x25519_start,        _flash_wolf_x25519_end;
+extern uint32_t _flash_lwc_sparkle_aead256_start, _flash_lwc_sparkle_aead256_end;
+extern uint32_t _flash_lwc_sparkle_aead192_start, _flash_lwc_sparkle_aead192_end;
+extern uint32_t _flash_lwc_sparkle_hashxof_start, _flash_lwc_sparkle_hashxof_end;
+extern uint32_t _flash_lwc_sparkle_hash256_start, _flash_lwc_sparkle_hash256_end;
+extern uint32_t _flash_lwc_xoodyak_hash_start,    _flash_lwc_xoodyak_hash_end;
 
 typedef struct {
     crypto_type_t   type;
@@ -65,22 +70,27 @@ typedef struct {
 } flash_entry_t;
 
 static const flash_entry_t s_flash_table[] = {
-    { ALG_AES_GCM,           &_flash_aes_gcm_start,         &_flash_aes_gcm_end         },
-    { ALG_ASCON80PQ,         &_flash_ascon80pq_start,       &_flash_ascon80pq_end       },
-    { ALG_ASCON_AEAD128,     &_flash_asconaead128_start,    &_flash_asconaead128_end    },
-    { ALG_ASCON_HASH256,     &_flash_asconhash256_start,    &_flash_asconhash256_end    },
-    { ALG_ASCON_XOF,         &_flash_asconxof_start,        &_flash_asconxof_end        },
-    { ALG_CHACHA20_POLY1305, &_flash_chacha_start,          &_flash_chacha_end          },
-    { ALG_ECDSA_P256,        &_flash_ecdsap256_start,       &_flash_ecdsap256_end       },
-    { ALG_WOLF_ED25519,      &_flash_wolf_ed25519_start,    &_flash_wolf_ed25519_end    },
-    { ALG_HKDF_SHA256,       &_flash_hkdf_start,            &_flash_hkdf_end            },
-    { ALG_PQM4_DILITHIUM2,   &_flash_pqm4_dilithium2_start, &_flash_pqm4_dilithium2_end },
-    { ALG_PQM4_FALCON512,    &_flash_pqm4_falcon512_start,  &_flash_pqm4_falcon512_end  },
-    { ALG_PQM4_KYBER512,     &_flash_pqm4_kyber512_start,   &_flash_pqm4_kyber512_end   },
-    { ALG_PQM4_KYBER768,     &_flash_pqm4_kyber768_start,   &_flash_pqm4_kyber768_end   },
-    { ALG_PQM4_SHA3_256,     &_flash_pqm4_sha3_256_start,   &_flash_pqm4_sha3_256_end   },
-    { ALG_PQM4_SHAKE256,     &_flash_pqm4_shake256_start,   &_flash_pqm4_shake256_end   },
-    { ALG_WOLF_X25519,       &_flash_wolf_x25519_start,     &_flash_wolf_x25519_end     },
+    { ALG_AES_GCM,             &_flash_aes_gcm_start,             &_flash_aes_gcm_end         },
+    { ALG_ASCON80PQ,           &_flash_ascon80pq_start,           &_flash_ascon80pq_end       },
+    { ALG_ASCON_AEAD128,       &_flash_asconaead128_start,        &_flash_asconaead128_end    },
+    { ALG_ASCON_HASH256,       &_flash_asconhash256_start,        &_flash_asconhash256_end    },
+    { ALG_ASCON_XOF,           &_flash_asconxof_start,            &_flash_asconxof_end        },
+    { ALG_CHACHA20_POLY1305,   &_flash_chacha_start,              &_flash_chacha_end          },
+    { ALG_ECDSA_P256,          &_flash_ecdsap256_start,           &_flash_ecdsap256_end       },
+    { ALG_WOLF_ED25519,        &_flash_wolf_ed25519_start,        &_flash_wolf_ed25519_end    },
+    { ALG_HKDF_SHA256,         &_flash_hkdf_start,                &_flash_hkdf_end            },
+    { ALG_PQM4_DILITHIUM2,     &_flash_pqm4_dilithium2_start,     &_flash_pqm4_dilithium2_end },
+    { ALG_PQM4_FALCON512,      &_flash_pqm4_falcon512_start,      &_flash_pqm4_falcon512_end  },
+    { ALG_PQM4_KYBER512,       &_flash_pqm4_kyber512_start,       &_flash_pqm4_kyber512_end   },
+    { ALG_PQM4_KYBER768,       &_flash_pqm4_kyber768_start,       &_flash_pqm4_kyber768_end   },
+    { ALG_PQM4_SHA3_256,       &_flash_pqm4_sha3_256_start,       &_flash_pqm4_sha3_256_end   },
+    { ALG_PQM4_SHAKE256,       &_flash_pqm4_shake256_start,       &_flash_pqm4_shake256_end   },
+    { ALG_WOLF_X25519,         &_flash_wolf_x25519_start,         &_flash_wolf_x25519_end     },
+    { ALG_LWC_SPARKLE_AEAD256, &_flash_lwc_sparkle_aead256_start, &_flash_lwc_sparkle_aead256_end },
+    { ALG_LWC_SPARKLE_AEAD192, &_flash_lwc_sparkle_aead192_start, &_flash_lwc_sparkle_aead192_end },
+    { ALG_LWC_SPARKLE_HASHXOF, &_flash_lwc_sparkle_hashxof_start, &_flash_lwc_sparkle_hashxof_end },
+    { ALG_LWC_SPARKLE_HASH256, &_flash_lwc_sparkle_hash256_start, &_flash_lwc_sparkle_hash256_end },
+    { ALG_LWC_XOODYAK_HASH,    &_flash_lwc_xoodyak_hash_start,    &_flash_lwc_xoodyak_hash_end },
 };
 #define FLASH_TABLE_COUNT (sizeof(s_flash_table) / sizeof(s_flash_table[0]))
 

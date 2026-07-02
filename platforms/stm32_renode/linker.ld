@@ -85,13 +85,34 @@ SECTIONS
     *crypto_pqm4_shake256*           (.text* .rodata*)
     _flash_pqm4_shake256_end         = .;
 
-    _flash_photonbeetle_start   = .;
-    *crypto_photonbeetleaead*   (.text* .rodata*)
-    _flash_photonbeetle_end           = .;
+    _flash_photonbeetle_start        = .;
+    *crypto_photonbeetleaead*        (.text* .rodata*)
+    _flash_photonbeetle_end          = .;
 
     _flash_wolf_x25519_start         = .;
     *crypto_wolf_x25519*             (.text* .rodata*)
     _flash_wolf_x25519_end           = .;
+
+    _flash_lwc_sparkle_aead256_start = .;
+    *crypto_lwc_sparkle_aead256*      (.text* .rodata*)
+    _flash_lwc_sparkle_aead256_end   = .;
+
+    _flash_lwc_sparkle_aead192_start = .;
+    *crypto_lwc_sparkle_aead192*     (.text* .rodata*)
+    _flash_lwc_sparkle_aead192_end   = .;
+    
+    _flash_lwc_sparkle_hashxof_start = .;
+    *crypto_lwc_sparkle_hashxof*      (.text* .rodata*)
+    _flash_lwc_sparkle_hashxof_end   = .;
+    
+    _flash_lwc_sparkle_hash256_start = .;
+    *crypto_lwc_sparkle_hash256*      (.text* .rodata*)
+    _flash_lwc_sparkle_hash256_end   = .;
+    
+    _flash_lwc_xoodyak_hash_start    = .;
+    *crypto_lwc_xoodyak_hash*         (.text* .rodata*)
+    _flash_lwc_xoodyak_hash_end      = .;
+
 
     /* catch-all: benchmark_runner, platform HAL, wolfSSL, pqm4, libc stubs */
     *(.text)
