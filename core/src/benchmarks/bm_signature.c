@@ -6,15 +6,14 @@ typedef struct {
     crypto_type_t type;
     uint16_t      pk_bytes;
     uint16_t      sk_bytes;
-    uint16_t      sig_bytes;    /* worst-case or fixed output length */
+    uint16_t      sig_bytes;
 } sign_size_t;
 
 static const sign_size_t s_sign_sizes[] = {
-    /*  type                      pk     sk    sig                             */
-    {  ALG_WOLF_ED25519,          32,    64,    64  },  /* Ed25519             */
-    {  ALG_ECDSA_P256,            65,    97,    72  },  /* DER r+s worst-case  */
-    {  ALG_PQM4_DILITHIUM2,     1312,  2560,  2420  },  /* ML-DSA-44           */
-    {  ALG_PQM4_FALCON512,       897,  1281,   666  },  /* FN-DSA-512          */
+    {  ALG_WOLF_ED25519,          32,    64,    64  },
+    {  ALG_ECDSA_P256,            65,    97,    72  },
+    {  ALG_PQM4_DILITHIUM2,     1312,  2560,  2420  },
+    {  ALG_PQM4_FALCON512,       897,  1281,   666  },
 };
 #define SIGN_SIZE_COUNT (sizeof(s_sign_sizes) / sizeof(s_sign_sizes[0]))
 
@@ -59,16 +58,14 @@ void execute_signature_benchmark(crypto_type_t type) {
     reset_stack_watermark();
     heap_reset();
 
-    /* ---- locate ops ---- */
     const crypto_ops_t *ops = NULL;
     for (size_t i = 0u; i < SIGN_REGISTRY_COUNT; i++) {
         if (sign_registry[i]->type == type) { ops = sign_registry[i]; break; }
     }
     if (!ops) { platform_print_string("!! Unregistered signature algorithm !!\n"); return; }
 
-    /* ---- exact allocation sizes for this algorithm ---- */
     const sign_size_t *sz = lookup_sign_sizes(type);
-    uint16_t pk_bytes  = sz ? sz->pk_bytes  : 1312u;  /* Dilithium2 max fallback */
+    uint16_t pk_bytes  = sz ? sz->pk_bytes  : 1312u;
     uint16_t sk_bytes  = sz ? sz->sk_bytes  : 2560u;
     uint16_t sig_bytes = sz ? sz->sig_bytes : 2420u;
 
@@ -88,16 +85,25 @@ void execute_signature_benchmark(crypto_type_t type) {
     platform_print_string(ops->name);
     platform_print_string("\n   [Timing]\n");
 
+    uint64_t total_keygen = 0;
+    uint64_t total_sign   = 0;
+    uint64_t total_verify = 0;
     uint32_t s, e;
 
-    s = get_cycles(); ops->sign_keypair(pk, sk);               e = get_cycles();
-    p_cy("   Keygen: ", CYCLE_DELTA(s, e));
+    for (uint32_t r = 0; r < RUNS_SIGNATURE; r++) {
+        s = get_cycles(); ops->sign_keypair(pk, sk);            e = get_cycles();
+        total_keygen += CYCLE_DELTA(s, e);
 
-    s = get_cycles(); ops->sign(sig, &siglen, msg, 4u, sk);    e = get_cycles();
-    p_cy("   Sign:   ", CYCLE_DELTA(s, e));
+        s = get_cycles(); ops->sign(sig, &siglen, msg, 4u, sk); e = get_cycles();
+        total_sign += CYCLE_DELTA(s, e);
 
-    s = get_cycles(); ops->verify(sig, siglen, msg, 4u, pk);   e = get_cycles();
-    p_cy("   Verify: ", CYCLE_DELTA(s, e));
+        s = get_cycles(); ops->verify(sig, siglen, msg, 4u, pk); e = get_cycles();
+        total_verify += CYCLE_DELTA(s, e);
+    }
+
+    p_cy_avg("   Keygen: ", total_keygen, RUNS_SIGNATURE);
+    p_cy_avg("   Sign:   ", total_sign, RUNS_SIGNATURE);
+    p_cy_avg("   Verify: ", total_verify, RUNS_SIGNATURE);
 
     print_memory_report(type);
 }

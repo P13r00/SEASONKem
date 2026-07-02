@@ -1,6 +1,5 @@
 #include "benchmark_runner.h"
 
-// Forward declarations of the suite runners
 void run_signature_benchmarks(void);
 void run_aead_benchmarks(void);
 void run_kdf_benchmarks(void);

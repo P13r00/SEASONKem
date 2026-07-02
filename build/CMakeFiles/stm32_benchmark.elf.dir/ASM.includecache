@@ -8,35 +8,3 @@
 
 /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/common/keccakf1600.S
 
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/cmov_int16.S
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/fastaddsub.S
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/fastbasemul.S
-macros.i
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/macros.i
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/fastinvntt.S
-macros.i
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/macros.i
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/fastntt.S
-macros.i
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/macros.i
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/macros.i
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/matacc.i
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/matacc_asm.S
-matacc.i
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/matacc.i
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/poly_asm.S
-macros.i
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/macros.i
-
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/reduce.S
-macros.i
-/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-768/m4fspeed/macros.i
-

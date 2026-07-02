@@ -1,9 +1,7 @@
 #include "benchmark_metrics.h"
 
-// Platform HAL Forward Declarations (Used inside metrics or runners)
 extern uint32_t get_cycles(void);
 
-// Linker symbols for Heap
 extern uint32_t _sheap, _eheap;
 static uint8_t *s_heap_base = NULL;
 static uint8_t *s_heap_end  = NULL;
@@ -43,7 +41,6 @@ uint32_t heap_peak_used(void)     { return s_heap_peak; }
 uint32_t heap_current_used(void)  { return (s_heap_base == NULL) ? 0u : (uint32_t)(s_heap_cur - s_heap_base); }
 uint32_t heap_capacity(void)      { if (s_heap_base == NULL) heap_init(); return (uint32_t)(s_heap_end - s_heap_base); }
 
-// Linker symbols for Flash Sizes
 extern uint32_t _flash_aes_gcm_start,            _flash_aes_gcm_end;
 extern uint32_t _flash_ascon80pq_start,          _flash_ascon80pq_end;
 extern uint32_t _flash_asconaead128_start,       _flash_asconaead128_end;
@@ -96,7 +93,6 @@ uint32_t measure_algo_flash(crypto_type_t type) {
     return 0u;
 }
 
-// Stack / RAM Tracking
 extern uint32_t _sbss, _ebss, _sstack, _estack;
 
 void fill_stack_watermark(void) {

@@ -2,7 +2,6 @@
 #include "../benchmark_config.h"
 #include "../benchmark_private.h"
 
-
 typedef struct {
     crypto_type_t type;
     uint16_t      pk_bytes;
@@ -12,7 +11,6 @@ typedef struct {
 } kem_size_t;
 
 static const kem_size_t s_kem_sizes[] = {
-    /*  type          pk      sk      ct     ss  */
     {  ALG_PQM4_KYBER512,   800,  1632,   768,   32  },
     {  ALG_PQM4_KYBER768,  1184,  2400,  1088,   32  },
 };
@@ -54,7 +52,7 @@ void execute_kem_benchmark(crypto_type_t type) {
     if (!ops) { platform_print_string("!! Unregistered KEM algorithm !!\n"); return; }
 
     const kem_size_t *sz = lookup_kem_sizes(type);
-    uint16_t pk_bytes = sz ? sz->pk_bytes : 1184u;  /* Kyber-768 fallback */
+    uint16_t pk_bytes = sz ? sz->pk_bytes : 1184u;
     uint16_t sk_bytes = sz ? sz->sk_bytes : 2400u;
     uint16_t ct_bytes = sz ? sz->ct_bytes : 1088u;
     uint16_t ss_bytes = sz ? sz->ss_bytes :   32u;
@@ -74,18 +72,26 @@ void execute_kem_benchmark(crypto_type_t type) {
     platform_print_string(ops->name);
     platform_print_string("\n   [Timing]\n");
 
+    uint64_t total_keygen = 0;
+    uint64_t total_encaps = 0;
+    uint64_t total_decaps = 0;
     uint32_t s, e;
 
-    s = get_cycles(); ops->keygen(pk, sk);          e = get_cycles();
-    p_cy("   Keygen:  ", CYCLE_DELTA(s, e));
+    for (uint32_t r = 0; r < RUNS_KEM; r++) {
+        s = get_cycles(); ops->keygen(pk, sk);          e = get_cycles();
+        total_keygen += CYCLE_DELTA(s, e);
 
-    s = get_cycles(); ops->encaps(ct, ss_enc, pk);  e = get_cycles();
-    p_cy("   Encaps:  ", CYCLE_DELTA(s, e));
+        s = get_cycles(); ops->encaps(ct, ss_enc, pk);  e = get_cycles();
+        total_encaps += CYCLE_DELTA(s, e);
 
-    s = get_cycles(); ops->decaps(ss_dec, ct, sk);  e = get_cycles();
-    p_cy("   Decaps:  ", CYCLE_DELTA(s, e));
+        s = get_cycles(); ops->decaps(ss_dec, ct, sk);  e = get_cycles();
+        total_decaps += CYCLE_DELTA(s, e);
+    }
 
-    /* Verify both sides derive the same shared secret */
+    p_cy_avg("   Keygen:  ", total_keygen, RUNS_KEM);
+    p_cy_avg("   Encaps:  ", total_encaps, RUNS_KEM);
+    p_cy_avg("   Decaps:  ", total_decaps, RUNS_KEM);
+
     uint8_t diff = 0u;
     for (size_t i = 0u; i < (size_t)ss_bytes; i++) diff |= (ss_enc[i] ^ ss_dec[i]);
     platform_print_string("   SS Match: ");

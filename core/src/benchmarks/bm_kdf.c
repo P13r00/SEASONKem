@@ -5,28 +5,15 @@
 #if COMPILE_HKDF_SHA256
 extern const crypto_kdf_ops_t hkdf_sha256_ops;
 #endif
-/*#if COMPILE_ASCON_XOF
-extern const crypto_kdf_ops_t asconxof_ops;
-#endif
-#if COMPILE_ASCON_HASH256
-extern const crypto_kdf_ops_t asconhash256_ops;
-#endif*/
 
 static const crypto_kdf_ops_t *kdf_registry[] = {
 #if COMPILE_HKDF_SHA256
     &hkdf_sha256_ops,
 #endif
-/*#if COMPILE_ASCON_XOF
-    &asconxof_ops,
-#endif
-#if COMPILE_ASCON_HASH256
-    &asconhash256_ops,
-#endif*/
     NULL
 };
 #define KDF_REGISTRY_COUNT \
     ((sizeof(kdf_registry) / sizeof(kdf_registry[0])) - 1u)
-
 
 #define KDF_IKM_LEN   32u
 #define KDF_SALT_LEN  16u
@@ -62,10 +49,17 @@ void execute_kdf_benchmark(crypto_type_t type) {
     platform_print_string(ops->name);
     platform_print_string("\n   [Timing]\n");
 
-    uint32_t s = get_cycles();
-    ops->derive(okm, KDF_OKM_LEN, ikm, KDF_IKM_LEN, salt, KDF_SALT_LEN, info, KDF_INFO_LEN);
-    uint32_t e = get_cycles();
-    p_cy("   Derive:  ", CYCLE_DELTA(s, e));
+    uint64_t total_cycles = 0;
+    uint32_t s, e;
+
+    for (uint32_t r = 0; r < RUNS_KDF; r++) {
+        s = get_cycles();
+        ops->derive(okm, KDF_OKM_LEN, ikm, KDF_IKM_LEN, salt, KDF_SALT_LEN, info, KDF_INFO_LEN);
+        e = get_cycles();
+        total_cycles += CYCLE_DELTA(s, e);
+    }
+
+    p_cy_avg("   Derive:  ", total_cycles, RUNS_KDF);
 
     print_memory_report(type);
 }
