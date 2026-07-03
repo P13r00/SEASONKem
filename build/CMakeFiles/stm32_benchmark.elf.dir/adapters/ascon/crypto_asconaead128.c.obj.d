@@ -1,5 +1,5 @@
-CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_ascon80pq.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/ascon/crypto_ascon80pq.c \
+CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_asconaead128.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/ascon/crypto_asconaead128.c \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfssl/wolfcrypt/random.h \

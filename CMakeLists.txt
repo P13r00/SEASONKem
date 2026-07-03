@@ -133,9 +133,8 @@ endif()
 
 if(COMPILE_ASCON_AEAD128)
     list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_aead/ascon128bi32v12/bi32_armv7m/aead.c
-        ${ASCON_DIR}/crypto_aead/ascon128
-        bi32v12/bi32_armv7m/permutations.c
+        ${ASCON_DIR}/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c
+        ${ASCON_DIR}/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c
     )
     list(APPEND CORE_SOURCES "adapters/ascon/crypto_asconaead128.c")
 endif()

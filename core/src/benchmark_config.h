@@ -9,8 +9,8 @@
 
 #define RUNS_AEAD                       500
 #define COMPILE_CHACHA20_POLY1305       1
-#define COMPILE_ASCON80                 1
-#define COMPILE_ASCON_AEAD128           0
+#define COMPILE_ASCON80                 0
+#define COMPILE_ASCON_AEAD128           1
 #define COMPILE_AES_GCM                 0
 #define COMPILE_LWC_SPARKLE_AEAD256     1
 #define COMPILE_LWC_SPARKLE_AEAD192     1

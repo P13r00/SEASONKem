@@ -153,29 +153,29 @@ adapters/adapter_rng.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.s
 .PHONY : adapters/adapter_rng.c.s
 
-adapters/ascon/crypto_ascon80pq.obj: adapters/ascon/crypto_ascon80pq.c.obj
-.PHONY : adapters/ascon/crypto_ascon80pq.obj
+adapters/ascon/crypto_asconaead128.obj: adapters/ascon/crypto_asconaead128.c.obj
+.PHONY : adapters/ascon/crypto_asconaead128.obj
 
 # target to build an object file
-adapters/ascon/crypto_ascon80pq.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_ascon80pq.c.obj
-.PHONY : adapters/ascon/crypto_ascon80pq.c.obj
+adapters/ascon/crypto_asconaead128.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_asconaead128.c.obj
+.PHONY : adapters/ascon/crypto_asconaead128.c.obj
 
-adapters/ascon/crypto_ascon80pq.i: adapters/ascon/crypto_ascon80pq.c.i
-.PHONY : adapters/ascon/crypto_ascon80pq.i
+adapters/ascon/crypto_asconaead128.i: adapters/ascon/crypto_asconaead128.c.i
+.PHONY : adapters/ascon/crypto_asconaead128.i
 
 # target to preprocess a source file
-adapters/ascon/crypto_ascon80pq.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_ascon80pq.c.i
-.PHONY : adapters/ascon/crypto_ascon80pq.c.i
+adapters/ascon/crypto_asconaead128.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_asconaead128.c.i
+.PHONY : adapters/ascon/crypto_asconaead128.c.i
 
-adapters/ascon/crypto_ascon80pq.s: adapters/ascon/crypto_ascon80pq.c.s
-.PHONY : adapters/ascon/crypto_ascon80pq.s
+adapters/ascon/crypto_asconaead128.s: adapters/ascon/crypto_asconaead128.c.s
+.PHONY : adapters/ascon/crypto_asconaead128.s
 
 # target to generate assembly for a file
-adapters/ascon/crypto_ascon80pq.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_ascon80pq.c.s
-.PHONY : adapters/ascon/crypto_ascon80pq.c.s
+adapters/ascon/crypto_asconaead128.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_asconaead128.c.s
+.PHONY : adapters/ascon/crypto_asconaead128.c.s
 
 adapters/lwc/crypto_lwc_ascon80pq_aead.obj: adapters/lwc/crypto_lwc_ascon80pq_aead.c.obj
 .PHONY : adapters/lwc/crypto_lwc_ascon80pq_aead.obj
@@ -537,53 +537,53 @@ platforms/stm32_renode/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.s
 .PHONY : platforms/stm32_renode/main.c.s
 
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.obj: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.obj
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.obj
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.obj: third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.obj
 
 # target to build an object file
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.obj
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.obj
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.obj
 
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.i: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.i
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.i
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.i: third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.i
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.i
 
 # target to preprocess a source file
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.i
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.i
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.i
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.i
 
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.s: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.s
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.s
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.s: third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.s
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.s
 
 # target to generate assembly for a file
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.s
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.s
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.s
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c.s
 
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.obj: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.obj
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.obj
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.obj: third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.obj
 
 # target to build an object file
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.obj
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.obj
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.obj
 
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.i: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.i
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.i
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.i: third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.i
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.i
 
 # target to preprocess a source file
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.i
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.i
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.i
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.i
 
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.s: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.s
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.s
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.s: third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.s
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.s
 
 # target to generate assembly for a file
-third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.s
-.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.s
+third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.s
+.PHONY : third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c.s
 
 third_party/lwc-finalists/src/combined/ascon-aead.obj: third_party/lwc-finalists/src/combined/ascon-aead.c.obj
 .PHONY : third_party/lwc-finalists/src/combined/ascon-aead.obj
@@ -949,9 +949,9 @@ help:
 	@echo "... adapters/adapter_rng.obj"
 	@echo "... adapters/adapter_rng.i"
 	@echo "... adapters/adapter_rng.s"
-	@echo "... adapters/ascon/crypto_ascon80pq.obj"
-	@echo "... adapters/ascon/crypto_ascon80pq.i"
-	@echo "... adapters/ascon/crypto_ascon80pq.s"
+	@echo "... adapters/ascon/crypto_asconaead128.obj"
+	@echo "... adapters/ascon/crypto_asconaead128.i"
+	@echo "... adapters/ascon/crypto_asconaead128.s"
 	@echo "... adapters/lwc/crypto_lwc_ascon80pq_aead.obj"
 	@echo "... adapters/lwc/crypto_lwc_ascon80pq_aead.i"
 	@echo "... adapters/lwc/crypto_lwc_ascon80pq_aead.s"
@@ -997,12 +997,12 @@ help:
 	@echo "... platforms/stm32_renode/main.obj"
 	@echo "... platforms/stm32_renode/main.i"
 	@echo "... platforms/stm32_renode/main.s"
-	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.obj"
-	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.i"
-	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.s"
-	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.obj"
-	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.i"
-	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.s"
+	@echo "... third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.obj"
+	@echo "... third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.i"
+	@echo "... third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.s"
+	@echo "... third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.obj"
+	@echo "... third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.i"
+	@echo "... third_party/ascon/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.s"
 	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.obj"
 	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.i"
 	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.s"

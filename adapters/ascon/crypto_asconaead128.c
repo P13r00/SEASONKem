@@ -110,7 +110,7 @@ static int asconaead128_decrypt(uint8_t *m, size_t *mlen,
 
 const crypto_aead_ops_t asconaead128_ops = {
     .type = ALG_ASCON_AEAD128,
-    .name = "Ascon-AEAD-128",
+    .name = "Ascon-AEAD-128a (asconlib)",
     .key_bytes = ASCON_128_KEYBYTES,
     .nonce_bytes = ASCON_128_NPUBBYTES,
     .tag_bytes = ASCON_128_ABYTES,
