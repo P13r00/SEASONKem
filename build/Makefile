@@ -153,29 +153,125 @@ adapters/adapter_rng.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.s
 .PHONY : adapters/adapter_rng.c.s
 
-adapters/lwc/crypto_lwc_sparkle_hashxof.obj: adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.obj
+adapters/ascon/crypto_ascon80pq.obj: adapters/ascon/crypto_ascon80pq.c.obj
+.PHONY : adapters/ascon/crypto_ascon80pq.obj
 
 # target to build an object file
-adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
+adapters/ascon/crypto_ascon80pq.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_ascon80pq.c.obj
+.PHONY : adapters/ascon/crypto_ascon80pq.c.obj
 
-adapters/lwc/crypto_lwc_sparkle_hashxof.i: adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.i
+adapters/ascon/crypto_ascon80pq.i: adapters/ascon/crypto_ascon80pq.c.i
+.PHONY : adapters/ascon/crypto_ascon80pq.i
 
 # target to preprocess a source file
-adapters/lwc/crypto_lwc_sparkle_hashxof.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
+adapters/ascon/crypto_ascon80pq.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_ascon80pq.c.i
+.PHONY : adapters/ascon/crypto_ascon80pq.c.i
 
-adapters/lwc/crypto_lwc_sparkle_hashxof.s: adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.s
+adapters/ascon/crypto_ascon80pq.s: adapters/ascon/crypto_ascon80pq.c.s
+.PHONY : adapters/ascon/crypto_ascon80pq.s
 
 # target to generate assembly for a file
-adapters/lwc/crypto_lwc_sparkle_hashxof.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
+adapters/ascon/crypto_ascon80pq.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/ascon/crypto_ascon80pq.c.s
+.PHONY : adapters/ascon/crypto_ascon80pq.c.s
+
+adapters/lwc/crypto_lwc_ascon80pq_aead.obj: adapters/lwc/crypto_lwc_ascon80pq_aead.c.obj
+.PHONY : adapters/lwc/crypto_lwc_ascon80pq_aead.obj
+
+# target to build an object file
+adapters/lwc/crypto_lwc_ascon80pq_aead.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon80pq_aead.c.obj
+.PHONY : adapters/lwc/crypto_lwc_ascon80pq_aead.c.obj
+
+adapters/lwc/crypto_lwc_ascon80pq_aead.i: adapters/lwc/crypto_lwc_ascon80pq_aead.c.i
+.PHONY : adapters/lwc/crypto_lwc_ascon80pq_aead.i
+
+# target to preprocess a source file
+adapters/lwc/crypto_lwc_ascon80pq_aead.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon80pq_aead.c.i
+.PHONY : adapters/lwc/crypto_lwc_ascon80pq_aead.c.i
+
+adapters/lwc/crypto_lwc_ascon80pq_aead.s: adapters/lwc/crypto_lwc_ascon80pq_aead.c.s
+.PHONY : adapters/lwc/crypto_lwc_ascon80pq_aead.s
+
+# target to generate assembly for a file
+adapters/lwc/crypto_lwc_ascon80pq_aead.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon80pq_aead.c.s
+.PHONY : adapters/lwc/crypto_lwc_ascon80pq_aead.c.s
+
+adapters/lwc/crypto_lwc_sparkle_aead192.obj: adapters/lwc/crypto_lwc_sparkle_aead192.c.obj
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.obj
+
+# target to build an object file
+adapters/lwc/crypto_lwc_sparkle_aead192.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead192.c.obj
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.c.obj
+
+adapters/lwc/crypto_lwc_sparkle_aead192.i: adapters/lwc/crypto_lwc_sparkle_aead192.c.i
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.i
+
+# target to preprocess a source file
+adapters/lwc/crypto_lwc_sparkle_aead192.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead192.c.i
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.c.i
+
+adapters/lwc/crypto_lwc_sparkle_aead192.s: adapters/lwc/crypto_lwc_sparkle_aead192.c.s
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.s
+
+# target to generate assembly for a file
+adapters/lwc/crypto_lwc_sparkle_aead192.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead192.c.s
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.c.s
+
+adapters/lwc/crypto_lwc_sparkle_aead256.obj: adapters/lwc/crypto_lwc_sparkle_aead256.c.obj
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead256.obj
+
+# target to build an object file
+adapters/lwc/crypto_lwc_sparkle_aead256.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead256.c.obj
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead256.c.obj
+
+adapters/lwc/crypto_lwc_sparkle_aead256.i: adapters/lwc/crypto_lwc_sparkle_aead256.c.i
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead256.i
+
+# target to preprocess a source file
+adapters/lwc/crypto_lwc_sparkle_aead256.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead256.c.i
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead256.c.i
+
+adapters/lwc/crypto_lwc_sparkle_aead256.s: adapters/lwc/crypto_lwc_sparkle_aead256.c.s
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead256.s
+
+# target to generate assembly for a file
+adapters/lwc/crypto_lwc_sparkle_aead256.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead256.c.s
+.PHONY : adapters/lwc/crypto_lwc_sparkle_aead256.c.s
+
+adapters/wolf/crypto_chacha20_poly1305.obj: adapters/wolf/crypto_chacha20_poly1305.c.obj
+.PHONY : adapters/wolf/crypto_chacha20_poly1305.obj
+
+# target to build an object file
+adapters/wolf/crypto_chacha20_poly1305.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/wolf/crypto_chacha20_poly1305.c.obj
+.PHONY : adapters/wolf/crypto_chacha20_poly1305.c.obj
+
+adapters/wolf/crypto_chacha20_poly1305.i: adapters/wolf/crypto_chacha20_poly1305.c.i
+.PHONY : adapters/wolf/crypto_chacha20_poly1305.i
+
+# target to preprocess a source file
+adapters/wolf/crypto_chacha20_poly1305.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/wolf/crypto_chacha20_poly1305.c.i
+.PHONY : adapters/wolf/crypto_chacha20_poly1305.c.i
+
+adapters/wolf/crypto_chacha20_poly1305.s: adapters/wolf/crypto_chacha20_poly1305.c.s
+.PHONY : adapters/wolf/crypto_chacha20_poly1305.s
+
+# target to generate assembly for a file
+adapters/wolf/crypto_chacha20_poly1305.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/wolf/crypto_chacha20_poly1305.c.s
+.PHONY : adapters/wolf/crypto_chacha20_poly1305.c.s
 
 core/src/benchmark_metrics.obj: core/src/benchmark_metrics.c.obj
 .PHONY : core/src/benchmark_metrics.obj
@@ -441,6 +537,86 @@ platforms/stm32_renode/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.s
 .PHONY : platforms/stm32_renode/main.c.s
 
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.obj: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.obj
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.obj
+
+# target to build an object file
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.obj
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.obj
+
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.i: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.i
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.i
+
+# target to preprocess a source file
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.i
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.i
+
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.s: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.s
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.s
+
+# target to generate assembly for a file
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.s
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.c.s
+
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.obj: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.obj
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.obj
+
+# target to build an object file
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.obj
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.obj
+
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.i: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.i
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.i
+
+# target to preprocess a source file
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.i
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.i
+
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.s: third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.s
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.s
+
+# target to generate assembly for a file
+third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.s
+.PHONY : third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.c.s
+
+third_party/lwc-finalists/src/combined/ascon-aead.obj: third_party/lwc-finalists/src/combined/ascon-aead.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.obj
+
+# target to build an object file
+third_party/lwc-finalists/src/combined/ascon-aead.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-aead.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.c.obj
+
+third_party/lwc-finalists/src/combined/ascon-aead.i: third_party/lwc-finalists/src/combined/ascon-aead.c.i
+.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.i
+
+# target to preprocess a source file
+third_party/lwc-finalists/src/combined/ascon-aead.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-aead.c.i
+.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.c.i
+
+third_party/lwc-finalists/src/combined/ascon-aead.s: third_party/lwc-finalists/src/combined/ascon-aead.c.s
+.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.s
+
+# target to generate assembly for a file
+third_party/lwc-finalists/src/combined/ascon-aead.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-aead.c.s
+.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.c.s
+
+third_party/lwc-finalists/src/combined/internal-ascon-armv7m.obj: third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-ascon-armv7m.obj
+
+# target to build an object file
+third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S.obj
+
 third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj: third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
 .PHONY : third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj
 
@@ -449,29 +625,53 @@ third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
 .PHONY : third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
 
-third_party/lwc-finalists/src/combined/sparkle-hash.obj: third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.obj
+third_party/lwc-finalists/src/combined/internal-util.obj: third_party/lwc-finalists/src/combined/internal-util.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-util.obj
 
 # target to build an object file
-third_party/lwc-finalists/src/combined/sparkle-hash.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
+third_party/lwc-finalists/src/combined/internal-util.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-util.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-util.c.obj
 
-third_party/lwc-finalists/src/combined/sparkle-hash.i: third_party/lwc-finalists/src/combined/sparkle-hash.c.i
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.i
+third_party/lwc-finalists/src/combined/internal-util.i: third_party/lwc-finalists/src/combined/internal-util.c.i
+.PHONY : third_party/lwc-finalists/src/combined/internal-util.i
 
 # target to preprocess a source file
-third_party/lwc-finalists/src/combined/sparkle-hash.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.i
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.i
+third_party/lwc-finalists/src/combined/internal-util.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-util.c.i
+.PHONY : third_party/lwc-finalists/src/combined/internal-util.c.i
 
-third_party/lwc-finalists/src/combined/sparkle-hash.s: third_party/lwc-finalists/src/combined/sparkle-hash.c.s
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.s
+third_party/lwc-finalists/src/combined/internal-util.s: third_party/lwc-finalists/src/combined/internal-util.c.s
+.PHONY : third_party/lwc-finalists/src/combined/internal-util.s
 
 # target to generate assembly for a file
-third_party/lwc-finalists/src/combined/sparkle-hash.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.s
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.s
+third_party/lwc-finalists/src/combined/internal-util.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-util.c.s
+.PHONY : third_party/lwc-finalists/src/combined/internal-util.c.s
+
+third_party/lwc-finalists/src/combined/sparkle-aead.obj: third_party/lwc-finalists/src/combined/sparkle-aead.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.obj
+
+# target to build an object file
+third_party/lwc-finalists/src/combined/sparkle-aead.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-aead.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.c.obj
+
+third_party/lwc-finalists/src/combined/sparkle-aead.i: third_party/lwc-finalists/src/combined/sparkle-aead.c.i
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.i
+
+# target to preprocess a source file
+third_party/lwc-finalists/src/combined/sparkle-aead.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-aead.c.i
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.c.i
+
+third_party/lwc-finalists/src/combined/sparkle-aead.s: third_party/lwc-finalists/src/combined/sparkle-aead.c.s
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.s
+
+# target to generate assembly for a file
+third_party/lwc-finalists/src/combined/sparkle-aead.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-aead.c.s
+.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.c.s
 
 third_party/wolfssl/wolfcrypt/src/asn.obj: third_party/wolfssl/wolfcrypt/src/asn.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/asn.obj
@@ -496,6 +696,54 @@ third_party/wolfssl/wolfcrypt/src/asn.s: third_party/wolfssl/wolfcrypt/src/asn.c
 third_party/wolfssl/wolfcrypt/src/asn.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.s
 .PHONY : third_party/wolfssl/wolfcrypt/src/asn.c.s
+
+third_party/wolfssl/wolfcrypt/src/chacha.obj: third_party/wolfssl/wolfcrypt/src/chacha.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/chacha.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.obj
+
+third_party/wolfssl/wolfcrypt/src/chacha.i: third_party/wolfssl/wolfcrypt/src/chacha.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/chacha.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.i
+
+third_party/wolfssl/wolfcrypt/src/chacha.s: third_party/wolfssl/wolfcrypt/src/chacha.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/chacha.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha.c.s
+
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj
+
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.i
+
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s: third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.s
 
 third_party/wolfssl/wolfcrypt/src/hash.obj: third_party/wolfssl/wolfcrypt/src/hash.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/hash.obj
@@ -568,6 +816,30 @@ third_party/wolfssl/wolfcrypt/src/misc.s: third_party/wolfssl/wolfcrypt/src/misc
 third_party/wolfssl/wolfcrypt/src/misc.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.s
 .PHONY : third_party/wolfssl/wolfcrypt/src/misc.c.s
+
+third_party/wolfssl/wolfcrypt/src/poly1305.obj: third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.obj
+
+# target to build an object file
+third_party/wolfssl/wolfcrypt/src/poly1305.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.obj
+
+third_party/wolfssl/wolfcrypt/src/poly1305.i: third_party/wolfssl/wolfcrypt/src/poly1305.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.i
+
+# target to preprocess a source file
+third_party/wolfssl/wolfcrypt/src/poly1305.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.i
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.i
+
+third_party/wolfssl/wolfcrypt/src/poly1305.s: third_party/wolfssl/wolfcrypt/src/poly1305.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.s
+
+# target to generate assembly for a file
+third_party/wolfssl/wolfcrypt/src/poly1305.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.s
+.PHONY : third_party/wolfssl/wolfcrypt/src/poly1305.c.s
 
 third_party/wolfssl/wolfcrypt/src/random.obj: third_party/wolfssl/wolfcrypt/src/random.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/random.obj
@@ -677,9 +949,21 @@ help:
 	@echo "... adapters/adapter_rng.obj"
 	@echo "... adapters/adapter_rng.i"
 	@echo "... adapters/adapter_rng.s"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.obj"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.i"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.s"
+	@echo "... adapters/ascon/crypto_ascon80pq.obj"
+	@echo "... adapters/ascon/crypto_ascon80pq.i"
+	@echo "... adapters/ascon/crypto_ascon80pq.s"
+	@echo "... adapters/lwc/crypto_lwc_ascon80pq_aead.obj"
+	@echo "... adapters/lwc/crypto_lwc_ascon80pq_aead.i"
+	@echo "... adapters/lwc/crypto_lwc_ascon80pq_aead.s"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_aead192.obj"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_aead192.i"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_aead192.s"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_aead256.obj"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_aead256.i"
+	@echo "... adapters/lwc/crypto_lwc_sparkle_aead256.s"
+	@echo "... adapters/wolf/crypto_chacha20_poly1305.obj"
+	@echo "... adapters/wolf/crypto_chacha20_poly1305.i"
+	@echo "... adapters/wolf/crypto_chacha20_poly1305.s"
 	@echo "... core/src/benchmark_metrics.obj"
 	@echo "... core/src/benchmark_metrics.i"
 	@echo "... core/src/benchmark_metrics.s"
@@ -713,13 +997,32 @@ help:
 	@echo "... platforms/stm32_renode/main.obj"
 	@echo "... platforms/stm32_renode/main.i"
 	@echo "... platforms/stm32_renode/main.s"
+	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.obj"
+	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.i"
+	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/aead.s"
+	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.obj"
+	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.i"
+	@echo "... third_party/ascon/crypto_aead/ascon80pqv12/armv7m/permutations.s"
+	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.obj"
+	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.i"
+	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.s"
+	@echo "... third_party/lwc-finalists/src/combined/internal-ascon-armv7m.obj"
 	@echo "... third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.obj"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.i"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.s"
+	@echo "... third_party/lwc-finalists/src/combined/internal-util.obj"
+	@echo "... third_party/lwc-finalists/src/combined/internal-util.i"
+	@echo "... third_party/lwc-finalists/src/combined/internal-util.s"
+	@echo "... third_party/lwc-finalists/src/combined/sparkle-aead.obj"
+	@echo "... third_party/lwc-finalists/src/combined/sparkle-aead.i"
+	@echo "... third_party/lwc-finalists/src/combined/sparkle-aead.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/hash.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/hash.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/hash.s"
@@ -729,6 +1032,9 @@ help:
 	@echo "... third_party/wolfssl/wolfcrypt/src/misc.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/misc.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/misc.s"
+	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.obj"
+	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.i"
+	@echo "... third_party/wolfssl/wolfcrypt/src/poly1305.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/random.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/random.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/random.s"

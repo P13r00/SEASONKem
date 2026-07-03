@@ -62,6 +62,7 @@ extern uint32_t _flash_lwc_sparkle_aead192_start, _flash_lwc_sparkle_aead192_end
 extern uint32_t _flash_lwc_sparkle_hashxof_start, _flash_lwc_sparkle_hashxof_end;
 extern uint32_t _flash_lwc_sparkle_hash256_start, _flash_lwc_sparkle_hash256_end;
 extern uint32_t _flash_lwc_xoodyak_hash_start,    _flash_lwc_xoodyak_hash_end;
+extern uint32_t _flash_lwc_ascon80pq_aead_start,   _flash_lwc_ascon80pq_aead_end;
 
 typedef struct {
     crypto_type_t   type;
@@ -91,6 +92,7 @@ static const flash_entry_t s_flash_table[] = {
     { ALG_LWC_SPARKLE_HASHXOF, &_flash_lwc_sparkle_hashxof_start, &_flash_lwc_sparkle_hashxof_end },
     { ALG_LWC_SPARKLE_HASH256, &_flash_lwc_sparkle_hash256_start, &_flash_lwc_sparkle_hash256_end },
     { ALG_LWC_XOODYAK_HASH,    &_flash_lwc_xoodyak_hash_start,    &_flash_lwc_xoodyak_hash_end },
+    { ALG_LWC_ASCON80PQ_AEAD,  &_flash_lwc_ascon80pq_aead_start,  &_flash_lwc_ascon80pq_aead_end },
 };
 #define FLASH_TABLE_COUNT (sizeof(s_flash_table) / sizeof(s_flash_table[0]))
 

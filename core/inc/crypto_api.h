@@ -36,6 +36,7 @@ typedef enum {
     ALG_LWC_SPARKLE_HASHXOF,
     ALG_LWC_SPARKLE_HASH256,
     ALG_LWC_XOODYAK_HASH,
+    ALG_LWC_ASCON80PQ_AEAD,
 } crypto_type_t;
 
 #define CRYPTO_SUCCESS  0

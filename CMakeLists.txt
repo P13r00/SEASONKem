@@ -23,7 +23,7 @@ foreach(ALG WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ECDSAP256
         PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512 
         WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256
         LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF 
-        LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH)
+        LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD)
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
@@ -133,8 +133,9 @@ endif()
 
 if(COMPILE_ASCON_AEAD128)
     list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c
-        ${ASCON_DIR}/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c
+        ${ASCON_DIR}/crypto_aead/ascon128bi32v12/bi32_armv7m/aead.c
+        ${ASCON_DIR}/crypto_aead/ascon128
+        bi32v12/bi32_armv7m/permutations.c
     )
     list(APPEND CORE_SOURCES "adapters/ascon/crypto_asconaead128.c")
 endif()
@@ -248,25 +249,31 @@ set(LWC_INCLUDES
 
 if(COMPILE_LWC_SPARKLE_AEAD256)
     list(APPEND LWC_SOURCES
-        ${LWC_DIR}
+        ${LWC_DIR}/src/combined/sparkle-aead.c
+        ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
+        ${LWC_DIR}/src/combined/internal-util.c
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_aead256.c")
 endif()
 
 if(COMPILE_LWC_SPARKLE_AEAD192)
     list(APPEND LWC_SOURCES
-        ${LWC_DIR}/
+        ${LWC_DIR}/src/combined/sparkle-aead.c
+        ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
+        ${LWC_DIR}/src/combined/internal-util.c
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_aead192.c")
 endif()
 
-if(COMPILE_LWC_SPARKLE_HASHXOF)
+if(COMPILE_LWC_ASCON80PQ_AEAD)
     list(APPEND LWC_SOURCES
-        ${LWC_DIR}/src/combined/sparkle-hash.c
-        ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
+        ${LWC_DIR}/src/combined/ascon-aead.c
+        ${LWC_DIR}/src/combined/internal-ascon-armv7m.S
+        ${LWC_DIR}/src/combined/internal-util.c
     )
-    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_hashxof.c")
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon80pq_aead.c")
 endif()
+
 if(COMPILE_LWC_SPARKLE_HASHXOF)
     list(APPEND LWC_SOURCES
         ${LWC_DIR}/src/combined/sparkle-hash.c
@@ -284,9 +291,10 @@ endif()
 
 if(COMPILE_LWC_XOODYAK_HASH)
     list(APPEND LWC_SOURCES
-        ${LWC_DIR}/
+        ${LWC_DIR}/src/combined/xoodyak-hash.c
+        ${LWC_DIR}/src/combined/internal-xoodoo-armv7m.S
     )
-    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_xoodyak_hash.c")
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_xoodyak.c")
 endif()
 
 if(LWC_SOURCES)

@@ -6,5 +6,7 @@
 
 #IncludeRegexTransform: 
 
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S
+
 /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S
 

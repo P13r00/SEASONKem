@@ -6,6 +6,8 @@
 #define CHACHA_NONCE_BYTES 12u
 #define POLY1305_TAG_BYTES 16u
 
+//possible definition for fewer rounds (chacha8/12)
+
 static int chacha_keygen(uint8_t *key, uint8_t *nonce)
 {
     if (platform_rng_generate(key,   CHACHA_KEY_BYTES)   != CRYPTO_SUCCESS)

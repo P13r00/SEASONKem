@@ -113,6 +113,10 @@ SECTIONS
     *crypto_lwc_xoodyak_hash*         (.text* .rodata*)
     _flash_lwc_xoodyak_hash_end      = .;
 
+    _flash_lwc_ascon80pq_aead_start  = .;
+    *crypto_lwc_ascon80pq_aead*         (.text* .rodata*)
+    _flash_lwc_ascon80pq_aead_end    = .;
+
 
     /* catch-all: benchmark_runner, platform HAL, wolfSSL, pqm4, libc stubs */
     *(.text)

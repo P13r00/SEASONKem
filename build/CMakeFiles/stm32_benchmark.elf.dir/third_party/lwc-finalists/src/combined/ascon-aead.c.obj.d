@@ -1,8 +1,8 @@
-CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/sparkle-hash.c \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/sparkle-hash.h \
+CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-aead.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/ascon-aead.c \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/ascon-aead.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stddef.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-sparkle.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-ascon.h \
  /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-util.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h \

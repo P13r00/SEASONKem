@@ -69,7 +69,6 @@ void execute_dynamic_hash_benchmark(crypto_type_t type) {
     platform_print_string(ops->name);
     platform_print_string("\n   [Timing]\n");
 
-    // Dynamic buffer assignment pulled dynamically from the configuration file macro
     uint8_t *input = (uint8_t *)heap_malloc(HASH_BUFFER_SIZE);
     if (!input) {
         platform_print_string("!! Heap OOM allocating input !!\n");
