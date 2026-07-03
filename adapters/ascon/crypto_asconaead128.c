@@ -6,39 +6,27 @@ extern int crypto_aead_encrypt(
     unsigned char *c, unsigned long long *clen,
     const unsigned char *m, unsigned long long mlen,
     const unsigned char *ad, unsigned long long adlen,
-    const unsigned char *nsec, /* always NULL for Ascon   */
-    const unsigned char *npub, /* nonce, 16 bytes         */
-    const unsigned char *k);   /* key,   20 bytes         */
+    const unsigned char *nsec,
+    const unsigned char *npub,
+    const unsigned char *k);
 
 extern int crypto_aead_decrypt(
     unsigned char *m, unsigned long long *mlen,
-    unsigned char *nsec, /* always NULL for Ascon   */
+    unsigned char *nsec,
     const unsigned char *c, unsigned long long clen,
     const unsigned char *ad, unsigned long long adlen,
-    const unsigned char *npub, /* nonce, 16 bytes         */
-    const unsigned char *k);   /* key,   20 bytes         */
-
-/* ------------------------------------------------------------------ */
-/*  Ascon-80pq static parameters                                      */
-/* ------------------------------------------------------------------ */
+    const unsigned char *npub,
+    const unsigned char *k);
 
 #define ASCON_128_KEYBYTES 16u
-#define ASCON_128_NPUBBYTES 16u /* 128-bit nonce                      */
-#define ASCON_128_ABYTES 16u    /* 128-bit authentication tag         */
-
-/* ------------------------------------------------------------------ */
-/*  Deterministic pattern fill (replaces TRNG on bare metal)          */
-/* ------------------------------------------------------------------ */
+#define ASCON_128_NPUBBYTES 16u
+#define ASCON_128_ABYTES 16u
 
 static void fill_pattern(uint8_t *buf, size_t len, uint8_t seed)
 {
     for (size_t i = 0; i < len; i++)
         buf[i] = (uint8_t)(seed ^ (uint8_t)i);
 }
-
-/* ------------------------------------------------------------------ */
-/*  Adapter: sign_keypair                                              */
-/* ------------------------------------------------------------------ */
 
 static int asconaead128_keypair(uint8_t *key, uint8_t *nonce)
 {
@@ -48,10 +36,6 @@ static int asconaead128_keypair(uint8_t *key, uint8_t *nonce)
         return CRYPTO_ERROR;
     return CRYPTO_SUCCESS;
 }
-
-/* ------------------------------------------------------------------ */
-/* Adapter: encrypt                                                  */
-/* ------------------------------------------------------------------ */
 
 static int asconaead128_encrypt(uint8_t *c, size_t *clen,
                          const uint8_t *m, size_t mlen,
@@ -75,9 +59,6 @@ static int asconaead128_encrypt(uint8_t *c, size_t *clen,
 
     return (rc == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
-/* ------------------------------------------------------------------ */
-/* Adapter: decrypt                                                  */
-/* ------------------------------------------------------------------ */
 
 static int asconaead128_decrypt(uint8_t *m, size_t *mlen,
                          const uint8_t *c, size_t clen,
@@ -88,7 +69,7 @@ static int asconaead128_decrypt(uint8_t *m, size_t *mlen,
 
     int rc = crypto_aead_decrypt(
         m, &ascon_mlen,
-        NULL, /* nsec — not used by Ascon */
+        NULL,
         c, (unsigned long long)clen,
         ad, (unsigned long long)adlen,
         npub,
@@ -98,15 +79,8 @@ static int asconaead128_decrypt(uint8_t *m, size_t *mlen,
     {
         *mlen = (size_t)ascon_mlen;
     }
-
-    /* Note: The underlying Ascon decrypt already does constant-time tag
-       verification internally. If rc == 0, the message is authentic. */
     return (rc == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
 }
-
-/* ------------------------------------------------------------------ */
-/*  Public ops struct                                                  */
-/* ------------------------------------------------------------------ */
 
 const crypto_aead_ops_t asconaead128_ops = {
     .type = ALG_ASCON_AEAD128,

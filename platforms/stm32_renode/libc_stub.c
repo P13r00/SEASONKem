@@ -1,9 +1,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-/* ------------------------------------------------------------------ */
-/*  String / memory primitives                                         */
-/* ------------------------------------------------------------------ */
 
 void *memset(void *s, int c, size_t n) {
     unsigned char *p = (unsigned char *)s;
@@ -46,15 +43,10 @@ size_t strlen(const char *s) {
     return n;
 }
 
-/* ------------------------------------------------------------------ */
-/*  Heap — static bump allocator                                       */
-/* ------------------------------------------------------------------ */
 
-#define HEAP_SIZE (8u * 1024u)          /* 8 KiB — adjust if you add  */
-                                         /* more algorithms or larger   */
-                                         /* key sizes (e.g. RSA-2048)  */
+#define HEAP_SIZE (8u * 1024u)          
 
-static uint8_t s_heap[HEAP_SIZE];       /* lives in .bss              */
+static uint8_t s_heap[HEAP_SIZE];
 static size_t  s_heap_top = 0;
 
 void *malloc(size_t n) {
@@ -84,10 +76,6 @@ void *calloc(size_t count, size_t size) {
     if (p) memset(p, 0, count * size);
     return p;
 }
-
-/* ------------------------------------------------------------------ */
-/*  Abort / assert                                                     */
-/* ------------------------------------------------------------------ */
 
 void abort(void) {
     while (1);  /* trap — attach debugger or watch via Renode monitor */

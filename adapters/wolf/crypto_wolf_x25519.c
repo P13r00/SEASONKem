@@ -1,17 +1,3 @@
-/* crypto_x25519.c — X25519 key exchange via wolfcrypt (Curve25519)
- *
- * sk layout (32 B): raw clamped private scalar, big-endian (wolfcrypt default)
- * pk layout (32 B): u-coordinate of public key,  big-endian (wolfcrypt default)
- *
- * Both fit exactly in the 32-byte slots already in s_kex_sizes[ALG_X25519].
- * No benchmark_runner.c changes needed.
- *
- * wc_curve25519_shared_secret_ex checks private_key->privSet only —
- * not private_key->pubSet — so the sk struct does not carry the public key.
- * The [private | public] layout in earlier revisions wrote 64 bytes into a
- * 32-byte heap slot, silently overwriting pk_b on every keygen call.
- */
-
 #include <wolfssl/wolfcrypt/curve25519.h>
 #include "core/inc/crypto_api.h"
 
@@ -33,7 +19,6 @@ static int wolf_x25519_keypair(uint8_t *pk, uint8_t *sk)
     word32 pkSz = X25519_PUB_SIZE;
     word32 skSz = X25519_PRIV_SIZE;
 
-    /* Exactly 32 bytes each — no overflow into adjacent heap slots */
     ret  = wc_curve25519_export_public(&key, pk, &pkSz);
     ret |= wc_curve25519_export_private_raw(&key, sk, &skSz);
 

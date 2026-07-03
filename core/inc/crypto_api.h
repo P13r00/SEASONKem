@@ -42,7 +42,7 @@ typedef enum {
 #define CRYPTO_SUCCESS  0
 #define CRYPTO_ERROR   -1
 
-// Signing / verification ops
+
 typedef struct {
     crypto_type_t  type;
     const char    *name;
@@ -55,14 +55,6 @@ typedef struct {
                   const uint8_t *pk);
 } crypto_ops_t;
 
-/*
-Symmetric AEAD ops
-keygen  – populate key[key_bytes] and nonce[nonce_bytes]
-encrypt – write ciphertext || tag into ct; set *ctlen
-          = ptlen + tag_bytes
-decrypt – write recovered plaintext into pt; set *ptlen
-          = ctlen - tag_bytes; return CRYPTO_ERROR on tag fail
-*/
 
 typedef struct {
     crypto_type_t  type;
@@ -85,14 +77,6 @@ typedef struct {
 } crypto_aead_ops_t;
 
 
-/*
-Key-derivation ops
-derive – okm_len bytes into okm
-         ikm   = input key material
-         salt  = optional salt; NULL → zero-length
-         info  = optional context label; NULL → zero-length
-*/
-
 typedef struct {
     crypto_type_t  type;
     const char    *name;
@@ -102,28 +86,23 @@ typedef struct {
                   const uint8_t *info, size_t info_len);
 } crypto_kdf_ops_t;
 
+
 typedef struct {
     crypto_type_t type;
     const char    *name;
     
-    /* --- Capability Metadata --- */
-    bool   is_xof;           /* True for SHAKE/AsconXOF, false for SHA3/AsconHash */
-    size_t default_outlen;   /* Standard output size (e.g., 32 for SHA3-256) */
+    bool   is_xof;
+    size_t default_outlen;
 
-    /* --- Operations --- */
-    /* One-shot with explicit output length */
     int (*hash)(uint8_t *out, size_t outlen, const uint8_t *in, size_t inlen);
     
-    /* Incremental API */
     int (*init)(void *ctx);
     int (*absorb)(void *ctx, const uint8_t *in, size_t inlen);
-    /* Finalize acts as the "squeeze" for XOFs, taking an outlen */
     int (*finalize)(uint8_t *out, size_t outlen, void *ctx); 
     int (*clone)(void *dst, const void *src);
     int (*release)(void *ctx);
 } crypto_hash_ops_t;
 
-// Key Encapsulation Mechanism (KEM) ops
 
 typedef struct {
     crypto_type_t  type;
@@ -133,8 +112,6 @@ typedef struct {
     int (*decaps)(uint8_t *ss, const uint8_t *ct, const uint8_t *sk);
 } crypto_kem_ops_t;
 
-
-//  Key Exchange (KEX) ops
 
 typedef struct {
     crypto_type_t  type;

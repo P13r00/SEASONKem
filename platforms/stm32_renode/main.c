@@ -1,10 +1,6 @@
 #include <stdint.h>
 #include "core/inc/crypto_api.h"
 
-/* ------------------------------------------------------------------ */
-/* Register pointers — STM32F4xx peripheral map                       */
-/* ------------------------------------------------------------------ */
-
 static volatile uint32_t * const RCC_APB2ENR = (volatile uint32_t *)0x40023844u;
 static volatile uint32_t * const USART1_SR   = (volatile uint32_t *)0x40011000u;
 static volatile uint32_t * const USART1_DR   = (volatile uint32_t *)0x40011004u;
@@ -15,27 +11,17 @@ static volatile uint32_t * const SYST_CSR    = (volatile uint32_t *)0xE000E010u;
 static volatile uint32_t * const SYST_RVR    = (volatile uint32_t *)0xE000E014u;
 static volatile uint32_t * const SYST_CVR    = (volatile uint32_t *)0xE000E018u;
 
-/* Coprocessor Access Control Register — needed to enable the FPU */
+// Coprocessor Access Control Register — needed to enable the FPU
 static volatile uint32_t * const SCB_CPACR   = (volatile uint32_t *)0xE000ED88u;
 
-/* ------------------------------------------------------------------ */
-/* Linker-defined section boundaries used in the memory map report    */
-/* ------------------------------------------------------------------ */
+extern uint32_t _sheap, _eheap;    // heap pool bounds (.heap NOLOAD)
+extern uint32_t _sbss,  _ebss;     // BSS bounds (for static RAM size)
 
-extern uint32_t _sheap, _eheap;    /* heap pool bounds (.heap NOLOAD)  */
-extern uint32_t _sbss,  _ebss;     /* BSS bounds (for static RAM size) */
-
-/* ------------------------------------------------------------------ */
-/* Forward declarations                                               */
-/* ------------------------------------------------------------------ */
 
 int  main(void);
 void Reset_Handler(void);
 extern void run_all_benchmarks(void);
 
-/* ------------------------------------------------------------------ */
-/* Platform I/O                                                       */
-/* ------------------------------------------------------------------ */
 
 void platform_print_string(const char *str) {
     while (*str) {
@@ -74,17 +60,11 @@ void platform_print_hex(uint32_t val) {
     platform_print_string(buf);
 }
 
-/* ------------------------------------------------------------------ */
-/* Cycle counter via SysTick                                          */
-/* ------------------------------------------------------------------ */
 
 uint32_t get_cycles(void) {
     return (0x00FFFFFFu - (*SYST_CVR & 0x00FFFFFFu));
 }
 
-/* ------------------------------------------------------------------ */
-/* Fault handlers and vector table                                    */
-/* ------------------------------------------------------------------ */
 
 void HardFault_Handler(void) {
     platform_print_string("\n!!! HARDWARE FAULT CAUGHT !!!\n");
@@ -101,10 +81,6 @@ const void *Vectors[] = {
     (void *)&HardFault_Handler, /* 5: BusFault                  */
     (void *)&HardFault_Handler  /* 6: UsageFault                */
 };
-
-/* ------------------------------------------------------------------ */
-/* Hardware initialisation                                            */
-/* ------------------------------------------------------------------ */
 
 static void init_platform_hardware(void) {
     /* 1. Enable FPU — grant full access to CP10 and CP11 */
@@ -166,9 +142,6 @@ static void print_memory_map(void) {
     platform_print_string("\n");
 }
 
-/* ------------------------------------------------------------------ */
-/* Startup / entry point                                              */
-/* ------------------------------------------------------------------ */
 
 /* Symbols provided by stm32_renode_linker.ld */
 extern uint32_t _sidata, _sdata, _edata;
