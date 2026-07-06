@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/common/keccakf1600.S
+
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/macros.i
+
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/macros_smallntt.i
+
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/ntt.S
+macros.i
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/macros.i
+
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/pointwise_mont.s
+
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/smallntt_769.S
+macros.i
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/macros.i
+macros_smallntt.i
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/macros_smallntt.i
+
+/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f/vector.s
+

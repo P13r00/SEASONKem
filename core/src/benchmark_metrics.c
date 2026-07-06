@@ -41,68 +41,31 @@ uint32_t heap_peak_used(void)     { return s_heap_peak; }
 uint32_t heap_current_used(void)  { return (s_heap_base == NULL) ? 0u : (uint32_t)(s_heap_cur - s_heap_base); }
 uint32_t heap_capacity(void)      { if (s_heap_base == NULL) heap_init(); return (uint32_t)(s_heap_end - s_heap_base); }
 
-extern uint32_t _flash_aes_gcm_start,            _flash_aes_gcm_end;
-extern uint32_t _flash_ascon80pq_start,          _flash_ascon80pq_end;
-extern uint32_t _flash_asconaead128_start,       _flash_asconaead128_end;
-extern uint32_t _flash_asconhash256_start,       _flash_asconhash256_end;
-extern uint32_t _flash_asconxof_start,           _flash_asconxof_end;
-extern uint32_t _flash_chacha_start,             _flash_chacha_end;
-extern uint32_t _flash_ecdsap256_start,          _flash_ecdsap256_end;
-extern uint32_t _flash_wolf_ed25519_start,       _flash_wolf_ed25519_end;
-extern uint32_t _flash_hkdf_start,               _flash_hkdf_end;
-extern uint32_t _flash_pqm4_dilithium2_start,    _flash_pqm4_dilithium2_end;
-extern uint32_t _flash_pqm4_falcon512_start,     _flash_pqm4_falcon512_end;
-extern uint32_t _flash_pqm4_kyber512_start,      _flash_pqm4_kyber512_end;
-extern uint32_t _flash_pqm4_kyber768_start,      _flash_pqm4_kyber768_end;
-extern uint32_t _flash_pqm4_sha3_256_start,      _flash_pqm4_sha3_256_end;
-extern uint32_t _flash_pqm4_shake256_start,      _flash_pqm4_shake256_end;
-extern uint32_t _flash_wolf_x25519_start,        _flash_wolf_x25519_end;
-extern uint32_t _flash_lwc_sparkle_aead256_start, _flash_lwc_sparkle_aead256_end;
-extern uint32_t _flash_lwc_sparkle_aead192_start, _flash_lwc_sparkle_aead192_end;
-extern uint32_t _flash_lwc_sparkle_hashxof_start, _flash_lwc_sparkle_hashxof_end;
-extern uint32_t _flash_lwc_sparkle_hash256_start, _flash_lwc_sparkle_hash256_end;
-extern uint32_t _flash_lwc_xoodyak_hash_start,    _flash_lwc_xoodyak_hash_end;
-extern uint32_t _flash_lwc_ascon80pq_aead_start,   _flash_lwc_ascon80pq_aead_end;
+/*
+ * Flash accounting.
+ *
+ * Previously this was a 22-entry table matching crypto_type_t against
+ * per-algorithm symbol pairs defined in linker.ld. That scheme only ever
+ * captured each algorithm's thin adapter wrapper (the real third-party
+ * implementation files didn't match the glob patterns), and it could not
+ * work at all for algorithms that share implementation object files
+ * (e.g. the SPARKLE family sharing internal-sparkle-armv7m.S) — a single
+ * physical block of linked code cannot be attributed to two different
+ * symbol-pair regions simultaneously.
+ *
+ * linker.ld now exposes one region, _flash_region_start/_flash_region_end,
+ * spanning all code+rodata in the image. In a normal combined build this
+ * is simply the whole image's Flash size. To get a genuine per-algorithm
+ * number, build once per algorithm with -DISOLATE_ALGO=<ALG> and once
+ * with -DISOLATE_ALGO=__NONE__ (zero algorithms) as a baseline, then take
+ * the difference of measure_flash_used() between the two builds — since
+ * an isolated build contains only one algorithm's code, there's no
+ * sharing ambiguity left to resolve.
+ */
+extern uint32_t _flash_region_start, _flash_region_end;
 
-typedef struct {
-    crypto_type_t   type;
-    const uint32_t *flash_start;
-    const uint32_t *flash_end;
-} flash_entry_t;
-
-static const flash_entry_t s_flash_table[] = {
-    { ALG_AES_GCM,             &_flash_aes_gcm_start,             &_flash_aes_gcm_end         },
-    { ALG_ASCON80PQ,           &_flash_ascon80pq_start,           &_flash_ascon80pq_end       },
-    { ALG_ASCON_AEAD128,       &_flash_asconaead128_start,        &_flash_asconaead128_end    },
-    { ALG_ASCON_HASH256,       &_flash_asconhash256_start,        &_flash_asconhash256_end    },
-    { ALG_ASCON_XOF,           &_flash_asconxof_start,            &_flash_asconxof_end        },
-    { ALG_CHACHA20_POLY1305,   &_flash_chacha_start,              &_flash_chacha_end          },
-    { ALG_ECDSA_P256,          &_flash_ecdsap256_start,           &_flash_ecdsap256_end       },
-    { ALG_WOLF_ED25519,        &_flash_wolf_ed25519_start,        &_flash_wolf_ed25519_end    },
-    { ALG_HKDF_SHA256,         &_flash_hkdf_start,                &_flash_hkdf_end            },
-    { ALG_PQM4_DILITHIUM2,     &_flash_pqm4_dilithium2_start,     &_flash_pqm4_dilithium2_end },
-    { ALG_PQM4_FALCON512,      &_flash_pqm4_falcon512_start,      &_flash_pqm4_falcon512_end  },
-    { ALG_PQM4_KYBER512,       &_flash_pqm4_kyber512_start,       &_flash_pqm4_kyber512_end   },
-    { ALG_PQM4_KYBER768,       &_flash_pqm4_kyber768_start,       &_flash_pqm4_kyber768_end   },
-    { ALG_PQM4_SHA3_256,       &_flash_pqm4_sha3_256_start,       &_flash_pqm4_sha3_256_end   },
-    { ALG_PQM4_SHAKE256,       &_flash_pqm4_shake256_start,       &_flash_pqm4_shake256_end   },
-    { ALG_WOLF_X25519,         &_flash_wolf_x25519_start,         &_flash_wolf_x25519_end     },
-    { ALG_LWC_SPARKLE_AEAD256, &_flash_lwc_sparkle_aead256_start, &_flash_lwc_sparkle_aead256_end },
-    { ALG_LWC_SPARKLE_AEAD192, &_flash_lwc_sparkle_aead192_start, &_flash_lwc_sparkle_aead192_end },
-    { ALG_LWC_SPARKLE_HASHXOF, &_flash_lwc_sparkle_hashxof_start, &_flash_lwc_sparkle_hashxof_end },
-    { ALG_LWC_SPARKLE_HASH256, &_flash_lwc_sparkle_hash256_start, &_flash_lwc_sparkle_hash256_end },
-    { ALG_LWC_XOODYAK_HASH,    &_flash_lwc_xoodyak_hash_start,    &_flash_lwc_xoodyak_hash_end },
-    { ALG_LWC_ASCON80PQ_AEAD,  &_flash_lwc_ascon80pq_aead_start,  &_flash_lwc_ascon80pq_aead_end },
-};
-#define FLASH_TABLE_COUNT (sizeof(s_flash_table) / sizeof(s_flash_table[0]))
-
-uint32_t measure_algo_flash(crypto_type_t type) {
-    for (size_t i = 0u; i < FLASH_TABLE_COUNT; i++) {
-        if (s_flash_table[i].type == type) {
-            return (uint32_t)s_flash_table[i].flash_end - (uint32_t)s_flash_table[i].flash_start;
-        }
-    }
-    return 0u;
+uint32_t measure_flash_used(void) {
+    return (uint32_t)&_flash_region_end - (uint32_t)&_flash_region_start;
 }
 
 extern uint32_t _sbss, _ebss, _sstack, _estack;

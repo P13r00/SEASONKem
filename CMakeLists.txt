@@ -16,20 +16,57 @@ project(crypto_heterogeneous_benchmark C ASM)
 
 set(CMAKE_C_STANDARD 99)
 
+# ---------------------------------------------------------------------------
+# Master algorithm list — single source of truth, used both for parsing
+# benchmark_config.h defaults and for ISOLATE_ALGO override below.
+# ---------------------------------------------------------------------------
+set(ALGO_LIST
+    WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ECDSAP256
+    ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF
+    PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512
+    WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256
+    LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF
+    LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD
+)
+
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_config.h" RUNNER_CONTENT)
 
-foreach(ALG WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ECDSAP256 
-        ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF 
-        PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512 
-        WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256
-        LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF 
-        LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD)
+foreach(ALG ${ALGO_LIST})
     if(RUNNER_CONTENT MATCHES "#define[ \t]+COMPILE_${ALG}[ \t]+1")
         set(COMPILE_${ALG} 1)
     else()
         set(COMPILE_${ALG} 0)
     endif()
 endforeach()
+
+# ---------------------------------------------------------------------------
+# ISOLATE_ALGO override: when set, forces exactly one algorithm (or none) on,
+# regardless of what benchmark_config.h has enabled. Used to produce clean
+# single-algorithm binaries for accurate per-algorithm Flash/BSS measurement.
+#
+# Usage:
+#   cmake -DTARGET_PLATFORM=STM32 -DISOLATE_ALGO=LWC_XOODYAK_HASH ..
+#   cmake -DTARGET_PLATFORM=STM32 -DISOLATE_ALGO=__NONE__ ..   (baseline, no algo)
+#   cmake -DTARGET_PLATFORM=STM32 ..                            (normal combined build)
+# ---------------------------------------------------------------------------
+if(DEFINED ISOLATE_ALGO AND NOT ISOLATE_ALGO STREQUAL "")
+    list(FIND ALGO_LIST "${ISOLATE_ALGO}" _isolate_index)
+    if(_isolate_index EQUAL -1 AND NOT ISOLATE_ALGO STREQUAL "__NONE__")
+        message(FATAL_ERROR "ISOLATE_ALGO='${ISOLATE_ALGO}' is not a recognized algorithm. "
+                             "Valid values: __NONE__, ${ALGO_LIST}")
+    endif()
+
+    foreach(ALG ${ALGO_LIST})
+        if(ALG STREQUAL ISOLATE_ALGO)
+            set(COMPILE_${ALG} 1)
+        else()
+            set(COMPILE_${ALG} 0)
+        endif()
+    endforeach()
+
+    message(STATUS "ISOLATE_ALGO active: only COMPILE_${ISOLATE_ALGO} is enabled "
+                    "(use __NONE__ for the zero-algorithm baseline build)")
+endif()
 
 set(CORE_SOURCES
     core/src/benchmark_runner.c
@@ -44,7 +81,7 @@ set(CORE_SOURCES
 
 set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
 set(WOLFCRYPT_SOURCES "")
-set(WOLFCRYPT_INCLUDES 
+set(WOLFCRYPT_INCLUDES
     ${WOLFCRYPT_DIR}
 )
 
@@ -329,6 +366,22 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         RENODE_SIMULATION
     )
 
+    # Force the compiled-in COMPILE_<ALG> values (whether they came from
+    # benchmark_config.h defaults or from an ISOLATE_ALGO override) to match
+    # exactly what CMake decided above. Without this, the #if COMPILE_X guards
+    # inside bm_*.c / adapter headers would still see benchmark_config.h's
+    # original values via #include, which defeats ISOLATE_ALGO entirely.
+    # This requires each COMPILE_* macro in benchmark_config.h to be wrapped
+    # in #ifndef / #endif so a command-line -D definition can override it:
+    #
+    #   #ifndef COMPILE_WOLF_ED25519
+    #   #define COMPILE_WOLF_ED25519 1
+    #   #endif
+    #
+    foreach(ALG ${ALGO_LIST})
+        target_compile_definitions(stm32_benchmark.elf PRIVATE COMPILE_${ALG}=${COMPILE_${ALG}})
+    endforeach()
+
     target_compile_options(stm32_benchmark.elf PRIVATE
         ${ARM_MCU_FLAGS}
         -ffreestanding
@@ -336,7 +389,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         -ffunction-sections
         -fdata-sections
     )
-    
+
     target_include_directories(stm32_benchmark.elf PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmarks

@@ -7,3 +7,6 @@
 [submodule "third_party/lwc-finalists"]
 	path = third_party/lwc-finalists
 	url = https://github.com/rweather/lwc-finalists
+[submodule "third_party/pqm4"]
+	path = third_party/pqm4
+	url = https://github.com/mupq/pqm4

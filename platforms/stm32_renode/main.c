@@ -181,6 +181,9 @@ int main(void) {
     platform_print_string("  Multi-Algorithm Heterogeneous Framework \n");
     platform_print_string("=========================================\n\n");
 
+    heap_reset();              // called ONCE, before run_all_benchmarks()
+    fill_stack_watermark();
+
     /* 5. Memory map (contextualises the per-algorithm numbers below) */
     print_memory_map();
 
