@@ -3,7 +3,7 @@
 
 #define RUNS_SIGNATURE                  50
 #ifndef COMPILE_WOLF_ED25519
-#define COMPILE_WOLF_ED25519            1
+#define COMPILE_WOLF_ED25519            0
 #endif
 #ifndef COMPILE_ECDSAP256
 #define COMPILE_ECDSAP256               0
@@ -20,7 +20,7 @@
 #define COMPILE_CHACHA20_POLY1305       0
 #endif
 #ifndef COMPILE_ASCON80
-#define COMPILE_ASCON80                 0
+#define COMPILE_ASCON80                 1
 #endif
 #ifndef COMPILE_ASCON_AEAD128
 #define COMPILE_ASCON_AEAD128           0
@@ -29,13 +29,16 @@
 #define COMPILE_AES_GCM                 0
 #endif
 #ifndef COMPILE_LWC_SPARKLE_AEAD256
-#define COMPILE_LWC_SPARKLE_AEAD256     1
+#define COMPILE_LWC_SPARKLE_AEAD256     0
 #endif
 #ifndef COMPILE_LWC_SPARKLE_AEAD192
 #define COMPILE_LWC_SPARKLE_AEAD192     0
 #endif
 #ifndef COMPILE_LWC_ASCON80PQ_AEAD
-#define COMPILE_LWC_ASCON80PQ_AEAD      0
+#define COMPILE_LWC_ASCON80PQ_AEAD      1
+#endif
+#ifndef COMPILE_LWC_XOODYAK_AEAD
+#define COMPILE_LWC_XOODYAK_AEAD        0
 #endif
 
 #define RUNS_KDF                        200
@@ -60,15 +63,18 @@
 #define COMPILE_LWC_SPARKLE_HASHXOF     1
 #endif
 #ifndef COMPILE_LWC_SPARKLE_HASH256
-#define COMPILE_LWC_SPARKLE_HASH256     1
+#define COMPILE_LWC_SPARKLE_HASH256     0
 #endif
 #ifndef COMPILE_LWC_XOODYAK_HASH
 #define COMPILE_LWC_XOODYAK_HASH        1
 #endif
+#ifndef COMPILE_LWC_ASCONXOF
+#define COMPILE_LWC_ASCONXOF            1
+#endif
 
 #define RUNS_KEM                        20
 #ifndef COMPILE_PQM4_KYBER512
-#define COMPILE_PQM4_KYBER512           1
+#define COMPILE_PQM4_KYBER512           0
 #endif
 #ifndef COMPILE_PQM4_KYBER768
 #define COMPILE_PQM4_KYBER768           0
@@ -76,7 +82,7 @@
 
 #define RUNS_KEX                        50
 #ifndef COMPILE_WOLF_X25519
-#define COMPILE_WOLF_X25519             1
+#define COMPILE_WOLF_X25519             0
 #endif
 
 #define HASH_BUFFER_SIZE                96u

@@ -1,6 +1,9 @@
-CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common/fips202.c \
+CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-aead.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/ascon-aead.c \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/ascon-aead.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stddef.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-ascon.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-util.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h \
  /usr/arm-none-eabi/include/string.h /usr/arm-none-eabi/include/_ansi.h \
@@ -18,6 +21,4 @@ CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj: \
  /usr/arm-none-eabi/include/sys/lock.h \
  /usr/arm-none-eabi/include/sys/_locale.h \
  /usr/arm-none-eabi/include/strings.h \
- /usr/arm-none-eabi/include/sys/string.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common/fips202.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common/keccakf1600.h
+ /usr/arm-none-eabi/include/sys/string.h

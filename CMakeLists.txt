@@ -27,6 +27,7 @@ set(ALGO_LIST
     WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256
     LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF
     LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD
+    LWC_ASCON_HASHXOF LWC_XOODYAK_AEAD
 )
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_config.h" RUNNER_CONTENT)
@@ -335,6 +336,22 @@ if(COMPILE_LWC_XOODYAK_HASH)
         ${LWC_DIR}/src/combined/internal-xoodoo-armv7m.S
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_xoodyak.c")
+endif()
+
+if(COMPILE_LWC_ASCON_HASHXOF)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/src/combined/ascon-hash.c
+        ${LWC_DIR}/src/combined/internal-ascon-armv7m.S
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon_hashxof.c")
+endif()
+
+if(COMPILE_LWC_XOODYAK_AEAD)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/src/combined/xoodyak-aead.c
+        ${LWC_DIR}/src/combined/internal-xoodoo-armv7m.S
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_xoodyak_aead.c")
 endif()
 
 if(LWC_SOURCES)

@@ -23,6 +23,9 @@ extern const crypto_aead_ops_t lwc_sparkle_aead192_ops;
 #if COMPILE_LWC_ASCON80PQ_AEAD
 extern const crypto_aead_ops_t lwc_ascon80pq_aead_ops;
 #endif
+#if COMPILE_LWC_XOODYAK_AEAD
+extern const crypto_aead_ops_t lwc_xoodyak_aead_ops;
+#endif
 
 static const crypto_aead_ops_t *aead_registry[] = {
 #if COMPILE_AES_GCM
@@ -46,6 +49,10 @@ static const crypto_aead_ops_t *aead_registry[] = {
 #if COMPILE_LWC_ASCON80PQ_AEAD
     &lwc_ascon80pq_aead_ops,
 #endif
+#if COMPILE_LWC_XOODYAK_AEAD
+    &lwc_xoodyak_aead_ops,
+#endif
+
     NULL
 };
 #define AEAD_REGISTRY_COUNT \
