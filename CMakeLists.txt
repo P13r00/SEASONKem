@@ -50,22 +50,25 @@ endforeach()
 #   cmake -DTARGET_PLATFORM=STM32 ..                            (normal combined build)
 # ---------------------------------------------------------------------------
 if(DEFINED ISOLATE_ALGO AND NOT ISOLATE_ALGO STREQUAL "")
-    list(FIND ALGO_LIST "${ISOLATE_ALGO}" _isolate_index)
-    if(_isolate_index EQUAL -1 AND NOT ISOLATE_ALGO STREQUAL "__NONE__")
-        message(FATAL_ERROR "ISOLATE_ALGO='${ISOLATE_ALGO}' is not a recognized algorithm. "
-                             "Valid values: __NONE__, ${ALGO_LIST}")
-    endif()
-
-    foreach(ALG ${ALGO_LIST})
-        if(ALG STREQUAL ISOLATE_ALGO)
-            set(COMPILE_${ALG} 1)
-        else()
+    if(ISOLATE_ALGO STREQUAL "__RUNTIME__")
+        # Zero algorithms, but force-keep the shared malloc/RNG runtime
+        # so it can be measured on its own, separately from baseline.
+        foreach(ALG ${ALGO_LIST})
             set(COMPILE_${ALG} 0)
+        endforeach()
+    else()
+        list(FIND ALGO_LIST "${ISOLATE_ALGO}" _isolate_index)
+        if(_isolate_index EQUAL -1 AND NOT ISOLATE_ALGO STREQUAL "__NONE__")
+            message(FATAL_ERROR "ISOLATE_ALGO='${ISOLATE_ALGO}' is not a recognized algorithm.")
         endif()
-    endforeach()
-
-    message(STATUS "ISOLATE_ALGO active: only COMPILE_${ISOLATE_ALGO} is enabled "
-                    "(use __NONE__ for the zero-algorithm baseline build)")
+        foreach(ALG ${ALGO_LIST})
+            if(ALG STREQUAL ISOLATE_ALGO)
+                set(COMPILE_${ALG} 1)
+            else()
+                set(COMPILE_${ALG} 0)
+            endif()
+        endforeach()
+    endif()
 endif()
 
 set(CORE_SOURCES
@@ -320,7 +323,8 @@ endif()
 
 if(COMPILE_LWC_SPARKLE_HASH256)
     list(APPEND LWC_SOURCES
-        ${LWC_DIR}/
+        ${LWC_DIR}/src/combined/sparkle-hash.c
+        ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_hash256.c")
 endif()
@@ -350,6 +354,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         platforms/stm32_renode/main.c
         platforms/stm32_renode/libc_stub.c
         platforms/stm32_renode/adapter_rng_seed.c
+        platforms/stm32_renode/runtime_overhead_probe.c
         ${REGISTERED_ADAPTER_SOURCES}
         ${WOLFCRYPT_SOURCES}
         ${ASCON_SOURCES}
@@ -381,6 +386,10 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     foreach(ALG ${ALGO_LIST})
         target_compile_definitions(stm32_benchmark.elf PRIVATE COMPILE_${ALG}=${COMPILE_${ALG}})
     endforeach()
+
+    if(ISOLATE_ALGO STREQUAL "__RUNTIME__")
+        target_compile_definitions(stm32_benchmark.elf PRIVATE FORCE_RUNTIME_OVERHEAD=1)
+    endif()
 
     target_compile_options(stm32_benchmark.elf PRIVATE
         ${ARM_MCU_FLAGS}

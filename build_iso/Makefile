@@ -153,29 +153,29 @@ adapters/adapter_rng.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.s
 .PHONY : adapters/adapter_rng.c.s
 
-adapters/wolf/crypto_wolf_ed25519.obj: adapters/wolf/crypto_wolf_ed25519.c.obj
-.PHONY : adapters/wolf/crypto_wolf_ed25519.obj
+adapters/lwc/crypto_lwc_xoodyak.obj: adapters/lwc/crypto_lwc_xoodyak.c.obj
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.obj
 
 # target to build an object file
-adapters/wolf/crypto_wolf_ed25519.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/wolf/crypto_wolf_ed25519.c.obj
-.PHONY : adapters/wolf/crypto_wolf_ed25519.c.obj
+adapters/lwc/crypto_lwc_xoodyak.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.obj
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.obj
 
-adapters/wolf/crypto_wolf_ed25519.i: adapters/wolf/crypto_wolf_ed25519.c.i
-.PHONY : adapters/wolf/crypto_wolf_ed25519.i
+adapters/lwc/crypto_lwc_xoodyak.i: adapters/lwc/crypto_lwc_xoodyak.c.i
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.i
 
 # target to preprocess a source file
-adapters/wolf/crypto_wolf_ed25519.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/wolf/crypto_wolf_ed25519.c.i
-.PHONY : adapters/wolf/crypto_wolf_ed25519.c.i
+adapters/lwc/crypto_lwc_xoodyak.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.i
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.i
 
-adapters/wolf/crypto_wolf_ed25519.s: adapters/wolf/crypto_wolf_ed25519.c.s
-.PHONY : adapters/wolf/crypto_wolf_ed25519.s
+adapters/lwc/crypto_lwc_xoodyak.s: adapters/lwc/crypto_lwc_xoodyak.c.s
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.s
 
 # target to generate assembly for a file
-adapters/wolf/crypto_wolf_ed25519.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/wolf/crypto_wolf_ed25519.c.s
-.PHONY : adapters/wolf/crypto_wolf_ed25519.c.s
+adapters/lwc/crypto_lwc_xoodyak.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.s
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.s
 
 core/src/benchmark_metrics.obj: core/src/benchmark_metrics.c.obj
 .PHONY : core/src/benchmark_metrics.obj
@@ -441,6 +441,62 @@ platforms/stm32_renode/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.s
 .PHONY : platforms/stm32_renode/main.c.s
 
+platforms/stm32_renode/runtime_overhead_probe.obj: platforms/stm32_renode/runtime_overhead_probe.c.obj
+.PHONY : platforms/stm32_renode/runtime_overhead_probe.obj
+
+# target to build an object file
+platforms/stm32_renode/runtime_overhead_probe.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.obj
+.PHONY : platforms/stm32_renode/runtime_overhead_probe.c.obj
+
+platforms/stm32_renode/runtime_overhead_probe.i: platforms/stm32_renode/runtime_overhead_probe.c.i
+.PHONY : platforms/stm32_renode/runtime_overhead_probe.i
+
+# target to preprocess a source file
+platforms/stm32_renode/runtime_overhead_probe.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.i
+.PHONY : platforms/stm32_renode/runtime_overhead_probe.c.i
+
+platforms/stm32_renode/runtime_overhead_probe.s: platforms/stm32_renode/runtime_overhead_probe.c.s
+.PHONY : platforms/stm32_renode/runtime_overhead_probe.s
+
+# target to generate assembly for a file
+platforms/stm32_renode/runtime_overhead_probe.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.s
+.PHONY : platforms/stm32_renode/runtime_overhead_probe.c.s
+
+third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj: third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj
+
+# target to build an object file
+third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
+
+third_party/lwc-finalists/src/combined/xoodyak-hash.obj: third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.obj
+
+# target to build an object file
+third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
+
+third_party/lwc-finalists/src/combined/xoodyak-hash.i: third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.i
+
+# target to preprocess a source file
+third_party/lwc-finalists/src/combined/xoodyak-hash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
+
+third_party/lwc-finalists/src/combined/xoodyak-hash.s: third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.s
+
+# target to generate assembly for a file
+third_party/lwc-finalists/src/combined/xoodyak-hash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
+
 third_party/wolfssl/wolfcrypt/src/asn.obj: third_party/wolfssl/wolfcrypt/src/asn.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/asn.obj
 
@@ -464,78 +520,6 @@ third_party/wolfssl/wolfcrypt/src/asn.s: third_party/wolfssl/wolfcrypt/src/asn.c
 third_party/wolfssl/wolfcrypt/src/asn.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.s
 .PHONY : third_party/wolfssl/wolfcrypt/src/asn.c.s
-
-third_party/wolfssl/wolfcrypt/src/ed25519.obj: third_party/wolfssl/wolfcrypt/src/ed25519.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.obj
-
-# target to build an object file
-third_party/wolfssl/wolfcrypt/src/ed25519.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ed25519.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.c.obj
-
-third_party/wolfssl/wolfcrypt/src/ed25519.i: third_party/wolfssl/wolfcrypt/src/ed25519.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.i
-
-# target to preprocess a source file
-third_party/wolfssl/wolfcrypt/src/ed25519.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ed25519.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.c.i
-
-third_party/wolfssl/wolfcrypt/src/ed25519.s: third_party/wolfssl/wolfcrypt/src/ed25519.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.s
-
-# target to generate assembly for a file
-third_party/wolfssl/wolfcrypt/src/ed25519.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ed25519.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/ed25519.c.s
-
-third_party/wolfssl/wolfcrypt/src/fe_operations.obj: third_party/wolfssl/wolfcrypt/src/fe_operations.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.obj
-
-# target to build an object file
-third_party/wolfssl/wolfcrypt/src/fe_operations.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/fe_operations.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.c.obj
-
-third_party/wolfssl/wolfcrypt/src/fe_operations.i: third_party/wolfssl/wolfcrypt/src/fe_operations.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.i
-
-# target to preprocess a source file
-third_party/wolfssl/wolfcrypt/src/fe_operations.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/fe_operations.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.c.i
-
-third_party/wolfssl/wolfcrypt/src/fe_operations.s: third_party/wolfssl/wolfcrypt/src/fe_operations.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.s
-
-# target to generate assembly for a file
-third_party/wolfssl/wolfcrypt/src/fe_operations.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/fe_operations.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/fe_operations.c.s
-
-third_party/wolfssl/wolfcrypt/src/ge_operations.obj: third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.obj
-
-# target to build an object file
-third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.c.obj
-
-third_party/wolfssl/wolfcrypt/src/ge_operations.i: third_party/wolfssl/wolfcrypt/src/ge_operations.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.i
-
-# target to preprocess a source file
-third_party/wolfssl/wolfcrypt/src/ge_operations.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ge_operations.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.c.i
-
-third_party/wolfssl/wolfcrypt/src/ge_operations.s: third_party/wolfssl/wolfcrypt/src/ge_operations.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.s
-
-# target to generate assembly for a file
-third_party/wolfssl/wolfcrypt/src/ge_operations.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/ge_operations.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/ge_operations.c.s
 
 third_party/wolfssl/wolfcrypt/src/hash.obj: third_party/wolfssl/wolfcrypt/src/hash.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/hash.obj
@@ -657,30 +641,6 @@ third_party/wolfssl/wolfcrypt/src/sha256.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha256.c.s
 .PHONY : third_party/wolfssl/wolfcrypt/src/sha256.c.s
 
-third_party/wolfssl/wolfcrypt/src/sha512.obj: third_party/wolfssl/wolfcrypt/src/sha512.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.obj
-
-# target to build an object file
-third_party/wolfssl/wolfcrypt/src/sha512.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha512.c.obj
-.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.c.obj
-
-third_party/wolfssl/wolfcrypt/src/sha512.i: third_party/wolfssl/wolfcrypt/src/sha512.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.i
-
-# target to preprocess a source file
-third_party/wolfssl/wolfcrypt/src/sha512.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha512.c.i
-.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.c.i
-
-third_party/wolfssl/wolfcrypt/src/sha512.s: third_party/wolfssl/wolfcrypt/src/sha512.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.s
-
-# target to generate assembly for a file
-third_party/wolfssl/wolfcrypt/src/sha512.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/sha512.c.s
-.PHONY : third_party/wolfssl/wolfcrypt/src/sha512.c.s
-
 third_party/wolfssl/wolfcrypt/src/wc_port.obj: third_party/wolfssl/wolfcrypt/src/wc_port.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/wc_port.obj
 
@@ -741,9 +701,9 @@ help:
 	@echo "... adapters/adapter_rng.obj"
 	@echo "... adapters/adapter_rng.i"
 	@echo "... adapters/adapter_rng.s"
-	@echo "... adapters/wolf/crypto_wolf_ed25519.obj"
-	@echo "... adapters/wolf/crypto_wolf_ed25519.i"
-	@echo "... adapters/wolf/crypto_wolf_ed25519.s"
+	@echo "... adapters/lwc/crypto_lwc_xoodyak.obj"
+	@echo "... adapters/lwc/crypto_lwc_xoodyak.i"
+	@echo "... adapters/lwc/crypto_lwc_xoodyak.s"
 	@echo "... core/src/benchmark_metrics.obj"
 	@echo "... core/src/benchmark_metrics.i"
 	@echo "... core/src/benchmark_metrics.s"
@@ -777,18 +737,16 @@ help:
 	@echo "... platforms/stm32_renode/main.obj"
 	@echo "... platforms/stm32_renode/main.i"
 	@echo "... platforms/stm32_renode/main.s"
+	@echo "... platforms/stm32_renode/runtime_overhead_probe.obj"
+	@echo "... platforms/stm32_renode/runtime_overhead_probe.i"
+	@echo "... platforms/stm32_renode/runtime_overhead_probe.s"
+	@echo "... third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj"
+	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.obj"
+	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.i"
+	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.s"
-	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.obj"
-	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.i"
-	@echo "... third_party/wolfssl/wolfcrypt/src/ed25519.s"
-	@echo "... third_party/wolfssl/wolfcrypt/src/fe_operations.obj"
-	@echo "... third_party/wolfssl/wolfcrypt/src/fe_operations.i"
-	@echo "... third_party/wolfssl/wolfcrypt/src/fe_operations.s"
-	@echo "... third_party/wolfssl/wolfcrypt/src/ge_operations.obj"
-	@echo "... third_party/wolfssl/wolfcrypt/src/ge_operations.i"
-	@echo "... third_party/wolfssl/wolfcrypt/src/ge_operations.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/hash.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/hash.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/hash.s"
@@ -804,9 +762,6 @@ help:
 	@echo "... third_party/wolfssl/wolfcrypt/src/sha256.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/sha256.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/sha256.s"
-	@echo "... third_party/wolfssl/wolfcrypt/src/sha512.obj"
-	@echo "... third_party/wolfssl/wolfcrypt/src/sha512.i"
-	@echo "... third_party/wolfssl/wolfcrypt/src/sha512.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/wc_port.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/wc_port.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/wc_port.s"

@@ -19,6 +19,7 @@ SECTIONS
     *(.text*)
     *(.rodata)
     *(.rodata*)
+    KEEP(*(.keep_alive))
 
     . = ALIGN(4);
     _flash_region_end = .;
