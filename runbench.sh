@@ -14,5 +14,5 @@ make
 echo "=== Returning to root directory ==="
 cd ..
 
-echo "=== Launching Renode Emulatorr ==="
+echo "=== Launching Renode Emulator ==="
 renode platforms/stm32_renode/stm32f4.resc
