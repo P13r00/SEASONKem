@@ -27,7 +27,8 @@ set(ALGO_LIST
     WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256
     LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF
     LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD
-    LWC_ASCON_HASHXOF LWC_XOODYAK_AEAD
+    LWC_ASCON_HASHXOF LWC_XOODYAK_AEAD 
+    XWING FLEXWING0 FLEXWING1 FLEXWING2 FLEXWING3
 )
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_config.h" RUNNER_CONTENT)
@@ -88,6 +89,21 @@ set(WOLFCRYPT_SOURCES "")
 set(WOLFCRYPT_INCLUDES
     ${WOLFCRYPT_DIR}
 )
+if (COMPILE_XWING)
+    list(APPEND CORE_SOURCES "adapters/xwing.c")
+endif()
+if (COMPILE_FLEXWING0)
+    list(APPEND CORE_SOURCES "adapters/flexwing0.c")
+endif()
+if (COMPILE_FLEXWING1)
+    list(APPEND CORE_SOURCES "adapters/flexwing1.c")
+endif()
+if (COMPILE_FLEXWING2)
+    list(APPEND CORE_SOURCES "adapters/flexwing2.c")
+endif()
+if (COMPILE_FLEXWING3)
+    list(APPEND CORE_SOURCES "adapters/flexwing3.c")
+endif()
 
 set(WOLFCRYPT_RNG 1)
 
@@ -350,6 +366,7 @@ if(COMPILE_LWC_XOODYAK_AEAD)
     list(APPEND LWC_SOURCES
         ${LWC_DIR}/src/combined/xoodyak-aead.c
         ${LWC_DIR}/src/combined/internal-xoodoo-armv7m.S
+        ${LWC_DIR}/src/combined/internal-util.c
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_xoodyak_aead.c")
 endif()

@@ -7,18 +7,16 @@
  * Note the decrypt parameter order differs from encrypt: nsec comes before
  * c/clen on decrypt, matching the upstream xoodyak_aead_decrypt() signature. */
 extern int xoodyak_aead_encrypt(
-    unsigned char *c, unsigned long long *clen,
-    const unsigned char *m, unsigned long long mlen,
-    const unsigned char *ad, unsigned long long adlen,
-    const unsigned char *nsec,
+    unsigned char *c, size_t *clen,
+    const unsigned char *m, size_t mlen,
+    const unsigned char *ad, size_t adlen,
     const unsigned char *npub,
     const unsigned char *k);
 
 extern int xoodyak_aead_decrypt(
-    unsigned char *m, unsigned long long *mlen,
-    unsigned char *nsec,
-    const unsigned char *c, unsigned long long clen,
-    const unsigned char *ad, unsigned long long adlen,
+    unsigned char *m, size_t *mlen,
+    const unsigned char *c, size_t clen,
+    const unsigned char *ad, size_t adlen,
     const unsigned char *npub,
     const unsigned char *k);
 
@@ -42,13 +40,12 @@ static int lwc_xoodyak_aead_encrypt(uint8_t *c, size_t *clen,
                          const uint8_t *ad, size_t adlen,
                          const uint8_t *npub, const uint8_t *k)
 {
-    unsigned long long xoodyak_clen = 0;
+    size_t xoodyak_clen = 0;
 
     int rc = xoodyak_aead_encrypt(
         c, &xoodyak_clen,
-        m, (unsigned long long)mlen,
-        ad, (unsigned long long)adlen,
-        NULL, /* nsec: secret nonce, not used by Xoodyak */
+        m, mlen,
+        ad, adlen,
         npub,
         k);
 
@@ -65,19 +62,18 @@ static int lwc_xoodyak_aead_decrypt(uint8_t *m, size_t *mlen,
                          const uint8_t *ad, size_t adlen,
                          const uint8_t *npub, const uint8_t *k)
 {
-    unsigned long long xoodyak_mlen = 0;
+    size_t xoodyak_mlen = 0;
 
     int rc = xoodyak_aead_decrypt(
         m, &xoodyak_mlen,
-        NULL, /* nsec: secret nonce, not used by Xoodyak */
-        c, (unsigned long long)clen,
-        ad, (unsigned long long)adlen,
+        c, clen,
+        ad, adlen,
         npub,
         k);
 
     if (mlen)
     {
-        *mlen = (size_t)xoodyak_mlen;
+        *mlen = xoodyak_mlen;
     }
 
     return (rc == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
