@@ -1,4 +1,3 @@
-#include <stdint.h>
 #include "core/inc/crypto_api.h"
 
 static volatile uint32_t * const RCC_APB2ENR = (volatile uint32_t *)0x40023844u;

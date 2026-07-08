@@ -19,8 +19,11 @@ static int wolf_x25519_keypair(uint8_t *pk, uint8_t *sk)
     word32 pkSz = X25519_PUB_SIZE;
     word32 skSz = X25519_PRIV_SIZE;
 
-    ret  = wc_curve25519_export_public(&key, pk, &pkSz);
-    ret |= wc_curve25519_export_private_raw(&key, sk, &skSz);
+    /* Be explicit: raw RFC 7748 wire format is little-endian. Don't rely on
+     * the non-_ex defaults, which are asymmetric between export (LE) and
+     * import (BE) and will otherwise round-trip incorrectly. */
+    ret  = wc_curve25519_export_public_ex(&key, pk, &pkSz, EC25519_LITTLE_ENDIAN);
+    ret |= wc_curve25519_export_private_raw_ex(&key, sk, &skSz, EC25519_LITTLE_ENDIAN);
 
     wc_curve25519_free(&key);
     return (ret == 0) ? CRYPTO_SUCCESS : CRYPTO_ERROR;
@@ -39,14 +42,17 @@ static int wolf_x25519_shared_secret(uint8_t *ss,
         return CRYPTO_ERROR;
     }
 
-    ret = wc_curve25519_import_private(sk, X25519_PRIV_SIZE, &priv_key);
+    ret = wc_curve25519_import_private_ex(sk, X25519_PRIV_SIZE, &priv_key,
+                                           EC25519_LITTLE_ENDIAN);
     if (ret != 0) goto cleanup;
 
-    ret = wc_curve25519_import_public(peer_pk, X25519_PUB_SIZE, &pub_key);
+    ret = wc_curve25519_import_public_ex(peer_pk, X25519_PUB_SIZE, &pub_key,
+                                          EC25519_LITTLE_ENDIAN);
     if (ret != 0) goto cleanup;
 
     word32 ssLen = X25519_SS_SIZE;
-    ret = wc_curve25519_shared_secret(&priv_key, &pub_key, ss, &ssLen);
+    ret = wc_curve25519_shared_secret_ex(&priv_key, &pub_key, ss, &ssLen,
+                                          EC25519_LITTLE_ENDIAN);
 
 cleanup:
     wc_curve25519_free(&priv_key);

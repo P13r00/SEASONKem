@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <string.h>
 #include "../benchmark_config.h"
 #include "../benchmark_private.h"
 
@@ -82,7 +83,38 @@ void execute_kex_benchmark(crypto_type_t type) {
     p_cy_avg("   Keygen:        ", total_keygen, RUNS_KEX);
     p_cy_avg("   SharedSecret:  ", total_ss, RUNS_KEX);
 
-    ops->shared_secret(ss_b, pk_a, sk_b);
+    /* --- CANARY POISON CHECK --- */
+    memset(ss_a, 0xAA, (size_t)ss_bytes);
+    memset(ss_b, 0x55, (size_t)ss_bytes);
+
+    int r1 = ops->shared_secret(ss_a, pk_b, sk_a);
+    int r2 = ops->shared_secret(ss_b, pk_a, sk_b);
+
+    platform_print_string("   r1="); platform_print_hex((uint32_t)r1);
+    platform_print_string("   r2="); platform_print_hex((uint32_t)r2);
+    platform_print_string("\n");
+
+    uint8_t still_canary_a = 1u, still_canary_b = 1u;
+    uint8_t all_zero_a = 1u, all_zero_b = 1u;
+    for (size_t i = 0u; i < (size_t)ss_bytes; i++) {
+        if (ss_a[i] != 0xAAu) still_canary_a = 0u;
+        if (ss_b[i] != 0x55u) still_canary_b = 0u;
+        if (ss_a[i] != 0x00u) all_zero_a = 0u;
+        if (ss_b[i] != 0x00u) all_zero_b = 0u;
+    }
+
+    platform_print_string("   ss_a: ");
+    for (size_t i = 0u; i < (size_t)ss_bytes; i++) platform_print_hex(ss_a[i]);
+    platform_print_string("\n   ss_b: ");
+    for (size_t i = 0u; i < (size_t)ss_bytes; i++) platform_print_hex(ss_b[i]);
+    platform_print_string("\n");
+
+    if (still_canary_a || still_canary_b)
+        platform_print_string("   !! CANARY UNTOUCHED - shared_secret did not write output !!\n");
+    if (all_zero_a || all_zero_b)
+        platform_print_string("   !! ALL-ZERO SECRET - degenerate/failure result !!\n");
+    /* --- END CANARY CHECK --- */
+
     uint8_t diff = 0u;
     for (size_t i = 0u; i < (size_t)ss_bytes; i++) diff |= (ss_a[i] ^ ss_b[i]);
     platform_print_string("   SS Match:     ");
@@ -93,7 +125,7 @@ void execute_kex_benchmark(crypto_type_t type) {
 
 void run_kex_benchmarks(void) {
     if (KEX_REGISTRY_COUNT > 0u) {
-        platform_print_string("[Key Exchange (KEX)]\n");
+        platform_print_string("[KEX]\n");
         for (size_t i = 0u; i < KEX_REGISTRY_COUNT; i++)
             execute_kex_benchmark(kex_registry[i]->type);
     }
