@@ -217,7 +217,7 @@ out:
 
 const crypto_kem_ops_t flexwing2_ops = {
     .type    = ALG_FLEXWING2,
-    .name    = "FlexWing (ML-KEM-512 + X25519 + Ascon-Hash)",
+    .name    = "FlexWing2 (ML-KEM-512 + X25519 + Ascon-Hash)",
     .keygen  = flexwing2_keypair,
     .encaps  = flexwing2_encaps,
     .decaps  = flexwing2_decaps,

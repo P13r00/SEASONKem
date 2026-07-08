@@ -51,7 +51,7 @@
 #define COMPILE_ASCON_HASH256           0
 #endif
 #ifndef COMPILE_PQM4_SHA3_256
-#define COMPILE_PQM4_SHA3_256           1
+#define COMPILE_PQM4_SHA3_256           0
 #endif
 #ifndef COMPILE_ASCON_XOF
 #define COMPILE_ASCON_XOF               0
@@ -60,21 +60,21 @@
 #define COMPILE_PQM4_SHAKE256           0
 #endif
 #ifndef COMPILE_LWC_SPARKLE_HASHXOF
-#define COMPILE_LWC_SPARKLE_HASHXOF     1
+#define COMPILE_LWC_SPARKLE_HASHXOF     0
 #endif
 #ifndef COMPILE_LWC_SPARKLE_HASH256
 #define COMPILE_LWC_SPARKLE_HASH256     0
 #endif
 #ifndef COMPILE_LWC_XOODYAK_HASH
-#define COMPILE_LWC_XOODYAK_HASH        1
+#define COMPILE_LWC_XOODYAK_HASH        0
 #endif
 #ifndef COMPILE_LWC_ASCON_HASHXOF
-#define COMPILE_LWC_ASCON_HASHXOF       1
+#define COMPILE_LWC_ASCON_HASHXOF       0
 #endif
 
-#define RUNS_KEM                        20
+#define RUNS_KEM                        100
 #ifndef COMPILE_PQM4_KYBER512
-#define COMPILE_PQM4_KYBER512           1
+#define COMPILE_PQM4_KYBER512           0
 #endif
 #ifndef COMPILE_PQM4_KYBER768
 #define COMPILE_PQM4_KYBER768           0
@@ -83,16 +83,16 @@
 #define COMPILE_XWING                   0
 #endif
 #ifndef COMPILE_FLEXWING0            // K512 + X + SHA
-#define COMPILE_FLEXWING0               1
+#define COMPILE_FLEXWING0               0
 #endif
 #ifndef COMPILE_FLEXWING1            // K512 + X + XOODYAK
-#define COMPILE_FLEXWING1               1
+#define COMPILE_FLEXWING1               0
 #endif
 #ifndef COMPILE_FLEXWING2            // K512 + X + ASCON XOF
-#define COMPILE_FLEXWING2               1
+#define COMPILE_FLEXWING2               0
 #endif
 #ifndef COMPILE_FLEXWING3            // K512 + X + SPARKLE XOF
-#define COMPILE_FLEXWING3               1
+#define COMPILE_FLEXWING3               0
 #endif
 
 #define RUNS_KEX                        50
@@ -100,6 +100,6 @@
 #define COMPILE_WOLF_X25519             1
 #endif
 
-#define HASH_BUFFER_SIZE                134u
+#define HASH_BUFFER_SIZE                135u
 
 #endif // BENCHMARK_CONFIG_H
