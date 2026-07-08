@@ -38,7 +38,7 @@
 #define COMPILE_LWC_ASCON80PQ_AEAD      0
 #endif
 #ifndef COMPILE_LWC_XOODYAK_AEAD
-#define COMPILE_LWC_XOODYAK_AEAD        1
+#define COMPILE_LWC_XOODYAK_AEAD        0
 #endif
 
 #define RUNS_KDF                        200
@@ -68,8 +68,8 @@
 #ifndef COMPILE_LWC_XOODYAK_HASH
 #define COMPILE_LWC_XOODYAK_HASH        1
 #endif
-#ifndef COMPILE_LWC_ASCONXOF
-#define COMPILE_LWC_ASCONXOF            1
+#ifndef COMPILE_LWC_ASCON_HASHXOF
+#define COMPILE_LWC_ASCON_HASHXOF       1
 #endif
 
 #define RUNS_KEM                        20
@@ -89,7 +89,7 @@
 #define COMPILE_FLEXWING1               1
 #endif
 #ifndef COMPILE_FLEXWING2            // K512 + X + ASCON XOF
-#define COMPILE_FLEXWING2               0
+#define COMPILE_FLEXWING2               1
 #endif
 #ifndef COMPILE_FLEXWING3            // K512 + X + SPARKLE XOF
 #define COMPILE_FLEXWING3               1

@@ -59,7 +59,7 @@ static const crypto_aead_ops_t *aead_registry[] = {
     ((sizeof(aead_registry) / sizeof(aead_registry[0])) - 1u)
 
 #define AEAD_MSG_LEN  128u
-#define AEAD_AD_LEN   0u
+#define AEAD_AD_LEN   32u
 
 void execute_aead_benchmark(crypto_type_t type) {
     reset_stack_watermark();

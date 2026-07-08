@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.obj.d"
-  "CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.obj"
-  "CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_metrics.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_metrics.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj"
@@ -27,9 +25,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.obj.d"
-  "CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj"
-  "CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj"
-  "CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/asn.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/hash.c.obj"
@@ -51,6 +46,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang ASM C)
+foreach(lang C)
   include(CMakeFiles/stm32_benchmark.elf.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

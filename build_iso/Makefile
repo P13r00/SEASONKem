@@ -153,30 +153,6 @@ adapters/adapter_rng.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/adapter_rng.c.s
 .PHONY : adapters/adapter_rng.c.s
 
-adapters/lwc/crypto_lwc_xoodyak.obj: adapters/lwc/crypto_lwc_xoodyak.c.obj
-.PHONY : adapters/lwc/crypto_lwc_xoodyak.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_xoodyak.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.obj
-.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.obj
-
-adapters/lwc/crypto_lwc_xoodyak.i: adapters/lwc/crypto_lwc_xoodyak.c.i
-.PHONY : adapters/lwc/crypto_lwc_xoodyak.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_xoodyak.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.i
-.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.i
-
-adapters/lwc/crypto_lwc_xoodyak.s: adapters/lwc/crypto_lwc_xoodyak.c.s
-.PHONY : adapters/lwc/crypto_lwc_xoodyak.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_xoodyak.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.s
-.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.s
-
 core/src/benchmark_metrics.obj: core/src/benchmark_metrics.c.obj
 .PHONY : core/src/benchmark_metrics.obj
 
@@ -465,38 +441,6 @@ platforms/stm32_renode/runtime_overhead_probe.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.s
 .PHONY : platforms/stm32_renode/runtime_overhead_probe.c.s
 
-third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj: third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
-.PHONY : third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
-.PHONY : third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
-
-third_party/lwc-finalists/src/combined/xoodyak-hash.obj: third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
-
-third_party/lwc-finalists/src/combined/xoodyak-hash.i: third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
-.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.i
-
-# target to preprocess a source file
-third_party/lwc-finalists/src/combined/xoodyak-hash.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
-.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
-
-third_party/lwc-finalists/src/combined/xoodyak-hash.s: third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
-.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.s
-
-# target to generate assembly for a file
-third_party/lwc-finalists/src/combined/xoodyak-hash.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
-.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
-
 third_party/wolfssl/wolfcrypt/src/asn.obj: third_party/wolfssl/wolfcrypt/src/asn.c.obj
 .PHONY : third_party/wolfssl/wolfcrypt/src/asn.obj
 
@@ -701,9 +645,6 @@ help:
 	@echo "... adapters/adapter_rng.obj"
 	@echo "... adapters/adapter_rng.i"
 	@echo "... adapters/adapter_rng.s"
-	@echo "... adapters/lwc/crypto_lwc_xoodyak.obj"
-	@echo "... adapters/lwc/crypto_lwc_xoodyak.i"
-	@echo "... adapters/lwc/crypto_lwc_xoodyak.s"
 	@echo "... core/src/benchmark_metrics.obj"
 	@echo "... core/src/benchmark_metrics.i"
 	@echo "... core/src/benchmark_metrics.s"
@@ -740,10 +681,6 @@ help:
 	@echo "... platforms/stm32_renode/runtime_overhead_probe.obj"
 	@echo "... platforms/stm32_renode/runtime_overhead_probe.i"
 	@echo "... platforms/stm32_renode/runtime_overhead_probe.s"
-	@echo "... third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj"
-	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.obj"
-	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.i"
-	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.s"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.obj"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.i"
 	@echo "... third_party/wolfssl/wolfcrypt/src/asn.s"

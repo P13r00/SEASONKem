@@ -855,8 +855,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-rFMxbf"
-      binary: "/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-rFMxbf"
+      source: "/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-NXEn2x"
+      binary: "/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-NXEn2x"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -865,13 +865,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-rFMxbf'
+        Change Dir: '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-NXEn2x'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_581eb/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_581eb.dir/build.make CMakeFiles/cmTC_581eb.dir/build
-        gmake[1]: Entering directory '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-rFMxbf'
-        Building C object CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj
-        /usr/bin/arm-none-eabi-gcc   -v -o CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ddf4b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ddf4b.dir/build.make CMakeFiles/cmTC_ddf4b.dir/build
+        gmake[1]: Entering directory '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-NXEn2x'
+        Building C object CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj
+        /usr/bin/arm-none-eabi-gcc   -v -o CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/arm-none-eabi-gcc
         Target: arm-none-eabi
@@ -879,8 +879,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib
         gcc version 15.2.0 (Fedora 15.2.0-4.fc44) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_581eb.dir/'
-         /usr/libexec/gcc/arm-none-eabi/15.2.0/cc1 -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_581eb.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -o /tmp/ccRGVjjx.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_ddf4b.dir/'
+         /usr/libexec/gcc/arm-none-eabi/15.2.0/cc1 -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ddf4b.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -o /tmp/cczZ82D1.s
         GNU C23 (Fedora 15.2.0-4.fc44) version 15.2.0 (arm-none-eabi)
         	compiled by GNU C version 16.0.1 20260115 (Red Hat 16.0.1-0), GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version none
         warning: MPC header version 1.3.1 differs from library version 1.4.1.
@@ -894,18 +894,18 @@ events:
          /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/include
         End of search list.
         Compiler executable checksum: f4fe43ef585118c6833c73351d57bebb
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_581eb.dir/'
-         /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj /tmp/ccRGVjjx.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_ddf4b.dir/'
+         /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj /tmp/cczZ82D1.s
         GNU assembler version 2.45 (arm-none-eabi) using BFD version (Fedora 2.45-3.fc44) 2.45
         COMPILER_PATH=/usr/libexec/gcc/arm-none-eabi/15.2.0/:/usr/libexec/gcc/arm-none-eabi/15.2.0/:/usr/libexec/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/15.2.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=/usr/lib/gcc/arm-none-eabi/15.2.0/:/usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/:/usr/arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.'
-        Linking C static library libcmTC_581eb.a
-        /usr/bin/cmake -P CMakeFiles/cmTC_581eb.dir/cmake_clean_target.cmake
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_581eb.dir/link.txt --verbose=1
-        /usr/bin/arm-none-eabi-ar qc libcmTC_581eb.a CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj
-        /usr/bin/arm-none-eabi-ranlib libcmTC_581eb.a
-        gmake[1]: Leaving directory '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-rFMxbf'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.'
+        Linking C static library libcmTC_ddf4b.a
+        /usr/bin/cmake -P CMakeFiles/cmTC_ddf4b.dir/cmake_clean_target.cmake
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ddf4b.dir/link.txt --verbose=1
+        /usr/bin/arm-none-eabi-ar qc libcmTC_ddf4b.a CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj
+        /usr/bin/arm-none-eabi-ranlib libcmTC_ddf4b.a
+        gmake[1]: Leaving directory '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-NXEn2x'
         
       exitCode: 0
   -
@@ -938,13 +938,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-rFMxbf']
+        ignore line: [Change Dir: '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-NXEn2x']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_581eb/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_581eb.dir/build.make CMakeFiles/cmTC_581eb.dir/build]
-        ignore line: [gmake[1]: Entering directory '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-rFMxbf']
-        ignore line: [Building C object CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/usr/bin/arm-none-eabi-gcc   -v -o CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ddf4b/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_ddf4b.dir/build.make CMakeFiles/cmTC_ddf4b.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-NXEn2x']
+        ignore line: [Building C object CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/usr/bin/arm-none-eabi-gcc   -v -o CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/arm-none-eabi-gcc]
         ignore line: [Target: arm-none-eabi]
@@ -952,8 +952,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 15.2.0 (Fedora 15.2.0-4.fc44) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_581eb.dir/']
-        ignore line: [ /usr/libexec/gcc/arm-none-eabi/15.2.0/cc1 -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_581eb.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -o /tmp/ccRGVjjx.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_ddf4b.dir/']
+        ignore line: [ /usr/libexec/gcc/arm-none-eabi/15.2.0/cc1 -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ddf4b.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -o /tmp/cczZ82D1.s]
         ignore line: [GNU C23 (Fedora 15.2.0-4.fc44) version 15.2.0 (arm-none-eabi)]
         ignore line: [	compiled by GNU C version 16.0.1 20260115 (Red Hat 16.0.1-0)  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version none]
         ignore line: [warning: MPC header version 1.3.1 differs from library version 1.4.1.]
@@ -967,18 +967,18 @@ events:
         ignore line: [ /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: f4fe43ef585118c6833c73351d57bebb]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_581eb.dir/']
-        ignore line: [ /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj /tmp/ccRGVjjx.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_ddf4b.dir/']
+        ignore line: [ /usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj /tmp/cczZ82D1.s]
         ignore line: [GNU assembler version 2.45 (arm-none-eabi) using BFD version (Fedora 2.45-3.fc44) 2.45]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/arm-none-eabi/15.2.0/:/usr/libexec/gcc/arm-none-eabi/15.2.0/:/usr/libexec/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/15.2.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/bin/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/arm-none-eabi/15.2.0/:/usr/lib/gcc/arm-none-eabi/15.2.0/../../../../arm-none-eabi/lib/:/usr/arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.']
-        ignore line: [Linking C static library libcmTC_581eb.a]
-        ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_581eb.dir/cmake_clean_target.cmake]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_581eb.dir/link.txt --verbose=1]
-        ignore line: [/usr/bin/arm-none-eabi-ar qc libcmTC_581eb.a CMakeFiles/cmTC_581eb.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_581eb.a]
-        ignore line: [gmake[1]: Leaving directory '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-rFMxbf']
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C static library libcmTC_ddf4b.a]
+        ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_ddf4b.dir/cmake_clean_target.cmake]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ddf4b.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/arm-none-eabi-ar qc libcmTC_ddf4b.a CMakeFiles/cmTC_ddf4b.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_ddf4b.a]
+        ignore line: [gmake[1]: Leaving directory '/home/piec/Documents/ResearchInternship/cryptoBenchmark/build/CMakeFiles/CMakeScratch/TryCompile-NXEn2x']
         ignore line: []
         ignore line: []
         implicit libs: []

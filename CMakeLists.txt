@@ -41,36 +41,37 @@ foreach(ALG ${ALGO_LIST})
     endif()
 endforeach()
 
-# ---------------------------------------------------------------------------
-# ISOLATE_ALGO override: when set, forces exactly one algorithm (or none) on,
-# regardless of what benchmark_config.h has enabled. Used to produce clean
-# single-algorithm binaries for accurate per-algorithm Flash/BSS measurement.
-#
-# Usage:
-#   cmake -DTARGET_PLATFORM=STM32 -DISOLATE_ALGO=LWC_XOODYAK_HASH ..
-#   cmake -DTARGET_PLATFORM=STM32 -DISOLATE_ALGO=__NONE__ ..   (baseline, no algo)
-#   cmake -DTARGET_PLATFORM=STM32 ..                            (normal combined build)
-# ---------------------------------------------------------------------------
 if(DEFINED ISOLATE_ALGO AND NOT ISOLATE_ALGO STREQUAL "")
-    if(ISOLATE_ALGO STREQUAL "__RUNTIME__")
-        # Zero algorithms, but force-keep the shared malloc/RNG runtime
-        # so it can be measured on its own, separately from baseline.
+    if(ISOLATE_ALGO STREQUAL "__NONE__" OR ISOLATE_ALGO STREQUAL "__RUNTIME__")
         foreach(ALG ${ALGO_LIST})
             set(COMPILE_${ALG} 0)
         endforeach()
     else()
-        list(FIND ALGO_LIST "${ISOLATE_ALGO}" _isolate_index)
-        if(_isolate_index EQUAL -1 AND NOT ISOLATE_ALGO STREQUAL "__NONE__")
-            message(FATAL_ERROR "ISOLATE_ALGO='${ISOLATE_ALGO}' is not a recognized algorithm.")
-        endif()
+        # Accept a '+'-separated combination, e.g.
+        # -DISOLATE_ALGO="LWC_XOODYAK_AEAD+LWC_XOODYAK_HASH"
+        string(REPLACE "+" ";" _isolate_requested "${ISOLATE_ALGO}")
+
+        # Validate every requested name up front so a typo fails loudly
+        # instead of silently compiling zero algorithms.
+        foreach(REQ ${_isolate_requested})
+            list(FIND ALGO_LIST "${REQ}" _valid_idx)
+            if(_valid_idx EQUAL -1)
+                message(FATAL_ERROR "ISOLATE_ALGO entry '${REQ}' is not a recognized "
+                                     "algorithm. Valid names: ${ALGO_LIST}")
+            endif()
+        endforeach()
+
         foreach(ALG ${ALGO_LIST})
-            if(ALG STREQUAL ISOLATE_ALGO)
-                set(COMPILE_${ALG} 1)
-            else()
+            list(FIND _isolate_requested "${ALG}" _idx)
+            if(_idx EQUAL -1)
                 set(COMPILE_${ALG} 0)
+            else()
+                set(COMPILE_${ALG} 1)
             endif()
         endforeach()
     endif()
+
+    message(STATUS "ISOLATE_ALGO active: ${ISOLATE_ALGO}")
 endif()
 
 set(CORE_SOURCES
@@ -356,7 +357,7 @@ endif()
 
 if(COMPILE_LWC_ASCON_HASHXOF)
     list(APPEND LWC_SOURCES
-        ${LWC_DIR}/src/combined/ascon-hash.c
+        ${LWC_DIR}/src/combined/ascon-xof.c
         ${LWC_DIR}/src/combined/internal-ascon-armv7m.S
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon_hashxof.c")
