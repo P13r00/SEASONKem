@@ -10,3 +10,6 @@
 [submodule "third_party/pqm4"]
 	path = third_party/pqm4
 	url = https://github.com/mupq/pqm4
+[submodule "third_party/X25519-Cortex-M4"]
+	path = third_party/X25519-Cortex-M4
+	url = https://github.com/Emill/X25519-Cortex-M4
