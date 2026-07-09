@@ -21,7 +21,6 @@ set(CMAKE_C_STANDARD 99)
 # benchmark_config.h defaults and for ISOLATE_ALGO override below.
 # ---------------------------------------------------------------------------
 set(ALGO_LIST
-    WOLF_ED25519 AES_GCM CHACHA20_POLY1305 HKDF_SHA256 ECDSAP256
     ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF
     PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512
     WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256
@@ -30,6 +29,11 @@ set(ALGO_LIST
     LWC_ASCON_HASHXOF LWC_XOODYAK_AEAD 
     XWING FLEXWING0 FLEXWING1 FLEXWING2 FLEXWING3
 )
+# NOTE: WOLF_X25519 stays in the list as a *slot*, not a working algorithm.
+# wolfCrypt has been fully removed (see below) and no source currently
+# provides X25519. XWING and FLEXWING0-3 all depend on an X25519 KEX ops
+# struct and will fail to LINK if COMPILE_WOLF_X25519 is left at 1 with
+# nothing wired up. See docs/x25519-adapter-handover.md.
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_config.h" RUNNER_CONTENT)
 
@@ -85,11 +89,6 @@ set(CORE_SOURCES
     core/src/benchmarks/bm_signature.c
 )
 
-set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
-set(WOLFCRYPT_SOURCES "")
-set(WOLFCRYPT_INCLUDES
-    ${WOLFCRYPT_DIR}
-)
 if (COMPILE_XWING)
     list(APPEND CORE_SOURCES "adapters/xwing.c")
 endif()
@@ -106,74 +105,37 @@ if (COMPILE_FLEXWING3)
     list(APPEND CORE_SOURCES "adapters/flexwing3.c")
 endif()
 
-set(WOLFCRYPT_RNG 1)
+# --- RNG architecture ---------------------------------------------------
+# wolfCrypt has been fully removed from the project, RNG included. There is
+# no third_party/wolfssl dependency, no WC_RNG type, and no
+# CUSTOM_RAND_GENERATE_BLOCK hook left anywhere.
+#
+# The single hardware-facing RNG source is
+# platforms/stm32_renode/adapter_rng_seed.c (int randombytes(uint8_t*,
+# size_t), polled directly off the STM32F4 RNG peripheral registers).
+# adapters/adapter_rng.c is portable, backend-agnostic middleware over that
+# one function -- PQM4 (via PQCLEAN_randombytes), ASCON, and lwc-finalists
+# all draw from it. It is compiled unconditionally: every backend needs
+# randomness, so this isn't gated behind any COMPILE_* flag.
+# -------------------------------------------------------------------------
+set(RNG_SOURCES
+    adapters/adapter_rng.c
+)
 
-if(WOLFCRYPT_RNG)
-    list(APPEND WOLFCRYPT_SOURCES
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/wolfmath.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/misc.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/asn.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/random.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/hash.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/sha256.c
-        adapters/adapter_rng.c
-    )
-endif()
-
-if(COMPILE_HKDF_SHA256)
-    list(APPEND WOLFCRYPT_SOURCES
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/hmac.c
-    )
-    list(APPEND CORE_SOURCES "adapters/wolf/crypto_hkdfsha256.c")
-endif()
-
-if(COMPILE_WOLF_ED25519)
-    list(APPEND WOLFCRYPT_SOURCES
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/sha512.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/ed25519.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/ge_operations.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/fe_operations.c
-    )
-    list(APPEND CORE_SOURCES "adapters/wolf/crypto_wolf_ed25519.c")
-endif()
-
-if(COMPILE_ECDSAP256)
-    list(APPEND WOLFCRYPT_SOURCES
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/ecc.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/sp_int.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/sp_c32.c
-    )
-    list(APPEND CORE_SOURCES "adapters/wolf/crypto_ecdsap256.c")
-endif()
-
-if(COMPILE_AES_GCM)
-    list(APPEND WOLFCRYPT_SOURCES
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/aes.c
-    )
-    list(APPEND CORE_SOURCES "adapters/wolf/crypto_aes_gcm.c")
-endif()
-
-if(COMPILE_CHACHA20_POLY1305)
-    list(APPEND WOLFCRYPT_SOURCES
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/chacha.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/poly1305.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/chacha20_poly1305.c
-    )
-    list(APPEND CORE_SOURCES "adapters/wolf/crypto_chacha20_poly1305.c")
-endif()
-
+# --- X25519 slot (pending replacement) -----------------------------------
+# The previous X25519 KEX adapter (adapters/wolf/crypto_wolf_x25519.c) was
+# wolfCrypt-based and has been removed along with wolfCrypt itself. No
+# replacement backend is wired in yet -- that's tracked separately (see
+# docs/x25519-adapter-handover.md). Until a new adapter source is added
+# here, leave COMPILE_WOLF_X25519 at 0 in benchmark_config.h / ISOLATE_ALGO,
+# since XWING and FLEXWING0-3 will fail to link against a missing X25519
+# ops struct otherwise.
 if(COMPILE_WOLF_X25519)
-    list(APPEND WOLFCRYPT_SOURCES
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/curve25519.c
-        ${WOLFCRYPT_DIR}/wolfcrypt/src/fe_operations.c
-    )
-    list(APPEND CORE_SOURCES "adapters/wolf/crypto_wolf_x25519.c")
+    message(WARNING "COMPILE_WOLF_X25519 is enabled but no X25519 backend "
+                     "is currently wired into CMakeLists.txt (wolfCrypt was "
+                     "removed). XWING/FLEXWING0-3 will fail to link. See "
+                     "docs/x25519-adapter-handover.md.")
 endif()
-
-list(REMOVE_DUPLICATES WOLFCRYPT_SOURCES)
-
 set(ASCON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon)
 set(ASCON_SOURCES "")
 set(ASCON_INCLUDES
@@ -391,7 +353,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         platforms/stm32_renode/adapter_rng_seed.c
         platforms/stm32_renode/runtime_overhead_probe.c
         ${REGISTERED_ADAPTER_SOURCES}
-        ${WOLFCRYPT_SOURCES}
+        ${RNG_SOURCES}
         ${ASCON_SOURCES}
         ${PQM4_SOURCES}
         ${LWC_SOURCES}
@@ -402,7 +364,6 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     add_executable(stm32_benchmark.elf ${CORE_SOURCES} ${PLATFORM_SOURCES})
 
     target_compile_definitions(stm32_benchmark.elf PRIVATE
-        WOLFSSL_USER_SETTINGS
         RENODE_SIMULATION
     )
 
@@ -414,8 +375,8 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     # This requires each COMPILE_* macro in benchmark_config.h to be wrapped
     # in #ifndef / #endif so a command-line -D definition can override it:
     #
-    #   #ifndef COMPILE_WOLF_ED25519
-    #   #define COMPILE_WOLF_ED25519 1
+    #   #ifndef COMPILE_WOLF_X25519
+    #   #define COMPILE_WOLF_X25519 1
     #   #endif
     #
     foreach(ALG ${ALGO_LIST})
@@ -439,7 +400,6 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmarks
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
         ${PQM4_INCLUDES}
-        ${WOLFCRYPT_INCLUDES}
         ${ASCON_INCLUDES}
     )
 

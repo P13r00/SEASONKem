@@ -48,7 +48,7 @@
 
 #define RUNS_HASH                       50
 #ifndef COMPILE_ASCON_HASH256
-#define COMPILE_ASCON_HASH256           0
+#define COMPILE_ASCON_HASH256           1
 #endif
 #ifndef COMPILE_PQM4_SHA3_256
 #define COMPILE_PQM4_SHA3_256           0
@@ -63,10 +63,10 @@
 #define COMPILE_LWC_SPARKLE_HASHXOF     0
 #endif
 #ifndef COMPILE_LWC_SPARKLE_HASH256
-#define COMPILE_LWC_SPARKLE_HASH256     0
+#define COMPILE_LWC_SPARKLE_HASH256     1
 #endif
 #ifndef COMPILE_LWC_XOODYAK_HASH
-#define COMPILE_LWC_XOODYAK_HASH        0
+#define COMPILE_LWC_XOODYAK_HASH        1
 #endif
 #ifndef COMPILE_LWC_ASCON_HASHXOF
 #define COMPILE_LWC_ASCON_HASHXOF       0
@@ -74,7 +74,7 @@
 
 #define RUNS_KEM                        100
 #ifndef COMPILE_PQM4_KYBER512
-#define COMPILE_PQM4_KYBER512           0
+#define COMPILE_PQM4_KYBER512           1
 #endif
 #ifndef COMPILE_PQM4_KYBER768
 #define COMPILE_PQM4_KYBER768           0
@@ -97,7 +97,7 @@
 
 #define RUNS_KEX                        50
 #ifndef COMPILE_WOLF_X25519
-#define COMPILE_WOLF_X25519             1
+#define COMPILE_WOLF_X25519             0
 #endif
 
 #define HASH_BUFFER_SIZE                135u
