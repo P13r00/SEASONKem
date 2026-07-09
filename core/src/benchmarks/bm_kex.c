@@ -11,7 +11,7 @@ typedef struct {
 } kex_size_t;
 
 static const kex_size_t s_kex_sizes[] = {
-    {  ALG_WOLF_X25519, 32,   32,   32  },
+    {  ALG_X25519, 32,   32,   32  },
     {  ALG_ECDH_P256,   65,   32,   32  },
 };
 #define KEX_SIZE_COUNT (sizeof(s_kex_sizes) / sizeof(s_kex_sizes[0]))
@@ -22,13 +22,13 @@ static const kex_size_t *lookup_kex_sizes(crypto_type_t t) {
     return NULL;
 }
 
-#if COMPILE_WOLF_X25519
-extern const crypto_kex_ops_t wolf_x25519_ops;
+#if COMPILE_X25519
+extern const crypto_kex_ops_t x25519_ops;
 #endif
 
 static const crypto_kex_ops_t *kex_registry[] = {
-#if COMPILE_WOLF_X25519
-    &wolf_x25519_ops,
+#if COMPILE_X25519
+    &x25519_ops,
 #endif
     NULL
 };
@@ -113,8 +113,8 @@ void execute_kex_benchmark(crypto_type_t type) {
         platform_print_string("   !! CANARY UNTOUCHED - shared_secret did not write output !!\n");
     if (all_zero_a || all_zero_b)
         platform_print_string("   !! ALL-ZERO SECRET - degenerate/failure result !!\n");
-    /* --- END CANARY CHECK --- */
-
+    
+   
     uint8_t diff = 0u;
     for (size_t i = 0u; i < (size_t)ss_bytes; i++) diff |= (ss_a[i] ^ ss_b[i]);
     platform_print_string("   SS Match:     ");

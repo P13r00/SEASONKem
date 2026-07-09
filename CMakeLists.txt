@@ -23,17 +23,19 @@ set(CMAKE_C_STANDARD 99)
 set(ALGO_LIST
     ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF
     PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512
-    WOLF_X25519 PQM4_SHA3_256 PQM4_SHAKE256
+    X25519 PQM4_SHA3_256 PQM4_SHAKE256
     LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF
     LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD
     LWC_ASCON_HASHXOF LWC_XOODYAK_AEAD 
     XWING FLEXWING0 FLEXWING1 FLEXWING2 FLEXWING3
 )
-# NOTE: WOLF_X25519 stays in the list as a *slot*, not a working algorithm.
-# wolfCrypt has been fully removed (see below) and no source currently
-# provides X25519. XWING and FLEXWING0-3 all depend on an X25519 KEX ops
-# struct and will fail to LINK if COMPILE_WOLF_X25519 is left at 1 with
-# nothing wired up. See docs/x25519-adapter-handover.md.
+# NOTE: WOLF_X25519 keeps its historical name for the ALGO_LIST slot / ops
+# struct symbol, but no longer means "wolfCrypt" -- wolfCrypt has been fully
+# removed (see below). X25519 is now provided by
+# adapters/x25519/crypto_x25519.c, backed by the Emill X25519-Cortex-M4
+# assembly library, vendored as a submodule at third_party/X25519-Cortex-M4.
+# XWING and FLEXWING0-3 all depend on this X25519 KEX ops struct for their
+# combiner. See docs/x25519-adapter-handover.md.
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_config.h" RUNNER_CONTENT)
 
@@ -122,20 +124,37 @@ set(RNG_SOURCES
     adapters/adapter_rng.c
 )
 
-# --- X25519 slot (pending replacement) -----------------------------------
+# --- X25519 -----------------------------------------------------------
 # The previous X25519 KEX adapter (adapters/wolf/crypto_wolf_x25519.c) was
-# wolfCrypt-based and has been removed along with wolfCrypt itself. No
-# replacement backend is wired in yet -- that's tracked separately (see
-# docs/x25519-adapter-handover.md). Until a new adapter source is added
-# here, leave COMPILE_WOLF_X25519 at 0 in benchmark_config.h / ISOLATE_ALGO,
-# since XWING and FLEXWING0-3 will fail to link against a missing X25519
-# ops struct otherwise.
-if(COMPILE_WOLF_X25519)
-    message(WARNING "COMPILE_WOLF_X25519 is enabled but no X25519 backend "
-                     "is currently wired into CMakeLists.txt (wolfCrypt was "
-                     "removed). XWING/FLEXWING0-3 will fail to link. See "
-                     "docs/x25519-adapter-handover.md.")
+# wolfCrypt-based and has been removed along with wolfCrypt itself. It is
+# replaced by adapters/x25519/crypto_x25519.c, backed by Emil Lenngren's
+# X25519-Cortex-M4 assembly library, vendored as a git submodule:
+# https://github.com/Emill/X25519-Cortex-M4
+#
+# Added via:
+#   git submodule add https://github.com/Emill/X25519-Cortex-M4 third_party/X25519-Cortex-M4
+# and checked out with the rest of the submodules via
+#   git submodule update --init --recursive
+#
+# The adapter still exports its ops struct as `wolf_x25519_ops`, so XWING
+# and FLEXWING0-3 (adapters/xwing.c, adapters/flexwing0.c-flexwing3.c) did
+# not need to change.
+set(X25519_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/X25519-Cortex-M4)
+set(X25519_SOURCES "")
+set(X25519_INCLUDES
+    ${X25519_DIR}
+)
+
+if(COMPILE_X25519)
+    if(NOT EXISTS ${X25519_DIR}/x25519-cortex-m4-gcc.s)
+        message(FATAL_ERROR "third_party/X25519-Cortex-M4 submodule is missing or "
+                             "not checked out. Run: git submodule update --init "
+                             "--recursive")
+    endif()
+    list(APPEND X25519_SOURCES ${X25519_DIR}/x25519-cortex-m4-gcc.s)
+    list(APPEND CORE_SOURCES "adapters/crypto_x25519.c")
 endif()
+
 set(ASCON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon)
 set(ASCON_SOURCES "")
 set(ASCON_INCLUDES
@@ -357,6 +376,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${ASCON_SOURCES}
         ${PQM4_SOURCES}
         ${LWC_SOURCES}
+        ${X25519_SOURCES}
     )
 
     set(LINKER_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode/linker.ld")
@@ -401,6 +421,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
         ${PQM4_INCLUDES}
         ${ASCON_INCLUDES}
+        ${X25519_INCLUDES}
     )
 
     target_link_options(stm32_benchmark.elf PRIVATE

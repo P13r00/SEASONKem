@@ -1,9 +1,11 @@
-CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hash256.c.obj: \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/lwc/crypto_lwc_sparkle_hash256.c \
+CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-xof.c.obj: \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/ascon-xof.c \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/ascon-xof.h \
+ /usr/lib/gcc/arm-none-eabi/15.2.0/include/stddef.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-ascon.h \
+ /home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/lwc-finalists/src/combined/internal-util.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint.h \
  /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdint-gcc.h \
- /usr/lib/gcc/arm-none-eabi/15.2.0/include/stddef.h \
- /usr/lib/gcc/arm-none-eabi/15.2.0/include/stdbool.h \
  /usr/arm-none-eabi/include/string.h /usr/arm-none-eabi/include/_ansi.h \
  /usr/arm-none-eabi/include/newlib.h \
  /usr/arm-none-eabi/include/_newlib_version.h \
@@ -19,5 +21,4 @@ CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hash256.c.obj
  /usr/arm-none-eabi/include/sys/lock.h \
  /usr/arm-none-eabi/include/sys/_locale.h \
  /usr/arm-none-eabi/include/strings.h \
- /usr/arm-none-eabi/include/sys/string.h \
- /home/piec/Documents/ResearchInternship/cryptoBenchmark/core/inc/crypto_api.h
+ /usr/arm-none-eabi/include/sys/string.h

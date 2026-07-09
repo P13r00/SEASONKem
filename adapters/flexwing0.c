@@ -35,7 +35,7 @@
 
 /* Existing ops structs this file builds on top of. */
 extern const crypto_kem_ops_t  pqm4_kyber512_ops;
-extern const crypto_kex_ops_t  wolf_x25519_ops;
+extern const crypto_kex_ops_t  x25519_ops;
 extern const crypto_hash_ops_t pqm4_sha3_256_ops;
 
 /*
@@ -88,11 +88,11 @@ static int flexwing0_keypair(uint8_t *pk, uint8_t *sk)
         return CRYPTO_ERROR;
 
     /*
-     * wolf_x25519_ops.keygen writes (pk_X, sk_X) directly; pk_X lands straight
+     * x25519_ops.keygen writes (pk_X, sk_X) directly; pk_X lands straight
      * into pk[PK_OFF_PK_X ..], and we also need a copy of pk_X appended to sk
      * (per the -01 draft's change: the decapsulation key carries pk_X too).
      */
-    if (wolf_x25519_ops.keygen(pk + PK_OFF_PK_X, sk + SK_OFF_SK_X) != CRYPTO_SUCCESS) {
+    if (x25519_ops.keygen(pk + PK_OFF_PK_X, sk + SK_OFF_SK_X) != CRYPTO_SUCCESS) {
         return CRYPTO_ERROR;
     }
 
@@ -126,9 +126,9 @@ static int flexwing0_encaps(uint8_t *ct, uint8_t *ss, const uint8_t *pk)
     int ret = CRYPTO_ERROR;
 
     /* Ephemeral X25519 keypair: ct_x is the ephemeral public key, ek_x the scalar. */
-    if (wolf_x25519_ops.keygen(ct_x, ek_x) != CRYPTO_SUCCESS) goto out;
+    if (x25519_ops.keygen(ct_x, ek_x) != CRYPTO_SUCCESS) goto out;
 
-    if (wolf_x25519_ops.shared_secret(ss_x, pk_x, ek_x) != CRYPTO_SUCCESS) goto out;
+    if (x25519_ops.shared_secret(ss_x, pk_x, ek_x) != CRYPTO_SUCCESS) goto out;
 
     if (pqm4_kyber512_ops.encaps(ct_m, ss_m, pk_m) != CRYPTO_SUCCESS) goto out;
 
@@ -172,7 +172,7 @@ static int flexwing0_decaps(uint8_t *ss, const uint8_t *ct, const uint8_t *sk)
 
     if (pqm4_kyber512_ops.decaps(ss_m, ct_m, sk_m) != CRYPTO_SUCCESS) goto out;
 
-    if (wolf_x25519_ops.shared_secret(ss_x, ct_x, sk_x) != CRYPTO_SUCCESS) goto out;
+    if (x25519_ops.shared_secret(ss_x, ct_x, sk_x) != CRYPTO_SUCCESS) goto out;
 
     ret = flexwing0_combiner(ss, ss_m, ss_x, ct_x, pk_x);
 
