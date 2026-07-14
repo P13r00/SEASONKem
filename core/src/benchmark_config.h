@@ -97,7 +97,7 @@
 
 #define RUNS_KEX                        50
 #ifndef COMPILE_X25519
-#define COMPILE_X25519             1
+#define COMPILE_X25519                  1
 #endif
 
 #define HASH_BUFFER_SIZE                135u
