@@ -76,7 +76,7 @@
 #ifndef COMPILE_PQM4_KYBER512
 #define COMPILE_PQM4_KYBER512           1
 #endif
-#ifndef COMPILE_PQM4_KYBER768
+#ifndef COMPILE_PQM4_KYBER768 
 #define COMPILE_PQM4_KYBER768           0
 #endif
 #ifndef COMPILE_XWING                // K768 + X + SHA
