@@ -23,7 +23,7 @@ set(CMAKE_C_STANDARD 99)
 set(ALGO_LIST
     ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF
     PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512
-    X25519 PQM4_SHA3_256 PQM4_SHAKE256
+    X25519 PQM4_SHA3_256 PQM4_SHAKE256 CHACHA20_POLY1305
     LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF
     LWC_SPARKLE_HASH256 LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD
     LWC_ASCON_HASHXOF LWC_XOODYAK_AEAD 
@@ -123,6 +123,27 @@ endif()
 set(RNG_SOURCES
     adapters/adapter_rng.c
 )
+
+set(WOLFCRYPT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/wolfssl)
+set(WOLFCRYPT_SOURCES "")
+list(APPEND WOLFCRYPT_SOURCES
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/wc_port.c
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/memory.c
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/misc.c
+)
+set(WOLFCRYPT_INCLUDES
+    ${WOLFCRYPT_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/adapters/wolf   # location of user_settings.h -- adjust if it lives elsewhere
+)
+
+if(COMPILE_CHACHA20_POLY1305)
+    list(APPEND WOLFCRYPT_SOURCES
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/chacha.c
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/poly1305.c
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/chacha20_poly1305.c
+    )
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_chacha20_poly1305.c")
+endif()
 
 # --- X25519 -----------------------------------------------------------
 # The previous X25519 KEX adapter (adapters/wolf/crypto_wolf_x25519.c) was
@@ -377,6 +398,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${PQM4_SOURCES}
         ${LWC_SOURCES}
         ${X25519_SOURCES}
+        ${WOLFCRYPT_SOURCES}
     )
 
     set(LINKER_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode/linker.ld")
@@ -385,6 +407,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
 
     target_compile_definitions(stm32_benchmark.elf PRIVATE
         RENODE_SIMULATION
+        $<$<BOOL:${COMPILE_CHACHA20_POLY1305}>:WOLFSSL_USER_SETTINGS>
     )
 
     # Force the compiled-in COMPILE_<ALG> values (whether they came from
@@ -422,6 +445,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${PQM4_INCLUDES}
         ${ASCON_INCLUDES}
         ${X25519_INCLUDES}
+        ${WOLFCRYPT_INCLUDES}
     )
 
     target_link_options(stm32_benchmark.elf PRIVATE

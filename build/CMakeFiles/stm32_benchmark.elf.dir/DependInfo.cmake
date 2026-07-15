@@ -30,6 +30,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
   "COMPILE_ASCON_AEAD128=0"
   "COMPILE_ASCON_HASH256=0"
   "COMPILE_ASCON_XOF=0"
+  "COMPILE_CHACHA20_POLY1305=1"
   "COMPILE_FLEXWING0=1"
   "COMPILE_FLEXWING1=1"
   "COMPILE_FLEXWING2=1"
@@ -51,6 +52,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
   "COMPILE_X25519=1"
   "COMPILE_XWING=0"
   "RENODE_SIMULATION"
+  "WOLFSSL_USER_SETTINGS"
   )
 
 # The include file search paths:
@@ -65,6 +67,8 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/tests"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/X25519-Cortex-M4"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/wolf"
   )
 
 # The set of dependency files which are needed:
@@ -80,6 +84,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/lwc/crypto_lwc_xoodyak.c" "CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/pqm4/crypto_pqm4_kyber512.c" "CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4/crypto_pqm4_kyber512.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4/crypto_pqm4_kyber512.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/pqm4/crypto_pqm4_sha3_256.c" "CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4/crypto_pqm4_sha3_256.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4/crypto_pqm4_sha3_256.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/wolf/crypto_chacha20_poly1305.c" "CMakeFiles/stm32_benchmark.elf.dir/adapters/wolf/crypto_chacha20_poly1305.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/adapters/wolf/crypto_chacha20_poly1305.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmark_metrics.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_metrics.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_metrics.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmark_runner.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks/bm_aead.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_aead.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_aead.c.obj.d"
@@ -105,6 +110,12 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common/fips202.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/pqm4/mupq/common/fips202.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/chacha20_poly1305.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/memory.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/memory.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/misc.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/misc.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/poly1305.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/poly1305.c.obj.d"
+  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl/wolfcrypt/src/wc_port.c" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/third_party/wolfssl/wolfcrypt/src/wc_port.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

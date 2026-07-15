@@ -17,7 +17,7 @@
 
 #define RUNS_AEAD                       500
 #ifndef COMPILE_CHACHA20_POLY1305
-#define COMPILE_CHACHA20_POLY1305       0
+#define COMPILE_CHACHA20_POLY1305       1
 #endif
 #ifndef COMPILE_ASCON80
 #define COMPILE_ASCON80                 0
