@@ -433,7 +433,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     target_compile_options(stm32_benchmark.elf PRIVATE
         ${ARM_MCU_FLAGS}
         -ffreestanding
-        -Oz
+        -O3
         -ffunction-sections
         -fdata-sections
     )
