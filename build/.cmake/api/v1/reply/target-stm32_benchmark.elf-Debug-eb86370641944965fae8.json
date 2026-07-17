@@ -1,0 +1,1150 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "stm32_benchmark.elf"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_options",
+			"target_link_libraries",
+			"add_custom_command",
+			"target_compile_options",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 418,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 463,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 470,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 472,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 445,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 438,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 420,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 453,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -std=gnu99"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-mcpu=cortex-m4"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-mthumb"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-mfloat-abi=hard"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-mfpu=fpv4-sp-d16"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-ffreestanding"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-O3"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-ffunction-sections"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-fdata-sections"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "COMPILE_ASCON80=0"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "COMPILE_ASCON_AEAD128=0"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "COMPILE_ASCON_HASH256=0"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "COMPILE_ASCON_XOF=0"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "COMPILE_CHACHA20_POLY1305=0"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "COMPILE_FLEXWING0=0"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "COMPILE_FLEXWING1=0"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "COMPILE_FLEXWING2=0"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "COMPILE_FLEXWING3=0"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "COMPILE_FLEXWING4=1"
+				},
+				{
+					"backtrace" : 16,
+					"define" : "COMPILE_LWC_ASCON80PQ_AEAD=0"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "COMPILE_LWC_ASCON_HASHXOF=0"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "COMPILE_LWC_SPARKLE_AEAD192=1"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "COMPILE_LWC_SPARKLE_AEAD256=0"
+				},
+				{
+					"backtrace" : 20,
+					"define" : "COMPILE_LWC_SPARKLE_HASH256=0"
+				},
+				{
+					"backtrace" : 21,
+					"define" : "COMPILE_LWC_SPARKLE_HASH384=1"
+				},
+				{
+					"backtrace" : 22,
+					"define" : "COMPILE_LWC_SPARKLE_HASHXOF=1"
+				},
+				{
+					"backtrace" : 23,
+					"define" : "COMPILE_LWC_XOODYAK_AEAD=0"
+				},
+				{
+					"backtrace" : 24,
+					"define" : "COMPILE_LWC_XOODYAK_HASH=0"
+				},
+				{
+					"backtrace" : 25,
+					"define" : "COMPILE_PQM4_DILITHIUM2=0"
+				},
+				{
+					"backtrace" : 26,
+					"define" : "COMPILE_PQM4_FALCON512=0"
+				},
+				{
+					"backtrace" : 27,
+					"define" : "COMPILE_PQM4_KYBER512=1"
+				},
+				{
+					"backtrace" : 28,
+					"define" : "COMPILE_PQM4_KYBER768=0"
+				},
+				{
+					"backtrace" : 29,
+					"define" : "COMPILE_PQM4_SHA3_256=0"
+				},
+				{
+					"backtrace" : 30,
+					"define" : "COMPILE_PQM4_SHAKE256=0"
+				},
+				{
+					"backtrace" : 31,
+					"define" : "COMPILE_X25519=1"
+				},
+				{
+					"backtrace" : 32,
+					"define" : "COMPILE_XWING=0"
+				},
+				{
+					"backtrace" : 33,
+					"define" : "RENODE_SIMULATION"
+				},
+				{
+					"backtrace" : 33,
+					"define" : "WOLFSSL_USER_SETTINGS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/tests"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/X25519-Cortex-M4"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/wolf"
+				}
+			],
+			"language" : "C",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "99"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				25,
+				26,
+				27,
+				29,
+				30,
+				32,
+				34,
+				35,
+				36,
+				38,
+				40,
+				41,
+				43,
+				44,
+				45
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-mcpu=cortex-m4"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-mthumb"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-mfloat-abi=hard"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-mfpu=fpv4-sp-d16"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-ffreestanding"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-O3"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-ffunction-sections"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-fdata-sections"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "COMPILE_ASCON80=0"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "COMPILE_ASCON_AEAD128=0"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "COMPILE_ASCON_HASH256=0"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "COMPILE_ASCON_XOF=0"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "COMPILE_CHACHA20_POLY1305=0"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "COMPILE_FLEXWING0=0"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "COMPILE_FLEXWING1=0"
+				},
+				{
+					"backtrace" : 13,
+					"define" : "COMPILE_FLEXWING2=0"
+				},
+				{
+					"backtrace" : 14,
+					"define" : "COMPILE_FLEXWING3=0"
+				},
+				{
+					"backtrace" : 15,
+					"define" : "COMPILE_FLEXWING4=1"
+				},
+				{
+					"backtrace" : 16,
+					"define" : "COMPILE_LWC_ASCON80PQ_AEAD=0"
+				},
+				{
+					"backtrace" : 17,
+					"define" : "COMPILE_LWC_ASCON_HASHXOF=0"
+				},
+				{
+					"backtrace" : 18,
+					"define" : "COMPILE_LWC_SPARKLE_AEAD192=1"
+				},
+				{
+					"backtrace" : 19,
+					"define" : "COMPILE_LWC_SPARKLE_AEAD256=0"
+				},
+				{
+					"backtrace" : 20,
+					"define" : "COMPILE_LWC_SPARKLE_HASH256=0"
+				},
+				{
+					"backtrace" : 21,
+					"define" : "COMPILE_LWC_SPARKLE_HASH384=1"
+				},
+				{
+					"backtrace" : 22,
+					"define" : "COMPILE_LWC_SPARKLE_HASHXOF=1"
+				},
+				{
+					"backtrace" : 23,
+					"define" : "COMPILE_LWC_XOODYAK_AEAD=0"
+				},
+				{
+					"backtrace" : 24,
+					"define" : "COMPILE_LWC_XOODYAK_HASH=0"
+				},
+				{
+					"backtrace" : 25,
+					"define" : "COMPILE_PQM4_DILITHIUM2=0"
+				},
+				{
+					"backtrace" : 26,
+					"define" : "COMPILE_PQM4_FALCON512=0"
+				},
+				{
+					"backtrace" : 27,
+					"define" : "COMPILE_PQM4_KYBER512=1"
+				},
+				{
+					"backtrace" : 28,
+					"define" : "COMPILE_PQM4_KYBER768=0"
+				},
+				{
+					"backtrace" : 29,
+					"define" : "COMPILE_PQM4_SHA3_256=0"
+				},
+				{
+					"backtrace" : 30,
+					"define" : "COMPILE_PQM4_SHAKE256=0"
+				},
+				{
+					"backtrace" : 31,
+					"define" : "COMPILE_X25519=1"
+				},
+				{
+					"backtrace" : 32,
+					"define" : "COMPILE_XWING=0"
+				},
+				{
+					"backtrace" : 33,
+					"define" : "RENODE_SIMULATION"
+				},
+				{
+					"backtrace" : 33,
+					"define" : "WOLFSSL_USER_SETTINGS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/mupq/common"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/tests"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/X25519-Cortex-M4"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/wolf"
+				}
+			],
+			"language" : "ASM",
+			"sourceIndexes" : 
+			[
+				20,
+				21,
+				22,
+				23,
+				24,
+				28,
+				31,
+				33,
+				37,
+				39,
+				42
+			]
+		}
+	],
+	"id" : "stm32_benchmark.elf::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-mcpu=cortex-m4",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-mthumb",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-mfloat-abi=hard",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-mfpu=fpv4-sp-d16",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-T",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/home/piec/Documents/ResearchInternship/cryptoBenchmark/platforms/stm32_renode/linker.ld",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-nodefaultlibs",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-nostartfiles",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-Wl,--gc-sections",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lgcc",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 3,
+			"fragment" : "gcc"
+		}
+	],
+	"name" : "stm32_benchmark.elf",
+	"nameOnDisk" : "stm32_benchmark.elf",
+	"orderDependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "stm32_benchmark.elf::@6890427a1f51a3e7e1df"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				25,
+				26,
+				27,
+				29,
+				30,
+				32,
+				34,
+				35,
+				36,
+				38,
+				40,
+				41,
+				43,
+				44,
+				45
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				20,
+				21,
+				22,
+				23,
+				24,
+				28,
+				31,
+				33,
+				37,
+				39,
+				42
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/src/benchmark_runner.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/src/benchmark_metrics.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/src/benchmarks/bm_aead.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/src/benchmarks/bm_hash.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/src/benchmarks/bm_kdf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/src/benchmarks/bm_kem.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/src/benchmarks/bm_kex.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "core/src/benchmarks/bm_signature.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "adapters/flexwing4.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "adapters/crypto_x25519.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "adapters/pqm4/crypto_pqm4_kyber512.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "adapters/lwc/crypto_lwc_sparkle_aead192.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "adapters/lwc/crypto_lwc_sparkle_hashxof.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "adapters/lwc/crypto_lwc_sparkle_hash384.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "platforms/stm32_renode/main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "platforms/stm32_renode/libc_stub.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "platforms/stm32_renode/adapter_rng_seed.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "platforms/stm32_renode/runtime_overhead_probe.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "adapters/adapter_rng.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cmov_int16.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastaddsub.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastbasemul.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastinvntt.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/fastntt.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/indcpa.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/kem.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/matacc_asm.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/ntt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/poly_asm.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/polyvec.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/reduce.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/symmetric-fips202.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/verify.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/pqm4/mupq/common/fips202.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/pqm4/common/keccakf1600.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/lwc-finalists/src/combined/sparkle-aead.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/lwc-finalists/src/combined/internal-util.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/lwc-finalists/src/combined/sparkle-hash.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "third_party/X25519-Cortex-M4/x25519-cortex-m4-gcc.s",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/wolfssl/wolfcrypt/src/wc_port.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/wolfssl/wolfcrypt/src/memory.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "third_party/wolfssl/wolfcrypt/src/misc.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

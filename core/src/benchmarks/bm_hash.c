@@ -20,6 +20,9 @@ extern const crypto_hash_ops_t lwc_sparkle_hashxof_ops;
 #if COMPILE_LWC_SPARKLE_HASH256
 extern const crypto_hash_ops_t lwc_sparkle_hash256_ops;
 #endif
+#if COMPILE_LWC_SPARKLE_HASH384
+extern const crypto_hash_ops_t lwc_sparkle_hash384_ops;
+#endif
 #if COMPILE_LWC_XOODYAK_HASH
 extern const crypto_hash_ops_t lwc_xoodyak_hash_ops;
 #endif
@@ -45,6 +48,9 @@ static const crypto_hash_ops_t *hash_registry[] = {
 #endif
 #if COMPILE_LWC_SPARKLE_HASH256
     &lwc_sparkle_hash256_ops,
+#endif
+#if COMPILE_LWC_SPARKLE_HASH384
+    &lwc_sparkle_hash384_ops,
 #endif
 #if COMPILE_LWC_XOODYAK_HASH
     &lwc_xoodyak_hash_ops,

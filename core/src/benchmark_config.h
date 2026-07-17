@@ -32,7 +32,7 @@
 #define COMPILE_LWC_SPARKLE_AEAD256     0
 #endif
 #ifndef COMPILE_LWC_SPARKLE_AEAD192
-#define COMPILE_LWC_SPARKLE_AEAD192     0
+#define COMPILE_LWC_SPARKLE_AEAD192     1
 #endif
 #ifndef COMPILE_LWC_ASCON80PQ_AEAD
 #define COMPILE_LWC_ASCON80PQ_AEAD      0
@@ -65,6 +65,9 @@
 #ifndef COMPILE_LWC_SPARKLE_HASH256
 #define COMPILE_LWC_SPARKLE_HASH256     0
 #endif
+#ifndef COMPILE_LWC_SPARKLE_HASH384
+#define COMPILE_LWC_SPARKLE_HASH384     1
+#endif
 #ifndef COMPILE_LWC_XOODYAK_HASH
 #define COMPILE_LWC_XOODYAK_HASH        0
 #endif
@@ -91,8 +94,11 @@
 #ifndef COMPILE_FLEXWING2            // K512 + X + ASCON XOF
 #define COMPILE_FLEXWING2               0
 #endif
-#ifndef COMPILE_FLEXWING3            // K512 + X + SPARKLE XOF
-#define COMPILE_FLEXWING3               1
+#ifndef COMPILE_FLEXWING3            // K512 + X + SPARKLE XOF256
+#define COMPILE_FLEXWING3               0
+#endif
+#ifndef COMPILE_FLEXWING4            // K512 + X + SPARKLE 384
+#define COMPILE_FLEXWING4               1
 #endif
 
 #define RUNS_KEX                        50

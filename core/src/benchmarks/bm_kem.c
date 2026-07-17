@@ -48,6 +48,9 @@ extern const crypto_kem_ops_t flexwing2_ops;
 #if COMPILE_FLEXWING3
 extern const crypto_kem_ops_t flexwing3_ops;
 #endif
+#if COMPILE_FLEXWING4
+extern const crypto_kem_ops_t flexwing4_ops;
+#endif
 
 static const crypto_kem_ops_t *kem_registry[] = {
 #if COMPILE_PQM4_KYBER512
@@ -70,6 +73,9 @@ static const crypto_kem_ops_t *kem_registry[] = {
 #endif
 #if COMPILE_FLEXWING3
     &flexwing3_ops,
+#endif
+#if COMPILE_FLEXWING4
+    &flexwing4_ops,
 #endif
     NULL
 };
