@@ -407,7 +407,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
 
     target_compile_definitions(stm32_benchmark.elf PRIVATE
         RENODE_SIMULATION
-        $<$<BOOL:${COMPILE_CHACHA20_POLY1305}>:WOLFSSL_USER_SETTINGS>
+        WOLFSSL_USER_SETTINGS
     )
 
     # Force the compiled-in COMPILE_<ALG> values (whether they came from
@@ -433,7 +433,7 @@ if(TARGET_PLATFORM STREQUAL "STM32")
     target_compile_options(stm32_benchmark.elf PRIVATE
         ${ARM_MCU_FLAGS}
         -ffreestanding
-        -O3
+        -Oz
         -ffunction-sections
         -fdata-sections
     )

@@ -76,18 +76,20 @@ void execute_dynamic_hash_benchmark(crypto_type_t type) {
     platform_print_string(ops->name);
     platform_print_string("\n   [Timing]\n");
 
-    uint8_t *input = (uint8_t *)heap_malloc(HASH_BUFFER_SIZE);
-    if (!input) {
-        platform_print_string("!! Heap OOM allocating input !!\n");
-        return;
-    }
-    for (size_t i = 0u; i < HASH_BUFFER_SIZE; i++) {
-        input[i] = (uint8_t)(i & 0xFFu);
-    }
-
     for (size_t i = 0; i < num_tests; i++) {
         size_t current_outlen = test_lengths[i];
-        
+
+        heap_reset();
+
+        uint8_t *input = (uint8_t *)heap_malloc(HASH_BUFFER_SIZE);
+        if (!input) {
+            platform_print_string("!! Heap OOM allocating input !!\n");
+            continue;
+        }
+        for (size_t j = 0u; j < HASH_BUFFER_SIZE; j++) {
+            input[j] = (uint8_t)(j & 0xFFu);
+        }
+
         uint8_t *output = (uint8_t *)heap_malloc(current_outlen);
         if (!output) {
             platform_print_string("!! Heap OOM allocating output !!\n");
@@ -113,6 +115,14 @@ void execute_dynamic_hash_benchmark(crypto_type_t type) {
         } else {
             platform_print_string("   [Error executing hash]\n");
         }
+
+        if (i == 0) platform_print_string("   Heap Peak (Default/32B): ");
+        if (i == 1) platform_print_string("   Heap Peak (Squeeze 64B): ");
+        if (i == 2) platform_print_string("   Heap Peak (Sqz 1024B):   ");
+        if (i == 3) platform_print_string("   Heap Peak (Sqz 16B):     ");
+        if (i == 4) platform_print_string("   Heap Peak (Sqz 20B):     ");
+        platform_print_number(heap_peak_used());
+        platform_print_string(" B\n");
     }
 
     print_memory_report(type);

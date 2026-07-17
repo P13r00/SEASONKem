@@ -90,8 +90,18 @@ void execute_kex_benchmark(crypto_type_t type) {
     int r1 = ops->shared_secret(ss_a, pk_b, sk_a);
     int r2 = ops->shared_secret(ss_b, pk_a, sk_b);
 
-    platform_print_string("   r1="); platform_print_hex((uint32_t)r1);
-    platform_print_string("   r2="); platform_print_hex((uint32_t)r2);
+     platform_print_string("   shared_secret status: r1=");
+    platform_print_hex((uint32_t)r1);
+    platform_print_string("  r2=");
+    platform_print_hex((uint32_t)r2);
+    platform_print_string("\n");
+
+    /* Print a few bytes of the actual secret so a degenerate-but-matching
+     * result (e.g. both sides landing on 0 through a shared bug) is
+     * visible, not just inferred from the all-zero check below. */
+    platform_print_string("   ss_a[0..3]=0x");
+    platform_print_hex(((uint32_t)ss_a[0] << 24) | ((uint32_t)ss_a[1] << 16) |
+                        ((uint32_t)ss_a[2] << 8)  |  (uint32_t)ss_a[3]);
     platform_print_string("\n");
 
     uint8_t still_canary_a = 1u, still_canary_b = 1u;
