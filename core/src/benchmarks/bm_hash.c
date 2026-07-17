@@ -29,6 +29,9 @@ extern const crypto_hash_ops_t lwc_xoodyak_hash_ops;
 #if COMPILE_LWC_ASCON_HASHXOF
 extern const crypto_hash_ops_t lwc_ascon_hashxof_ops;
 #endif
+#if COMPILE_LWC_ASCON_HASH256
+extern const crypto_hash_ops_t lwc_ascon_hash256_ops;
+#endif
 
 static const crypto_hash_ops_t *hash_registry[] = {
 #if COMPILE_PQM4_SHA3_256
@@ -57,6 +60,9 @@ static const crypto_hash_ops_t *hash_registry[] = {
 #endif
 #if COMPILE_LWC_ASCON_HASHXOF
     &lwc_ascon_hashxof_ops,
+#endif
+#if COMPILE_LWC_ASCON_HASH256
+    &lwc_ascon_hash256_ops,
 #endif
 
     NULL

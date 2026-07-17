@@ -1,0 +1,18 @@
+// platform_24mhz.repl
+//
+// Wraps the stock STM32F4 Discovery board description and overrides the
+// NVIC's systickFrequency (default 72 MHz) down to 24 MHz.
+//
+// This MUST be loaded with a single `machine LoadPlatformDescription` call
+// (see stm32f4.resc). systickFrequency is a constructor parameter on NVIC,
+// so it can only be set while nvic is first being created — merging only
+// happens within one description-loading pass, before construction, via
+// the `using` mechanism below. Loading the stock repl and then trying to
+// override it in a second, separate LoadPlatformDescription call does NOT
+// work: by that point nvic already exists, and constructor attributes are
+// rejected for peripherals that already exist.
+
+using "platforms/boards/stm32f4_discovery-kit.repl"
+
+nvic:
+    systickFrequency: 16000000 //default 16 mhz

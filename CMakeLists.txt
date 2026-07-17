@@ -24,10 +24,10 @@ set(ALGO_LIST
     ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF
     PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512
     X25519 PQM4_SHA3_256 PQM4_SHAKE256 CHACHA20_POLY1305
-    LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_HASHXOF
-    LWC_SPARKLE_HASH256 LWC_SPARKLE_HASH384
-    LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD
-    LWC_ASCON_HASHXOF LWC_XOODYAK_AEAD 
+    LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_AEAD128 
+    LWC_SPARKLE_HASHXOF LWC_SPARKLE_HASH256 LWC_SPARKLE_HASH384
+    LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD LWC_ASCON128_AEAD
+    LWC_ASCON_HASHXOF LWC_ASCON_HASH256 LWC_XOODYAK_AEAD 
     XWING FLEXWING0 FLEXWING1 FLEXWING2 FLEXWING3 FLEXWING4
 )
 # NOTE: WOLF_X25519 keeps its historical name for the ALGO_LIST slot / ops
@@ -328,6 +328,15 @@ if(COMPILE_LWC_SPARKLE_AEAD192)
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_aead192.c")
 endif()
 
+if(COMPILE_LWC_SPARKLE_AEAD128)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/src/combined/sparkle-aead.c
+        ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
+        ${LWC_DIR}/src/combined/internal-util.c
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_aead128.c")
+endif()
+
 if(COMPILE_LWC_ASCON80PQ_AEAD)
     list(APPEND LWC_SOURCES
         ${LWC_DIR}/src/combined/ascon-aead.c
@@ -335,6 +344,15 @@ if(COMPILE_LWC_ASCON80PQ_AEAD)
         ${LWC_DIR}/src/combined/internal-util.c
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon80pq_aead.c")
+endif()
+
+if(COMPILE_LWC_ASCON128_AEAD)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/src/combined/ascon-aead.c
+        ${LWC_DIR}/src/combined/internal-ascon-armv7m.S
+        ${LWC_DIR}/src/combined/internal-util.c
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon128_aead.c")
 endif()
 
 if(COMPILE_LWC_SPARKLE_HASHXOF)
@@ -375,6 +393,14 @@ if(COMPILE_LWC_ASCON_HASHXOF)
         ${LWC_DIR}/src/combined/internal-ascon-armv7m.S
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon_hashxof.c")
+endif()
+
+if(COMPILE_LWC_ASCON_HASH256)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/src/combined/ascon-hash.c
+        ${LWC_DIR}/src/combined/internal-ascon-armv7m.S
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon_hash256.c")
 endif()
 
 if(COMPILE_LWC_XOODYAK_AEAD)

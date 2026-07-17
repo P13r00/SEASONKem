@@ -1,6 +1,12 @@
 # Create a new machine
 mach create "stm32_benchmark"
 
+# Load the STM32F4 Discovery board description with the SysTick frequency
+# overridden to 24 MHz (see platform_24mhz.repl for why this has to be a
+# single combined load rather than two separate LoadPlatformDescription
+# calls).
+# machine LoadPlatformDescription $ORIGIN/platform_Nmhz.repl
+
 # Load a standard STM32F4 platform description provided by Renode
 machine LoadPlatformDescription @platforms/boards/stm32f4_discovery-kit.repl
 

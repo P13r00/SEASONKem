@@ -1,6 +1,5 @@
 #include <stdint.h>
 #include <stddef.h>
-#include <wolfssl/wolfcrypt/random.h>
 #include "core/inc/crypto_api.h"
 
 /* lwc-finalists xoodyak.h API - lengths are unsigned long long, not size_t.

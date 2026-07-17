@@ -20,6 +20,12 @@ extern const crypto_aead_ops_t lwc_sparkle_aead256_ops;
 #if COMPILE_LWC_SPARKLE_AEAD192
 extern const crypto_aead_ops_t lwc_sparkle_aead192_ops;
 #endif
+#if COMPILE_LWC_SPARKLE_AEAD128
+extern const crypto_aead_ops_t lwc_sparkle_aead128_ops;
+#endif
+#if COMPILE_LWC_ASCON128_AEAD
+extern const crypto_aead_ops_t lwc_ascon128_aead_ops;
+#endif
 #if COMPILE_LWC_ASCON80PQ_AEAD
 extern const crypto_aead_ops_t lwc_ascon80pq_aead_ops;
 #endif
@@ -45,6 +51,12 @@ static const crypto_aead_ops_t *aead_registry[] = {
 #endif
 #if COMPILE_LWC_SPARKLE_AEAD192
     &lwc_sparkle_aead192_ops,
+#endif
+#if COMPILE_LWC_SPARKLE_AEAD128
+    &lwc_sparkle_aead128_ops,
+#endif
+#if COMPILE_LWC_ASCON128_AEAD
+    &lwc_ascon128_aead_ops,
 #endif
 #if COMPILE_LWC_ASCON80PQ_AEAD
     &lwc_ascon80pq_aead_ops,

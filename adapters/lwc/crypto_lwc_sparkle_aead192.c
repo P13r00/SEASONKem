@@ -1,5 +1,4 @@
 #include <stdint.h>
-#include <wolfssl/wolfcrypt/random.h>
 #include "core/inc/crypto_api.h"
 
 extern int schwaemm_192_192_aead_encrypt(
