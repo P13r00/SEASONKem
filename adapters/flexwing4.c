@@ -1,9 +1,11 @@
 /*
- * FlexWing (ML-KEM-512 + X25519 + Xoodyak-Hash)
+ * FlexWing (ML-KEM-512 + X25519 + Sparkle-Hash384 / ESCH-384)
  *
  * Same X-Wing-shaped construction as crypto_xwing_kem.c, with the KEM half
- * swapped to ML-KEM-512 and the combiner hash swapped to Xoodyak-Hash (an
- * XOF, used here as a one-shot 32-byte squeeze).
+ * swapped to ML-KEM-512 and the combiner hash swapped to ESCH-384, a
+ * fixed-digest (48-byte native output) member of the Sparkle family. The
+ * combiner squeezes the native 48 bytes and truncates to the 32-byte
+ * shared secret the KEM interface requires.
  *
  * Built strictly on top of the ops structs already provided:
  *
@@ -12,7 +14,8 @@
  *                           path as crypto_x25519.c, since we call
  *                           straight into x25519_ops.keygen(), which
  *                           internally uses platform_rng_handle()/WC_RNG.
- *   - lwc_sparkle_hash384_ops (Xoodyak-Hash, used as the combiner hash)
+ *   - lwc_sparkle_hash384_ops (ESCH-384, used as the combiner hash;
+ *                           fixed-digest, requires exactly 48-byte outlen)
  *
  * Encoding (same layout as X-Wing, Section 5.1 of
  * draft-connolly-cfrg-xwing-kem-01, with ML-KEM-512 sizes instead of
@@ -77,6 +80,16 @@ static const uint8_t flexwing_label[7] = { 'F', 'W', 'x', 'k', '5', '1', '2' };
  * Combiner(ss_M, ss_X, ct_X, pk_X) = XoodyakHash(label || ss_M || ss_X || ct_X || pk_X)
  * squeezed to 32 bytes.
  */
+/*
+ * NOTE: lwc_sparkle_hash384_ops (ESCH-384) is a fixed-digest hash and
+ * rejects any outlen other than its native ESCH_384_HASH_OUTLEN (48
+ * bytes) -- calling it with FLEXWING_SS_BYTES (32) directly returns
+ * CRYPTO_ERROR every time without ever touching the permutation. We
+ * squeeze into a 48-byte scratch buffer instead and truncate to the
+ * 32-byte shared secret the KEM interface requires.
+ */
+#define ESCH_384_HASH_OUTLEN 48u
+
 static int flexwing4_combiner(uint8_t ss[FLEXWING_SS_BYTES],
                               const uint8_t ss_m[MLKEM512_SS_BYTES],
                               const uint8_t ss_x[X25519_SS_BYTES],
@@ -93,11 +106,18 @@ static int flexwing4_combiner(uint8_t ss[FLEXWING_SS_BYTES],
     memcpy(buf + off, ct_x, X25519_PK_BYTES);                   off += X25519_PK_BYTES;
     memcpy(buf + off, pk_x, X25519_PK_BYTES);                   off += X25519_PK_BYTES;
 
-    int ret = lwc_sparkle_hash384_ops.hash(ss, FLEXWING_SS_BYTES, buf, off);
+    uint8_t digest[ESCH_384_HASH_OUTLEN];
+    int ret = lwc_sparkle_hash384_ops.hash(digest, ESCH_384_HASH_OUTLEN, buf, off);
 
-    /* Wipe the intermediate buffer: it contains both shared secrets in the clear. */
+    if (ret == CRYPTO_SUCCESS) {
+        memcpy(ss, digest, FLEXWING_SS_BYTES);
+    }
+
+    /* Wipe intermediates: both shared secrets and the full 48-byte digest. */
     volatile uint8_t *wipe = (volatile uint8_t *)buf;
     for (size_t i = 0; i < sizeof(buf); i++) wipe[i] = 0;
+    volatile uint8_t *wipe_d = (volatile uint8_t *)digest;
+    for (size_t i = 0; i < sizeof(digest); i++) wipe_d[i] = 0;
 
     return ret;
 }

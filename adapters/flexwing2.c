@@ -12,7 +12,7 @@
  *                           path as crypto_x25519.c, since we call
  *                           straight into x25519_ops.keygen(), which
  *                           internally uses platform_rng_handle()/WC_RNG.
- *   - lwc_ascon_hashxof_ops (Xoodyak-Hash, used as the combiner hash)
+ *   - lwc_ascon_hash256_ops (Xoodyak-Hash, used as the combiner hash)
  *
  * Encoding (same layout as X-Wing, Section 5.1 of
  * draft-connolly-cfrg-xwing-kem-01, with ML-KEM-512 sizes instead of
@@ -64,7 +64,7 @@
 /* Existing ops structs this file builds on top of. */
 extern const crypto_kem_ops_t  pqm4_kyber512_ops;
 extern const crypto_kex_ops_t  x25519_ops;
-extern const crypto_hash_ops_t lwc_ascon_hashxof_ops;
+extern const crypto_hash_ops_t lwc_ascon_hash256_ops;
 
 /*
  * FlexWingLabel: 7 raw ASCII bytes identifying this specific combiner
@@ -93,7 +93,7 @@ static int flexwing2_combiner(uint8_t ss[FLEXWING_SS_BYTES],
     memcpy(buf + off, ct_x, X25519_PK_BYTES);                   off += X25519_PK_BYTES;
     memcpy(buf + off, pk_x, X25519_PK_BYTES);                   off += X25519_PK_BYTES;
 
-    int ret = lwc_ascon_hashxof_ops.hash(ss, FLEXWING_SS_BYTES, buf, off);
+    int ret = lwc_ascon_hash256_ops.hash(ss, FLEXWING_SS_BYTES, buf, off);
 
     /* Wipe the intermediate buffer: it contains both shared secrets in the clear. */
     volatile uint8_t *wipe = (volatile uint8_t *)buf;

@@ -1,9 +1,6 @@
 [submodule "third_party/wolfssl"]
 	path = third_party/wolfssl
 	url = https://github.com/wolfSSL/wolfssl.git
-[submodule "third_party/ascon"]
-	path = third_party/ascon
-	url = https://github.com/ascon/ascon-c
 [submodule "third_party/lwc-finalists"]
 	path = third_party/lwc-finalists
 	url = https://github.com/rweather/lwc-finalists
