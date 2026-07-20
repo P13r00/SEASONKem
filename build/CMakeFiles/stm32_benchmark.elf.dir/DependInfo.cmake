@@ -15,10 +15,6 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_ASM
-  "COMPILE_ASCON80=0"
-  "COMPILE_ASCON_AEAD128=0"
-  "COMPILE_ASCON_HASH256=0"
-  "COMPILE_ASCON_XOF=0"
   "COMPILE_CHACHA20_POLY1305=0"
   "COMPILE_FLEXWING0=0"
   "COMPILE_FLEXWING1=0"
@@ -58,8 +54,6 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/ml-dsa-44/m4f"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4/crypto_sign/fndsa_provisional-512/m4f"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/pqm4"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/ascon/tests"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/X25519-Cortex-M4"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/third_party/wolfssl"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/adapters/wolf"
@@ -78,7 +72,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmark_runner.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmark_runner.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks/bm_aead.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_aead.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_aead.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks/bm_hash.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_hash.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_hash.c.obj.d"
-  "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks/bm_kdf.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kdf.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kdf.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks/bm_kem.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kem.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kem.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks/bm_kex.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kex.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kex.c.obj.d"
   "/home/piec/Documents/ResearchInternship/cryptoBenchmark/core/src/benchmarks/bm_signature.c" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_signature.c.obj" "gcc" "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_signature.c.obj.d"

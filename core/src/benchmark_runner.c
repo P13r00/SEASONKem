@@ -10,7 +10,6 @@ void run_kex_benchmarks(void);
 void run_all_benchmarks(void) {
     run_signature_benchmarks();
     run_aead_benchmarks();
-    run_kdf_benchmarks();
     run_hash_benchmarks();
     run_kem_benchmarks();
     run_kex_benchmarks();

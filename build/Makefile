@@ -393,30 +393,6 @@ core/src/benchmarks/bm_hash.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_hash.c.s
 .PHONY : core/src/benchmarks/bm_hash.c.s
 
-core/src/benchmarks/bm_kdf.obj: core/src/benchmarks/bm_kdf.c.obj
-.PHONY : core/src/benchmarks/bm_kdf.obj
-
-# target to build an object file
-core/src/benchmarks/bm_kdf.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kdf.c.obj
-.PHONY : core/src/benchmarks/bm_kdf.c.obj
-
-core/src/benchmarks/bm_kdf.i: core/src/benchmarks/bm_kdf.c.i
-.PHONY : core/src/benchmarks/bm_kdf.i
-
-# target to preprocess a source file
-core/src/benchmarks/bm_kdf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kdf.c.i
-.PHONY : core/src/benchmarks/bm_kdf.c.i
-
-core/src/benchmarks/bm_kdf.s: core/src/benchmarks/bm_kdf.c.s
-.PHONY : core/src/benchmarks/bm_kdf.s
-
-# target to generate assembly for a file
-core/src/benchmarks/bm_kdf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kdf.c.s
-.PHONY : core/src/benchmarks/bm_kdf.c.s
-
 core/src/benchmarks/bm_kem.obj: core/src/benchmarks/bm_kem.c.obj
 .PHONY : core/src/benchmarks/bm_kem.obj
 
@@ -835,9 +811,6 @@ help:
 	@echo "... core/src/benchmarks/bm_hash.obj"
 	@echo "... core/src/benchmarks/bm_hash.i"
 	@echo "... core/src/benchmarks/bm_hash.s"
-	@echo "... core/src/benchmarks/bm_kdf.obj"
-	@echo "... core/src/benchmarks/bm_kdf.i"
-	@echo "... core/src/benchmarks/bm_kdf.s"
 	@echo "... core/src/benchmarks/bm_kem.obj"
 	@echo "... core/src/benchmarks/bm_kem.i"
 	@echo "... core/src/benchmarks/bm_kem.s"

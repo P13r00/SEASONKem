@@ -11,7 +11,6 @@ typedef struct {
 
 static const sign_size_t s_sign_sizes[] = {
     {  ALG_WOLF_ED25519,          32,    64,    64  },
-    {  ALG_ECDSA_P256,            65,    97,    72  },
     {  ALG_PQM4_DILITHIUM2,     1312,  2560,  2420  },
     {  ALG_PQM4_FALCON512,       897,  1281,   666  },
 };
@@ -26,9 +25,6 @@ static const sign_size_t *lookup_sign_sizes(crypto_type_t t) {
 #if COMPILE_WOLF_ED25519
 extern const crypto_ops_t wolf_ed25519_ops;
 #endif
-#if COMPILE_ECDSAP256
-extern const crypto_ops_t ecdsap256_ops;
-#endif
 #if COMPILE_PQM4_DILITHIUM2
 extern const crypto_ops_t pqm4_dilithium2_ops;
 #endif
@@ -39,9 +35,6 @@ extern const crypto_ops_t pqm4_falcon512_ops;
 static const crypto_ops_t *sign_registry[] = {
 #if COMPILE_WOLF_ED25519
     &wolf_ed25519_ops,
-#endif
-#if COMPILE_ECDSAP256
-    &ecdsap256_ops,
 #endif
 #if COMPILE_PQM4_DILITHIUM2
     &pqm4_dilithium2_ops,

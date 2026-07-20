@@ -2,15 +2,6 @@
 #include "../benchmark_config.h"
 #include "../benchmark_private.h"
 
-#if COMPILE_AES_GCM
-extern const crypto_aead_ops_t aes_gcm_ops;
-#endif
-#if COMPILE_ASCON80
-extern const crypto_aead_ops_t ascon80pq_ops;
-#endif
-#if COMPILE_ASCON_AEAD128
-extern const crypto_aead_ops_t asconaead128_ops;
-#endif
 #if COMPILE_CHACHA20_POLY1305
 extern const crypto_aead_ops_t chacha20_poly1305_ops;
 #endif
@@ -34,17 +25,8 @@ extern const crypto_aead_ops_t lwc_xoodyak_aead_ops;
 #endif
 
 static const crypto_aead_ops_t *aead_registry[] = {
-#if COMPILE_AES_GCM
-    &aes_gcm_ops,
-#endif
-#if COMPILE_ASCON80
-    &ascon80pq_ops,
-#endif
-#if COMPILE_ASCON_AEAD128
-    &asconaead128_ops,
-#endif
 #if COMPILE_CHACHA20_POLY1305
-    &chacha20_poly1305_ops,
+&chacha20_poly1305_ops,
 #endif
 #if COMPILE_LWC_SPARKLE_AEAD256
     &lwc_sparkle_aead256_ops,

@@ -21,8 +21,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_aead.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_hash.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_hash.c.obj.d"
-  "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kdf.c.obj"
-  "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kdf.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kem.c.obj"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kem.c.obj.d"
   "CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_kex.c.obj"

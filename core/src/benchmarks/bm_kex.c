@@ -12,7 +12,6 @@ typedef struct {
 
 static const kex_size_t s_kex_sizes[] = {
     {  ALG_X25519, 32,   32,   32  },
-    {  ALG_ECDH_P256,   65,   32,   32  },
 };
 #define KEX_SIZE_COUNT (sizeof(s_kex_sizes) / sizeof(s_kex_sizes[0]))
 

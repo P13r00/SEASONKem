@@ -8,12 +8,6 @@ extern const crypto_hash_ops_t pqm4_sha3_256_ops;
 #if COMPILE_PQM4_SHAKE256
 extern const crypto_hash_ops_t pqm4_shake256_ops;
 #endif
-#if COMPILE_ASCON_HASH256
-extern const crypto_hash_ops_t asconhash256_ops;
-#endif
-#if COMPILE_ASCON_XOF
-extern const crypto_hash_ops_t asconxof_ops;
-#endif
 #if COMPILE_LWC_SPARKLE_HASHXOF
 extern const crypto_hash_ops_t lwc_sparkle_hashxof_ops;
 #endif
@@ -39,12 +33,6 @@ static const crypto_hash_ops_t *hash_registry[] = {
 #endif
 #if COMPILE_PQM4_SHAKE256
     &pqm4_shake256_ops,
-#endif
-#if COMPILE_ASCON_HASH256
-    &asconhash256_ops,
-#endif
-#if COMPILE_ASCON_XOF
-    &asconxof_ops,
 #endif
 #if COMPILE_LWC_SPARKLE_HASHXOF
     &lwc_sparkle_hashxof_ops,

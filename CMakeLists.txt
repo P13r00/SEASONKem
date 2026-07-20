@@ -21,7 +21,6 @@ set(CMAKE_C_STANDARD 99)
 # benchmark_config.h defaults and for ISOLATE_ALGO override below.
 # ---------------------------------------------------------------------------
 set(ALGO_LIST
-    ASCON80 ASCON_AEAD128 ASCON_HASH256 ASCON_XOF
     PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512
     X25519 PQM4_SHA3_256 PQM4_SHAKE256 CHACHA20_POLY1305
     LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_AEAD128 
@@ -86,7 +85,6 @@ set(CORE_SOURCES
     core/src/benchmark_metrics.c
     core/src/benchmarks/bm_aead.c
     core/src/benchmarks/bm_hash.c
-    core/src/benchmarks/bm_kdf.c
     core/src/benchmarks/bm_kem.c
     core/src/benchmarks/bm_kex.c
     core/src/benchmarks/bm_signature.c
@@ -178,49 +176,6 @@ if(COMPILE_X25519)
     endif()
     list(APPEND X25519_SOURCES ${X25519_DIR}/x25519-cortex-m4-gcc.s)
     list(APPEND CORE_SOURCES "adapters/crypto_x25519.c")
-endif()
-
-set(ASCON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/ascon)
-set(ASCON_SOURCES "")
-set(ASCON_INCLUDES
-    ${ASCON_DIR}
-    ${ASCON_DIR}/tests
-)
-
-if(COMPILE_ASCON80)
-    list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_aead/ascon80pqv12/armv7m/aead.c
-        ${ASCON_DIR}/crypto_aead/ascon80pqv12/armv7m/permutations.c
-    )
-    list(APPEND CORE_SOURCES "adapters/ascon/crypto_ascon80pq.c")
-endif()
-
-if(COMPILE_ASCON_AEAD128)
-    list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_aead/ascon128abi32v12/bi32_armv7m/aead.c
-        ${ASCON_DIR}/crypto_aead/ascon128abi32v12/bi32_armv7m/permutations.c
-    )
-    list(APPEND CORE_SOURCES "adapters/ascon/crypto_asconaead128.c")
-endif()
-
-if(COMPILE_ASCON_HASH256)
-    list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/hash.c
-        ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/permutations.c
-        ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/interleave.c
-        ${ASCON_DIR}/crypto_hash/asconhashav12/bi32_armv7m_small/constants.c
-    )
-    list(APPEND CORE_SOURCES "adapters/ascon/crypto_asconhash256.c")
-endif()
-
-if(COMPILE_ASCON_XOF)
-    list(APPEND ASCON_SOURCES
-        ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/hash.c
-        ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/permutations.c
-        ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/interleave.c
-        ${ASCON_DIR}/crypto_hash/asconxofav12/bi32_armv7m_small/constants.c
-    )
-    list(APPEND CORE_SOURCES "adapters/ascon/crypto_asconxof.c")
 endif()
 
 set(PQM4_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/pqm4)
@@ -432,7 +387,6 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         platforms/stm32_renode/runtime_overhead_probe.c
         ${REGISTERED_ADAPTER_SOURCES}
         ${RNG_SOURCES}
-        ${ASCON_SOURCES}
         ${PQM4_SOURCES}
         ${LWC_SOURCES}
         ${X25519_SOURCES}
@@ -481,7 +435,6 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmarks
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
         ${PQM4_INCLUDES}
-        ${ASCON_INCLUDES}
         ${X25519_INCLUDES}
         ${WOLFCRYPT_INCLUDES}
     )
