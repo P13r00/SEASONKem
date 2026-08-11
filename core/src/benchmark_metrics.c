@@ -41,27 +41,7 @@ uint32_t heap_peak_used(void)     { return s_heap_peak; }
 uint32_t heap_current_used(void)  { return (s_heap_base == NULL) ? 0u : (uint32_t)(s_heap_cur - s_heap_base); }
 uint32_t heap_capacity(void)      { if (s_heap_base == NULL) heap_init(); return (uint32_t)(s_heap_end - s_heap_base); }
 
-/*
- * Flash accounting.
- *
- * Previously this was a 22-entry table matching crypto_type_t against
- * per-algorithm symbol pairs defined in linker.ld. That scheme only ever
- * captured each algorithm's thin adapter wrapper (the real third-party
- * implementation files didn't match the glob patterns), and it could not
- * work at all for algorithms that share implementation object files
- * (e.g. the SPARKLE family sharing internal-sparkle-armv7m.S) — a single
- * physical block of linked code cannot be attributed to two different
- * symbol-pair regions simultaneously.
- *
- * linker.ld now exposes one region, _flash_region_start/_flash_region_end,
- * spanning all code+rodata in the image. In a normal combined build this
- * is simply the whole image's Flash size. To get a genuine per-algorithm
- * number, build once per algorithm with -DISOLATE_ALGO=<ALG> and once
- * with -DISOLATE_ALGO=__NONE__ (zero algorithms) as a baseline, then take
- * the difference of measure_flash_used() between the two builds — since
- * an isolated build contains only one algorithm's code, there's no
- * sharing ambiguity left to resolve.
- */
+
 extern uint32_t _flash_region_start, _flash_region_end;
 
 uint32_t measure_flash_used(void) {

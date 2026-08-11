@@ -2,9 +2,7 @@
 #include <stddef.h>
 #include "core/inc/crypto_api.h"
 
-/* lwc-finalists xoodyak.h API - lengths are unsigned long long, not size_t.
- * Note the decrypt parameter order differs from encrypt: nsec comes before
- * c/clen on decrypt, matching the upstream xoodyak_aead_decrypt() signature. */
+
 extern int xoodyak_aead_encrypt(
     unsigned char *c, size_t *clen,
     const unsigned char *m, size_t mlen,

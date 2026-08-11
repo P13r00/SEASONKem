@@ -1,0 +1,238 @@
+\begin{table}[H]
+\caption{AEAD Benchmark Performance and Memory Footprint (64 Bytes Payload).\label{tab:aead_64b_benchmark}}
+    \begin{adjustwidth}{-\extralength}{0cm}
+        \begin{tabularx}{\fulllength}{CCCCCC}
+            \toprule
+            \textbf{Algorithm} & \textbf{Flash (Bytes)} & \textbf{Stack HWM} & \textbf{Heap Peak} & \textbf{Encrypt Cycles} & \textbf{Decrypt Cycles} \\
+            \midrule
+            ChaCha20-Poly1305 & 8,592 (-43.16\%) & 624 (+56.00\%) & 288 (+5.88\%) & 12,349 (+39.77\%) & 12,591 (+38.33\%) \\
+            \midrule
+            AES-192-GCM & 22,676 (+50.01\%) & 1,300 (+225.00\%) & 280 (+2.94\%) & 26,861 (+204.03\%) & 32,159 (+253.32\%) \\
+            \midrule
+            AES-256-GCM & 22,672 (+49.99\%) & 1,300 (+225.00\%) & 288 (+5.88\%) & 28,238 (+219.62\%) & 33,536 (+268.45\%) \\
+            \midrule
+            Schwaemm128-128 & 20,840 (+37.87\%) & 428 (+7.00\%) & 272 (0.00\%) & 5,292 (-40.10\%) & 5,775 (-36.55\%) \\
+            \midrule
+            Schwaemm192-192 & 19,768 (+30.78\%) & 420 (+5.00\%) & 296 (+8.82\%) & 6,934 (-21.52\%) & 7,163 (-21.30\%) \\
+            \midrule
+            Schwaemm256-256 & 20,900 (+38.26\%) & 432 (+8.00\%) & 320 (+17.65\%) & 8,972 (+1.55\%) & 9,296 (+2.13\%) \\
+            \midrule
+            Ascon-AEAD128 & 15,116 (0.00\%) & 400 (0.00\%) & 272 (0.00\%) & 8,835 (0.00\%) & 9,102 (0.00\%) \\
+            \midrule
+            Ascon80pq & 15,460 (+2.28\%) & 408 (+2.00\%) & 280 (+2.94\%) & 8,895 (+0.68\%) & 9,167 (+0.71\%) \\
+            \midrule
+            Xoodyak-AEAD & 7,976 (-47.23\%) & 392 (-2.00\%) & 272 (0.00\%) & 4,850 (-45.10\%) & 5,063 (-44.37\%) \\
+            \bottomrule
+    \end{tabularx}
+    \end{adjustwidth}
+    \vspace{2pt}
+    \noindent{\footnotesize{Comparisons expressed as percentage deviation relative to Ascon-AEAD128.}}
+\end{table}
+
+
+\begin{table}[H]
+\caption{AEAD Static and Stack Memory Footprint.\label{tab:aead_memory}}
+    \begin{adjustwidth}{-\extralength}{0cm}
+        \begin{tabularx}{\fulllength}{CCC}
+            \toprule
+            \textbf{Algorithm} & \textbf{Flash (Bytes)} & \textbf{Stack HWM (Bytes)} \\
+            \midrule
+            ChaCha20-Poly1305 & 8,592 (-43.16\%) & 624 (+56.00\%) \\
+            \midrule
+            AES-192-GCM & 22,676 (+50.01\%) & 1,300 (+225.00\%) \\
+            \midrule
+            AES-256-GCM & 22,672 (+49.99\%) & 1,300 (+225.00\%) \\
+            \midrule
+            Schwaemm128-128 & 20,840 (+37.87\%) & 428 (+7.00\%) \\
+            \midrule
+            Schwaemm192-192 & 19,768 (+30.78\%) & 420 (+5.00\%) \\
+            \midrule
+            Schwaemm256-256 & 20,900 (+38.26\%) & 432 (+8.00\%) \\
+            \midrule
+            Ascon-AEAD128 & 15,116 (0.00\%) & 400 (0.00\%) \\
+            \midrule
+            Ascon80pq & 15,460 (+2.28\%) & 408 (+2.00\%) \\
+            \midrule
+            Xoodyak-AEAD & 7,976 (-47.23\%) & 392 (-2.00\%) \\
+            \bottomrule
+    \end{tabularx}
+    \end{adjustwidth}
+    \vspace{2pt}
+    \noindent{\footnotesize{Comparisons expressed relative to Ascon-AEAD128.}}
+\end{table}
+
+
+\begin{table}[H]
+\caption{AEAD Heap Peak Usage across payload sizes.\label{tab:aead_heap}}
+    \begin{adjustwidth}{-\extralength}{0cm}
+        \begin{tabularx}{\fulllength}{CCCCCC}
+            \toprule
+            \textbf{Algorithm} & \textbf{16B Payload} & \textbf{64B Payload} & \textbf{128B Payload} & \textbf{256B Payload} & \textbf{1024B Payload} \\
+            \midrule
+            ChaCha20-Poly1305 & 144 (+12.50\%) & 288 (+5.88\%) & 480 (+3.45\%) & 864 (+1.89\%) & 3,168 (+0.51\%) \\
+            \midrule
+            AES-192-GCM & 136 (+6.25\%) & 280 (+2.94\%) & 472 (+1.72\%) & 856 (+0.94\%) & 3,160 (+0.25\%) \\
+            \midrule
+            AES-256-GCM & 144 (+12.50\%) & 288 (+5.88\%) & 480 (+3.45\%) & 864 (+1.89\%) & 3,168 (+0.51\%) \\
+            \midrule
+            Schwaemm128-128 & 128 (0.00\%) & 272 (0.00\%) & 464 (0.00\%) & 848 (0.00\%) & 3,152 (0.00\%) \\
+            \midrule
+            Schwaemm192-192 & 152 (+18.75\%) & 296 (+8.82\%) & 488 (+5.17\%) & 872 (+2.83\%) & 3,176 (+0.76\%) \\
+            \midrule
+            Schwaemm256-256 & 176 (+37.50\%) & 320 (+17.65\%) & 512 (+10.34\%) & 896 (+5.66\%) & 3,200 (+1.52\%) \\
+            \midrule
+            Ascon-AEAD128 & 128 (0.00\%) & 272 (0.00\%) & 464 (0.00\%) & 848 (0.00\%) & 3,152 (0.00\%) \\
+            \midrule
+            Ascon80pq & 136 (+6.25\%) & 280 (+2.94\%) & 472 (+1.72\%) & 956 (+12.74\%) & 3,160 (+0.25\%) \\
+            \midrule
+            Xoodyak-AEAD & 128 (0.00\%) & 272 (0.00\%) & 464 (0.00\%) & 848 (0.00\%) & 3,152 (0.00\%) \\
+            \bottomrule
+    \end{tabularx}
+    \end{adjustwidth}
+    \vspace{2pt}
+    \noindent{\footnotesize{Comparisons expressed relative to Ascon-AEAD128.}}
+\end{table}
+
+
+\begin{table}[H]
+\caption{AEAD Encryption execution time (cycles) across payload sizes.\label{tab:aead_speed_enc}}
+    \begin{adjustwidth}{-\extralength}{0cm}
+        \begin{tabularx}{\fulllength}{CCCCCC}
+            \toprule
+            \textbf{Algorithm} & \textbf{16B Payload} & \textbf{64B Payload} & \textbf{128B Payload} & \textbf{256B Payload} & \textbf{1024B Payload} \\
+            \midrule
+            ChaCha20-Poly1305 & 11,864 (+100.81\%) & 12,349 (+39.77\%) & 17,625 (+38.34\%) & 28,177 (+37.13\%) & 91,489 (+35.75\%) \\
+            \midrule
+            AES-192-GCM & 18,584 (+214.56\%) & 26,861 (+204.03\%) & 37,898 (+197.47\%) & 59,973 (+191.87\%) & 192,418 (+185.50\%) \\
+            \midrule
+            AES-256-GCM & 19,414 (+228.61\%) & 28,238 (+219.62\%) & 40,004 (+214.00\%) & 63,536 (+209.21\%) & 204,724 (+203.76\%) \\
+            \midrule
+            Schwaemm128-128 & 3,350 (-43.30\%) & 5,292 (-40.10\%) & 7,848 (-38.40\%) & 12,960 (-36.93\%) & 43,631 (-35.26\%) \\
+            \midrule
+            Schwaemm192-192 & 5,072 (-14.15\%) & 6,934 (-21.52\%) & 9,691 (-23.93\%) & 14,382 (-30.01\%) & 44,178 (-34.45\%) \\
+            \midrule
+            Schwaemm256-256 & 7,262 (+22.92\%) & 8,972 (+1.55\%) & 12,324 (-3.27\%) & 19,028 (-7.40\%) & 59,251 (-12.09\%) \\
+            \midrule
+            Ascon-AEAD128 & 5,908 (0.00\%) & 8,835 (0.00\%) & 12,740 (0.00\%) & 20,548 (0.00\%) & 67,396 (0.00\%) \\
+            \midrule
+            Ascon80pq & 5,967 (+1.00\%) & 8,895 (+0.68\%) & 12,798 (+0.46\%) & 20,606 (+0.28\%) & 67,454 (+0.09\%) \\
+            \midrule
+            Xoodyak-AEAD & 3,050 (-48.38\%) & 4,850 (-45.10\%) & 7,541 (-40.81\%) & 12,067 (-41.27\%) & 40,930 (-39.27\%) \\
+            \bottomrule
+    \end{tabularx}
+    \end{adjustwidth}
+    \vspace{2pt}
+    \noindent{\footnotesize{Comparisons expressed relative to Ascon-AEAD128.}}
+\end{table}
+
+
+\begin{table}[H]
+\caption{AEAD Decryption execution time (cycles) across payload sizes.\label{tab:aead_speed_dec}}
+    \begin{adjustwidth}{-\extralength}{0cm}
+        \begin{tabularx}{\fulllength}{CCCCCC}
+            \toprule
+            \textbf{Algorithm} & \textbf{16B Payload} & \textbf{64B Payload} & \textbf{128B Payload} & \textbf{256B Payload} & \textbf{1024B Payload} \\
+            \midrule
+            ChaCha20-Poly1305 & 12,105 (+98.80\%) & 12,591 (+38.33\%) & 17,868 (+36.22\%) & 28,419 (+34.38\%) & 91,731 (+32.29\%) \\
+            \midrule
+            AES-192-GCM & 19,967 (+227.92\%) & 32,159 (+253.32\%) & 48,416 (+269.11\%) & 80,931 (+282.67\%) & 276,016 (+298.06\%) \\
+            \midrule
+            AES-256-GCM & 20,797 (+241.55\%) & 33,536 (+268.45\%) & 50,522 (+285.16\%) & 84,494 (+299.52\%) & 288,322 (+315.80\%) \\
+            \midrule
+            Schwaemm128-128 & 3,512 (-42.32\%) & 5,775 (-36.55\%) & 8,766 (-33.17\%) & 14,750 (-30.26\%) & 50,654 (-26.95\%) \\
+            \midrule
+            Schwaemm192-192 & 5,286 (-13.19\%) & 7,163 (-21.30\%) & 9,928 (-24.31\%) & 14,642 (-30.77\%) & 44,562 (-35.73\%) \\
+            \midrule
+            Schwaemm256-256 & 7,564 (+24.22\%) & 9,296 (+2.13\%) & 12,666 (-3.44\%) & 19,405 (-8.25\%) & 59,845 (-13.69\%) \\
+            \midrule
+            Ascon-AEAD128 & 6,089 (0.00\%) & 9,102 (0.00\%) & 13,117 (0.00\%) & 21,149 (0.00\%) & 69,341 (0.00\%) \\
+            \midrule
+            Ascon80pq & 6,155 (+1.08\%) & 9,167 (+0.71\%) & 13,183 (+0.50\%) & 21,215 (+0.31\%) & 69,407 (+0.10\%) \\
+            \midrule
+            Xoodyak-AEAD & 3,195 (-47.53\%) & 5,063 (-44.37\%) & 7,845 (-40.19\%) & 12,558 (-40.62\%) & 42,542 (-38.65\%) \\
+            \bottomrule
+    \end{tabularx}
+    \end{adjustwidth}
+    \vspace{2pt}
+    \noindent{\footnotesize{Comparisons expressed relative to Ascon-AEAD128.}}
+\end{table}
+
+
+\begin{table}[H]
+\caption{HASH Algorithms Benchmark Performance.\label{tab:hash_benchmark}}
+    \begin{adjustwidth}{-\extralength}{0cm}
+        \begin{tabularx}{\fulllength}{CCCCC}
+            \toprule
+            \textbf{Algorithm} & \textbf{Flash (Bytes)} & \textbf{Stack HWM} & \textbf{Heap Peak} & \textbf{Cycles (32B Out)} \\
+            \midrule
+            SHA3-256 & 12,044 (0.00\%) & 456 (0.00\%) & 168 (0.00\%) & 11,001 (0.00\%) \\
+            \midrule
+            ESCH256 & 17,912 (+48.72\%) & 308 (-32.46\%) & 168 (0.00\%) & 10,644 (-3.25\%) \\
+            \midrule
+            ESCH384 & 17,960 (+49.12\%) & 320 (-29.82\%) & 184 (+9.52\%) & 20,370 (+85.16\%) \\
+            \midrule
+            ASCON-Hash256 & 12,284 (+1.99\%) & 288 (-36.84\%) & 168 (0.00\%) & 16,902 (+53.64\%) \\
+            \midrule
+            XOODYAK & 7,056 (-41.41\%) & 280 (-38.60\%) & 168 (0.00\%) & 9,359 (-14.93\%) \\
+            \bottomrule
+    \end{tabularx}
+    \end{adjustwidth}
+    \vspace{2pt}
+    \noindent{\footnotesize{Comparisons expressed relative to SHA3-256.}}
+\end{table}
+
+
+\begin{table}[H]
+\caption{KEM Framework and Primitive Benchmark Results.\label{tab:kem_benchmark}}
+    \begin{adjustwidth}{-\extralength}{0cm}
+        \begin{tabularx}{\fulllength}{CCCCCCC}
+            \toprule
+            \textbf{Algorithm} & \textbf{Flash (Bytes)} & \textbf{Stack HWM} & \textbf{Heap Peak} & \textbf{KeyGeneration Cycles} & \textbf{Encapsulation Cycles} & \textbf{Decapsulation Cycles} \\
+            \midrule
+            ML-KEM-512 & 26,780 (-21.05\%) & 5,580 (-18.85\%) & 3,264 (-32.89\%) & 373,999 (-68.15\%) & 371,631 (-78.93\%) & 405,922 (-67.41\%) \\
+            \midrule
+            ML-KEM-768 & 26,836 (-20.88\%) & 6,612 (-3.84\%) & 4,736 (-2.63\%) & 610,954 (-47.98\%) & 624,819 (-64.58\%) & 669,922 (-46.22\%) \\
+            \midrule
+            X-Wing & 33,920 (0.00\%) & 6,876 (0.00\%) & 4,864 (0.00\%) & 1,174,391 (0.00\%) & 1,763,899 (0.00\%) & 1,245,562 (0.00\%) \\
+            \midrule
+            Season 0 & 33,864 (-0.17\%) & 5,844 (-15.01\%) & 3,392 (-30.26\%) & 937,504 (-20.17\%) & 1,510,780 (-14.35\%) & 981,632 (-21.19\%) \\
+            \midrule
+            Spring & 37,376 (+10.19\%) & 5,844 (-15.01\%) & 3,392 (-30.26\%) & 937,475 (-20.17\%) & 1,509,109 (-14.44\%) & 979,961 (-21.32\%) \\
+            \midrule
+            Summer & 42,688 (+25.85\%) & 5,844 (-15.01\%) & 3,392 (-30.26\%) & 937,458 (-20.17\%) & 1,516,637 (-14.02\%) & 987,489 (-20.72\%) \\
+            \midrule
+            Autumn & 48,224 (+42.17\%) & 5,844 (-15.01\%) & 3,392 (-30.26\%) & 937,548 (-20.17\%) & 1,510,463 (-14.37\%) & 981,315 (-21.22\%) \\
+            \midrule
+            Winter & 48,312 (+42.43\%) & 6,740 (-1.98\%) & 4,864 (0.00\%) & 1,174,707 (+0.03\%) & 1,773,919 (+0.57\%) & 1,255,445 (+0.79\%) \\
+            \bottomrule
+    \end{tabularx}
+    \end{adjustwidth}
+    \vspace{2pt}
+    \noindent{\footnotesize{Comparisons expressed relative to X-Wing.}}
+\end{table}
+
+
+\begin{table}[H]
+\caption{Flash memory consumption (Bytes) for combined KEM and AEAD implementations.\label{tab:kem_aead_flash_matrix}}
+    \begin{adjustwidth}{-\extralength}{0cm}
+        \begin{tabularx}{\fulllength}{CCCCCCCCCC}
+            \toprule
+            \textbf{KEM} & \textbf{AES-192} & \textbf{AES-256} & \textbf{Ascon-128} & \textbf{Ascon-80pq} & \textbf{ChaCha20} & \textbf{Sparkle-128} & \textbf{Sparkle-192} & \textbf{Sparkle-256} & \textbf{Xoodyak} \\
+            \midrule
+            X-Wing & 54,620 B & 54,612 B & 47,052 B & 47,396 B & 40,532 B & 52,868 B & 51,796 B & 52,924 B & 39,916 B \\
+            \midrule
+            Season 0 & 54,564 B & 54,564 B & 47,004 B & 47,348 B & 40,484 B & 52,812 B & 51,740 B & 52,868 B & 39,860 B \\
+            \midrule
+            Spring & 58,068 B & 58,068 B & 50,516 B & 50,860 B & 43,988 B & 56,316 B & 55,244 B & 56,380 B & 40,340 B \\
+            \midrule
+            Summer & 63,388 B & 63,380 B & 47,876 B & 48,220 B & 49,300 B & 61,636 B & 60,564 B & 61,692 B & 48,684 B \\
+            \midrule
+            Autumn & 68,924 B & 68,916 B & 61,356 B & 61,700 B & 54,836 B & 53,052 B & 51,980 B & 53,108 B & 54,220 B \\
+            \midrule
+            Winter & 69,004 B & 69,004 B & 61,452 B & 61,796 B & 54,924 B & 53,132 B & 52,060 B & 53,196 B & 54,308 B \\
+            \bottomrule
+    \end{tabularx}
+    \end{adjustwidth}
+    \vspace{2pt}
+    \noindent{\footnotesize{Flash values measured in Bytes for each combined deployment.}}
+\end{table}

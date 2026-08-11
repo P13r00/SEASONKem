@@ -8,8 +8,11 @@ extern const crypto_hash_ops_t pqm4_sha3_256_ops;
 #if COMPILE_PQM4_SHAKE256
 extern const crypto_hash_ops_t pqm4_shake256_ops;
 #endif
-#if COMPILE_LWC_SPARKLE_HASHXOF
-extern const crypto_hash_ops_t lwc_sparkle_hashxof_ops;
+#if COMPILE_LWC_SPARKLE_HASHXOF256
+extern const crypto_hash_ops_t lwc_sparkle_hashxof256_ops;
+#endif
+#if COMPILE_LWC_SPARKLE_HASHXOF384
+extern const crypto_hash_ops_t lwc_sparkle_hashxof384_ops;
 #endif
 #if COMPILE_LWC_SPARKLE_HASH256
 extern const crypto_hash_ops_t lwc_sparkle_hash256_ops;
@@ -34,8 +37,11 @@ static const crypto_hash_ops_t *hash_registry[] = {
 #if COMPILE_PQM4_SHAKE256
     &pqm4_shake256_ops,
 #endif
-#if COMPILE_LWC_SPARKLE_HASHXOF
-    &lwc_sparkle_hashxof_ops,
+#if COMPILE_LWC_SPARKLE_HASHXOF256
+    &lwc_sparkle_hashxof256_ops,
+#endif
+#if COMPILE_LWC_SPARKLE_HASHXOF384
+    &lwc_sparkle_hashxof384_ops,
 #endif
 #if COMPILE_LWC_SPARKLE_HASH256
     &lwc_sparkle_hash256_ops,
@@ -69,8 +75,8 @@ void execute_dynamic_hash_benchmark(crypto_type_t type) {
     
     if (!ops) { platform_print_string("!! Unregistered Hash/XOF !!\n"); return; }
 
-    size_t test_lengths[] = {ops->default_outlen, 64u, 1024u, 16u, 20u};
-    size_t num_tests      = ops->is_xof ? 5 : 1; 
+    size_t test_lengths[] = {ops->default_outlen, 16u, 20u, 24u, 64u, 1024u};
+    size_t num_tests      = ops->is_xof ? 6 : 1; 
 
     platform_print_string("-> ");
     platform_print_string(ops->name);
@@ -108,19 +114,22 @@ void execute_dynamic_hash_benchmark(crypto_type_t type) {
         
         if (res == CRYPTO_SUCCESS) {
             if (i == 0) p_cy_avg("   Default/32B: ", total_cycles, RUNS_HASH);
-            if (i == 1) p_cy_avg("   Squeeze 64B: ", total_cycles, RUNS_HASH);
-            if (i == 2) p_cy_avg("   Sqz 1024B:   ", total_cycles, RUNS_HASH);
-            if (i == 3) p_cy_avg("   Sqz 16B:     ", total_cycles, RUNS_HASH);
-            if (i == 4) p_cy_avg("   Sqz 20B:     ", total_cycles, RUNS_HASH);
+            if (i == 1) p_cy_avg("   Squeeze 16B: ", total_cycles, RUNS_HASH);
+            if (i == 2) p_cy_avg("   Sqz 20B:     ", total_cycles, RUNS_HASH);
+            if (i == 3) p_cy_avg("   Sqz 24B:     ", total_cycles, RUNS_HASH);
+            if (i == 4) p_cy_avg("   Sqz 64B:     ", total_cycles, RUNS_HASH);
+            if (i == 5) p_cy_avg("   Sqz 1024B:   ", total_cycles, RUNS_HASH);
+            
         } else {
             platform_print_string("   [Error executing hash]\n");
         }
 
         if (i == 0) platform_print_string("   Heap Peak (Default/32B): ");
-        if (i == 1) platform_print_string("   Heap Peak (Squeeze 64B): ");
-        if (i == 2) platform_print_string("   Heap Peak (Sqz 1024B):   ");
-        if (i == 3) platform_print_string("   Heap Peak (Sqz 16B):     ");
-        if (i == 4) platform_print_string("   Heap Peak (Sqz 20B):     ");
+        if (i == 1) platform_print_string("   Heap Peak (Squeeze 16B): ");
+        if (i == 2) platform_print_string("   Heap Peak (Sqz 20B):     ");
+        if (i == 3) platform_print_string("   Heap Peak (Sqz 24B):     ");
+        if (i == 4) platform_print_string("   Heap Peak (Sqz 64B):     ");
+        if (i == 5) platform_print_string("   Heap Peak (Sqz 1024B):   ");
         platform_print_number(heap_peak_used());
         platform_print_string(" B\n");
     }

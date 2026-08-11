@@ -5,7 +5,7 @@
 #include "x25519-cortex-m4.h"
 #include "core/inc/crypto_api.h"
 
-#define X25519_PRIV_SIZE  32u   /* raw RFC 7748 scalar, no padding/struct */
+#define X25519_PRIV_SIZE  32u 
 #define X25519_PUB_SIZE   32u
 #define X25519_SS_SIZE    32u
 

@@ -14,10 +14,11 @@ static const kem_size_t s_kem_sizes[] = {
     {  ALG_PQM4_KYBER512,   800,  1632,   768,   32  },
     {  ALG_PQM4_KYBER768,  1184,  2400,  1088,   32  },
     {  ALG_XWING,          1216,  2464,  1120,   32  },
-    {  ALG_FLEXWING0,       832,  1696,   800,   32  },
-    {  ALG_FLEXWING1,       832,  1696,   800,   32  },
-    {  ALG_FLEXWING2,       832,  1696,   800,   32  },
-    {  ALG_FLEXWING3,       832,  1696,   800,   32  },
+    {  ALG_SEASON0,       832,  1696,   800,   32  },
+    {  ALG_SPRING,       832,  1696,   800,   32  },
+    {  ALG_SUMMER,       832,  1696,   800,   32  },
+    {  ALG_AUTUMN,       832,  1696,   800,   32  },
+    {  ALG_WINTER,       1216, 2464,  1120,   32  },
 };
 #define KEM_SIZE_COUNT (sizeof(s_kem_sizes) / sizeof(s_kem_sizes[0]))
 
@@ -36,20 +37,20 @@ extern const crypto_kem_ops_t pqm4_kyber768_ops;
 #if COMPILE_XWING
 extern const crypto_kem_ops_t xwing_ops;
 #endif
-#if COMPILE_FLEXWING0
-extern const crypto_kem_ops_t flexwing0_ops;
+#if COMPILE_SEASON0
+extern const crypto_kem_ops_t season0_ops;
 #endif
-#if COMPILE_FLEXWING1
-extern const crypto_kem_ops_t flexwing1_ops;
+#if COMPILE_SPRING
+extern const crypto_kem_ops_t spring_ops;
 #endif
-#if COMPILE_FLEXWING2
-extern const crypto_kem_ops_t flexwing2_ops;
+#if COMPILE_SUMMER
+extern const crypto_kem_ops_t summer_ops;
 #endif
-#if COMPILE_FLEXWING3
-extern const crypto_kem_ops_t flexwing3_ops;
+#if COMPILE_AUTUMN
+extern const crypto_kem_ops_t autumn_ops;
 #endif
-#if COMPILE_FLEXWING4
-extern const crypto_kem_ops_t flexwing4_ops;
+#if COMPILE_WINTER
+extern const crypto_kem_ops_t winter_ops;
 #endif
 
 static const crypto_kem_ops_t *kem_registry[] = {
@@ -62,20 +63,20 @@ static const crypto_kem_ops_t *kem_registry[] = {
 #if COMPILE_XWING
     &xwing_ops,
 #endif
-#if COMPILE_FLEXWING0
-    &flexwing0_ops,
+#if COMPILE_SEASON0
+    &season0_ops,
 #endif
-#if COMPILE_FLEXWING1
-    &flexwing1_ops,
+#if COMPILE_SPRING
+    &spring_ops,
 #endif
-#if COMPILE_FLEXWING2
-    &flexwing2_ops,
+#if COMPILE_SUMMER
+    &summer_ops,
 #endif
-#if COMPILE_FLEXWING3
-    &flexwing3_ops,
+#if COMPILE_AUTUMN
+    &autumn_ops,
 #endif
-#if COMPILE_FLEXWING4
-    &flexwing4_ops,
+#if COMPILE_WINTER
+    &winter_ops,
 #endif
     NULL
 };

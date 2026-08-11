@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-if(TARGET_PLATFORM STREQUAL "STM32")
+if(TARGET_PLATFORM STREQUAL "STM32" OR TARGET_PLATFORM STREQUAL "STM32F411_NUCLEO")
     set(CMAKE_SYSTEM_NAME Generic)
     set(CMAKE_SYSTEM_PROCESSOR arm)
 
@@ -16,26 +16,15 @@ project(crypto_heterogeneous_benchmark C ASM)
 
 set(CMAKE_C_STANDARD 99)
 
-# ---------------------------------------------------------------------------
-# Master algorithm list — single source of truth, used both for parsing
-# benchmark_config.h defaults and for ISOLATE_ALGO override below.
-# ---------------------------------------------------------------------------
 set(ALGO_LIST
     PQM4_KYBER512 PQM4_KYBER768 PQM4_DILITHIUM2 PQM4_FALCON512
-    X25519 PQM4_SHA3_256 PQM4_SHAKE256 CHACHA20_POLY1305
+    X25519 PQM4_SHA3_256 PQM4_SHAKE256 CHACHA20_POLY1305 AES_GCM192 AES_GCM256
     LWC_SPARKLE_AEAD256 LWC_SPARKLE_AEAD192 LWC_SPARKLE_AEAD128 
-    LWC_SPARKLE_HASHXOF LWC_SPARKLE_HASH256 LWC_SPARKLE_HASH384
+    LWC_SPARKLE_HASHXOF256 LWC_SPARKLE_HASHXOF384 LWC_SPARKLE_HASH256 LWC_SPARKLE_HASH384
     LWC_XOODYAK_HASH LWC_ASCON80PQ_AEAD LWC_ASCON128_AEAD
     LWC_ASCON_HASHXOF LWC_ASCON_HASH256 LWC_XOODYAK_AEAD 
-    XWING FLEXWING0 FLEXWING1 FLEXWING2 FLEXWING3 FLEXWING4
+    XWING SEASON0 SPRING SUMMER AUTUMN WINTER
 )
-# NOTE: WOLF_X25519 keeps its historical name for the ALGO_LIST slot / ops
-# struct symbol, but no longer means "wolfCrypt" -- wolfCrypt has been fully
-# removed (see below). X25519 is now provided by
-# adapters/x25519/crypto_x25519.c, backed by the Emill X25519-Cortex-M4
-# assembly library, vendored as a submodule at third_party/X25519-Cortex-M4.
-# XWING and FLEXWING0-3 all depend on this X25519 KEX ops struct for their
-# combiner. See docs/x25519-adapter-handover.md.
 
 file(READ "${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmark_config.h" RUNNER_CONTENT)
 
@@ -93,20 +82,20 @@ set(CORE_SOURCES
 if (COMPILE_XWING)
     list(APPEND CORE_SOURCES "adapters/xwing.c")
 endif()
-if (COMPILE_FLEXWING0)
-    list(APPEND CORE_SOURCES "adapters/flexwing0.c")
+if (COMPILE_SEASON0)
+    list(APPEND CORE_SOURCES "adapters/season0.c")
 endif()
-if (COMPILE_FLEXWING1)
-    list(APPEND CORE_SOURCES "adapters/flexwing1.c")
+if (COMPILE_SPRING)
+    list(APPEND CORE_SOURCES "adapters/spring.c")
 endif()
-if (COMPILE_FLEXWING2)
-    list(APPEND CORE_SOURCES "adapters/flexwing2.c")
+if (COMPILE_SUMMER)
+    list(APPEND CORE_SOURCES "adapters/summer.c")
 endif()
-if (COMPILE_FLEXWING3)
-    list(APPEND CORE_SOURCES "adapters/flexwing3.c")
+if (COMPILE_AUTUMN)
+    list(APPEND CORE_SOURCES "adapters/autumn.c")
 endif()
-if (COMPILE_FLEXWING4)
-    list(APPEND CORE_SOURCES "adapters/flexwing4.c")
+if (COMPILE_WINTER)
+    list(APPEND CORE_SOURCES "adapters/winter.c")
 endif()
 
 # --- RNG architecture ---------------------------------------------------
@@ -147,21 +136,24 @@ if(COMPILE_CHACHA20_POLY1305)
     list(APPEND CORE_SOURCES "adapters/wolf/crypto_chacha20_poly1305.c")
 endif()
 
-# --- X25519 -----------------------------------------------------------
-# The previous X25519 KEX adapter (adapters/wolf/crypto_wolf_x25519.c) was
-# wolfCrypt-based and has been removed along with wolfCrypt itself. It is
-# replaced by adapters/x25519/crypto_x25519.c, backed by Emil Lenngren's
-# X25519-Cortex-M4 assembly library, vendored as a git submodule:
-# https://github.com/Emill/X25519-Cortex-M4
-#
-# Added via:
-#   git submodule add https://github.com/Emill/X25519-Cortex-M4 third_party/X25519-Cortex-M4
-# and checked out with the rest of the submodules via
-#   git submodule update --init --recursive
-#
-# The adapter still exports its ops struct as `wolf_x25519_ops`, so XWING
-# and FLEXWING0-3 (adapters/xwing.c, adapters/flexwing0.c-flexwing3.c) did
-# not need to change.
+if(COMPILE_AES_GCM192)
+    list(APPEND WOLFCRYPT_SOURCES
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/aes.c
+    )
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_aes_gcm192.c")
+endif()
+
+if(COMPILE_AES_GCM256)
+    list(APPEND WOLFCRYPT_SOURCES
+        ${WOLFCRYPT_DIR}/wolfcrypt/src/aes.c
+    )
+    list(APPEND CORE_SOURCES "adapters/wolf/crypto_aes_gcm256.c")
+endif()
+
+if(WOLFCRYPT_SOURCES)
+    list(REMOVE_DUPLICATES WOLFCRYPT_SOURCES)
+endif()
+
 set(X25519_DIR ${CMAKE_CURRENT_SOURCE_DIR}/third_party/X25519-Cortex-M4)
 set(X25519_SOURCES "")
 set(X25519_INCLUDES
@@ -310,12 +302,20 @@ if(COMPILE_LWC_ASCON128_AEAD)
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon128_aead.c")
 endif()
 
-if(COMPILE_LWC_SPARKLE_HASHXOF)
+if(COMPILE_LWC_SPARKLE_HASHXOF256)
     list(APPEND LWC_SOURCES
         ${LWC_DIR}/src/combined/sparkle-hash.c
         ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
     )
-    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_hashxof.c")
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_hashxof256.c")
+endif()
+
+if(COMPILE_LWC_SPARKLE_HASHXOF384)
+    list(APPEND LWC_SOURCES
+        ${LWC_DIR}/src/combined/sparkle-hash.c
+        ${LWC_DIR}/src/combined/internal-sparkle-armv7m.S
+    )
+    list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_sparkle_hashxof384.c")
 endif()
 
 if(COMPILE_LWC_SPARKLE_HASH256)
@@ -353,6 +353,7 @@ endif()
 if(COMPILE_LWC_ASCON_HASH256)
     list(APPEND LWC_SOURCES
         ${LWC_DIR}/src/combined/ascon-hash.c
+        ${LWC_DIR}/src/combined/ascon-xof.c
         ${LWC_DIR}/src/combined/internal-ascon-armv7m.S
     )
     list(APPEND CORE_SOURCES "adapters/lwc/crypto_lwc_ascon_hash256.c")
@@ -402,18 +403,6 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         WOLFSSL_USER_SETTINGS
     )
 
-    # Force the compiled-in COMPILE_<ALG> values (whether they came from
-    # benchmark_config.h defaults or from an ISOLATE_ALGO override) to match
-    # exactly what CMake decided above. Without this, the #if COMPILE_X guards
-    # inside bm_*.c / adapter headers would still see benchmark_config.h's
-    # original values via #include, which defeats ISOLATE_ALGO entirely.
-    # This requires each COMPILE_* macro in benchmark_config.h to be wrapped
-    # in #ifndef / #endif so a command-line -D definition can override it:
-    #
-    #   #ifndef COMPILE_WOLF_X25519
-    #   #define COMPILE_WOLF_X25519 1
-    #   #endif
-    #
     foreach(ALG ${ALGO_LIST})
         target_compile_definitions(stm32_benchmark.elf PRIVATE COMPILE_${ALG}=${COMPILE_${ALG}})
     endforeach()
@@ -434,6 +423,77 @@ if(TARGET_PLATFORM STREQUAL "STM32")
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmarks
         ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32_renode
+        ${PQM4_INCLUDES}
+        ${X25519_INCLUDES}
+        ${WOLFCRYPT_INCLUDES}
+    )
+
+    target_link_options(stm32_benchmark.elf PRIVATE
+        ${ARM_MCU_FLAGS}
+        -T ${LINKER_SCRIPT}
+        -nodefaultlibs
+        -nostartfiles
+        -Wl,--gc-sections
+    )
+    target_link_libraries(stm32_benchmark.elf PRIVATE gcc)
+
+    add_custom_command(TARGET stm32_benchmark.elf POST_BUILD
+        COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:stm32_benchmark.elf> ${CMAKE_PROJECT_NAME}.bin
+        COMMAND ${CMAKE_OBJCOPY} -O ihex   $<TARGET_FILE:stm32_benchmark.elf> ${CMAKE_PROJECT_NAME}.hex
+        COMMAND ${CMAKE_SIZE} $<TARGET_FILE:stm32_benchmark.elf>
+    )
+
+elseif(TARGET_PLATFORM STREQUAL "STM32F411_NUCLEO")
+    set(ARM_MCU_FLAGS
+        -mcpu=cortex-m4
+        -mthumb
+        -mfloat-abi=hard
+        -mfpu=fpv4-sp-d16
+    )
+
+    set(PLATFORM_SOURCES
+        platforms/stm32f411_nucleo/main.c
+        platforms/stm32f411_nucleo/libc_stub.c
+        platforms/stm32f411_nucleo/adapter_rng_seed.c
+        platforms/stm32f411_nucleo/runtime_overhead_probe.c
+        ${REGISTERED_ADAPTER_SOURCES}
+        ${RNG_SOURCES}
+        ${PQM4_SOURCES}
+        ${LWC_SOURCES}
+        ${X25519_SOURCES}
+        ${WOLFCRYPT_SOURCES}
+    )
+
+    set(LINKER_SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32f411_nucleo/linker_f411.ld")
+
+    add_executable(stm32_benchmark.elf ${CORE_SOURCES} ${PLATFORM_SOURCES})
+
+    target_compile_definitions(stm32_benchmark.elf PRIVATE
+        STM32F411_NUCLEO
+        REAL_HARDWARE
+        WOLFSSL_USER_SETTINGS
+    )
+
+    foreach(ALG ${ALGO_LIST})
+        target_compile_definitions(stm32_benchmark.elf PRIVATE COMPILE_${ALG}=${COMPILE_${ALG}})
+    endforeach()
+
+    if(ISOLATE_ALGO STREQUAL "__RUNTIME__")
+        target_compile_definitions(stm32_benchmark.elf PRIVATE FORCE_RUNTIME_OVERHEAD=1)
+    endif()
+
+    target_compile_options(stm32_benchmark.elf PRIVATE
+        ${ARM_MCU_FLAGS}
+        -ffreestanding
+        -O3
+        -ffunction-sections
+        -fdata-sections
+    )
+
+    target_include_directories(stm32_benchmark.elf PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/src/benchmarks
+        ${CMAKE_CURRENT_SOURCE_DIR}/platforms/stm32f411_nucleo
         ${PQM4_INCLUDES}
         ${X25519_INCLUDES}
         ${WOLFCRYPT_INCLUDES}

@@ -177,269 +177,29 @@ adapters/crypto_x25519.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/crypto_x25519.c.s
 .PHONY : adapters/crypto_x25519.c.s
 
-adapters/flexwing2.obj: adapters/flexwing2.c.obj
-.PHONY : adapters/flexwing2.obj
+adapters/lwc/crypto_lwc_xoodyak.obj: adapters/lwc/crypto_lwc_xoodyak.c.obj
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.obj
 
 # target to build an object file
-adapters/flexwing2.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing2.c.obj
-.PHONY : adapters/flexwing2.c.obj
+adapters/lwc/crypto_lwc_xoodyak.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.obj
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.obj
 
-adapters/flexwing2.i: adapters/flexwing2.c.i
-.PHONY : adapters/flexwing2.i
-
-# target to preprocess a source file
-adapters/flexwing2.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing2.c.i
-.PHONY : adapters/flexwing2.c.i
-
-adapters/flexwing2.s: adapters/flexwing2.c.s
-.PHONY : adapters/flexwing2.s
-
-# target to generate assembly for a file
-adapters/flexwing2.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing2.c.s
-.PHONY : adapters/flexwing2.c.s
-
-adapters/flexwing3.obj: adapters/flexwing3.c.obj
-.PHONY : adapters/flexwing3.obj
-
-# target to build an object file
-adapters/flexwing3.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing3.c.obj
-.PHONY : adapters/flexwing3.c.obj
-
-adapters/flexwing3.i: adapters/flexwing3.c.i
-.PHONY : adapters/flexwing3.i
+adapters/lwc/crypto_lwc_xoodyak.i: adapters/lwc/crypto_lwc_xoodyak.c.i
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.i
 
 # target to preprocess a source file
-adapters/flexwing3.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing3.c.i
-.PHONY : adapters/flexwing3.c.i
+adapters/lwc/crypto_lwc_xoodyak.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.i
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.i
 
-adapters/flexwing3.s: adapters/flexwing3.c.s
-.PHONY : adapters/flexwing3.s
-
-# target to generate assembly for a file
-adapters/flexwing3.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing3.c.s
-.PHONY : adapters/flexwing3.c.s
-
-adapters/flexwing4.obj: adapters/flexwing4.c.obj
-.PHONY : adapters/flexwing4.obj
-
-# target to build an object file
-adapters/flexwing4.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing4.c.obj
-.PHONY : adapters/flexwing4.c.obj
-
-adapters/flexwing4.i: adapters/flexwing4.c.i
-.PHONY : adapters/flexwing4.i
-
-# target to preprocess a source file
-adapters/flexwing4.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing4.c.i
-.PHONY : adapters/flexwing4.c.i
-
-adapters/flexwing4.s: adapters/flexwing4.c.s
-.PHONY : adapters/flexwing4.s
+adapters/lwc/crypto_lwc_xoodyak.s: adapters/lwc/crypto_lwc_xoodyak.c.s
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.s
 
 # target to generate assembly for a file
-adapters/flexwing4.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/flexwing4.c.s
-.PHONY : adapters/flexwing4.c.s
-
-adapters/lwc/crypto_lwc_ascon128_aead.obj: adapters/lwc/crypto_lwc_ascon128_aead.c.obj
-.PHONY : adapters/lwc/crypto_lwc_ascon128_aead.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_ascon128_aead.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon128_aead.c.obj
-.PHONY : adapters/lwc/crypto_lwc_ascon128_aead.c.obj
-
-adapters/lwc/crypto_lwc_ascon128_aead.i: adapters/lwc/crypto_lwc_ascon128_aead.c.i
-.PHONY : adapters/lwc/crypto_lwc_ascon128_aead.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_ascon128_aead.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon128_aead.c.i
-.PHONY : adapters/lwc/crypto_lwc_ascon128_aead.c.i
-
-adapters/lwc/crypto_lwc_ascon128_aead.s: adapters/lwc/crypto_lwc_ascon128_aead.c.s
-.PHONY : adapters/lwc/crypto_lwc_ascon128_aead.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_ascon128_aead.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon128_aead.c.s
-.PHONY : adapters/lwc/crypto_lwc_ascon128_aead.c.s
-
-adapters/lwc/crypto_lwc_ascon_hash256.obj: adapters/lwc/crypto_lwc_ascon_hash256.c.obj
-.PHONY : adapters/lwc/crypto_lwc_ascon_hash256.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_ascon_hash256.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon_hash256.c.obj
-.PHONY : adapters/lwc/crypto_lwc_ascon_hash256.c.obj
-
-adapters/lwc/crypto_lwc_ascon_hash256.i: adapters/lwc/crypto_lwc_ascon_hash256.c.i
-.PHONY : adapters/lwc/crypto_lwc_ascon_hash256.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_ascon_hash256.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon_hash256.c.i
-.PHONY : adapters/lwc/crypto_lwc_ascon_hash256.c.i
-
-adapters/lwc/crypto_lwc_ascon_hash256.s: adapters/lwc/crypto_lwc_ascon_hash256.c.s
-.PHONY : adapters/lwc/crypto_lwc_ascon_hash256.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_ascon_hash256.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon_hash256.c.s
-.PHONY : adapters/lwc/crypto_lwc_ascon_hash256.c.s
-
-adapters/lwc/crypto_lwc_ascon_hashxof.obj: adapters/lwc/crypto_lwc_ascon_hashxof.c.obj
-.PHONY : adapters/lwc/crypto_lwc_ascon_hashxof.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_ascon_hashxof.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon_hashxof.c.obj
-.PHONY : adapters/lwc/crypto_lwc_ascon_hashxof.c.obj
-
-adapters/lwc/crypto_lwc_ascon_hashxof.i: adapters/lwc/crypto_lwc_ascon_hashxof.c.i
-.PHONY : adapters/lwc/crypto_lwc_ascon_hashxof.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_ascon_hashxof.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon_hashxof.c.i
-.PHONY : adapters/lwc/crypto_lwc_ascon_hashxof.c.i
-
-adapters/lwc/crypto_lwc_ascon_hashxof.s: adapters/lwc/crypto_lwc_ascon_hashxof.c.s
-.PHONY : adapters/lwc/crypto_lwc_ascon_hashxof.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_ascon_hashxof.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_ascon_hashxof.c.s
-.PHONY : adapters/lwc/crypto_lwc_ascon_hashxof.c.s
-
-adapters/lwc/crypto_lwc_sparkle_aead128.obj: adapters/lwc/crypto_lwc_sparkle_aead128.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead128.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_sparkle_aead128.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead128.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead128.c.obj
-
-adapters/lwc/crypto_lwc_sparkle_aead128.i: adapters/lwc/crypto_lwc_sparkle_aead128.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead128.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_sparkle_aead128.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead128.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead128.c.i
-
-adapters/lwc/crypto_lwc_sparkle_aead128.s: adapters/lwc/crypto_lwc_sparkle_aead128.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead128.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_sparkle_aead128.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead128.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead128.c.s
-
-adapters/lwc/crypto_lwc_sparkle_aead192.obj: adapters/lwc/crypto_lwc_sparkle_aead192.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_sparkle_aead192.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead192.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.c.obj
-
-adapters/lwc/crypto_lwc_sparkle_aead192.i: adapters/lwc/crypto_lwc_sparkle_aead192.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_sparkle_aead192.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead192.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.c.i
-
-adapters/lwc/crypto_lwc_sparkle_aead192.s: adapters/lwc/crypto_lwc_sparkle_aead192.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_sparkle_aead192.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_aead192.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_aead192.c.s
-
-adapters/lwc/crypto_lwc_sparkle_hash256.obj: adapters/lwc/crypto_lwc_sparkle_hash256.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash256.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_sparkle_hash256.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hash256.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash256.c.obj
-
-adapters/lwc/crypto_lwc_sparkle_hash256.i: adapters/lwc/crypto_lwc_sparkle_hash256.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash256.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_sparkle_hash256.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hash256.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash256.c.i
-
-adapters/lwc/crypto_lwc_sparkle_hash256.s: adapters/lwc/crypto_lwc_sparkle_hash256.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash256.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_sparkle_hash256.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hash256.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash256.c.s
-
-adapters/lwc/crypto_lwc_sparkle_hash384.obj: adapters/lwc/crypto_lwc_sparkle_hash384.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash384.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_sparkle_hash384.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hash384.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash384.c.obj
-
-adapters/lwc/crypto_lwc_sparkle_hash384.i: adapters/lwc/crypto_lwc_sparkle_hash384.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash384.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_sparkle_hash384.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hash384.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash384.c.i
-
-adapters/lwc/crypto_lwc_sparkle_hash384.s: adapters/lwc/crypto_lwc_sparkle_hash384.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash384.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_sparkle_hash384.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hash384.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hash384.c.s
-
-adapters/lwc/crypto_lwc_sparkle_hashxof.obj: adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.obj
-
-# target to build an object file
-adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.obj
-
-adapters/lwc/crypto_lwc_sparkle_hashxof.i: adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.i
-
-# target to preprocess a source file
-adapters/lwc/crypto_lwc_sparkle_hashxof.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.i
-
-adapters/lwc/crypto_lwc_sparkle_hashxof.s: adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.s
-
-# target to generate assembly for a file
-adapters/lwc/crypto_lwc_sparkle_hashxof.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
-.PHONY : adapters/lwc/crypto_lwc_sparkle_hashxof.c.s
+adapters/lwc/crypto_lwc_xoodyak.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/lwc/crypto_lwc_xoodyak.c.s
+.PHONY : adapters/lwc/crypto_lwc_xoodyak.c.s
 
 adapters/pqm4/crypto_pqm4_kyber512.obj: adapters/pqm4/crypto_pqm4_kyber512.c.obj
 .PHONY : adapters/pqm4/crypto_pqm4_kyber512.obj
@@ -464,6 +224,54 @@ adapters/pqm4/crypto_pqm4_kyber512.s: adapters/pqm4/crypto_pqm4_kyber512.c.s
 adapters/pqm4/crypto_pqm4_kyber512.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4/crypto_pqm4_kyber512.c.s
 .PHONY : adapters/pqm4/crypto_pqm4_kyber512.c.s
+
+adapters/pqm4/crypto_pqm4_sha3_256.obj: adapters/pqm4/crypto_pqm4_sha3_256.c.obj
+.PHONY : adapters/pqm4/crypto_pqm4_sha3_256.obj
+
+# target to build an object file
+adapters/pqm4/crypto_pqm4_sha3_256.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4/crypto_pqm4_sha3_256.c.obj
+.PHONY : adapters/pqm4/crypto_pqm4_sha3_256.c.obj
+
+adapters/pqm4/crypto_pqm4_sha3_256.i: adapters/pqm4/crypto_pqm4_sha3_256.c.i
+.PHONY : adapters/pqm4/crypto_pqm4_sha3_256.i
+
+# target to preprocess a source file
+adapters/pqm4/crypto_pqm4_sha3_256.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4/crypto_pqm4_sha3_256.c.i
+.PHONY : adapters/pqm4/crypto_pqm4_sha3_256.c.i
+
+adapters/pqm4/crypto_pqm4_sha3_256.s: adapters/pqm4/crypto_pqm4_sha3_256.c.s
+.PHONY : adapters/pqm4/crypto_pqm4_sha3_256.s
+
+# target to generate assembly for a file
+adapters/pqm4/crypto_pqm4_sha3_256.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/pqm4/crypto_pqm4_sha3_256.c.s
+.PHONY : adapters/pqm4/crypto_pqm4_sha3_256.c.s
+
+adapters/spring.obj: adapters/spring.c.obj
+.PHONY : adapters/spring.obj
+
+# target to build an object file
+adapters/spring.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/spring.c.obj
+.PHONY : adapters/spring.c.obj
+
+adapters/spring.i: adapters/spring.c.i
+.PHONY : adapters/spring.i
+
+# target to preprocess a source file
+adapters/spring.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/spring.c.i
+.PHONY : adapters/spring.c.i
+
+adapters/spring.s: adapters/spring.c.s
+.PHONY : adapters/spring.s
+
+# target to generate assembly for a file
+adapters/spring.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/adapters/spring.c.s
+.PHONY : adapters/spring.c.s
 
 core/src/benchmark_metrics.obj: core/src/benchmark_metrics.c.obj
 .PHONY : core/src/benchmark_metrics.obj
@@ -633,101 +441,101 @@ core/src/benchmarks/bm_signature.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/core/src/benchmarks/bm_signature.c.s
 .PHONY : core/src/benchmarks/bm_signature.c.s
 
-platforms/stm32_renode/adapter_rng_seed.obj: platforms/stm32_renode/adapter_rng_seed.c.obj
-.PHONY : platforms/stm32_renode/adapter_rng_seed.obj
+platforms/stm32f411_nucleo/adapter_rng_seed.obj: platforms/stm32f411_nucleo/adapter_rng_seed.c.obj
+.PHONY : platforms/stm32f411_nucleo/adapter_rng_seed.obj
 
 # target to build an object file
-platforms/stm32_renode/adapter_rng_seed.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.obj
-.PHONY : platforms/stm32_renode/adapter_rng_seed.c.obj
+platforms/stm32f411_nucleo/adapter_rng_seed.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/adapter_rng_seed.c.obj
+.PHONY : platforms/stm32f411_nucleo/adapter_rng_seed.c.obj
 
-platforms/stm32_renode/adapter_rng_seed.i: platforms/stm32_renode/adapter_rng_seed.c.i
-.PHONY : platforms/stm32_renode/adapter_rng_seed.i
+platforms/stm32f411_nucleo/adapter_rng_seed.i: platforms/stm32f411_nucleo/adapter_rng_seed.c.i
+.PHONY : platforms/stm32f411_nucleo/adapter_rng_seed.i
 
 # target to preprocess a source file
-platforms/stm32_renode/adapter_rng_seed.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.i
-.PHONY : platforms/stm32_renode/adapter_rng_seed.c.i
+platforms/stm32f411_nucleo/adapter_rng_seed.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/adapter_rng_seed.c.i
+.PHONY : platforms/stm32f411_nucleo/adapter_rng_seed.c.i
 
-platforms/stm32_renode/adapter_rng_seed.s: platforms/stm32_renode/adapter_rng_seed.c.s
-.PHONY : platforms/stm32_renode/adapter_rng_seed.s
+platforms/stm32f411_nucleo/adapter_rng_seed.s: platforms/stm32f411_nucleo/adapter_rng_seed.c.s
+.PHONY : platforms/stm32f411_nucleo/adapter_rng_seed.s
 
 # target to generate assembly for a file
-platforms/stm32_renode/adapter_rng_seed.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/adapter_rng_seed.c.s
-.PHONY : platforms/stm32_renode/adapter_rng_seed.c.s
+platforms/stm32f411_nucleo/adapter_rng_seed.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/adapter_rng_seed.c.s
+.PHONY : platforms/stm32f411_nucleo/adapter_rng_seed.c.s
 
-platforms/stm32_renode/libc_stub.obj: platforms/stm32_renode/libc_stub.c.obj
-.PHONY : platforms/stm32_renode/libc_stub.obj
+platforms/stm32f411_nucleo/libc_stub.obj: platforms/stm32f411_nucleo/libc_stub.c.obj
+.PHONY : platforms/stm32f411_nucleo/libc_stub.obj
 
 # target to build an object file
-platforms/stm32_renode/libc_stub.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.obj
-.PHONY : platforms/stm32_renode/libc_stub.c.obj
+platforms/stm32f411_nucleo/libc_stub.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/libc_stub.c.obj
+.PHONY : platforms/stm32f411_nucleo/libc_stub.c.obj
 
-platforms/stm32_renode/libc_stub.i: platforms/stm32_renode/libc_stub.c.i
-.PHONY : platforms/stm32_renode/libc_stub.i
+platforms/stm32f411_nucleo/libc_stub.i: platforms/stm32f411_nucleo/libc_stub.c.i
+.PHONY : platforms/stm32f411_nucleo/libc_stub.i
 
 # target to preprocess a source file
-platforms/stm32_renode/libc_stub.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.i
-.PHONY : platforms/stm32_renode/libc_stub.c.i
+platforms/stm32f411_nucleo/libc_stub.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/libc_stub.c.i
+.PHONY : platforms/stm32f411_nucleo/libc_stub.c.i
 
-platforms/stm32_renode/libc_stub.s: platforms/stm32_renode/libc_stub.c.s
-.PHONY : platforms/stm32_renode/libc_stub.s
+platforms/stm32f411_nucleo/libc_stub.s: platforms/stm32f411_nucleo/libc_stub.c.s
+.PHONY : platforms/stm32f411_nucleo/libc_stub.s
 
 # target to generate assembly for a file
-platforms/stm32_renode/libc_stub.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/libc_stub.c.s
-.PHONY : platforms/stm32_renode/libc_stub.c.s
+platforms/stm32f411_nucleo/libc_stub.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/libc_stub.c.s
+.PHONY : platforms/stm32f411_nucleo/libc_stub.c.s
 
-platforms/stm32_renode/main.obj: platforms/stm32_renode/main.c.obj
-.PHONY : platforms/stm32_renode/main.obj
+platforms/stm32f411_nucleo/main.obj: platforms/stm32f411_nucleo/main.c.obj
+.PHONY : platforms/stm32f411_nucleo/main.obj
 
 # target to build an object file
-platforms/stm32_renode/main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.obj
-.PHONY : platforms/stm32_renode/main.c.obj
+platforms/stm32f411_nucleo/main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/main.c.obj
+.PHONY : platforms/stm32f411_nucleo/main.c.obj
 
-platforms/stm32_renode/main.i: platforms/stm32_renode/main.c.i
-.PHONY : platforms/stm32_renode/main.i
+platforms/stm32f411_nucleo/main.i: platforms/stm32f411_nucleo/main.c.i
+.PHONY : platforms/stm32f411_nucleo/main.i
 
 # target to preprocess a source file
-platforms/stm32_renode/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.i
-.PHONY : platforms/stm32_renode/main.c.i
+platforms/stm32f411_nucleo/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/main.c.i
+.PHONY : platforms/stm32f411_nucleo/main.c.i
 
-platforms/stm32_renode/main.s: platforms/stm32_renode/main.c.s
-.PHONY : platforms/stm32_renode/main.s
+platforms/stm32f411_nucleo/main.s: platforms/stm32f411_nucleo/main.c.s
+.PHONY : platforms/stm32f411_nucleo/main.s
 
 # target to generate assembly for a file
-platforms/stm32_renode/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/main.c.s
-.PHONY : platforms/stm32_renode/main.c.s
+platforms/stm32f411_nucleo/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/main.c.s
+.PHONY : platforms/stm32f411_nucleo/main.c.s
 
-platforms/stm32_renode/runtime_overhead_probe.obj: platforms/stm32_renode/runtime_overhead_probe.c.obj
-.PHONY : platforms/stm32_renode/runtime_overhead_probe.obj
+platforms/stm32f411_nucleo/runtime_overhead_probe.obj: platforms/stm32f411_nucleo/runtime_overhead_probe.c.obj
+.PHONY : platforms/stm32f411_nucleo/runtime_overhead_probe.obj
 
 # target to build an object file
-platforms/stm32_renode/runtime_overhead_probe.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.obj
-.PHONY : platforms/stm32_renode/runtime_overhead_probe.c.obj
+platforms/stm32f411_nucleo/runtime_overhead_probe.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/runtime_overhead_probe.c.obj
+.PHONY : platforms/stm32f411_nucleo/runtime_overhead_probe.c.obj
 
-platforms/stm32_renode/runtime_overhead_probe.i: platforms/stm32_renode/runtime_overhead_probe.c.i
-.PHONY : platforms/stm32_renode/runtime_overhead_probe.i
+platforms/stm32f411_nucleo/runtime_overhead_probe.i: platforms/stm32f411_nucleo/runtime_overhead_probe.c.i
+.PHONY : platforms/stm32f411_nucleo/runtime_overhead_probe.i
 
 # target to preprocess a source file
-platforms/stm32_renode/runtime_overhead_probe.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.i
-.PHONY : platforms/stm32_renode/runtime_overhead_probe.c.i
+platforms/stm32f411_nucleo/runtime_overhead_probe.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/runtime_overhead_probe.c.i
+.PHONY : platforms/stm32f411_nucleo/runtime_overhead_probe.c.i
 
-platforms/stm32_renode/runtime_overhead_probe.s: platforms/stm32_renode/runtime_overhead_probe.c.s
-.PHONY : platforms/stm32_renode/runtime_overhead_probe.s
+platforms/stm32f411_nucleo/runtime_overhead_probe.s: platforms/stm32f411_nucleo/runtime_overhead_probe.c.s
+.PHONY : platforms/stm32f411_nucleo/runtime_overhead_probe.s
 
 # target to generate assembly for a file
-platforms/stm32_renode/runtime_overhead_probe.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32_renode/runtime_overhead_probe.c.s
-.PHONY : platforms/stm32_renode/runtime_overhead_probe.c.s
+platforms/stm32f411_nucleo/runtime_overhead_probe.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/platforms/stm32f411_nucleo/runtime_overhead_probe.c.s
+.PHONY : platforms/stm32f411_nucleo/runtime_overhead_probe.c.s
 
 third_party/X25519-Cortex-M4/x25519-cortex-m4-gcc.obj: third_party/X25519-Cortex-M4/x25519-cortex-m4-gcc.s.obj
 .PHONY : third_party/X25519-Cortex-M4/x25519-cortex-m4-gcc.obj
@@ -737,165 +545,37 @@ third_party/X25519-Cortex-M4/x25519-cortex-m4-gcc.s.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/X25519-Cortex-M4/x25519-cortex-m4-gcc.s.obj
 .PHONY : third_party/X25519-Cortex-M4/x25519-cortex-m4-gcc.s.obj
 
-third_party/lwc-finalists/src/combined/ascon-aead.obj: third_party/lwc-finalists/src/combined/ascon-aead.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.obj
+third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj: third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj
 
 # target to build an object file
-third_party/lwc-finalists/src/combined/ascon-aead.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-aead.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.c.obj
+third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
+.PHONY : third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.S.obj
 
-third_party/lwc-finalists/src/combined/ascon-aead.i: third_party/lwc-finalists/src/combined/ascon-aead.c.i
-.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.i
+third_party/lwc-finalists/src/combined/xoodyak-hash.obj: third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.obj
+
+# target to build an object file
+third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.obj
+
+third_party/lwc-finalists/src/combined/xoodyak-hash.i: third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.i
 
 # target to preprocess a source file
-third_party/lwc-finalists/src/combined/ascon-aead.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-aead.c.i
-.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.c.i
+third_party/lwc-finalists/src/combined/xoodyak-hash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.i
 
-third_party/lwc-finalists/src/combined/ascon-aead.s: third_party/lwc-finalists/src/combined/ascon-aead.c.s
-.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.s
-
-# target to generate assembly for a file
-third_party/lwc-finalists/src/combined/ascon-aead.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-aead.c.s
-.PHONY : third_party/lwc-finalists/src/combined/ascon-aead.c.s
-
-third_party/lwc-finalists/src/combined/ascon-hash.obj: third_party/lwc-finalists/src/combined/ascon-hash.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/ascon-hash.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/ascon-hash.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-hash.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/ascon-hash.c.obj
-
-third_party/lwc-finalists/src/combined/ascon-hash.i: third_party/lwc-finalists/src/combined/ascon-hash.c.i
-.PHONY : third_party/lwc-finalists/src/combined/ascon-hash.i
-
-# target to preprocess a source file
-third_party/lwc-finalists/src/combined/ascon-hash.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-hash.c.i
-.PHONY : third_party/lwc-finalists/src/combined/ascon-hash.c.i
-
-third_party/lwc-finalists/src/combined/ascon-hash.s: third_party/lwc-finalists/src/combined/ascon-hash.c.s
-.PHONY : third_party/lwc-finalists/src/combined/ascon-hash.s
+third_party/lwc-finalists/src/combined/xoodyak-hash.s: third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.s
 
 # target to generate assembly for a file
-third_party/lwc-finalists/src/combined/ascon-hash.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-hash.c.s
-.PHONY : third_party/lwc-finalists/src/combined/ascon-hash.c.s
-
-third_party/lwc-finalists/src/combined/ascon-xof.obj: third_party/lwc-finalists/src/combined/ascon-xof.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/ascon-xof.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/ascon-xof.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-xof.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/ascon-xof.c.obj
-
-third_party/lwc-finalists/src/combined/ascon-xof.i: third_party/lwc-finalists/src/combined/ascon-xof.c.i
-.PHONY : third_party/lwc-finalists/src/combined/ascon-xof.i
-
-# target to preprocess a source file
-third_party/lwc-finalists/src/combined/ascon-xof.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-xof.c.i
-.PHONY : third_party/lwc-finalists/src/combined/ascon-xof.c.i
-
-third_party/lwc-finalists/src/combined/ascon-xof.s: third_party/lwc-finalists/src/combined/ascon-xof.c.s
-.PHONY : third_party/lwc-finalists/src/combined/ascon-xof.s
-
-# target to generate assembly for a file
-third_party/lwc-finalists/src/combined/ascon-xof.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/ascon-xof.c.s
-.PHONY : third_party/lwc-finalists/src/combined/ascon-xof.c.s
-
-third_party/lwc-finalists/src/combined/internal-ascon-armv7m.obj: third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S.obj
-.PHONY : third_party/lwc-finalists/src/combined/internal-ascon-armv7m.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S.obj
-.PHONY : third_party/lwc-finalists/src/combined/internal-ascon-armv7m.S.obj
-
-third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj: third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
-.PHONY : third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
-.PHONY : third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.S.obj
-
-third_party/lwc-finalists/src/combined/internal-util.obj: third_party/lwc-finalists/src/combined/internal-util.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/internal-util.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/internal-util.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-util.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/internal-util.c.obj
-
-third_party/lwc-finalists/src/combined/internal-util.i: third_party/lwc-finalists/src/combined/internal-util.c.i
-.PHONY : third_party/lwc-finalists/src/combined/internal-util.i
-
-# target to preprocess a source file
-third_party/lwc-finalists/src/combined/internal-util.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-util.c.i
-.PHONY : third_party/lwc-finalists/src/combined/internal-util.c.i
-
-third_party/lwc-finalists/src/combined/internal-util.s: third_party/lwc-finalists/src/combined/internal-util.c.s
-.PHONY : third_party/lwc-finalists/src/combined/internal-util.s
-
-# target to generate assembly for a file
-third_party/lwc-finalists/src/combined/internal-util.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/internal-util.c.s
-.PHONY : third_party/lwc-finalists/src/combined/internal-util.c.s
-
-third_party/lwc-finalists/src/combined/sparkle-aead.obj: third_party/lwc-finalists/src/combined/sparkle-aead.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/sparkle-aead.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-aead.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.c.obj
-
-third_party/lwc-finalists/src/combined/sparkle-aead.i: third_party/lwc-finalists/src/combined/sparkle-aead.c.i
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.i
-
-# target to preprocess a source file
-third_party/lwc-finalists/src/combined/sparkle-aead.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-aead.c.i
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.c.i
-
-third_party/lwc-finalists/src/combined/sparkle-aead.s: third_party/lwc-finalists/src/combined/sparkle-aead.c.s
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.s
-
-# target to generate assembly for a file
-third_party/lwc-finalists/src/combined/sparkle-aead.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-aead.c.s
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-aead.c.s
-
-third_party/lwc-finalists/src/combined/sparkle-hash.obj: third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.obj
-
-# target to build an object file
-third_party/lwc-finalists/src/combined/sparkle-hash.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.obj
-
-third_party/lwc-finalists/src/combined/sparkle-hash.i: third_party/lwc-finalists/src/combined/sparkle-hash.c.i
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.i
-
-# target to preprocess a source file
-third_party/lwc-finalists/src/combined/sparkle-hash.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.i
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.i
-
-third_party/lwc-finalists/src/combined/sparkle-hash.s: third_party/lwc-finalists/src/combined/sparkle-hash.c.s
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.s
-
-# target to generate assembly for a file
-third_party/lwc-finalists/src/combined/sparkle-hash.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/sparkle-hash.c.s
-.PHONY : third_party/lwc-finalists/src/combined/sparkle-hash.c.s
+third_party/lwc-finalists/src/combined/xoodyak-hash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stm32_benchmark.elf.dir/build.make CMakeFiles/stm32_benchmark.elf.dir/third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
+.PHONY : third_party/lwc-finalists/src/combined/xoodyak-hash.c.s
 
 third_party/pqm4/common/keccakf1600.obj: third_party/pqm4/common/keccakf1600.S.obj
 .PHONY : third_party/pqm4/common/keccakf1600.obj
@@ -1296,42 +976,18 @@ help:
 	@echo "... adapters/crypto_x25519.obj"
 	@echo "... adapters/crypto_x25519.i"
 	@echo "... adapters/crypto_x25519.s"
-	@echo "... adapters/flexwing2.obj"
-	@echo "... adapters/flexwing2.i"
-	@echo "... adapters/flexwing2.s"
-	@echo "... adapters/flexwing3.obj"
-	@echo "... adapters/flexwing3.i"
-	@echo "... adapters/flexwing3.s"
-	@echo "... adapters/flexwing4.obj"
-	@echo "... adapters/flexwing4.i"
-	@echo "... adapters/flexwing4.s"
-	@echo "... adapters/lwc/crypto_lwc_ascon128_aead.obj"
-	@echo "... adapters/lwc/crypto_lwc_ascon128_aead.i"
-	@echo "... adapters/lwc/crypto_lwc_ascon128_aead.s"
-	@echo "... adapters/lwc/crypto_lwc_ascon_hash256.obj"
-	@echo "... adapters/lwc/crypto_lwc_ascon_hash256.i"
-	@echo "... adapters/lwc/crypto_lwc_ascon_hash256.s"
-	@echo "... adapters/lwc/crypto_lwc_ascon_hashxof.obj"
-	@echo "... adapters/lwc/crypto_lwc_ascon_hashxof.i"
-	@echo "... adapters/lwc/crypto_lwc_ascon_hashxof.s"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_aead128.obj"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_aead128.i"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_aead128.s"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_aead192.obj"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_aead192.i"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_aead192.s"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hash256.obj"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hash256.i"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hash256.s"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hash384.obj"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hash384.i"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hash384.s"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.obj"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.i"
-	@echo "... adapters/lwc/crypto_lwc_sparkle_hashxof.s"
+	@echo "... adapters/lwc/crypto_lwc_xoodyak.obj"
+	@echo "... adapters/lwc/crypto_lwc_xoodyak.i"
+	@echo "... adapters/lwc/crypto_lwc_xoodyak.s"
 	@echo "... adapters/pqm4/crypto_pqm4_kyber512.obj"
 	@echo "... adapters/pqm4/crypto_pqm4_kyber512.i"
 	@echo "... adapters/pqm4/crypto_pqm4_kyber512.s"
+	@echo "... adapters/pqm4/crypto_pqm4_sha3_256.obj"
+	@echo "... adapters/pqm4/crypto_pqm4_sha3_256.i"
+	@echo "... adapters/pqm4/crypto_pqm4_sha3_256.s"
+	@echo "... adapters/spring.obj"
+	@echo "... adapters/spring.i"
+	@echo "... adapters/spring.s"
 	@echo "... core/src/benchmark_metrics.obj"
 	@echo "... core/src/benchmark_metrics.i"
 	@echo "... core/src/benchmark_metrics.s"
@@ -1353,39 +1009,23 @@ help:
 	@echo "... core/src/benchmarks/bm_signature.obj"
 	@echo "... core/src/benchmarks/bm_signature.i"
 	@echo "... core/src/benchmarks/bm_signature.s"
-	@echo "... platforms/stm32_renode/adapter_rng_seed.obj"
-	@echo "... platforms/stm32_renode/adapter_rng_seed.i"
-	@echo "... platforms/stm32_renode/adapter_rng_seed.s"
-	@echo "... platforms/stm32_renode/libc_stub.obj"
-	@echo "... platforms/stm32_renode/libc_stub.i"
-	@echo "... platforms/stm32_renode/libc_stub.s"
-	@echo "... platforms/stm32_renode/main.obj"
-	@echo "... platforms/stm32_renode/main.i"
-	@echo "... platforms/stm32_renode/main.s"
-	@echo "... platforms/stm32_renode/runtime_overhead_probe.obj"
-	@echo "... platforms/stm32_renode/runtime_overhead_probe.i"
-	@echo "... platforms/stm32_renode/runtime_overhead_probe.s"
+	@echo "... platforms/stm32f411_nucleo/adapter_rng_seed.obj"
+	@echo "... platforms/stm32f411_nucleo/adapter_rng_seed.i"
+	@echo "... platforms/stm32f411_nucleo/adapter_rng_seed.s"
+	@echo "... platforms/stm32f411_nucleo/libc_stub.obj"
+	@echo "... platforms/stm32f411_nucleo/libc_stub.i"
+	@echo "... platforms/stm32f411_nucleo/libc_stub.s"
+	@echo "... platforms/stm32f411_nucleo/main.obj"
+	@echo "... platforms/stm32f411_nucleo/main.i"
+	@echo "... platforms/stm32f411_nucleo/main.s"
+	@echo "... platforms/stm32f411_nucleo/runtime_overhead_probe.obj"
+	@echo "... platforms/stm32f411_nucleo/runtime_overhead_probe.i"
+	@echo "... platforms/stm32f411_nucleo/runtime_overhead_probe.s"
 	@echo "... third_party/X25519-Cortex-M4/x25519-cortex-m4-gcc.obj"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.obj"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.i"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-aead.s"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-hash.obj"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-hash.i"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-hash.s"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-xof.obj"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-xof.i"
-	@echo "... third_party/lwc-finalists/src/combined/ascon-xof.s"
-	@echo "... third_party/lwc-finalists/src/combined/internal-ascon-armv7m.obj"
-	@echo "... third_party/lwc-finalists/src/combined/internal-sparkle-armv7m.obj"
-	@echo "... third_party/lwc-finalists/src/combined/internal-util.obj"
-	@echo "... third_party/lwc-finalists/src/combined/internal-util.i"
-	@echo "... third_party/lwc-finalists/src/combined/internal-util.s"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-aead.obj"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-aead.i"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-aead.s"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.obj"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.i"
-	@echo "... third_party/lwc-finalists/src/combined/sparkle-hash.s"
+	@echo "... third_party/lwc-finalists/src/combined/internal-xoodoo-armv7m.obj"
+	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.obj"
+	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.i"
+	@echo "... third_party/lwc-finalists/src/combined/xoodyak-hash.s"
 	@echo "... third_party/pqm4/common/keccakf1600.obj"
 	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.obj"
 	@echo "... third_party/pqm4/crypto_kem/ml-kem-512/m4fspeed/cbd.i"

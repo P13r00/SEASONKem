@@ -95,9 +95,7 @@ void execute_kex_benchmark(crypto_type_t type) {
     platform_print_hex((uint32_t)r2);
     platform_print_string("\n");
 
-    /* Print a few bytes of the actual secret so a degenerate-but-matching
-     * result (e.g. both sides landing on 0 through a shared bug) is
-     * visible, not just inferred from the all-zero check below. */
+
     platform_print_string("   ss_a[0..3]=0x");
     platform_print_hex(((uint32_t)ss_a[0] << 24) | ((uint32_t)ss_a[1] << 16) |
                         ((uint32_t)ss_a[2] << 8)  |  (uint32_t)ss_a[3]);
@@ -112,11 +110,6 @@ void execute_kex_benchmark(crypto_type_t type) {
         if (ss_b[i] != 0x00u) all_zero_b = 0u;
     }
 
-    // platform_print_string("   ss_a: ");
-    // for (size_t i = 0u; i < (size_t)ss_bytes; i++) platform_print_hex(ss_a[i]);
-    // platform_print_string("\n   ss_b: ");
-    // for (size_t i = 0u; i < (size_t)ss_bytes; i++) platform_print_hex(ss_b[i]);
-    // platform_print_string("\n");
 
     if (still_canary_a || still_canary_b)
         platform_print_string("   !! CANARY UNTOUCHED - shared_secret did not write output !!\n");

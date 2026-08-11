@@ -17,8 +17,8 @@ extern int schwaemm_192_192_aead_decrypt(
 
 
 #define SPARKLE_AEAD192_KEYBYTES  24u
-#define SPARKLE_AEAD192_NPUBBYTES 24u /* 192-bit nonce                */
-#define SPARKLE_AEAD192_ABYTES    24u /* 192-bit authentication tag   */
+#define SPARKLE_AEAD192_NPUBBYTES 24u
+#define SPARKLE_AEAD192_ABYTES    24u
 
 
 static void fill_pattern(uint8_t *buf, size_t len, uint8_t seed)

@@ -22,7 +22,12 @@ int custom_rand_generate_seed(unsigned char* output, unsigned int sz);
 
 #define HAVE_ED25519
 #define HAVE_CURVE25519
+
+#undef NO_AES
+#define HAVE_AES_CBC
 #define HAVE_AESGCM
+#define GCM_TABLE_4BIT
+
 #define HAVE_CHACHA
 #define HAVE_POLY1305
 #define HAVE_HKDF
