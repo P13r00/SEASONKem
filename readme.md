@@ -1,6 +1,6 @@
 # Overview
 Benchmarking suite born for the development of the Hybrid Key Encapsulation Mechanisms SEASON, based on the construction presented by Barbosa et al. "X-Wing".
-The repository is the practical implementation of the paper _SEASONs: A Hybrid Quantum-Secure Cryptographic Suite for the Internet of Things_, written during an Erasmus+ Internship in the Malmö University in the months June to August 2027, under the supervision of Kayode S. Adewole, with expected publication in Autumn 2026
+The repository is the practical implementation of the paper _SEASONs: A Hybrid Quantum-Secure Cryptographic Suite for the Internet of Things_, written during an Erasmus+ Internship in the Malmö University in the months June to August 2026, under the supervision of Kayode S. Adewole, with expected publication in Autumn 2026
 
 # SEASON KEMs
 The SEASON framework variants are a family of hybrid KEM constructions that explore different design trade-offs around ML-KEM at NIST Level 1, with the exception of SEASON Winter, which follows NIST Level 3.
